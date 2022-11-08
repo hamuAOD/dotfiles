@@ -17,7 +17,7 @@ set ignorecase                  " 大文字小文字を区別しない
 set tw=0                        " 勝手に改行させない
 set formatoptions=q             " 自動改行OFF
 
-set clipboard=unnamed,autoselect  "クリップボードを使用
+set clipboard=unnamed           " クリップボードを使用
 
 set ambiwidth=double
 
@@ -42,8 +42,10 @@ nnoremap ^ $
 "ノーマルモードでもエンターキーで改行を挿入
 noremap <CR> o<ESC>
 
-" Macro [t] : copy song title for CUE-EDIT
-let @t='/\dwv/.wavhy/SONGvep0'
+" Macro [s] : copy song title for CUE-EDIT
+let @s='/\dwv/.wavhy/SONGvep0'
+" Macro [t] : copy
+let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
 let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
 

@@ -26,9 +26,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
 eval "$(pyenv init -)"
-# curl
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
 # zsh extensions
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-#plugins=(zsh-syntax-highlighting)
+
