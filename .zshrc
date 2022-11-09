@@ -16,18 +16,30 @@ PROMPT='
 alias ls='ls -FG'
 alias ll='ls -alFG'
 
-export PATH=/opt/homebrew/bin:$PATH
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/opt/homebrew/opt/git/bin:$PATH"
+if [[ "$(uname -m)" == arm64 ]]; then
+  # arm64
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/sbin:$PATH"
+  export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+  export PATH="/opt/homebrew/opt/git/bin:$PATH"
+else
+  # x86_64
+  export PATH="/usr/local/bin:$PATH"
+  export PATH="/usr/local/sbin:$PATH"
+  export PATH="/usr/local/opt/curl/bin:$PATH"
+  export PATH="/usr/local/opt/git/bin:$PATH"
+fi
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-# pyrnv #
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
-eval "$(pyenv init -)"
-
-# zsh extensions
+##### rbenv #####
+if [[ -e /opt/homebrew/bin/rbenv ]]; then
+  if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+fi
+##### pyenv #####
+if [[ -e /opt/homebrew/bin/pyenv ]]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/shims:$PATH"
+  eval "$(pyenv init -)"
+fi
+##### zsh extensions #####
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-

@@ -1,35 +1,91 @@
-set tabstop=2                   " タブの画面上での幅
-set expandtab                   " タブを空白で挿入
-set nu                          " 行番号を表示
-set list
+syntax enable                         " 構文ごとに色分け
+filetype plugin indent on             " ファイルタイプ検出有効化、プラグイン・インデントロード
 
-set noswapfile                  " スワップファイルを作成しない
-set nobackup                    " バックアップファイルを作成しない
-set noundofile                  " undofileを作成しない
-set showmatch                   " 括弧入力時の対応する括弧を表示
+set number                            " 行番号を表示
+set cursorline                        " 行番号のハイライト
+set nowrap                            " 折り返しを無効"
+set ignorecase                        " 検索で大文字小文字を区別しない
+set incsearch                         " インクリメンタル検索
+set hlsearch                          " ハイライト検索
+set list                              " タブ，行末を可視化
+set listchars=eol:$,tab:>-,trail:_    " 特殊文字の表示設定
+set expandtab                         " <Tab>を空白で入力
+set tabstop=4                         " タブの画面上での幅
+set shiftwidth=4                      " インデントの空白数
+set softtabstop=4                     " 連続した空白でカーソルが動く幅
+set showmatch                         " 括弧入力時の対応する括弧を表示
+set matchtime=1                       " 対括弧を一時ジャンプ
+set pumheight=10                      " 補完メニューの高さ固定
 
-set nowrap                      " 折り返しを無効"
+set nobackup                          " バックアップファイルを作成しない
+set noswapfile                        " スワップアップファイルを作成しない
+set noundofile                        " undofileを作成しない
+set clipboard+=unnamed                " クリップボードを使用
 
-"syntax enable                  " 構文ハイライトを有効
+set colorcolumn=80                    " カラムラインを引く
 
-set ignorecase                  " 大文字小文字を区別しない
+set tw=0                              " 勝手に改行させない textwidth
+set formatoptions=q                   " 自動改行OFF
 
-set tw=0                        " 勝手に改行させない
-set formatoptions=q             " 自動改行OFF
+set ambiwidth=double                  " 全角記号対策
+set nrformats=                        " 10進数で扱う
+set t_Co=256                          " ターミナル色用
 
-set clipboard=unnamed           " クリップボードを使用
+set enc=utf-8
+set fenc=utf-8                        " 文字コードをUFT-8に設定
+" vimdiff
+set diffopt+=vertical                 " diffsplit を左右分割をデフォルトに
 
-set ambiwidth=double
+set gdefault                          " 置換のgオプションを常に有効化
+set spelllang=en                      " スペルチェックから日本語を除外
+set vb t_vb=                          " ビープ音を消す
 
-set nrformats=                  " 10進数で扱う
+""""" 自動化 """""
+autocmd BufWritePre * :%s/\s\+$//ge   " 保存時に行末の空白削除
+let g:vimfiler_enable_auto_cd = 1     " 自動でカレントディレクトリを変更する設定
 
-set incsearch                   " インクリメンタル検索
+" インサートモードに入る時に自動でコメントアウトされないようにする
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-set fenc=utf-8                  " 文字コードをUFT-8に設定
-set diffopt+=vertical           " diffsplit を左右分割をデフォルトに
-"set encoding=utf-8
-"set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
-"set fileformats=unix,dos,mac
+" 自動補完を自動で表示
+set completeopt=menuone
+for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+  exec "imap <expr> " . k . " pumvisible() ? '" . k . "' : '" . k . "\<C-X>\<C-P>\<C-N>'"
+endfor
+
+" 最後にカーソルがあった場所に移動
+augroup vimrcEx
+  au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
+  \ exe "normal g`\"" | endif
+augroup END
+
+""""" Key Bindings """""
+" Ctrl+Tabでタブを切り替える
+nnoremap <C-Tab> gt
+nnoremap <C-S-Tab> gT
+
+" 検索ハイライトをEscキー2回押しで消去
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
+
+"vimgrep 移動KEY
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :<C-u>cfirst<CR>
+nnoremap ]Q :<C-u>clast<CR>
+
+nnoremap <C-e> :set expandtab!<CR>    " set expandtab のトグル
+nnoremap <C-i> :set list!<CR>         " set list のトグル
+nnoremap <C-n> :tab sp<CR>            " 現在のファイルを新しいタブで開く
+noremap <CR> o<ESC>                   " ノーマルモードでもエンターキーで改行を挿入
+nnoremap Y y$                         " 行末までコピー
+"nnoremap <C-q> :q<CR>
+nnoremap <C-t> :tabnew<CR>
+
+" 括弧自動入力
+inoremap ( ()<LEFT>
+"inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+inoremap [ []<LEFT>
 
 " インサートモードでの操作用
 inoremap <c-d> <delete>
@@ -37,38 +93,18 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-h> <left>
 inoremap <c-l> <right>
-nnoremap ^ $
+"nnoremap ^ $
 
-"ノーマルモードでもエンターキーで改行を挿入
-noremap <CR> o<ESC>
-
+""""" Macros """""
 " Macro [s] : copy song title for CUE-EDIT
-let @s='/\dwv/.wavhy/SONGvep0'
+let @s='/\dwv/.wavhy/SONGvep0'
 " Macro [t] : copy
 let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
-let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
+let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
 
-"最後にカーソルがあった場所に移動
-augroup vimrcEx
-  au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
-  \ exe "normal g`\"" | endif
-augroup END
-
-"自動入力
-"inoremap ( ()<LEFT>
-"inoremap " ""<LEFT>
-
-"Ctrl+Tabでタブを切り替える
-nnoremap <C-Tab>   gt
-nnoremap <C-S-Tab> gT
-
-"検索ハイライトをEscキー2回押しで消去
-set hlsearch
-nmap <ESC><ESC> :nohlsearch<CR><ESC>
-
-" 行末の空白削除
-autocmd BufWritePre * :%s/\s\+$//e
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let mapleader="\<Space>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Dein #
 if &compatible
@@ -104,7 +140,7 @@ if dein#check_install()
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
-let mapleader="\<Space>"
+"let mapleader="\<Space>"
 map <Leader> <Plug>(easymotion-prefix)
 "let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
@@ -128,3 +164,4 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable                         " dein対策
