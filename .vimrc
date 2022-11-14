@@ -140,7 +140,7 @@ if dein#check_install()
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
-"let mapleader="\<Space>"
+let mapleader="\<Space>"
 map <Leader> <Plug>(easymotion-prefix)
 "let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
