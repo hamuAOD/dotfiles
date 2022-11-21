@@ -97,7 +97,7 @@ inoremap <c-l> <right>
 
 """"" Macros """""
 " Macro [s] : copy song title for CUE-EDIT
-let @s='/\dwv/.wavhy/SONGvep0'
+let @s='/\dwv/.wavhy/SONGvep0jjj'
 " Macro [t] : copy
 let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
