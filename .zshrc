@@ -16,6 +16,10 @@ PROMPT='
 alias ls='ls -FG'
 alias ll='ls -alFG'
 
+# Enable Compsys
+autoload -U compinit
+compinit
+
 if [[ "$(uname -m)" == arm64 ]]; then
   # arm64
   export PATH="/opt/homebrew/bin:$PATH"
@@ -41,6 +45,6 @@ if [[ -e /opt/homebrew/bin/pyenv ]]; then
   eval "$(pyenv init -)"
 fi
 ##### zsh extensions #####
-#source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
