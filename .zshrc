@@ -15,6 +15,7 @@ PROMPT='
 # "-F":ディレクトリに"/"を表示 / "-G"でディレクトリを色表示
 alias ls='ls -FG'
 alias ll='ls -alFG'
+alias bu='brew update && brew upgrade && brew cleanup'
 
 # Enable Compsys
 autoload -U compinit
@@ -45,6 +46,6 @@ if [[ -e /opt/homebrew/bin/pyenv ]]; then
   eval "$(pyenv init -)"
 fi
 ##### zsh extensions #####
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+#source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
