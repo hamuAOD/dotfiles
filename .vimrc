@@ -67,6 +67,9 @@ nnoremap <C-S-Tab> gT
 " 検索ハイライトをEscキー2回押しで消去
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
+" Escで日本語入力解除
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+
 "vimgrep 移動KEY
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
@@ -112,14 +115,14 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/hamu/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/hamu/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
 call dein#begin('/Users/hamu/.vim/dein')
 
 " Let dein manage dein
 " Required:
-call dein#add('/Users/hamu/.vim/dein/repos/github.com/Shougo/dein.vim')
+call dein#add('/Users/hamu/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
 "call dein#add('Shougo/neosnippet.vim')
