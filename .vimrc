@@ -98,6 +98,8 @@ inoremap <c-h> <left>
 inoremap <c-l> <right>
 "nnoremap ^ $
 
+let mapleader="\<Space>"
+
 """"" Macros """""
 " Macro [s] : copy song title for CUE-EDIT
 let @s='/\dwv/.wavhy/SONGvep0jjj'
@@ -105,9 +107,6 @@ let @s='/\dwv/.wavhy/SONGvep0jjj'
 let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
 let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let mapleader="\<Space>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Dein #
 if &compatible
@@ -129,6 +128,7 @@ call dein#add('/Users/hamu/.local/share/dein/repos/github.com/Shougo/dein.vim')
 "call dein#add('Shougo/neosnippet-snippets')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('itchyny/lightline.vim')
+call dein#add('lambdalisue/fern.vim')
 
 " Required:
 call dein#end()
@@ -143,7 +143,6 @@ if dein#check_install()
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
-let mapleader="\<Space>"
 map <Leader> <Plug>(easymotion-prefix)
 "let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
@@ -166,5 +165,8 @@ set laststatus=2
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # Fern #
+nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable                         " dein対策
