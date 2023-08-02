@@ -41,6 +41,8 @@ set gdefault                          " 置換のgオプションを常に有効
 set spelllang=en                      " スペルチェックから日本語を除外
 set vb t_vb=                          " ビープ音を消す
 
+let mapleader="\<Space>"
+
 """"" 自動化 """""
 autocmd BufWritePre * :%s/\s\+$//ge   " 保存時に行末の空白削除
 let g:vimfiler_enable_auto_cd = 1     " 自動でカレントディレクトリを変更する設定
@@ -71,6 +73,9 @@ nmap <ESC><ESC> :nohlsearch<CR><ESC>
 " Escで日本語入力解除
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
+" カーソル位置強調表示のトグル
+nnoremap <Leader>c :<C-u>setlocal cursorline! cursorcolumn!<CR>
+
 "vimgrep 移動KEY
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
@@ -98,8 +103,6 @@ inoremap <c-k> <up>
 inoremap <c-h> <left>
 inoremap <c-l> <right>
 "nnoremap ^ $
-
-let mapleader="\<Space>"
 
 """"" Macros """""
 " Macro [s] : copy song title for CUE-EDIT
@@ -130,6 +133,7 @@ call dein#add('/Users/hamu/.local/share/dein/repos/github.com/Shougo/dein.vim')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('itchyny/lightline.vim')
 call dein#add('lambdalisue/fern.vim')
+" for Fern
 call dein#add('lambdalisue/nerdfont.vim')
 call dein#add('lambdalisue/fern-renderer-nerdfont.vim')
 
@@ -165,9 +169,7 @@ map <Leader>k <Plug>(easymotion-k)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # LightLine #
 set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
+let g:lightline = {'colorscheme': 'one'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
 nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
