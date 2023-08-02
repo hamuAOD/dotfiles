@@ -2,7 +2,8 @@ syntax enable                         " 構文ごとに色分け
 filetype plugin indent on             " ファイルタイプ検出有効化、プラグイン・インデントロード
 
 set number                            " 行番号を表示
-set cursorline                        " 行番号のハイライト
+set cursorline                        " カーソル行のハイライト
+set cursorcolumn                      " カーソル列のハイライト
 set nowrap                            " 折り返しを無効"
 set ignorecase                        " 検索で大文字小文字を区別しない
 set incsearch                         " インクリメンタル検索

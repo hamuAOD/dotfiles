@@ -10,12 +10,12 @@ if has('gui_macvim')
     colorscheme dracula
 "   colorscheme onedark
 
-"   set guifont=RictyDiminished-Regular:h14
     set guifont=SF\ Mono\ Square:h16
+"   set guifont=RictyDiminished-Regular:h14
 "   set guifont=HackGen\ Console:h15
-    "set guifont=Inconsolata:h14            " フォント設定
-    "set guifontwide=ヒラギノ角ゴPro:h12    " 日本語フォント設定
+"   set guifont=Inconsolata:h14             " フォント設定
+"   set guifontwide=ヒラギノ角ゴPro:h12     " 日本語フォント設定
     set lines=50 columns=130
     "set guioptions-=T                      " メニューバーを非表示
-    set transparency=6
+    set transparency=5
 endif
