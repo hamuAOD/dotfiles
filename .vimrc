@@ -129,6 +129,8 @@ call dein#add('/Users/hamu/.local/share/dein/repos/github.com/Shougo/dein.vim')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('itchyny/lightline.vim')
 call dein#add('lambdalisue/fern.vim')
+call dein#add('lambdalisue/nerdfont.vim')
+call dein#add('lambdalisue/fern-renderer-nerdfont.vim')
 
 " Required:
 call dein#end()
@@ -168,5 +170,6 @@ let g:lightline = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
 nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
+let g:fern#renderer = 'nerdfont'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable                         " dein対策
