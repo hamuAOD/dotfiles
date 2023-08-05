@@ -174,5 +174,6 @@ let g:lightline = {'colorscheme': 'one'}
 " # Fern #
 nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
 let g:fern#renderer = 'nerdfont'
+let g:fern#default_hidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable                         " dein対策
