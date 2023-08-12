@@ -49,3 +49,9 @@ fi
 #source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+##### fzf #####
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
+--preview-window 'right:50%' \
+--bind 'ctrl-/:change-preview-window(80%|hidden|)' \
+--bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"

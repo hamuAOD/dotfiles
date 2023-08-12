@@ -104,7 +104,7 @@ inoremap <c-h> <left>
 inoremap <c-l> <right>
 "nnoremap ^ $
 
-""""" Macros
+""""" Macros """""
 " Macro [s] : copy song title for CUE-EDIT
 let @s='/\dwv/.wavhy/SONGvep0jjj'
 " Macro [t] : copy
@@ -112,34 +112,45 @@ let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
 let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""" vim-lug
-" Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" # Dein #
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
+" Required:
+set runtimepath+=/Users/hamu/.local/share/dein/repos/github.com/Shougo/dein.vim
 
-" call
-call plug#begin('~/.vim/plugged')
-Plug 'easymotion/vim-easymotion'
-Plug 'itchyny/lightline.vim'
-Plug 'dense-analysis/ale'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-" Fern
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-" vim-markdown
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
+" Required:
+call dein#begin('/Users/hamu/.vim/dein')
+
+" Let dein manage dein
+" Required:
+call dein#add('/Users/hamu/.local/share/dein/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here like this:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+call dein#add('easymotion/vim-easymotion')
+call dein#add('itchyny/lightline.vim')
+call dein#add('lambdalisue/fern.vim')
+" for Fern
+call dein#add('lambdalisue/nerdfont.vim')
+call dein#add('lambdalisue/fern-renderer-nerdfont.vim')
 "
-call plug#end()
+call dein#add('godlygeek/tabular')
+call dein#add('preservim/vim-markdown')
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+"syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
 map <Leader> <Plug>(easymotion-prefix)

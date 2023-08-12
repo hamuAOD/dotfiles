@@ -18,5 +18,5 @@ if has('gui_macvim')
 "   set guifontwide=ヒラギノ角ゴPro:h12     " 日本語フォント設定
     set lines=60 columns=140
     "set guioptions-=T                      " メニューバーを非表示
-    set transparency=5
+    set transparency=2
 endif
