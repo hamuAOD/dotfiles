@@ -16,6 +16,10 @@ PROMPT='
 alias ls='ls -FG'
 alias ll='ls -alFG'
 alias bu='brew update && brew upgrade && brew cleanup'
+##### exa #####
+alias exa='exa --icons'
+alias el='exa -l --icons'
+alias ea='exa -la --icons'
 
 # Enable Compsys
 autoload -U compinit
@@ -49,9 +53,12 @@ fi
 #source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 ##### fzf #####
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
 --preview-window 'right:50%' \
 --bind 'ctrl-/:change-preview-window(80%|hidden|)' \
 --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
+##### zoxide #####
+eval "$(zoxide init zsh)"

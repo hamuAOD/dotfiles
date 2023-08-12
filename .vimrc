@@ -127,7 +127,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " call
 call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -138,7 +138,11 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 " vim-markdown
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
-"
+" vim-airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
@@ -171,4 +175,14 @@ let g:fern#default_hidden=1
 " # vim-markdown #
 let g:vim_markdown_folding_disabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # vim-airline #
+" let g:airline_theme = 'wombat'                " テーマの指定
+" let g:airline#extensions#tabline#enabled = 1  " タブラインを表示
+let g:airline_powerline_fonts = 1               " Powerline Fontsを利用
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" from gvimrc
+colorscheme dracula
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" charm
 syntax enable                         " dein対策
+set modifiable
