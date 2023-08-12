@@ -164,8 +164,8 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # LightLine #
-set laststatus=2
-let g:lightline = {'colorscheme': 'one'}
+" set laststatus=2
+" let g:lightline = {'colorscheme': 'one'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
 nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
@@ -176,9 +176,9 @@ let g:fern#default_hidden=1
 let g:vim_markdown_folding_disabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-airline #
-" let g:airline_theme = 'wombat'                " テーマの指定
-" let g:airline#extensions#tabline#enabled = 1  " タブラインを表示
-let g:airline_powerline_fonts = 1               " Powerline Fontsを利用
+let g:airline_theme = 'deus'                  " テーマの指定
+let g:airline#extensions#tabline#enabled = 1  " タブラインを表示
+" let g:airline_powerline_fonts = 1           " Powerline Fontsを利用
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ from gvimrc
 colorscheme dracula
