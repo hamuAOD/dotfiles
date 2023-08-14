@@ -63,9 +63,12 @@ augroup vimrcEx
 augroup END
 
 """"" Key Bindings """""
-" Ctrl+Tabでタブを切り替える
+"" Ctrl+Tabでタブを切り替える
 nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
+" for vim-airline
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 
 " 検索ハイライトをEscキー2回押しで消去
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
@@ -84,7 +87,7 @@ nnoremap ]Q :<C-u>clast<CR>
 
 nnoremap <C-e> :set expandtab!<CR>    " set expandtab のトグル
 nnoremap <C-i> :set list!<CR>         " set list のトグル
-nnoremap <C-n> :tab sp<CR>            " 現在のファイルを新しいタブで開く
+"nnoremap <C-n> :tab sp<CR>           " 現在のファイルを新しいタブで開く
 noremap <CR> o<ESC>                   " ノーマルモードでもエンターキーで改行を挿入
 nnoremap Y y$                         " 行末までコピー
 "nnoremap <C-q> :q<CR>
@@ -118,31 +121,32 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
-
 " Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
+" autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+"   \| PlugInstall --sync | source $MYVIMRC
+" \| endif
+nnoremap vps :source $MYVIMRC<CR>
+nnoremap vpu :PlugInstall<CR>
+nnoremap vpc :PlugClean<CR>
 " call
 call plug#begin('~/.vim/plugged')
-Plug 'easymotion/vim-easymotion'
-" Plug 'itchyny/lightline.vim'
-Plug 'dense-analysis/ale'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-" Fern
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-" vim-markdown
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
-" vim-airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-
+  Plug 'easymotion/vim-easymotion'
+  " Plug 'itchyny/lightline.vim'
+  Plug 'dense-analysis/ale'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
+  Plug 'junegunn/vim-easy-align'
+  " Fern
+  Plug 'lambdalisue/fern.vim'
+  Plug 'lambdalisue/nerdfont.vim'
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  " vim-markdown
+  Plug 'godlygeek/tabular'
+  Plug 'preservim/vim-markdown'
+  " vim-airline
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
@@ -171,6 +175,12 @@ map <Leader>k <Plug>(easymotion-k)
 nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # vim-easy-align #
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-markdown #
 let g:vim_markdown_folding_disabled = 1
