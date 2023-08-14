@@ -155,6 +155,9 @@ nmap <Leader>1 <Plug>(easymotion-overwin-f)
 nmap <Leader>2 <Plug>(easymotion-overwin-f2)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # LightLine #
 set laststatus=2
