@@ -85,16 +85,19 @@ nnoremap ]q :cnext<CR>
 nnoremap [Q :<C-u>cfirst<CR>
 nnoremap ]Q :<C-u>clast<CR>
 
-nnoremap st :set expandtab!<CR>    " set expandtab のトグル
-nnoremap sl :set list!<CR>         " set list のトグル
-"nnoremap <C-n> :tab sp<CR>           " 現在のファイルを新しいタブで開く
-noremap <CR> o<ESC>                   " ノーマルモードでもエンターキーで改行を挿入
-nnoremap Y y$                         " 行末までコピー
+" set expandtab をトグル
+nnoremap <Leader>t :set expandtab!<CR>
+" set list をトグル
+nnoremap <Leader>l :set list!<CR>
+" ノーマルモードでもエンターキーで改行を挿入
+noremap <CR> o<ESC>
+" 行末までコピー
+nnoremap Y y$
 nnoremap <C-t> :tabnew<CR>
 
 " 括弧自動入力
 inoremap ( ()<LEFT>
-"inoremap " ""<LEFT>
+inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap [ []<LEFT>
 
