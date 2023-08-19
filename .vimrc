@@ -100,9 +100,11 @@ inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap [ []<LEFT>
+inoremap < <><LEFT>
 
 " インサートモードでの操作用
-inoremap <c-d> <delete>
+inoremap <c-d> <DEL>
+inoremap <c-b> <BS>
 inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-h> <left>
@@ -115,7 +117,7 @@ let @s='/\dwv/.wavhy/SONGvep0jjj'
 " Macro [t] : copy
 let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
-let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
+let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-lug
 " Install vim-plug if not found
@@ -171,9 +173,9 @@ let g:fern#default_hidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-easy-align #
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ea <Plug>(EasyAlign)
+xmap al <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ea <Plug>(EasyAlign)
+nmap al <Plug>(EasyAlign)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-markdown #
 let g:vim_markdown_folding_disabled = 1
