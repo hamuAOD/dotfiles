@@ -173,9 +173,9 @@ let g:fern#default_hidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-easy-align #
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap al <Plug>(EasyAlign)
+xmap ea <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap al <Plug>(EasyAlign)
+nmap ea <Plug>(EasyAlign)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-markdown #
 let g:vim_markdown_folding_disabled = 1
