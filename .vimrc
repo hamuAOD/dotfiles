@@ -134,22 +134,23 @@ nnoremap vpu :PlugInstall<CR>
 nnoremap vpc :PlugClean<CR>
 " call
 call plug#begin('~/.vim/plugged')
-  Plug 'easymotion/vim-easymotion'
-  Plug 'itchyny/lightline.vim'
-  Plug 'dense-analysis/ale'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-commentary'
-  Plug 'junegunn/vim-easy-align'
-  " Git
-  Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
-  " Fern
-  Plug 'lambdalisue/fern.vim'
-  Plug 'lambdalisue/nerdfont.vim'
-  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-  " vim-markdown
-  Plug 'godlygeek/tabular'
-  Plug 'preservim/vim-markdown'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'itchyny/lightline.vim'
+    Plug 'dense-analysis/ale'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    Plug 'junegunn/vim-easy-align'
+    Plug 'dominikduda/vim_current_word'
+    " Git
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+    " Fern
+    Plug 'lambdalisue/fern.vim'
+    Plug 'lambdalisue/nerdfont.vim'
+    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+    " vim-markdown
+    Plug 'godlygeek/tabular'
+    Plug 'preservim/vim-markdown'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
