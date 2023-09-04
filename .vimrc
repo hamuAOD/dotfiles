@@ -129,9 +129,9 @@ endif
 " autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 "   \| PlugInstall --sync | source $MYVIMRC
 " \| endif
-nnoremap vrs :source $MYVIMRC<CR>
-nnoremap vpu :PlugInstall<CR>
-nnoremap vpc :PlugClean<CR>
+" nnoremap vrs :source $MYVIMRC<CR>
+" nnoremap vpu :PlugInstall<CR>
+" nnoremap vpc :PlugClean<CR>
 " call
 call plug#begin('~/.vim/plugged')
     Plug 'easymotion/vim-easymotion'
@@ -174,9 +174,9 @@ let g:fern#default_hidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-easy-align #
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ea <Plug>(EasyAlign)
+xmap <Leader>a <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ea <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-markdown #
 let g:vim_markdown_folding_disabled = 1
@@ -186,6 +186,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_current_word#highlight_twins = 1
 " The word under cursor:
 let g:vim_current_word#highlight_current_word = 1
+let g:vim_current_word#highlight_delay = 20
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ from gvimrc
 colorscheme dracula
