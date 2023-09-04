@@ -181,6 +181,12 @@ nmap ea <Plug>(EasyAlign)
 " # vim-markdown #
 let g:vim_markdown_folding_disabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # vim_current_word #
+" Twins of word under cursor:
+let g:vim_current_word#highlight_twins = 1
+" The word under cursor:
+let g:vim_current_word#highlight_current_word = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ from gvimrc
 colorscheme dracula
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
