@@ -95,12 +95,13 @@ noremap <CR> o<ESC>
 nnoremap Y y$
 nnoremap <C-t> :tabnew<CR>
 
-" 括弧自動入力
+" Auto Brackets
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap [ []<LEFT>
 inoremap < <><LEFT>
+inoremap { {}<LEFT>
 
 " インサートモードでの操作用
 inoremap <c-d> <DEL>
@@ -119,10 +120,10 @@ let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
 let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""" vim-lug
+""""" vim-plug
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 " Run PlugInstall if there are missing plugins
