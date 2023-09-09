@@ -2,7 +2,8 @@ syntax enable                         " 構文ごとに色分け
 filetype plugin indent on             " ファイルタイプ検出有効化、プラグイン・インデントロード
 
 set number                            " 行番号を表示
-set cursorline                        " カーソル行のハイライト
+set relativenumber                    " 相対表示
+set cursorline                        " カーソルk行のハイライト
 set cursorcolumn                      " カーソル列のハイライト
 set nowrap                            " 折り返しを無効"
 set ignorecase                        " 検索で大文字小文字を区別しない
@@ -186,7 +187,7 @@ let g:vim_markdown_folding_disabled = 1
 " Twins of word under cursor:
 let g:vim_current_word#highlight_twins = 1
 " The word under cursor:
-let g:vim_current_word#highlight_current_word = 1
+let g:vim_current_word#highlight_current_word = 0
 let g:vim_current_word#highlight_delay = 20
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ from gvimrc
