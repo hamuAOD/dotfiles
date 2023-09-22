@@ -1,13 +1,3 @@
-# default:cyan / root:red
-#if [ $UID -eq 0 ]; then
-#    PS1="\[\033[31m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
-#else
-#    PS1="\[\033[36m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
-#fi
-
-autoload -Uz colors
-colors
-
 # プロンプトカスタマイズ
 function left-prompt {
   name_t='179m%}'            # user name text clolr
@@ -30,13 +20,13 @@ function left-prompt {
 PROMPT=`left-prompt`
 
 # "-F":ディレクトリに"/"を表示 / "-G"でディレクトリを色表示
-alias ls='ls -FG'
-alias ll='ls -alFG'
+# alias ls='ls -FG'
+# alias ll='ls -alFG'
 alias bu='brew update && brew upgrade && brew cleanup'
 ##### exa #####
-alias exa='exa --icons'
-alias el='exa -l --icons'
-alias ea='exa -la --icons'
+alias ls='exa --icons'
+alias ll='exa --icons -l'
+alias la='exa --icons -la'
 ##### zoxide #####
 alias cd='z'
 
@@ -44,19 +34,10 @@ alias cd='z'
 autoload -U compinit
 compinit
 
-if [[ "$(uname -m)" == arm64 ]]; then
-  # arm64
-  export PATH="/opt/homebrew/bin:$PATH"
-  export PATH="/opt/homebrew/sbin:$PATH"
-  export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-  export PATH="/opt/homebrew/opt/git/bin:$PATH"
-else
-  # x86_64
-  export PATH="/usr/local/bin:$PATH"
-  export PATH="/usr/local/sbin:$PATH"
-  export PATH="/usr/local/opt/curl/bin:$PATH"
-  export PATH="/usr/local/opt/git/bin:$PATH"
-fi
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/opt/homebrew/opt/git/bin:$PATH"
 
 ##### rbenv #####
 if [[ -e /opt/homebrew/bin/rbenv ]]; then
