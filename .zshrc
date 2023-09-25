@@ -32,6 +32,9 @@ alias ll='exa --icons -l'
 alias la='exa --icons -la'
 ##### zoxide #####
 alias cd='z'
+##### 7-zip #####
+alias 7za='7zz a -ba -t7z -xr'\''!.*'\'''
+alias 7zx='7zz x'
 
 # Enable Compsys
 autoload -U compinit
