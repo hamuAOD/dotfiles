@@ -87,7 +87,7 @@ nnoremap [Q :<C-u>cfirst<CR>
 nnoremap ]Q :<C-u>clast<CR>
 
 " set expandtab をトグル
-nnoremap <Leader>st :set expandtab!<CR>
+nnoremap <Leader>se :set expandtab!<CR>
 " set list をトグル
 nnoremap <Leader>sl :set list!<CR>
 " ノーマルモードでもエンターキーで改行を挿入
