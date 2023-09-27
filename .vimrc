@@ -87,9 +87,9 @@ nnoremap [Q :<C-u>cfirst<CR>
 nnoremap ]Q :<C-u>clast<CR>
 
 " set expandtab をトグル
-nnoremap <Leader>t :set expandtab!<CR>
+nnoremap <Leader>st :set expandtab!<CR>
 " set list をトグル
-nnoremap <Leader>l :set list!<CR>
+nnoremap <Leader>sl :set list!<CR>
 " ノーマルモードでもエンターキーで改行を挿入
 noremap <CR> o<ESC>
 " 行末までコピー
