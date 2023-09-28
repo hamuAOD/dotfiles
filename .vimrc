@@ -190,9 +190,8 @@ let g:vim_current_word#highlight_twins = 1
 let g:vim_current_word#highlight_current_word = 0
 let g:vim_current_word#highlight_delay = 20
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" from gvimrc
-colorscheme dracula
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ charm
 syntax enable                         " dein対策
+packadd! dracula
+colorscheme dracula
 set modifiable
