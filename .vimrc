@@ -190,6 +190,8 @@ let g:vim_current_word#highlight_twins = 1
 let g:vim_current_word#highlight_current_word = 0
 let g:vim_current_word#highlight_delay = 20
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
 """ charm
 syntax enable                         " dein対策
 packadd! dracula
