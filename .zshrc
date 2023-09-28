@@ -1,6 +1,10 @@
 # Starship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG="/Users/hamu/dotfiles/starship.toml"
+
+# zsh-autocomplete
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # Alias
 alias bu='brew update && brew upgrade && brew cleanup'
 ##### exa #####
@@ -44,12 +48,18 @@ export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
 eval "$(zoxide init zsh)"
 
 ##### zsh extensions #####
+# zsh-completions
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
     autoload -Uz compinit
     compinit
 fi
-
+# zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Write at the end
+# zsh-syntax-highlighting
+# Write at the end
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
