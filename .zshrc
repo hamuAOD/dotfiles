@@ -3,7 +3,16 @@ eval "$(starship init zsh)"
 export STARSHIP_CONFIG="/Users/hamu/dotfiles/starship.toml"
 
 # zsh-autocomplete
+### Add at or near the top
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 
 # Alias
 alias bu='brew update && brew upgrade && brew cleanup'
@@ -44,22 +53,20 @@ export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
 --preview-window 'right:50%' \
 --bind 'ctrl-/:change-preview-window(80%|hidden|)' \
 --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
+
 ##### zoxide #####
 eval "$(zoxide init zsh)"
 
-##### zsh extensions #####
-# zsh-completions
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-    autoload -Uz compinit
-    compinit
-fi
-# zsh-autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# zsh-syntax-highlighting
-# Write at the end
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+##### iTerm2 #####
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+##### zsh extensions #####
+# zsh-autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+# Write at the end
+#source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zsh-fast-syntax-highlighting
+#add the following at the end of your .zshrc:
+source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
