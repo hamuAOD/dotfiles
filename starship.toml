@@ -4,12 +4,12 @@
 format = """
 [](fg:#7aa2f7)\
 $os\
-[ ](fg:#7aa2f7 bg:#1a1b26)\
+[ ](fg:#7aa2f7 bg:#1e1f2a)\
 $directory\
 $git_branch\
 $git_status\
 $git_metrics\
-[](fg:#1a1b26)\
+[](fg:#1e1f2a)\
 $fill\
 $cmd_duration\
 $time\
@@ -25,7 +25,7 @@ $time\
 [os]
 # format = "[$symbol](bold white)"
 format = "[$symbol]($style)"
-style = 'fg:#1a1b26 bg:#7aa2f7 bold white'
+style = 'fg:#1e1f2a bg:#7aa2f7 bold white'
 disabled = false
 [os.symbols]
 Macos = "  "  # nf-fa-apple
@@ -38,9 +38,9 @@ truncation_symbol = ' ' # nf-fa-folder_open
 truncate_to_repo = false
 home_symbol = ' ~' # nf-fa-home
 #style = 'fg:#7aa2f7 bg:#1a1b4d'
-style = 'fg:#fe78c5 bg:#1a1b26'
+style = 'fg:#fe78c5 bg:#1e1f2a'
 read_only = ' 󰌾 ' # nf-md-lock
-read_only_style = 'fg:#f7768e bg:#1a1b26'
+read_only_style = 'fg:#f7768e bg:#1e1f2a'
 format = '[$path]($style)[$read_only]($read_only_style)'
 
 [git_branch]
@@ -48,11 +48,11 @@ symbol = '  ' # nf-fa-github_alt, nf-fa-code_fork
 truncation_length = 4
 truncation_symbol = ''
 #style = 'fg:#7aa2f7 bg:#1a1b4d'
-style = 'fg:#fe78c5 bg:#1a1b26'
+style = 'fg:#fe78c5 bg:#1e1f2a'
 format = '[  $symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
 
 [git_status]
-style = 'fg:#e0af68 bg:#1a1b26'
+style = 'fg:#e0af68 bg:#1e1f2a'
 conflicted = '='
 ahead = '⇡${count}'
 behind = '⇣${count}'
@@ -66,8 +66,8 @@ deleted = '✘'
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 [git_metrics]
-added_style = 'fg:#9ece6a bg:#1a1b26'
-deleted_style = 'fg:#9ece6a bg:#1a1b26'
+added_style = 'fg:#9ece6a bg:#1e1f2a'
+deleted_style = 'fg:#9ece6a bg:#1e1f2a'
 format = '[+$added/-$deleted]($deleted_style)'
 disabled = false
 
