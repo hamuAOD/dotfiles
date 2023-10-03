@@ -2,9 +2,10 @@
 # ref : https://tech-unlimited.com/color.html
 
 format = """
-[](fg:#7aa2f7)\
+[](fg:#7aa2f7 bg:#1e1f2a)\
 $os\
 [ ](fg:#7aa2f7 bg:#1e1f2a)\
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -25,12 +26,19 @@ $time\
 [os]
 # format = "[$symbol](bold white)"
 format = "[$symbol]($style)"
-style = 'fg:#1e1f2a bg:#7aa2f7 bold white'
+style = 'fg:#1e1f2a bg:#8ab1f9 bold white'
 disabled = false
 [os.symbols]
 Macos = "  "  # nf-fa-apple
 Ubuntu = "  " # nf-linux-ubuntu
 Debian = "  " # nf-linux-debian
+
+[hostname]
+ssh_only = true
+style = 'fg:#fe78c5 bg:#1e1f2a'
+ssh_symbol = ' '
+format = '[$ssh_symbol$hostname ]($style)'
+disabled = false
 
 [directory]
 truncation_length = 100
