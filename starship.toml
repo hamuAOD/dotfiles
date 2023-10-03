@@ -34,7 +34,7 @@ Ubuntu = "  " # nf-linux-ubuntu
 Debian = "  " # nf-linux-debian
 
 [hostname]
-ssh_only = true
+ssh_only = false
 style = 'fg:#fe78c5 bg:#1e1f2a'
 ssh_symbol = ' '
 format = '[$ssh_symbol$hostname ]($style)'
