@@ -26,7 +26,7 @@ $time\
 [os]
 # format = "[$symbol](bold white)"
 format = "[$symbol]($style)"
-style = 'fg:#1e1f2a bg:#8ab1f9 bold white'
+style = 'fg:#1e1f2a bg:#7aa2f7 bold white'
 disabled = false
 [os.symbols]
 Macos = "  "  # nf-fa-apple
@@ -34,7 +34,7 @@ Ubuntu = "  " # nf-linux-ubuntu
 Debian = "  " # nf-linux-debian
 
 [hostname]
-ssh_only = false
+ssh_only = true
 style = 'fg:#fe78c5 bg:#1e1f2a'
 ssh_symbol = ' '
 format = '[$ssh_symbol$hostname ]($style)'
