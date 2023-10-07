@@ -113,6 +113,9 @@ inoremap <c-h> <left>
 inoremap <c-l> <right>
 "nnoremap ^ $
 
+" 単語として認識
+set iskeyword+=-
+
 """"" MyMacros
 " Macro [s] : copy song title for CUE-EDIT
 let @s='/\dwv/.wavhy/SONGvep0jjj'
