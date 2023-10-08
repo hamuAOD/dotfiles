@@ -199,7 +199,7 @@ nmap <Leader>r :call rainbow#toggle()<CR>
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
 """ charm
-syntax enable                         " dein対策
 packadd! dracula
+syntax enable                         " dein対策
 colorscheme dracula
 set modifiable
