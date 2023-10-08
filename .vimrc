@@ -113,6 +113,8 @@ inoremap <c-h> <left>
 inoremap <c-l> <right>
 "nnoremap ^ $
 
+" osc52
+vnoremap Y y:call SendViaOSC52(getreg('"'))<CR>
 " 単語として認識
 set iskeyword+=-
 
@@ -146,6 +148,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'junegunn/vim-easy-align'
   Plug 'dominikduda/vim_current_word'
+  " for SSH
+  Plug 'ShikChen/osc52.vim'
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
