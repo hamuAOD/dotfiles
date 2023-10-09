@@ -88,12 +88,11 @@ config.keys = {
       act.SendKey { key = 'L', mods = 'CTRL' },
     },
   },
-  -- {
-  --   key = 'Backspace',
-  --   mods = 'CMD',
-  --   action = act.CopyMode{ClearPattern}
-  -- },
+--{
+--  key = 'Backspace',
+--  mods = 'CMD',
+--  action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' }
+--},
 }
-
 -- and finally, return the configuration to wezterm
 return config
