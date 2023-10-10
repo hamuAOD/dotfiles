@@ -19,65 +19,39 @@ config.initial_rows = 50
 
 config.font = wezterm.font('HackGen35 Console NF', { weight = 'Bold', italic = false })
 config.font_size = 13
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.94
 config.macos_window_background_blur = 12
 config.color_scheme = 'Dracula'
 
-config.window_background_gradient = {
-  -- Can be "Vertical" or "Horizontal".  Specifies the direction
-  -- in which the color gradient varies.  The default is "Horizontal",
-  -- with the gradient going from left-to-right.
-  -- Linear and Radial gradients are also supported; see the other
-  -- examples below
-  orientation = 'Vertical',
+config.background = {
+  -- This is the deepest/back-most layer. It will be rendered first
+  {
+    source = {
+      File = '/Users/hamu/Library/Mobile Documents/com~apple~CloudDocs/Documents/Terminal/_warp/themes/Car Bomb - Meta.png',
+    },
+    width = '100%',
+    repeat_x = 'NoRepeat',
+    opacity = 0.25,
+    --attachment = { Parallax = 0.1 },
+  },
+}
 
-  -- Specifies the set of colors that are interpolated in the gradient.
-  -- Accepts CSS style color specs, from named colors, through rgb
-  -- strings and more
+config.window_background_gradient = {
+  orientation = 'Vertical',
   colors = {
     -- Blue
-    '#0f0c29',
-    '#302b63',
-    '#24243e',
+    -- '#0f0c29', '#302b63', '#24243e',
     -- Red
-    -- '#240a07',
-    -- '#54211c',
-    -- '#391f1f',
+    -- '#240a07', '#54211c', '#391f1f',
+    -- Grey
+    '#0f0f0f', '#303030', '#171717',
   },
-
-  -- Instead of specifying `colors`, you can use one of a number of
-  -- predefined, preset gradients.
-  -- A list of presets is shown in a section below.
   -- preset = "Warm",
-
-  -- Specifies the interpolation style to be used.
-  -- "Linear", "Basis" and "CatmullRom" as supported.
-  -- The default is "Linear".
   interpolation = 'Linear',
-
-  -- How the colors are blended in the gradient.
-  -- "Rgb", "LinearRgb", "Hsv" and "Oklab" are supported.
-  -- The default is "Rgb".
   blend = 'Rgb',
-
-  -- To avoid vertical color banding for horizontal gradients, the
-  -- gradient position is randomly shifted by up to the `noise` value
-  -- for each pixel.
-  -- Smaller values, or 0, will make bands more prominent.
-  -- The default value is 64 which gives decent looking results
-  -- on a retina macbook pro display.
-  -- noise = 64,
-
-  -- By default, the gradient smoothly transitions between the colors.
-  -- You can adjust the sharpness by specifying the segment_size and
-  -- segment_smoothness parameters.
-  -- segment_size configures how many segments are present.
-  -- segment_smoothness is how hard the edge is; 0.0 is a hard edge,
-  -- 1.0 is a soft edge.
-
-  -- segment_size = 11,
-  -- segment_smoothness = 0.0,
 }
+
+config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
   {
@@ -88,11 +62,16 @@ config.keys = {
       act.SendKey { key = 'L', mods = 'CTRL' },
     },
   },
---{
---  key = 'Backspace',
---  mods = 'CMD',
---  action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' }
---},
+  {
+    key = 'Backspace',
+    mods = 'CMD',
+    action = act.SendKey { key = 'u', mods = 'CTRL' },
+  },
+  {
+    key = 'c',
+    mods = 'LEADER',
+    action = wezterm.action.ActivateCopyMode
+  },
 }
 -- and finally, return the configuration to wezterm
 return config
