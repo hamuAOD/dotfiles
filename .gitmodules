@@ -3,4 +3,4 @@
 	url = https://github.com/dracula/vim.git
 [submodule ".vim/plugged/osc52.vim"]
 	path = .vim/plugged/osc52.vim
-	url = https://github.com/ojroques/vim-oscyank.git
+	url = https://github.com/ojroques/vim-oscyank
