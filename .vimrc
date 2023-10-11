@@ -160,6 +160,8 @@ call plug#begin('~/.vim/plugged')
   " vim-markdown
   Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
+  " fzf
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
