@@ -148,7 +148,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'junegunn/vim-easy-align'
   Plug 'dominikduda/vim_current_word'
-  Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
   " for SSH
   Plug 'ShikChen/osc52.vim'
   " Git
@@ -162,10 +162,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
   " fzf
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " ddu"
-  Plug 'vim-denops/denops.vim'
-  Plug 'Shougo/ddu.vim'
+" Plug 'vim-denops/denops.vim'
+" Plug 'Shougo/ddu.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
@@ -204,9 +204,9 @@ let g:vim_current_word#highlight_current_word = 0
 let g:vim_current_word#highlight_delay = 20
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-indent-guides #
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+" "let g:indent_guides_enable_on_vim_startup = 1
+" "let g:indent_guides_start_level = 2
+" "let g:indent_guides_guide_size = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # ddu #
 nmap <silent> <Leader>ff <Cmd>call ddu#start({})<CR>
