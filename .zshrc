@@ -16,6 +16,7 @@ fi
 
 # Alias
 alias bu='brew update && brew upgrade && brew cleanup'
+alias v='nvim'
 ##### exa #####
 alias ls='exa --icons'
 alias ll='exa --icons -l'
