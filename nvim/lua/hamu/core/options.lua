@@ -38,6 +38,7 @@ opt.tabstop = 2                           -- タブの画面上での幅
 opt.softtabstop = 2                       -- 連続した空白でカーソルが動く幅
 opt.showmatch = true                      -- 括弧入力時の対応する括弧を表示
 opt.matchtime=1                           --"対括弧を一時ジャンプ
+opt.iskeyword:append("-")
 --set pumheight=10                        " 補完メニューの高さ固定
 --
 --set nobackup                          " バックアップファイルを作成しない

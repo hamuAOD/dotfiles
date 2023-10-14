@@ -31,7 +31,7 @@ set formatoptions=q                   " 自動改行OFF
 
 set ambiwidth=double                  " 全角記号対策
 set nrformats=                        " 10進数で扱う
-" set t_Co=256                        " ターミナル色用
+set t_Co=256                          " ターミナル色用
 
 set enc=utf-8
 set fenc=utf-8                        " 文字コードをUFT-8に設定
@@ -214,7 +214,11 @@ nmap <silent> <Leader>fg <Cmd>call ddu#start({
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
-""" charm
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if empty(glob('~/.vim/pack/themes/start/dracula/colors/dracula.vim'))
+  silent !mkdir -p ~/.vim/pack/themes/start && \
+  !git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
+endif
 packadd! dracula
 syntax enable                         " dein対策
 colorscheme dracula
