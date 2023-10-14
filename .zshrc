@@ -17,6 +17,7 @@ fi
 # Alias
 alias bu='brew update && brew upgrade && brew cleanup'
 alias v='nvim'
+alias vcd='nvim ~/Music/CD'
 ##### exa #####
 alias ls='exa --icons'
 alias ll='exa --icons -l'
