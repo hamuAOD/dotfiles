@@ -168,6 +168,9 @@ call plug#begin('~/.vim/plugged')
 " Plug 'Shougo/ddu.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # fzf #
+set rtp+=/opt/homebrew/opt/fzf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
 map <Leader> <Plug>(easymotion-prefix)
 " <Leader>1{char} to move to {char}
