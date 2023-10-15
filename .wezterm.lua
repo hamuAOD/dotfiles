@@ -14,6 +14,11 @@ end
 
 -- This is where you actually apply your config choices
 --  https://wezfurlong.org/wezterm/config/lua/config/index.html
+-- wezterm.on('gui-startup', function(cmd)
+--   window:gui_window():set_position(0, 0)
+--   end
+-- )
+
 config.initial_cols = 130
 config.initial_rows = 50
 
@@ -72,6 +77,7 @@ config.keys = {
     mods = 'LEADER',
     action = wezterm.action.ActivateCopyMode
   },
+  { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
 }
 -- and finally, return the configuration to wezterm
 return config
