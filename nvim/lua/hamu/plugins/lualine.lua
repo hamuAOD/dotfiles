@@ -56,8 +56,8 @@ return {
     lualine.setup({
       options = {
         -- theme = my_lualine_theme,
-        -- theme = 'dracula',
-        theme = 'catppuccin',
+        theme = 'dracula',
+        -- theme = 'catppuccin',
         component_separators = { left = '❱', right = '❰'},
         section_separators = { left = '', right = ''},
       },
