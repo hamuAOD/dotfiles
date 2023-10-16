@@ -16,8 +16,11 @@ keymap.set('x', '<C-x>', '<Plug>(dps-dial-decrement)', NS)
 -- vim.keymap.set('n', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', {remap = true})
 
 -- set expandtab をトグル
-keymap.set('n', '<leader>se', ':set expandtab!<CR>', {desc = "Toggle EXPANDTAB" }, NS)
+keymap.set('n', '<Leader>se', ':set expandtab!<CR>', {desc = "Toggle EXPANDTAB" }, NS)
 -- set list をトグル
 keymap.set('n', '<Leader>sl', ':set list!<CR>', {desc = "Toggle LIST" }, NS)
 -- ノーマルモードでもエンターキーで改行を挿入
 keymap.set('n', '<CR>', 'o<ESC>', {noremap = true})
+
+-- keymap.set('x', '<Leader>ae', '<Plug>(EasyAlign)', { desc = "vim-easy-align" }, NS)
+-- keymap.set('n', '<Leader>ae', '<Plug>(EasyAlign)', { desc = "vim-easy-align" }, NS)

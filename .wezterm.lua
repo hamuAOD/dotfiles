@@ -32,7 +32,7 @@ config.background = {
   -- This is the deepest/back-most layer. It will be rendered first
   {
     source = {
-      File = '/Users/hamu/Library/Mobile Documents/com~apple~CloudDocs/Documents/Terminal/_warp/themes/Car Bomb - Meta.png',
+      File = '/Users/hamu/dotfiles/.warp/themes/Car Bomb - Meta.png',
     },
     width = '100%',
     repeat_x = 'NoRepeat',
@@ -49,7 +49,7 @@ config.window_background_gradient = {
     -- Red
     -- '#240a07', '#54211c', '#391f1f',
     -- Grey
-    '#0f0f0f', '#303030', '#171717',
+    '#0f0f0f', '#252525', '#141414',
   },
   -- preset = "Warm",
   interpolation = 'Linear',
