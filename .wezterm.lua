@@ -56,6 +56,9 @@ config.window_background_gradient = {
   blend = 'Rgb',
 }
 
+-- Key Configs
+-- config.disable_default_key_bindings = true
+
 config.leader = { key = 'a', mods = 'OPT', timeout_milliseconds = 1000 }
 
 config.keys = {
@@ -67,16 +70,22 @@ config.keys = {
       act.SendKey { key = 'L', mods = 'CTRL' },
     },
   },
-  {
-    key = 'Backspace',
-    mods = 'CMD',
-    action = act.SendKey { key = 'u', mods = 'CTRL' },
-  },
+  -- {
+  --   key = 'Backspace',
+  --   mods = 'CMD',
+  --   action = act.SendKey { key = 'u', mods = 'CTRL' },
+  -- },
   {
     key = 'c',
     mods = 'LEADER',
     action = wezterm.action.ActivateCopyMode
   },
+  { key="LeftArrow", mods="OPT", action = act{SendString="\x1bb"} },
+  { key="RightArrow", mods="OPT", action = act{SendString="\x1bf"} },
+  { key="LeftArrow", mods="CMD", action = act{SendString="\x01"} },
+  { key="RightArrow", mods="CMD", action = act{SendString="\x05"} },
+  { key="Backspace", mods="CMD", action = act{SendString="\x15"} },
+  { key="Backspace", mods="OPT", action = act{SendString="\x1b\x7f"} },
   { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
 }
 -- and finally, return the configuration to wezterm
