@@ -57,9 +57,9 @@ config.window_background_gradient = {
 }
 
 -- Key Configs
--- config.disable_default_key_bindings = true
+config.disable_default_key_bindings = true
 
-config.leader = { key = 'a', mods = 'OPT', timeout_milliseconds = 1000 }
+config.leader = { key = 'a', mods = 'CMD', timeout_milliseconds = 1000 }
 
 config.keys = {
   {
@@ -70,23 +70,29 @@ config.keys = {
       act.SendKey { key = 'L', mods = 'CTRL' },
     },
   },
-  -- {
-  --   key = 'Backspace',
-  --   mods = 'CMD',
-  --   action = act.SendKey { key = 'u', mods = 'CTRL' },
-  -- },
-  {
-    key = 'c',
-    mods = 'LEADER',
-    action = wezterm.action.ActivateCopyMode
-  },
-  { key="LeftArrow", mods="OPT", action = act{SendString="\x1bb"} },
-  { key="RightArrow", mods="OPT", action = act{SendString="\x1bf"} },
-  { key="LeftArrow", mods="CMD", action = act{SendString="\x01"} },
-  { key="RightArrow", mods="CMD", action = act{SendString="\x05"} },
-  { key="Backspace", mods="CMD", action = act{SendString="\x15"} },
-  { key="Backspace", mods="OPT", action = act{SendString="\x1b\x7f"} },
-  { key = 'L', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+  { key = 'LeftArrow',  mods = 'OPT',    action = act{SendString="\x1bb"}},
+  { key = 'RightArrow', mods = 'OPT',    action = act{SendString="\x1bf"}},
+  { key = 'LeftArrow',  mods = 'CMD',    action = act{SendString="\x01"}},
+  { key = 'RightArrow', mods = 'CMD',    action = act{SendString="\x05"}},
+  { key = 'Backspace',  mods = 'CMD',    action = act{SendString="\x15"}},
+  { key = 'Backspace',  mods = 'OPT',    action = act{SendString="\x1b\x7f"}},
+  { key = 'c',          mods = 'LEADER', action = wezterm.action.ActivateCopyMode},
+  -- Pane
+  { key = '[',          mods = 'CTRL',   action = act.PaneSelect},
+  { key = 'r',          mods = 'LEADER', action = act.RotatePanes 'Clockwise'},
+  { key = 'a',          mods = 'LEADER', action = act.ActivatePaneDirection 'Next'},
+  { key = 'LeftArrow',  mods = 'LEADER', action = act.ActivatePaneDirection 'Left'},
+  { key = 'RightArrow', mods = 'LEADER', action = act.ActivatePaneDirection 'Right'},
+  { key = 'UpArrow',    mods = 'LEADER', action = act.ActivatePaneDirection 'Up'},
+  { key = 'DownArrow',  mods = 'LEADER', action = act.ActivatePaneDirection 'Down'},
+  { key = 'w',          mods = 'LEADER', action = act.CloseCurrentPane{confirm = true}},
+  { key = 's',          mods = 'LEADER', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
+  { key = 'v',          mods = 'LEADER', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
+  -- Font size
+  { key = '+',          mods = 'CMD',    action = act.IncreaseFontSize},
+  { key = '-',          mods = 'CMD',    action = act.DecreaseFontSize},
+  -- { key = 'Backspace',  mods = 'CMD',  action = act.SendKey{ key = 'u', mods = 'CTRL' } },
+  -- { key = 'L',          mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
 }
 -- and finally, return the configuration to wezterm
 return config
