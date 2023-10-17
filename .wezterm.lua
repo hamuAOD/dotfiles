@@ -14,10 +14,11 @@ end
 
 -- This is where you actually apply your config choices
 --  https://wezfurlong.org/wezterm/config/lua/config/index.html
--- wezterm.on('gui-startup', function(cmd)
---   window:gui_window():set_position(0, 0)
---   end
--- )
+wezterm.on('gui-startup', function(cmd)
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():set_position(50, 140)
+  end
+)
 
 config.initial_cols = 130
 config.initial_rows = 50
@@ -76,7 +77,7 @@ config.keys = {
   { key = 'RightArrow', mods = 'CMD',    action = act{SendString="\x05"}},
   { key = 'Backspace',  mods = 'CMD',    action = act{SendString="\x15"}},
   { key = 'Backspace',  mods = 'OPT',    action = act{SendString="\x1b\x7f"}},
-  { key = 'c',          mods = 'LEADER', action = wezterm.action.ActivateCopyMode},
+  { key = 'c',          mods = 'LEADER', action = act.ActivateCopyMode},
   -- Pane
   { key = '[',          mods = 'CTRL',   action = act.PaneSelect},
   { key = 'r',          mods = 'LEADER', action = act.RotatePanes 'Clockwise'},
