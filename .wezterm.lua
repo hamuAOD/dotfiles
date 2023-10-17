@@ -58,7 +58,7 @@ config.window_background_gradient = {
 }
 
 -- Key Configs
-config.disable_default_key_bindings = true
+-- config.disable_default_key_bindings = true
 
 config.leader = { key = 'a', mods = 'CMD', timeout_milliseconds = 1000 }
 
