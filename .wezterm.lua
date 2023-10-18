@@ -15,14 +15,16 @@ end
 -- This is where you actually apply your config choices
 --  https://wezfurlong.org/wezterm/config/lua/config/index.html
 wezterm.on('gui-startup', function(cmd)
+  -- not work without "tab, pane, "
   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-  window:gui_window():set_position(50, 140)
+    window:gui_window():set_position(50, 140)
+    config.initial_cols = 130
+    config.initial_rows = 50
   end
 )
 
 config.initial_cols = 130
 config.initial_rows = 50
-
 config.font = wezterm.font('HackGen35 Console NF', { weight = 'Bold', italic = false })
 config.font_size = 13
 config.window_background_opacity = 0.94
