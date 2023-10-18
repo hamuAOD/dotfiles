@@ -1,5 +1,6 @@
 return {
   'Vonr/align.nvim',
+  event = { "BufRead", "BufNewFile" },
   branch = "v2",
   lazy = true,
   init = function()
@@ -39,14 +40,14 @@ return {
     )
     -- Aligns to a Vim regex with previews
     vim.keymap.set('x', '<Leader>ar',
-    function()
-      require'align'.align_to_string({
-        preview = true,
-        regex = true,
-      })
-    end,
-    { desc = "Aligns to a Vim regex with previews" },
-    NS
+      function()
+        require'align'.align_to_string({
+          preview = true,
+          regex = true,
+        })
+      end,
+      { desc = "Aligns to a Vim regex with previews" },
+      NS
     )
   end,
 }
