@@ -10,6 +10,7 @@ $directory\
 $git_branch\
 $git_status\
 $git_metrics\
+$python\
 [](fg:#1e1f2a)\
 $fill\
 $cmd_duration\
@@ -79,6 +80,11 @@ added_style = 'fg:#9ece6a bg:#1e1f2a'
 deleted_style = 'fg:#9ece6a bg:#1e1f2a'
 format = '[+$added/-$deleted]($deleted_style)'
 disabled = false
+
+[python]
+symbol = ' 󰌠 '
+format = '[ ❱${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = 'fg:#f1fa8c bg:#1e1f2a'
 
 [fill]
 symbol = '─'
