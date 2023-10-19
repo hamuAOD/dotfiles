@@ -30,6 +30,7 @@ config.font_size = 13
 config.window_background_opacity = 0.94
 config.macos_window_background_blur = 12
 config.color_scheme = 'Dracula'
+-- config.treat_east_asian_ambiguous_width_as_wide = true
 
 config.background = {
   -- This is the deepest/back-most layer. It will be rendered first

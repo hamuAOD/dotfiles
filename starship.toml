@@ -82,8 +82,8 @@ format = '[+$added/-$deleted]($deleted_style)'
 disabled = false
 
 [python]
-symbol = ' 󰌠 '
-format = '[ ❱${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = '󰌠 '
+format = '[ ❱ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 style = 'fg:#f1fa8c bg:#1e1f2a'
 
 [fill]

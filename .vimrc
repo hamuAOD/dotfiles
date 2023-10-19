@@ -10,7 +10,7 @@ set ignorecase                        " 検索で大文字小文字を区別し�
 set incsearch                         " インクリメンタル検索
 set hlsearch                          " ハイライト検索
 set list                              " タブ，行末を可視化
-set listchars=eol:$,tab:>-,trail:_    " 特殊文字の表示設定
+set listchars=eol:↲,tab:>-,trail:_    " 特殊文字の表示設定
 set expandtab                         " <Tab>を空白で入力
 set tabstop=2                         " タブの画面上での幅
 set shiftwidth=2                      " インデントの空白数
@@ -43,6 +43,8 @@ set spelllang=en                      " スペルチェックから日本語を�
 set vb t_vb=                          " ビープ音を消す
 
 let mapleader="\<Space>"
+let maplocalleader = ','
+let g:which_key_map = {}
 
 """"" 自動化 """""
 autocmd BufWritePre * :%s/\s\+$//ge   " 保存時に行末の空白削除
@@ -77,19 +79,23 @@ nmap <ESC><ESC> :nohlsearch<CR><ESC>
 " Escで日本語入力解除
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
-" カーソル位置強調表示のトグル
-nnoremap <Leader>c :<C-u>setlocal cursorline! cursorcolumn!<CR>
-
 "vimgrep 移動KEY
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [Q :<C-u>cfirst<CR>
 nnoremap ]Q :<C-u>clast<CR>
 
+let g:which_key_map.s = { 'name' : '+set toggle' }
 " set expandtab をトグル
 nnoremap <Leader>se :set expandtab!<CR>
+let g:which_key_map.s.e = 'Toggle expandtab'
 " set list をトグル
 nnoremap <Leader>sl :set list!<CR>
+let g:which_key_map.s.l = 'Toggle list'
+" カーソル位置強調表示のトグル
+nnoremap <Leader>sc :<C-u>setlocal cursorline! cursorcolumn!<CR>
+let g:which_key_map.s.c = 'Toggle cursor'
+
 " ノーマルモードでもエンターキーで改行を挿入
 noremap <CR> o<ESC>
 " 行末までコピー
@@ -133,9 +139,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 " Run PlugInstall if there are missing plugins
-" autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-"   \| PlugInstall --sync | source $MYVIMRC
-" \| endif
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync
+  \| set modifiable
+  \| source $MYVIMRC
+  " \| PlugInstall --sync | source '~/.vimrc'
+\| endif
 " nnoremap vrs :source $MYVIMRC<CR>
 " nnoremap vpu :PlugInstall<CR>
 " nnoremap vpc :PlugClean<CR>
@@ -148,7 +157,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'junegunn/vim-easy-align'
   Plug 'dominikduda/vim_current_word'
-" Plug 'nathanaelkane/vim-indent-guides'
+  " Plug 'Yggdroot/indentLine'
+  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'RRethy/vim-illuminate'
+  Plug 'liuchengxu/vim-which-key'
   " for SSH
   Plug 'ShikChen/osc52.vim'
   " Git
@@ -158,11 +170,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'lambdalisue/fern.vim'
   Plug 'lambdalisue/nerdfont.vim'
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  " fzf"
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   " vim-markdown
   Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
   " fzf
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " ddu"
 " Plug 'vim-denops/denops.vim'
 " Plug 'Shougo/ddu.vim'
@@ -172,13 +187,22 @@ call plug#end()
 set rtp+=/opt/homebrew/opt/fzf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
-map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0     " Disable default mappings
+" WB motions: Line motions
+map <Leader>ew <Plug>(easymotion-w)
+map <Leader>eb <Plug>(easymotion-b)
+" JK motions: Line motions
+map <Leader>ej <Plug>(easymotion-j)
+map <Leader>ek <Plug>(easymotion-k)
 " <Leader>1{char} to move to {char}
-nmap <Leader>1 <Plug>(easymotion-overwin-f)
+nmap <Leader>ef <Plug>(easymotion-overwin-f)
 " <Leader>2{char}{char} to move to {char}{char}
-nmap <Leader>2 <Plug>(easymotion-overwin-f2)
+nmap <Leader>eg <Plug>(easymotion-overwin-f2)
+" map <Leader> <Plug>(easymotion-prefix)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_use_upper = 1        " 'l' -> 'l' & 'L'
+let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # LightLine #
 set laststatus=2
@@ -186,42 +210,81 @@ let g:lightline = {'colorscheme': 'one'}
 set noshowmode    " 左下の状態表示をしない
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
-nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
+nnoremap <silent> <Leader>ee :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # fzf
+let $FZF_DEFAULT_OPTS="--layout=reverse"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
+
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fg :Rg<CR>
+" nnoremap <silent> <leader>fg :GFiles<CR>
+" nnoremap <silent> <leader>fG :GFiles?<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>fh :History<CR>
+" nnoremap <silent> <leader>fr :Rg<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-easy-align #
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap <Leader>a <Plug>(EasyAlign)
+xmap <Leader>ea <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>ea <Plug>(EasyAlign)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-markdown #
-let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_folding_disabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim_current_word #
 " Twins of word under cursor:
+let g:vim_current_word#enabled = 1
 let g:vim_current_word#highlight_twins = 1
 " The word under cursor:
 let g:vim_current_word#highlight_current_word = 0
 let g:vim_current_word#highlight_delay = 20
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # indentLine#
+" set list listchars=tab:\¦\
+" let g:indentLine_char = '¦' " ¦, ┆, │, ⎸, or ▏
+" let g:indentLine_setColors = 0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-indent-guides #
-" "let g:indent_guides_enable_on_vim_startup = 1
-" "let g:indent_guides_start_level = 2
-" "let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # ddu #
-nmap <silent> <Leader>ff <Cmd>call ddu#start({})<CR>
-nmap <silent> <Leader>fg <Cmd>call ddu#start({
+nmap <silent> <Leader>df <Cmd>call ddu#start({})<CR>
+nmap <silent> <Leader>dg <Cmd>call ddu#start({
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # whitch-key #
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :WhichKey ','<CR>
+set timeoutlen=500
+let g:which_key_map = {}
+" autocmd! FileType which_key
+" autocmd  FileType which_key set laststatus=0 noshowmode noruler
+"   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" let g:which_key_map.s = {
+"       \ 'name' : '+set toggle',
+"       \ 'e' : ['set expandtab!', 'Toggle expandtab'],
+"       \ 'l' : ['set list!', 'Toggle list'],
+"       \ 'c' : ['setlocal cursorline! cursorcolumn!!', 'Toggle cursor'],
+"       \ }
+" let g:which_key_map.m = { 'name' : 'EasyMotion' }
+" let g:which_key_map.m.w = 'Jump to WORD'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" install Dracula colortheme
 if empty(glob('~/.vim/pack/themes/start/dracula/colors/dracula.vim'))
   silent !mkdir -p ~/.vim/pack/themes/start && \
   !git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 packadd! dracula
 syntax enable                         " dein対策
 colorscheme dracula
