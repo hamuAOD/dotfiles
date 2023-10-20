@@ -166,21 +166,19 @@ call plug#begin('~/.vim/plugged')
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
+  " LSP
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
   " Fern
-  Plug 'lambdalisue/fern.vim'
-  Plug 'lambdalisue/nerdfont.vim'
-  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  " Plug 'lambdalisue/fern.vim'
+  " Plug 'lambdalisue/nerdfont.vim'
+  " Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   " fzf"
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   " vim-markdown
   Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
-  " fzf
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " ddu"
-" Plug 'vim-denops/denops.vim'
-" Plug 'Shougo/ddu.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # fzf #
@@ -210,9 +208,9 @@ let g:lightline = {'colorscheme': 'one'}
 set noshowmode    " 左下の状態表示をしない
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
-nnoremap <silent> <Leader>ee :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
-let g:fern#renderer = 'nerdfont'
-let g:fern#default_hidden=1
+" nnoremap <silent> <Leader>ee :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
+" let g:fern#renderer = 'nerdfont'
+" let g:fern#default_hidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # fzf
 let $FZF_DEFAULT_OPTS="--layout=reverse"
@@ -254,10 +252,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 " let g:indent_guides_start_level = 2
 " let g:indent_guides_guide_size = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" # ddu #
-nmap <silent> <Leader>df <Cmd>call ddu#start({})<CR>
-nmap <silent> <Leader>dg <Cmd>call ddu#start({
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # whitch-key #
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>

@@ -11,9 +11,11 @@ opt.smartindent = true
 -- smartindent と cindent を両方 true にしたときは、cindent のみ true になるようです。
 -- opt.cindent = true
 
-vim.opt.termguicolors = true
+opt.termguicolors = true
+vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
 
 opt.number = true
+opt.numberwidth = 4
 opt.relativenumber = true
 opt.cursorline = true
 opt.cursorcolumn = true
