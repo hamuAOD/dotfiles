@@ -7,6 +7,7 @@ return {
         "bash",
         "c",
         "css",
+        "cue",
         "diff",
         "dockerfile",
         "git_config",

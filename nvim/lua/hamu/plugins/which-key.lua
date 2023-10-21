@@ -6,6 +6,7 @@ return {
     vim.o.timeoutlen = 500
 
     local wk = require("which-key")
+    wk.setup()
     wk.register({
       e = {
         name = "Easy-*",
