@@ -19,7 +19,6 @@ return {
     require("mason-lspconfig").setup {
     ensure_installed = {
       "clangd",
-      "dagger",
       "lua_ls",
       "pylsp",
       "rust_analyzer",
