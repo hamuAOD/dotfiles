@@ -1,6 +1,6 @@
 -- local autocmd = vim.api.nvim_create_autocmd
 local opt = vim.opt
-local g = vim.g
+local global = vim.g
 
 -- 「※」等の記号を打つと、半角文字と重なる問題がある。「※」などを全角文字の幅で表示するために設定する
 -- opt.ambiwidth = 'double'
@@ -27,32 +27,34 @@ opt.termguicolors = true
 opt.clipboard = "unnamedplus"
 
 opt.list = true
--- opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
-opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
+opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
+-- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
 
 opt.emoji = true
 
 -- Indenting
 opt.expandtab = true
-opt.shiftwidth = 2                        -- インデントの空白数
-opt.autoindent = true                     -- 自動インデントを有効にする
-opt.smartindent = true                    -- インデントをスマートに調整する
-opt.tabstop = 2                           -- タブの画面上での幅
-opt.softtabstop = 2                       -- 連続した空白でカーソルが動く幅
-opt.showmatch = true                      -- 括弧入力時の対応する括弧を表示
-opt.matchtime=1                           --"対括弧を一時ジャンプ
+opt.shiftwidth = 2                                      -- インデントの空白数
+opt.autoindent = true                                   -- 自動インデントを有効にする
+opt.smartindent = true                                  -- インデントをスマートに調整する
+opt.tabstop = 2                                         -- タブの画面上での幅
+opt.softtabstop = 2                                     -- 連続した空白でカーソルが動く幅
+opt.showmatch = true                                    -- 括弧入力時の対応する括弧を表示
+opt.matchtime=1                                         --"対括弧を一時ジャンプ
 opt.iskeyword:append("-")
 --set pumheight=10                        " 補完メニューの高さ固定
 --
---set nobackup                          " バックアップファイルを作成しない
---set noswapfile                        " スワップアップファイルを作成しない
---set noundofile                        " undofileを作成しない
+opt.backup = false                                      -- バックアップファイルを作成しない
+opt.swapfile = false                                    -- スワップアップファイルを作成しない
+opt.undofile = false                                    -- undofileを作成しない
 --
 opt.nrformats = "unsigned"
 
 opt.completeopt = { "menuone", "preview" }
 
 opt.guifont = { "HackGen35 Console NF", "h14" }
+
+vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 
 vim.fn.setcellwidths {
   { 0x2031, 0x2031, 2},
