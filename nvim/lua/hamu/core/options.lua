@@ -1,6 +1,9 @@
+
 -- local autocmd = vim.api.nvim_create_autocmd
 local opt = vim.opt
 local global = vim.g
+
+opt.shortmess:append "sI"                               -- disable nvim intro
 
 -- 「※」等の記号を打つと、半角文字と重なる問題がある。「※」などを全角文字の幅で表示するために設定する
 -- opt.ambiwidth = 'double'
@@ -14,19 +17,24 @@ opt.smartindent = true
 opt.termguicolors = true
 vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
 
+opt.list = true
 opt.number = true
 opt.numberwidth = 4
 opt.relativenumber = true
 opt.cursorline = true
 opt.cursorcolumn = true
-opt.wrap = false
+opt.title = true
+opt.showcmd = true
+opt.smarttab = true
+opt.breakindent = true                                  -- 折り返された行を同じインデントで表示する
+opt.wrap = true
 opt.ignorecase = true                                   -- 大文字小文字を無視
 opt.incsearch = true
 opt.hlsearch = true
 opt.termguicolors = true
 opt.clipboard = "unnamedplus"
+--opt.smartcase = true                                  -- 大文字小文字を区別しない
 
-opt.list = true
 opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
 -- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
 
@@ -42,18 +50,25 @@ opt.softtabstop = 2                                     -- 連続した空白で
 opt.showmatch = true                                    -- 括弧入力時の対応する括弧を表示
 opt.matchtime=1                                         --"対括弧を一時ジャンプ
 opt.iskeyword:append("-")
---set pumheight=10                        " 補完メニューの高さ固定
+--set pumheight=10                                      -- 補完メニューの高さ固定
 --
 opt.backup = false                                      -- バックアップファイルを作成しない
 opt.swapfile = false                                    -- スワップアップファイルを作成しない
 opt.undofile = false                                    -- undofileを作成しない
+
+opt.fillchars = { eob = " " }
+opt.signcolumn = "yes"
+-- opt.splitbelow = true
+-- opt.splitright = true
 --
 opt.nrformats = "unsigned"
 
 opt.completeopt = { "menuone", "preview" }
 
 opt.guifont = { "HackGen35 Console NF", "h14" }
-
+-- float-transparent
+opt.winblend = 5                                        --フロートウィンドウなどを若干透明に
+-- call macros
 vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 
 vim.fn.setcellwidths {
@@ -93,20 +108,6 @@ vim.fn.setcellwidths {
   { 0xf435, 0xf479, 2},
   { 0xf47f, 0xf4a8, 2},
 }
---
---opt.fillchars = { eob = " " }
---opt.smartcase = true
---opt.mouse = "a"
---
----- disable nvim intro
---opt.shortmess:append "sI"
---
---opt.signcolumn = "yes"
---opt.splitbelow = true
---opt.splitright = true
---opt.termguicolors = true
---opt.timeoutlen = 400
---opt.undofile = true
 
 -- Auto resize panes when resizing nvim window
 -- autocmd("VimResized", {

@@ -1,9 +1,6 @@
 return {
   'is0n/fm-nvim',
   event = { "BufRead", "BufNewFile" },
-
-
--- 検索ハイライトをEscキー2回押しで消去
   config = function()
     vim.keymap.set('n', '<Leader>tg', ':Gitui<CR>', {desc = "Open Gitui"}, { noremap = true, silent = true })
   end,
