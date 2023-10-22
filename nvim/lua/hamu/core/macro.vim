@@ -9,5 +9,3 @@ let @t='pV3jy4j'
 let @w='0GIFILE "wGdVG:s/.wav/.wav" WAVE/g'
 " Macro [l] : line feed
 let @l='V:s///g'
-" Macro [u] : user tag
-let @u='  TRACK 00 AUDIO    TITLE "SONG"    PERFORMER "ARTIST"    INDEX 01 00:00:00'
