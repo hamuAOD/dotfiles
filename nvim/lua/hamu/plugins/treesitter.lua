@@ -20,6 +20,7 @@ return {
         "markdown",
         "python",
         "rust",
+        "swift",
         "toml",
         "typescript",
         "vim",

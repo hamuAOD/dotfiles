@@ -40,7 +40,7 @@ config.background = {
     },
     width = '100%',
     repeat_x = 'NoRepeat',
-    opacity = 0.15,
+    opacity = 0.18,
     --attachment = { Parallax = 0.1 },
   },
 }

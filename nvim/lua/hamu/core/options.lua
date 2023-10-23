@@ -7,7 +7,7 @@ opt.shortmess:append "sI"                               -- disable nvim intro
 
 -- 「※」等の記号を打つと、半角文字と重なる問題がある。「※」などを全角文字の幅で表示するために設定する
 -- opt.ambiwidth = 'double'
--- opt.ambiwidth = 'single'
+opt.ambiwidth = 'single'
 -- 新しい行を改行で追加した時に、ひとつ上の行のインデントを引き継がせます。
 opt.autoindent = true
 opt.smartindent = true
@@ -72,10 +72,15 @@ opt.winblend = 5                                        --フロートウィン�
 vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 
 vim.fn.setcellwidths {
-  { 0x2031, 0x2031, 2},
+  { 0x2030, 0x2030, 2},
+  { 0x2032, 0x2033, 2},
+  { 0x2035, 0x2035, 2},
   { 0x203b, 0x203b, 2},
-  { 0x2103, 0x2179, 2},
+  { 0x203e, 0x203e, 2},
+  { 0x2103, 0x2103, 2},
+  { 0x2160, 0x2267, 2},
   { 0x2460, 0x24ff, 2},
+  { 0x25a0, 0x25cf, 2},
   { 0x2600, 0x2647, 2},
   { 0x2654, 0x26a9, 2},
   { 0x26ad, 0x2702, 2},

@@ -48,6 +48,7 @@ let g:which_key_map = {}
 
 """"" 自動化 """""
 autocmd BufWritePre * :%s/\s\+$//ge   " 保存時に行末の空白削除
+" option e : マッチしなかった時にエラーメッセージを表示しない
 let g:vimfiler_enable_auto_cd = 1     " 自動でカレントディレクトリを変更する設定
 
 " インサートモードに入る時に自動でコメントアウトされないようにする
@@ -63,6 +64,12 @@ endfor
 augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" | endif
+augroup END
+
+" 特定文字の強調
+augroup BadChar
+  au!
+  autocmd BufWinEnter * match Error /‐\| \+$/
 augroup END
 
 """"" Key Bindings """""
@@ -131,8 +138,9 @@ let @s='/- \dwwv/.wavhy/SONGvep03j'
 " Macro [t] : copy
 let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
-let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
+" let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
 " let @w='0GIFILE "wGdVG:s/.wav/.wav" WAVE/g'
+let @w='0GIFILE "wGdVG:s/.wav/.wav" WAVE/g'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found
@@ -172,9 +180,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
   " Fern
-  " Plug 'lambdalisue/fern.vim'
-  " Plug 'lambdalisue/nerdfont.vim'
-  " Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  Plug 'lambdalisue/fern.vim'
+  Plug 'lambdalisue/nerdfont.vim'
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   " fzf"
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -187,7 +195,7 @@ call plug#end()
 set rtp+=/opt/homebrew/opt/fzf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
-let g:EasyMotion_do_mapping = 0     " Disable default mappings
+let g:EasyMotion_do_mapping = 1     " Disable default mappings
 " WB motions: Line motions
 map <Leader>ew <Plug>(easymotion-w)
 map <Leader>eb <Plug>(easymotion-b)
@@ -210,9 +218,9 @@ let g:lightline = {'colorscheme': 'one'}
 set noshowmode    " 左下の状態表示をしない
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
-" nnoremap <silent> <Leader>ee :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
-" let g:fern#renderer = 'nerdfont'
-" let g:fern#default_hidden=1
+nnoremap <silent> <Leader>ee :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
+let g:fern#renderer = 'nerdfont'
+let g:fern#default_hidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # fzf
 let $FZF_DEFAULT_OPTS="--layout=reverse"
