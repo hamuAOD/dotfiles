@@ -44,7 +44,6 @@ set vb t_vb=                          " ビープ音を消す
 
 let mapleader="\<Space>"
 let maplocalleader = ','
-let g:which_key_map = {}
 
 """"" 自動化 """""
 autocmd BufWritePre * :%s/\s\+$//ge   " 保存時に行末の空白削除
@@ -55,7 +54,7 @@ let g:vimfiler_enable_auto_cd = 1     " 自動でカレントディレクトリ�
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " 自動補完を自動で表示
-set completeopt=menuone
+set completeopt=menuone,noinsert
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "imap <expr> " . k . " pumvisible() ? '" . k . "' : '" . k . "\<C-X>\<C-P>\<C-N>'"
 endfor
@@ -92,30 +91,18 @@ nnoremap ]q :cnext<CR>
 nnoremap [Q :<C-u>cfirst<CR>
 nnoremap ]Q :<C-u>clast<CR>
 
-let g:which_key_map.s = { 'name' : '+set toggle' }
 " set expandtab をトグル
-nnoremap <Leader>se :set expandtab!<CR>
-let g:which_key_map.s.e = 'Toggle expandtab'
+nnoremap <Leader>te :set expandtab!<CR>
 " set list をトグル
-nnoremap <Leader>sl :set list!<CR>
-let g:which_key_map.s.l = 'Toggle list'
+nnoremap <Leader>tl :set list!<CR>
 " カーソル位置強調表示のトグル
-nnoremap <Leader>sc :<C-u>setlocal cursorline! cursorcolumn!<CR>
-let g:which_key_map.s.c = 'Toggle cursor'
+nnoremap <Leader>tc :<C-u>setlocal cursorline! cursorcolumn!<CR>
 
 " ノーマルモードでもエンターキーで改行を挿入
 noremap <CR> o<ESC>
 " 行末までコピー
 nnoremap Y y$
 nnoremap <C-t> :tabnew<CR>
-
-" Auto Brackets
-inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-inoremap [ []<LEFT>
-inoremap < <><LEFT>
-inoremap { {}<LEFT>
 
 " インサートモードでの操作用
 inoremap <c-d> <DEL>
@@ -125,6 +112,8 @@ inoremap <c-k> <up>
 inoremap <c-h> <left>
 inoremap <c-l> <right>
 "nnoremap ^ $
+" スペル修正
+inoremap <C-t> <Esc><Left>"zx"zpa
 
 " osc52
 vnoremap Y y:call SendViaOSC52(getreg('"'))<CR>
@@ -163,22 +152,21 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
   Plug 'itchyny/lightline.vim'
   Plug 'dense-analysis/ale'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-commentary'
   Plug 'junegunn/vim-easy-align'
   Plug 'dominikduda/vim_current_word'
-  " Plug 'Yggdroot/indentLine'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'RRethy/vim-illuminate'
+  Plug 'chrisbra/Colorizer'
   Plug 'liuchengxu/vim-which-key'
+  " Plug 'Yggdroot/indentLine'
+  Plug 'cohama/lexima.vim'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
   " for SSH
   Plug 'ShikChen/osc52.vim'
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  " LSP
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
   " Fern
   Plug 'lambdalisue/fern.vim'
   Plug 'lambdalisue/nerdfont.vim'
@@ -186,6 +174,12 @@ call plug#begin('~/.vim/plugged')
   " fzf"
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  " LSP
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
   " vim-markdown
   Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
@@ -195,17 +189,19 @@ call plug#end()
 set rtp+=/opt/homebrew/opt/fzf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # EasyMotion #
+" map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_do_mapping = 1     " Disable default mappings
 " WB motions: Line motions
-map <Leader>ew <Plug>(easymotion-w)
-map <Leader>eb <Plug>(easymotion-b)
+map <Leader>mw <Plug>(easymotion-w)
+map <Leader>mb <Plug>(easymotion-b)
 " JK motions: Line motions
-map <Leader>ej <Plug>(easymotion-j)
-map <Leader>ek <Plug>(easymotion-k)
+map <Leader>mj <Plug>(easymotion-j)
+map <Leader>mk <Plug>(easymotion-k)
 " <Leader>1{char} to move to {char}
-nmap <Leader>ef <Plug>(easymotion-overwin-f)
+nmap <Leader>mf <Plug>(easymotion-overwin-f)
 " <Leader>2{char}{char} to move to {char}{char}
-nmap <Leader>eg <Plug>(easymotion-overwin-f2)
+nmap <Leader>mg <Plug>(easymotion-overwin-f2)
+
 " map <Leader> <Plug>(easymotion-prefix)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
@@ -214,8 +210,11 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # LightLine #
 set laststatus=2
-let g:lightline = {'colorscheme': 'one'}
 set noshowmode    " 左下の状態表示をしない
+" let g:lightline = {'colorscheme': 'one'}
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
 nnoremap <silent> <Leader>ee :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
@@ -235,11 +234,26 @@ nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fh :History<CR>
 " nnoremap <silent> <leader>fr :Rg<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # LSP #
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1  " enable echo under cursor when in normal mode
+let g:lsp_diagnostics_float_cursor = 1 " enable echo under cursor when in normal mode
+let g:lsp_diagnostics_echo_cursor = 1
+highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
+" # asyncomplete
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
+let g:asyncomplete_popup_delay = 200
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-easy-align #
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap <Leader>ea <Plug>(EasyAlign)
+xmap <Leader>ae <Plug>(EasyAlign)
+nmap <Leader>ae <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap <Leader>ea <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-markdown #
 " let g:vim_markdown_folding_disabled = 1
@@ -251,6 +265,11 @@ let g:vim_current_word#highlight_twins = 1
 " The word under cursor:
 let g:vim_current_word#highlight_current_word = 0
 let g:vim_current_word#highlight_delay = 20
+" Please add below in your vimrc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # lixima #
+call lexima#add_rule({'char': '<', 'input_after': '>'})
+" call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # indentLine#
 " set list listchars=tab:\¦\
@@ -263,22 +282,51 @@ let g:indent_guides_enable_on_vim_startup = 1
 " let g:indent_guides_guide_size = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # Colorizer #
+noremap <silent> <leader>tz :ColorToggle<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # whitch-key #
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :WhichKey ','<CR>
+
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+call which_key#register('<Space>', "g:which_key_map")
 set timeoutlen=500
+
 let g:which_key_map = {}
-" autocmd! FileType which_key
-" autocmd  FileType which_key set laststatus=0 noshowmode noruler
-"   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-" let g:which_key_map.s = {
-"       \ 'name' : '+set toggle',
-"       \ 'e' : ['set expandtab!', 'Toggle expandtab'],
-"       \ 'l' : ['set list!', 'Toggle list'],
-"       \ 'c' : ['setlocal cursorline! cursorcolumn!!', 'Toggle cursor'],
-"       \ }
-" let g:which_key_map.m = { 'name' : 'EasyMotion' }
-" let g:which_key_map.m.w = 'Jump to WORD'
+
+let g:which_key_map.a = {
+      \ 'name' : '+align',
+      \ 'e' : 'Easy-Align',
+      \}
+let g:which_key_map.e = {
+      \ 'name' : '+fern',
+      \ 'e' : 'toggle Explorer',
+      \}
+let g:which_key_map.f = {
+      \ 'name' : '+fzf',
+      \ 'f' : 'Files',
+      \ 'g' : 'Grep',
+      \ 'b' : 'Buffers',
+      \ 'h' : 'History',
+      \}
+let g:which_key_map.t = {
+      \ 'name' : '+toggle',
+      \ 't' : 'Expandtab',
+      \ 'l' : 'List',
+      \ 'c' : 'Cursor',
+      \ 'z' : 'Colorizer',
+      \}
+let g:which_key_map.m = {
+      \ 'name' : '+EasyMotion',
+      \ 'w' : 'Jump to lower word',
+      \ 'b' : 'Jump to upper word',
+      \ 'j' : 'Jump to upper line',
+      \ 'k' : 'Jump to lower line',
+      \ 'f' : 'Jump to 1 char',
+      \ 'g' : 'Jump to 2 char',
+      \}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
@@ -290,6 +338,6 @@ if empty(glob('~/.vim/pack/themes/start/dracula/colors/dracula.vim'))
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 packadd! dracula
-syntax enable                         " dein対策
+syntax enable
 colorscheme dracula
 set modifiable
