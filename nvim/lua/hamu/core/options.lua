@@ -27,13 +27,17 @@ opt.title = true
 opt.showcmd = true
 opt.smarttab = true
 opt.breakindent = true                                  -- 折り返された行を同じインデントで表示する
-opt.wrap = true
+opt.wrap = false
 opt.ignorecase = true                                   -- 大文字小文字を無視
-opt.incsearch = true
-opt.hlsearch = true
+opt.incsearch  = true
+opt.hlsearch   = true
+opt.matchtime  = 1                                      -- 対括弧を一時ジャンプ
 opt.termguicolors = true
 opt.clipboard = "unnamedplus"
 --opt.smartcase = true                                  -- 大文字小文字を区別しない
+--
+opt.textwidth = 0                                       -- 勝手に改行させない
+opt.formatoptions:remove('q')                           -- 自動改行OFF
 
 opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
 -- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
