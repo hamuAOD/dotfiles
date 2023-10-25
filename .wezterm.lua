@@ -1,6 +1,5 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
-
 local act = wezterm.action
 
 -- This table will hold the configuration.
@@ -14,14 +13,14 @@ end
 
 -- This is where you actually apply your config choices
 --  https://wezfurlong.org/wezterm/config/lua/config/index.html
--- wezterm.on('gui-startup', function(cmd)
---   -- not work without "tab, pane, "
---   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
---     window:gui_window():set_position(50, 140)
---     config.initial_cols = 130
---     config.initial_rows = 50
---   end
--- )
+wezterm.on('gui-startup', function(cmd)
+  -- not work without "tab, pane, "
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+    window:gui_window():set_position(50, 140)
+    config.initial_cols = 130
+    config.initial_rows = 50
+  end
+)
 
 config.initial_cols = 130
 config.initial_rows = 50
@@ -53,7 +52,7 @@ config.window_background_gradient = {
     -- Red
     -- '#240a07', '#54211c', '#391f1f',
     -- Grey
-    '#0f0f0f', '#252525', '#141414',
+    '#0f0f0f', '#212121', '#141414',
   },
   -- preset = "Warm",
   interpolation = 'Linear',
