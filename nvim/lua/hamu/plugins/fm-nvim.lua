@@ -2,7 +2,7 @@ return {
   'is0n/fm-nvim',
   event = { "BufRead", "BufNewFile" },
   config = function()
-    vim.keymap.set('n', '<Leader>tg', ':Gitui<CR>', {desc = "Open Gitui"}, { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>gu', ':Gitui<CR>', {desc = "Open Gitui"}, { noremap = true, silent = true })
   end,
 }
   -- config = function()
