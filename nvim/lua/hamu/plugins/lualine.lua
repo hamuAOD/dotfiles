@@ -61,6 +61,8 @@ return {
         -- theme = 'catppuccin',
         component_separators = { left = '❱', right = '❰'},
         section_separators = { left = '', right = ''},
+        -- Global Status Line
+        globalstatus = true,
       },
       sections = {
         lualine_x = {
@@ -76,6 +78,7 @@ return {
       },
     })
 
-  vim.api.nvim_set_option('showmode', false)
+    vim.api.nvim_set_option('showmode', false)
+    vim.o.laststatus = 3 -- enable Global Status Line
   end,
 }

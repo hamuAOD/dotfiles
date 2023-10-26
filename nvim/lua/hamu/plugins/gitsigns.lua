@@ -14,7 +14,7 @@ return {
         changedelete = { text = '~' },
         untracked    = { text = '┆' },
       },
-    signcolumn = false, -- Toggle with `:Gitsigns toggle_signs`
+    signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
     numhl      = true,  -- Toggle with `:Gitsigns toggle_numhl`
     linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff  = true,  -- Toggle with `:Gitsigns toggle_word_diff`

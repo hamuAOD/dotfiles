@@ -38,12 +38,9 @@ opt.clipboard = "unnamedplus"
 --
 opt.textwidth = 0                                       -- 勝手に改行させない
 opt.formatoptions:remove('q')                           -- 自動改行OFF
-
 opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
 -- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
-
 opt.emoji = true
-
 -- Indenting
 opt.expandtab = true
 opt.shiftwidth = 2                                      -- インデントの空白数
@@ -66,10 +63,9 @@ opt.signcolumn = "yes"
 -- opt.splitright = true
 --
 opt.nrformats = "unsigned"
-
 opt.completeopt = { "menuone", "preview" }
+-- opt.guifont = { "HackGen35 Console NF", "h13" }
 
-opt.guifont = { "HackGen35 Console NF", "h14" }
 -- float-transparent
 opt.winblend = 5                                        --フロートウィンドウなどを若干透明に
 -- call macros
@@ -117,9 +113,3 @@ vim.fn.setcellwidths {
   { 0xf435, 0xf479, 2},
   { 0xf47f, 0xf4a8, 2},
 }
-
--- Auto resize panes when resizing nvim window
--- autocmd("VimResized", {
---   pattern = "*",
---   command = "tabdo wincmd =",
--- })

@@ -8,17 +8,27 @@ return {
     local wk = require("which-key")
     wk.setup()
     wk.register({
-      e = {
-        name = "Easy-*",
+      ["<Leader>"] = {
+        a = { name = "+Align", },
+        b = { name = "+Buffer", },
+        e = { name = "+NvimTree", },
+        f = { name = "+fzf", },
+        g = { name = "+git", },
+        h = { name = "+Hop", },
+        m = { name = "+Markdown", },
+        t = { name = "+Toggle*", },
       },
-      {
-        prefix = "<Leader>"
-      }
     })
+    -- wk.register({
+    --   -- map
+    --   a = {
+    --     name = "+Align*",
+    --   },
+    --   -- opt
+    --   {
+    --     -- prefix = "<Leader>",
+    --     prefix = "",
+    --   },
+    -- })
   end,
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
 }
