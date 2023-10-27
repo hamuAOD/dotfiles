@@ -26,7 +26,7 @@ config.initial_cols = 130
 config.initial_rows = 50
 config.font = wezterm.font('HackGen35 Console NF', { weight = 'Bold', italic = false })
 config.font_size = 13
-config.window_background_opacity = 0.94
+config.window_background_opacity = 0.97
 config.macos_window_background_blur = 12
 config.color_scheme = 'Dracula'
 -- config.treat_east_asian_ambiguous_width_as_wide = true
@@ -39,7 +39,7 @@ config.background = {
     },
     width = '100%',
     repeat_x = 'NoRepeat',
-    opacity = 0.18,
+    opacity = 0.12,
     --attachment = { Parallax = 0.1 },
   },
 }
