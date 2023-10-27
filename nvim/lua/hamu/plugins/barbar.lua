@@ -10,8 +10,8 @@ return {
     local map = vim.api.nvim_set_keymap
     local NS = { noremap = true, silent = true }
 
-    map('n', '<Leader>bn', '<Cmd>BufferPrevious<CR>', NS)
-    map('n', '<Leader>bp', '<Cmd>BufferNext<CR>', NS)
+    map('n', '<Leader>bp', '<Cmd>BufferPrevious<CR>', NS)
+    map('n', '<Leader>bn', '<Cmd>BufferNext<CR>', NS)
     map('n', '<Leader>bs', '<Cmd>BufferPick<CR>', NS)
     map('n', '<Leader>bc', '<Cmd>BufferClose<CR>', NS)
   end,

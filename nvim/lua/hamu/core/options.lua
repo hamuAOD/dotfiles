@@ -5,6 +5,10 @@ local global = vim.g
 
 opt.shortmess:append "sI"                               -- disable nvim intro
 
+vim.scriptencoding = 'utf-8'
+opt.encoding = 'utf-8'
+opt.fileencoding = 'utf-8'
+
 -- 「※」等の記号を打つと、半角文字と重なる問題がある。「※」などを全角文字の幅で表示するために設定する
 -- opt.ambiwidth = 'double'
 opt.ambiwidth = 'single'
@@ -65,6 +69,9 @@ opt.signcolumn = "yes"
 opt.nrformats = "unsigned"
 opt.completeopt = { "menuone", "preview" }
 -- opt.guifont = { "HackGen35 Console NF", "h13" }
+
+opt.helplang = 'ja', 'en'
+opt.termguicolors = true
 
 -- float-transparent
 opt.winblend = 5                                        --フロートウィンドウなどを若干透明に
