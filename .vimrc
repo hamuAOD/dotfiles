@@ -68,7 +68,7 @@ augroup END
 " 特定文字の強調
 augroup BadChar
   au!
-  autocmd BufWinEnter * match Error /‐\| \+$/
+  autocmd BufWinEnter * match Error /‐\|–\| \+$/
 augroup END
 
 """"" Key Bindings """""
