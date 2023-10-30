@@ -7,9 +7,6 @@ return{
     require("sidebar-nvim").setup({
       side = "right",
       sections = { "datetime", "git", "symbols", "diagnostics" },
-      symbols = {
-        icon = "󰊕",
-      },
     })
 
     local NS = { noremap = true, silent = true }
