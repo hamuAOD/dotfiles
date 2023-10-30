@@ -13,7 +13,7 @@ return {
     map('n', '<Leader>bp', '<Cmd>BufferPrevious<CR>', NS)
     map('n', '<Leader>bn', '<Cmd>BufferNext<CR>', NS)
     map('n', '<Leader>bs', '<Cmd>BufferPick<CR>', NS)
-    map('n', '<Leader>bc', '<Cmd>BufferClose<CR>', NS)
+    map('n', '<Leader>bw', '<Cmd>BufferClose<CR>', NS)
   end,
   opts = {
         -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:

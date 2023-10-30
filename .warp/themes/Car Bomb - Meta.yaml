@@ -8,7 +8,8 @@ background_image:
 details: darker
 terminal_colors:
   normal:
-    black: "#282a36"
+    # black: "#282a36"
+    black: "#1e1f29"
     red: "#ff5555"
     green: "#50fa7b"
     yellow: "#f1fa8c"

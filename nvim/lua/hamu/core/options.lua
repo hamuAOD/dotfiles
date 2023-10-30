@@ -70,7 +70,7 @@ opt.nrformats = "unsigned"
 opt.completeopt = { "menuone", "preview" }
 -- opt.guifont = { "HackGen35 Console NF", "h13" }
 
-opt.helplang = 'ja', 'en'
+opt.helplang = 'ja'                                     -- 'en'
 opt.termguicolors = true
 
 -- float-transparent
