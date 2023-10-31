@@ -47,13 +47,13 @@ truncation_symbol = ' ' # nf-fa-folder_open
 truncate_to_repo = false
 home_symbol = ' ~' # nf-fa-home
 #style = 'fg:#7aa2f7 bg:#1a1b4d'
-style = 'fg:#fe78c5 bg:#1e1f2a bold'
+style = 'fg:#fe78c5 bg:#1e1f1a bold'
 read_only = ' 󰌾 ' # nf-md-lock
 read_only_style = 'fg:#f7768e bg:#1e1f2a bold'
 format = '[$path]($style)[$read_only]($read_only_style)'
 
 [git_branch]
-symbol = '  ' # nf-fa-github_alt, nf-fa-code_fork
+symbol = '  ' # nf-fa-github_alt, nf-fa-code_fork
 truncation_length = 4
 truncation_symbol = ''
 #style = 'fg:#7aa2f7 bg:#1a1b4d'

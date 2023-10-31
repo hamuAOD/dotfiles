@@ -26,10 +26,16 @@ config.initial_cols = 130
 config.initial_rows = 50
 config.font = wezterm.font('HackGen35 Console NF', { weight = 'Bold', italic = false })
 config.font_size = 13
-config.window_background_opacity = 0.94
+config.window_background_opacity = 0.97
 config.macos_window_background_blur = 12
-config.color_scheme = 'Dracula'
 -- config.treat_east_asian_ambiguous_width_as_wide = true
+
+-- Colorscheme
+-- config.color_scheme = 'Dracula'
+config.color_scheme = "Dracula (Official)"
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
+config.window_decorations = "RESIZE"
 
 config.background = {
   -- This is the deepest/back-most layer. It will be rendered first
@@ -52,7 +58,9 @@ config.window_background_gradient = {
     -- Red
     -- '#240a07', '#54211c', '#391f1f',
     -- Grey
-    '#0f1113', '#1a1c1e', '#141618',
+    -- '#0f1113', '#1a1c1e', '#141618',
+    -- '#070915', '#272935', '#171925',
+    '#070915', '#272935', '#171925',
   },
   -- preset = "Warm",
   interpolation = 'Linear',
