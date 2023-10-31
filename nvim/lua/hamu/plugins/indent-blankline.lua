@@ -67,5 +67,8 @@ return {
 
     require("ibl").setup { indent = { highlight = highlight } }
     -- require("ibl").setup()
+    --
+    --:IBLToggle
+    vim.keymap.set('n', '<Leader>ti', '<CMD>IBLToggle<CR>', {desc = "Toggle IndentLine"}, { noremap = true, silent = true })
   end,
 }
