@@ -35,7 +35,9 @@ config.macos_window_background_blur = 12
 config.color_scheme = "Dracula (Official)"
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
-config.window_decorations = "RESIZE"
+config.hide_tab_bar_if_only_one_tab = true
+-- "TITLE", "RESIZE", "TITLE | RESIZE"
+config.window_decorations = "TITLE"
 
 config.background = {
   -- This is the deepest/back-most layer. It will be rendered first
@@ -45,7 +47,7 @@ config.background = {
     },
     width = '100%',
     repeat_x = 'NoRepeat',
-    opacity = 0.25,
+    opacity = 0.22,
     --attachment = { Parallax = 0.1 },
   },
 }

@@ -256,7 +256,7 @@ nmap <Leader>ae <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-markdown #
-" let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim_current_word #
 " Twins of word under cursor:
