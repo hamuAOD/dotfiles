@@ -37,7 +37,7 @@ config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 -- "TITLE", "RESIZE", "TITLE | RESIZE"
-config.window_decorations = "TITLE"
+config.window_decorations = "RESIZE"
 
 config.background = {
   -- This is the deepest/back-most layer. It will be rendered first
@@ -92,6 +92,7 @@ config.keys = {
   { key = 'c',          mods = 'LEADER', action = act.ActivateCopyMode},
   -- Pane
   { key = '[',          mods = 'CTRL',   action = act.PaneSelect},
+  { key = ']',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Next'},
   { key = 'r',          mods = 'LEADER', action = act.RotatePanes 'Clockwise'},
   { key = 'a',          mods = 'LEADER', action = act.ActivatePaneDirection 'Next'},
   { key = 'LeftArrow',  mods = 'LEADER', action = act.ActivatePaneDirection 'Left'},
