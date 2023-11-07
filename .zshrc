@@ -14,16 +14,6 @@ then
   compinit
 fi
 
-ZSH_DIR="${HOME}/.zsh"
-# .zshがディレクトリで、読み取り、実行、が可能なとき
-if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
-    # zshディレクトリより下にある、.zshファイルの分、繰り返す
-    for file in ${ZSH_DIR}/**/*.zsh; do
-        # 読み取り可能ならば実行する
-        [ -r $file ] && source $file
-    done
-fi
-
 # Alias
 alias bu='brew update && brew upgrade && brew cleanup'
 alias v='nvim'
@@ -83,3 +73,13 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # zsh-fast-syntax-highlighting
 #add the following at the end of your .zshrc:
 source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+ZSH_DIR="${HOME}/.zsh.d"
+# .zshがディレクトリで、読み取り、実行、が可能なとき
+if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
+  # zshディレクトリより下にある、.zshファイルの分、繰り返す
+  for file in ${ZSH_DIR}/*.zsh; do
+    # 読み取り可能ならば実行する
+    [ -r $file ] && source $file
+  done
+fi
