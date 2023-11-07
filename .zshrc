@@ -19,7 +19,7 @@ alias bu='brew update && brew upgrade && brew cleanup'
 alias v='nvim'
 alias vcd='nvim ~/Music/CD'
 alias fd='fd -H'
-alias gotop='gotop -s -l battery'
+alias gotopb='gotop -l battery'
 alias ttyc='tty-clock -sc'
 ##### exa #####
 alias ls='exa --icons'
