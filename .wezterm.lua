@@ -29,7 +29,7 @@ config.font_size = 13
 config.window_background_opacity = 0.97
 config.macos_window_background_blur = 12
 -- config.treat_east_asian_ambiguous_width_as_wide = true
-
+config.window_close_confirmation = 'NeverPrompt'  -- AlwaysPrompt
 -- Colorscheme
 -- config.color_scheme = 'Dracula'
 config.color_scheme = "Dracula (Official)"

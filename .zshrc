@@ -14,6 +14,9 @@ then
   compinit
 fi
 
+setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
+setopt share_history     # 同時に起動したzshで履歴を共有する
+
 # Alias
 alias bu='brew update && brew upgrade && brew cleanup'
 alias v='nvim'
