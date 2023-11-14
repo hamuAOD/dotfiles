@@ -20,10 +20,13 @@ return {
     nvimtree.setup({
       view = {
         width = 35,
-        relativenumber = true,
+        number = false,
+        relativenumber = false,
       },
       -- change folder arrow icons
       renderer = {
+        highlight_git = true,
+        highlight_opened_files = 'name',
         indent_markers = {
           enable = true,
         },

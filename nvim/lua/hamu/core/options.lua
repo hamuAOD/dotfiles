@@ -70,6 +70,10 @@ opt.nrformats = "unsigned"
 opt.completeopt = { "menuone", "preview" }
 -- opt.guifont = { "HackGen35 Console NF", "h13" }
 
+---- disable netrw at the very start of your init.lua
+vim.api.nvim_set_var('loaded_netrw', 1)
+vim.api.nvim_set_var('loaded_netrwPlugin', 1)
+
 opt.helplang = 'ja'                                     -- 'en'
 opt.termguicolors = true
 
