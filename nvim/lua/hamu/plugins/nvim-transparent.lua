@@ -12,6 +12,7 @@ return
       extra_groups = {
         -- "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
         "NvimTreeNormal",
+        "NeoTreeNormal", "NeoTreeNormalNC"
       }, -- table: additional groups that should be cleared
       exclude_groups = {}, -- table: groups you don't want to clear
     })
@@ -20,7 +21,9 @@ return
       -- Configuration here, or leave empty to use defaults
     })
     -- require('transparent').clear_prefix('lualine')
+    -- require('transparent').clear_prefix('NeoTree')
     -- keymap
-    vim.keymap.set('n', '<Leader>tt', ':TransparentToggle<CR>', {desc = "Toggle Transparent"}, { noremap = true, silent = true })
+    local NS = { noremap = true, silent = true }
+    vim.keymap.set('n', '<Leader>tt', ':TransparentToggle<CR>', {desc = "Toggle Transparent"}, NS)
   end
 }

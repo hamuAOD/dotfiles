@@ -11,7 +11,7 @@ return {
       ["<Leader>"] = {
         a = { name = "+Align", },
         b = { name = "+Buffer", },
-        e = { name = "+NvimTree", },
+        e = { name = "+Explorer", },
         f = { name = "+fzf", },
         g = { name = "+git", },
         h = { name = "+Hop", },

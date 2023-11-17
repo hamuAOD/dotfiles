@@ -59,7 +59,7 @@ opt.iskeyword:append("-")
 --
 opt.backup = false                                      -- バックアップファイルを作成しない
 opt.swapfile = false                                    -- スワップアップファイルを作成しない
-opt.undofile = false                                    -- undofileを作成しない
+opt.undofile = true                                     -- undofileを作成しない
 
 opt.fillchars = { eob = " " }
 opt.signcolumn = "yes"
