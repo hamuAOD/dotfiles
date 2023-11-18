@@ -23,6 +23,8 @@ keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDT
 keymap.set('n', '<Leader>tl', '<CMD>set list!<CR>', {desc = "Toggle LIST"}, NS)
 -- カーソル位置強調表示のトグル
 keymap.set('n', '<Leader>tc', '<CMD><C-u>setlocal cursorline! cursorcolumn!<CR>', {desc = "Toggle Cursor"}, NS)
+-- スペルチェック
+keymap.set('n', '<Leader>ts', '<CMD>set spell!<CR>', {desc = "Toggle Spell-Check"}, NS)
 
 -- ノーマルモードでもエンターキーで改行を挿入
 -- keymap.set('n', '<CR>', 'o<ESC>', {noremap = true})

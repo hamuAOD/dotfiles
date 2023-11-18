@@ -10,6 +10,6 @@ return{
     })
 
     local NS = { noremap = true, silent = true }
-    vim.keymap.set('n', '<Leader>ts', '<CMD>SidebarNvimToggle<CR>', {desc = "Toggle Sidebar"}, NS)
+    vim.keymap.set('n', '<Leader>tb', '<CMD>SidebarNvimToggle<CR>', {desc = "Toggle Sidebar"}, NS)
   end,
 }
