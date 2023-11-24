@@ -17,6 +17,8 @@ keymap.set('n', 'sv', '<CMD>vsplit<CR><C-w>w', {desc = "Split Window Vertical"},
 keymap.set('n', 'sn', '<C-w>w', {desc = "Next Window"}, NS)
 keymap.set('n', 'sp', '<C-w><S-w>', {desc = "Previous Window"}, NS)
 
+keymap.set('n', 'gg', '0gg', {desc = "Move to TOP"}, NS)
+
 -- set expandtab をトグル
 keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB"}, NS)
 -- set list をトグル
