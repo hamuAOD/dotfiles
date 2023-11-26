@@ -85,6 +85,15 @@ nmap <ESC><ESC> :nohlsearch<CR><ESC>
 " Escで日本語入力解除
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
+let s:lastiminsert = 0
+" IMEの状態を保持しておく、置換モードではIMEの状態を保持しない
+" 置換モードではIMEの状態を保持しない。置換モードではIMEオフなので、置換モード後の挿入モードが常にIMEオフになることを避ける
+autocmd InsertLeave * if v:insertmode !=# 'r' | let s:lastiminsert = &iminsert | set iminsert=0 | endif
+" IMEの状態を復帰する。改行時には続けてIMEオンのままにしたいため。
+" 挿入モード（IMEオン）→ノーマルモード→挿入モード（IMEオン） となるが。これはむしろできなくていい
+" 置換モードではIMEの状態を復帰しない
+autocmd InsertEnter * if v:insertmode ==# 'i' | let &iminsert = s:lastiminsert | endif
+
 "vimgrep 移動KEY
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>

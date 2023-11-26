@@ -1,7 +1,7 @@
 set modifiable
 set showtabline=1                           " 2個以上のタブがあるときのみタブバーを表示する
 set noimdisable                             " IMEを自動でOFF設定
-"set iminsert=2
+set iminsert=2
 
 if has('gui_macvim')
 " colorscheme iceberg
