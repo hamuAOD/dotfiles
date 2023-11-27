@@ -190,7 +190,7 @@ call plug#end()
 set rtp+=/opt/homebrew/opt/fzf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-im-select #
-let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
+let g:im_select_default = 'com.apple.keylayout.ABC'
 let g:im_select_enable_for_gvim = 1
 " com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese
 " com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
