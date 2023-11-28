@@ -68,7 +68,7 @@ augroup END
 " 特定文字の強調
 augroup BadChar
   au!
-  autocmd BufWinEnter * match Error /‐\|–\| \+$/
+  autocmd BufWinEnter * match Error /‐\|–\|“\| \+$/
 augroup END
 
 """"" Key Bindings """""
@@ -178,7 +178,7 @@ call plug#begin('~/.vim/plugged')
   " LSP
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
-  Plug 'prabirshrestha/async.vim'
+  " Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   " vim-markdown
