@@ -129,7 +129,8 @@ let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
 " let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
 " let @w='0GIFILE "wGdVG:s/.wav/.wav" WAVE/g'
-let @w='0GIFILE "wGdVG:s/.wav/.wav" WAVE/g'
+let @w='0GIFILE "wGwxVG:s/.wav/.wav" WAVE/g'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found
