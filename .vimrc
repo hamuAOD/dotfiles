@@ -151,12 +151,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'
   Plug 'junegunn/vim-easy-align'
   Plug 'dominikduda/vim_current_word'
-  Plug 'nathanaelkane/vim-indent-guides'
+  " Plug 'nathanaelkane/vim-indent-guides'
   Plug 'RRethy/vim-illuminate'
   Plug 'chrisbra/Colorizer'
   Plug 'liuchengxu/vim-which-key'
   Plug 'yoshida-m-3/vim-im-select'
-  " Plug 'Yggdroot/indentLine'
+  Plug 'Yggdroot/indentLine'
   Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
@@ -219,7 +219,7 @@ set noshowmode    " 左下の状態表示をしない
 " let g:lightline = {'colorscheme': 'one'}
 let g:lightline = {
       \ 'colorscheme': 'one',
-      \ }
+			\ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
 nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
@@ -277,15 +277,20 @@ call lexima#add_rule({'char': '<', 'input_after': '>'})
 " call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # indentLine#
-" set list listchars=tab:\¦\
-" let g:indentLine_char = '¦' " ¦, ┆, │, ⎸, or ▏
+set list listchars="tab:\¦\ "
+let g:indentLine_char = '⎸' " ¦, ┆, │, ⎸, or ▏
 " let g:indentLine_setColors = 0
+let g:indentLine_color_term = 239
+" Disable by default
+let g:indentLine_enabled = 0
+noremap <silent> <leader>ti :IndentLinesToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # vim-indent-guides #
-let g:indent_guides_enable_on_vim_startup = 1
-" let g:indent_guides_start_level = 2
-" let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+" let g:indent_guides_enable_on_vim_startup = 1
+" " let g:indent_guides_start_level = 2
+" " let g:indent_guides_guide_size = 1
+" let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+" noremap <silent> <leader>ti :IndentGuidesToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Colorizer #
 noremap <silent> <leader>tz :ColorToggle<CR>
@@ -316,6 +321,7 @@ let g:which_key_map.f = {
 let g:which_key_map.t = {
       \ 'name' : '+toggle',
       \ 'e' : 'Expandtab',
+      \ 'i' : 'Indent-Lines',
       \ 'l' : 'List',
       \ 'c' : 'Cursor',
       \ 'z' : 'Colorizer',
