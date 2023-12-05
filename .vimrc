@@ -129,8 +129,7 @@ let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
 " let @w='GIFILE "VG:s/.wav/.wav" WAVE/g'
 " let @w='0GIFILE "wGdVG:s/.wav/.wav" WAVE/g'
-let @w='0GIFILE "wGwxVG:s/.wav/.wav" WAVE/g'
-
+let @w='VG:s/^/FILE "/gVG:s/.wav/.wav" WAVE/g'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found
@@ -226,7 +225,7 @@ let g:lightline = {
       \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # Fern #
-nnoremap <silent> <Leader>ee :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
+nnoremap <silent> <Leader>e :Fern %:h -reveal=% -drawer -toggle -width=35<CR>
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -272,11 +271,11 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_current_word#enabled = 1
 let g:vim_current_word#highlight_twins = 1
 " The word under cursor:
-let g:vim_current_word#highlight_current_word = 0
+let g:vim_current_word#highlight_current_word = 1
 let g:vim_current_word#highlight_delay = 20
 " Please add below in your vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" # lixima #
+" # lexima #
 call lexima#add_rule({'char': '<', 'input_after': '>'})
 " call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -309,10 +308,7 @@ let g:which_key_map.a = {
       \ 'name' : '+align',
       \ 'e' : 'Easy-Align',
       \}
-let g:which_key_map.e = {
-      \ 'name' : '+fern',
-      \ 'e' : 'toggle Explorer',
-      \}
+let g:which_key_map.e = 'toggle Explorer'
 let g:which_key_map.f = {
       \ 'name' : '+fzf',
       \ 'f' : 'Files',
@@ -322,7 +318,7 @@ let g:which_key_map.f = {
       \}
 let g:which_key_map.t = {
       \ 'name' : '+toggle',
-      \ 't' : 'Expandtab',
+      \ 'e' : 'Expandtab',
       \ 'l' : 'List',
       \ 'c' : 'Cursor',
       \ 'z' : 'Colorizer',
