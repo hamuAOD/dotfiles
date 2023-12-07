@@ -277,7 +277,6 @@ call lexima#add_rule({'char': '<', 'input_after': '>'})
 " call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # indentLine#
-set list listchars="tab:\¦\ "
 let g:indentLine_char = '⎸' " ¦, ┆, │, ⎸, or ▏
 " let g:indentLine_setColors = 0
 let g:indentLine_color_term = 239
