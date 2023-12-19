@@ -57,12 +57,12 @@ return {
       -- vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#3898A4" })
 
       vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#3E3A53" })
-      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#3E3A53" })
-      vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#3E3A53" })
-      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#3E3A53" })
-      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#3E3A53" })
-      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#3E3A53" })
-      vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#3E3A53" })
+      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#5E5A73" })
+      vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#5E5A73" })
+      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#5E5A73" })
+      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#5E5A73" })
+      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#5E5A73" })
+      vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#5E5A73" })
     end)
 
     require("ibl").setup { indent = { highlight = highlight } }
