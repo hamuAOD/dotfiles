@@ -335,8 +335,9 @@ let g:which_key_map.m = {
       \ 'g' : 'Jump to 2 char',
       \}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
+" Background transparent
+" autocmd ColorScheme * highlight Normal ctermbg=none
+" autocmd ColorScheme * highlight LineNr ctermbg=none
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " install Dracula colortheme
 if empty(glob('~/.vim/pack/themes/start/dracula/colors/dracula.vim'))
