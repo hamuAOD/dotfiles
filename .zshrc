@@ -23,6 +23,7 @@ alias v='nvim'
 alias vcd='nvim ~/Music/CD'
 alias vnv='nvim ~/.config/nvim'
 alias fd='fd -H'
+alias rm='rm -rf'
 alias gotopb='gotop -l battery'
 alias ttyc='tty-clock -sc'
 ##### exa #####
