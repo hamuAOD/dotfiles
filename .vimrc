@@ -11,7 +11,7 @@ set incsearch                         " インクリメンタル検索
 set hlsearch                          " ハイライト検索
 set list                              " タブ，行末を可視化
 set listchars=eol:↲,tab:>-,trail:_    " 特殊文字の表示設定
-set expandtab                         " <Tab>を空白で入力
+"set expandtab                         " <Tab>を空白で入力
 set tabstop=2                         " タブの画面上での幅
 set shiftwidth=2                      " インデントの空白数
 set softtabstop=2                     " 連続した空白でカーソルが動く幅
