@@ -59,7 +59,8 @@ if [[ -e /opt/homebrew/bin/pyenv ]]; then
 fi
 
 ##### fzf #####
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
 --preview-window 'right:50%' \
