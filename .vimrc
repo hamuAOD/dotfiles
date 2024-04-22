@@ -46,7 +46,8 @@ let mapleader="\<Space>"
 let maplocalleader = ','
 
 """"" 自動化 """""
-autocmd BufWritePre * :%s/\s\+$//ge   " 保存時に行末の空白削除
+autocmd BufWritePre * :%s/\s\+$//ge             " 保存時に行末の空白削除
+autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge   " for FC2
 " option e : マッチしなかった時にエラーメッセージを表示しない
 let g:vimfiler_enable_auto_cd = 1     " 自動でカレントディレクトリを変更する設定
 
