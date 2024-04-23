@@ -22,6 +22,8 @@ dimensions = { columns = 130, lines = 50 }  # Default: columns = 0, lines = 0
 
 # Window startup position
 
+position = { x = 50, y = 140 }
+
 # Blank space added around the window in pixels
 padding = { x = 5, y = 5 }  # Default: x = 0, y = 0
 
