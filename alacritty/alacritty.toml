@@ -1,0 +1,43 @@
+# ====================== GENERAL ======================
+# Import additional configuration files
+import = [
+  "~/.config/alacritty/themes/dracula.toml",
+]
+
+[font]
+
+# Normal font style
+normal = { family = "HackGen35 Console NF", style = "Regular" }  # Default for Linux/BSD: "monospace", Regular
+
+size = 13.0
+
+# Offset is extra space around each character
+offset = { x = 1, y = 1 }  # Default: x = 0, y = 0
+
+
+[window]
+
+# Window dimensions
+dimensions = { columns = 130, lines = 50 }  # Default: columns = 0, lines = 0
+
+# Window startup position
+
+# Blank space added around the window in pixels
+padding = { x = 5, y = 5 }  # Default: x = 0, y = 0
+
+# Opacity
+opacity = 1.0  # Default: 1.0
+
+# Request compositor to blur content behind transparent windows.
+blur = true  # Default: false
+
+# ====================== KEYBOARD ======================
+[keyboard]
+# Example
+bindings = [
+    # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+    # { key = "L", mods = "Control|Shift", chars = "l" },
+  { key = "ArrowRight", mods = "Command", chars = "\u0005" },
+  { key = "ArrowLeft", mods = "Command", chars = "\u0001" },
+  { key = "Back", mods = "Command", chars = "\u0015" },
+]
