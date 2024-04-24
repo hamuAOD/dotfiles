@@ -31,10 +31,10 @@ position = { x = 40, y = 80 }
 padding = { x = 6, y = 6 }  # Default: x = 0, y = 0
 
 # Opacity
-opacity = 1.0  # Default: 1.0
+opacity = 0.97  # Default: 1.0
 
 # Request compositor to blur content behind transparent windows.
-blur = true  # Default: false
+blur = false  # Default: false
 
 # ====================== KEYBOARD ======================
 [keyboard]
@@ -43,6 +43,9 @@ bindings = [
     # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
     # { key = "L", mods = "Control|Shift", chars = "l" },
   { key = "ArrowRight", mods = "Command", chars = "\u0005" },
-  { key = "ArrowLeft", mods = "Command", chars = "\u0001" },
-  { key = "Back", mods = "Command", chars = "\u0015" },
+  { key = "ArrowLeft",  mods = "Command", chars = "\u0001" },
+  { key = "ArrowRight", mods = "Option",  chars = "\u001BF" },
+  { key = "ArrowLeft",  mods = "Option",  chars = "\u001BB" },
+  { key = "Back",       mods = "Command", chars = "\u0015" },
+  { key = "Back",       mods = "Option",  chars = "\u001B\u007f" },
 ]
