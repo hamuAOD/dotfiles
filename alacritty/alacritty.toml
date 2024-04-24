@@ -4,6 +4,9 @@ import = [
   "~/.config/alacritty/themes/dracula.toml",
 ]
 
+[env]
+term = "xterm-256color"
+
 [font]
 
 # Normal font style
