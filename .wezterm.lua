@@ -73,7 +73,7 @@ config.window_background_gradient = {
 -- Key Configs
 -- config.disable_default_key_bindings = true
 
-config.leader = { key = 'a', mods = 'CMD', timeout_milliseconds = 1000 }
+config.leader = { key = 'q', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
   {
@@ -108,6 +108,17 @@ config.keys = {
   { key = '-',          mods = 'CMD',    action = act.DecreaseFontSize},
   -- { key = 'Backspace',  mods = 'CMD',  action = act.SendKey{ key = 'u', mods = 'CTRL' } },
   -- { key = 'L',          mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+  { key = 'p', mods = 'SHIFT|CTRL', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false }}
+}
+
+config.key_tables = {
+  resize_pane = {
+    { key = 'h', action = wezterm.action.AdjustPaneSize {"Left", 1} },
+    { key = 'j', action = wezterm.action.AdjustPaneSize {"Down", 1} },
+    { key = 'k', action = wezterm.action.AdjustPaneSize {"Up", 1} },
+    { key = 'l', action = wezterm.action.AdjustPaneSize {"Right", 1} },
+    { key = 'Escape', action = 'PopKeyTable' },
+  },
 }
 -- and finally, return the configuration to wezterm
 return config
