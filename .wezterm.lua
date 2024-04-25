@@ -108,7 +108,8 @@ config.keys = {
   { key = '-',          mods = 'CMD',    action = act.DecreaseFontSize},
   -- { key = 'Backspace',  mods = 'CMD',  action = act.SendKey{ key = 'u', mods = 'CTRL' } },
   -- { key = 'L',          mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
-  { key = 'p', mods = 'SHIFT|CTRL', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false }}
+  -- { key = 'p', mods = 'SHIFT|CTRL', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false }}
+  { key = 'p',          mods = 'LEADER', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false }},
 }
 
 config.key_tables = {
