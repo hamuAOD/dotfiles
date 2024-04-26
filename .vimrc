@@ -128,6 +128,8 @@ let @s='/- \dwwv/.wavhy/SONGvep03j'
 let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
 let @w='VG:s/^/FILE "/gVG:s/.wav/.wav" WAVE/g'
+" Macro [r] : set ARTIST Name
+let @r='"0y/ARTISTv/"h"0p/ARTISTv/"h"0p'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found
