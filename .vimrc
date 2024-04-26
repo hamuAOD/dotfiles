@@ -123,7 +123,7 @@ set iskeyword+=-
 
 """"" MyMacros
 " Macro [s] : copy song title for CUE-EDIT
-let @s='/- \dwwv/.wavhy/SONGvep03j'
+let @s='/- \d\wwv/.wavhy/SONGvep03j'
 " Macro [t] : copy
 let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
