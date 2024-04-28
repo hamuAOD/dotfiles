@@ -21,6 +21,8 @@ setopt share_history     # 同時に起動したzshで履歴を共有する
 
 # Alias
 alias bu='brew update && brew upgrade && brew cleanup'
+alias cl='clear'
+alias ex='exit'
 alias v='nvim'
 alias vcd='nvim ~/Music/CD'
 alias vnv='nvim ~/.config/nvim'
