@@ -27,7 +27,13 @@ config.initial_cols = 130
 config.initial_rows = 50
 config.font = wezterm.font('HackGen35 Console NF', { weight = 'Bold', italic = false })
 config.font_size = 13
-config.window_background_opacity = 1.00
+config.window_padding = {
+  left = '1.3cell',
+  right = '1.3cell',
+  top = '0.5cell',
+  bottom = '0.5cell',
+}
+config.window_background_opacity = 0.95
 config.macos_window_background_blur = 12
 -- config.treat_east_asian_ambiguous_width_as_wide = true
 config.window_close_confirmation = 'NeverPrompt'  -- AlwaysPrompt
@@ -40,39 +46,38 @@ config.hide_tab_bar_if_only_one_tab = true
 -- "TITLE", "RESIZE", "TITLE | RESIZE"
 config.window_decorations = "RESIZE"
 
-config.background = {
-  -- This is the deepest/back-most layer. It will be rendered first
-  {
-    source = {
-      File = '/Users/hamu/dotfiles/.warp/themes/Car Bomb - Meta.jpg',
-    },
-    width = '100%',
-    repeat_x = 'NoRepeat',
-    opacity = 0.30,
-    --attachment = { Parallax = 0.1 },
-  },
-}
+--config.background = {
+--  -- This is the deepest/back-most layer. It will be rendered first
+--  {
+--    source = {
+--      File = '/Users/hamu/dotfiles/.warp/themes/Car Bomb - Meta.jpg',
+--    },
+--    width = '100%',
+--    repeat_x = 'NoRepeat',
+--    opacity = 0.30,
+--    --attachment = { Parallax = 0.1 },
+--  },
+--}
 
-config.window_background_gradient = {
-  orientation = 'Vertical',
-  colors = {
-    -- Blue
-    -- '#0f0c29', '#302b63', '#24243e',
-    -- Red
-    -- '#240a07', '#54211c', '#391f1f',
-    -- Grey
-    -- '#0f1113', '#1a1c1e', '#141618',
-    -- '#070915', '#272935', '#171925',
-    '#070915', '#272935', '#171925',
-  },
-  -- preset = "Warm",
-  interpolation = 'Linear',
-  blend = 'Rgb',
-}
+-- config.window_background_gradient = {
+--   orientation = 'Vertical',
+--   colors = {
+--     -- Blue
+--     -- '#0f0c29', '#302b63', '#24243e',
+--     -- Red
+--     -- '#240a07', '#54211c', '#391f1f',
+--     -- Grey
+--     -- '#0f1113', '#1a1c1e', '#141618',
+--     -- '#070915', '#272935', '#171925',
+--     '#070915', '#272935', '#171925',
+--   },
+--   -- preset = "Warm",
+--   interpolation = 'Linear',
+--   blend = 'Rgb',
+-- }
 
 -- Key Configs
 -- config.disable_default_key_bindings = true
-
 config.leader = { key = 'q', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
