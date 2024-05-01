@@ -339,8 +339,8 @@ let g:which_key_map.m = {
       \}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Background transparent
-" autocmd ColorScheme * highlight Normal ctermbg=none
-" autocmd ColorScheme * highlight LineNr ctermbg=none
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " install Dracula colortheme
 if empty(glob('~/.vim/pack/themes/start/dracula/colors/dracula.vim'))
