@@ -69,20 +69,21 @@ export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
 --bind 'ctrl-/:change-preview-window(80%|hidden|)' \
 --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
 
+##### yazi #####
+alias yz='yazi'
+function yy() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
 ##### zoxide #####
 alias cd='z'
 eval "$(zoxide init zsh)"
 
-##### yazi #####
-alias yz='yazi'
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
 
 ##### iTerm2 #####
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
