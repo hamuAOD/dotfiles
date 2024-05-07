@@ -18,9 +18,7 @@ keymap.set('n', 'sn', '<C-w>w', {desc = "Next Window"}, NS)
 keymap.set('n', 'sp', '<C-w><S-w>', {desc = "Previous Window"}, NS)
 
 keymap.set('n', 'gg', '0gg', {desc = "Move to TOP"}, NS)
--- バッファ移動
-keymap.set('n', '[b', '<CMD>bprev<CR>', NS)
-keymap.set('n', '[n', '<CMD>bnext<CR>', NS)
+-- バッファ移動 => barbar.nvim
 
 -- set expandtab をトグル
 keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB"}, NS)

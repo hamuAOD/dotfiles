@@ -36,8 +36,6 @@ alias rg='~/Music/mp3/rsgain-radio.command'
 alias ls='exa --icons'
 alias ll='exa --icons -l'
 alias la='exa --icons -la'
-##### zoxide #####
-alias cd='z'
 ##### 7-zip #####
 alias 7za='7zz a -ba -t7z -xr'\''!.*'\'''
 alias 7zx='7zz x'
@@ -72,7 +70,19 @@ export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
 --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
 
 ##### zoxide #####
+alias cd='z'
 eval "$(zoxide init zsh)"
+
+##### yazi #####
+alias yz='yazi'
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 ##### iTerm2 #####
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
