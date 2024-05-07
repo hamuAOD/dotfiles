@@ -20,9 +20,9 @@ setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
 setopt share_history     # 同時に起動したzshで履歴を共有する
 
 # Alias
-alias bu='brew update && brew upgrade && brew cleanup'
 alias cl='clear'
 alias ex='exit'
+alias bu='brew update && brew upgrade && brew cleanup'
 alias v='vim'
 alias nv='nvim'
 alias nvcd='nvim ~/Music/CD'
@@ -84,7 +84,6 @@ function yy() {
 ##### zoxide #####
 alias cd='z'
 eval "$(zoxide init zsh)"
-
 
 ##### iTerm2 #####
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
