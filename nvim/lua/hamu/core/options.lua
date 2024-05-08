@@ -81,6 +81,8 @@ opt.termguicolors = true
 opt.winblend = 5                                        --フロートウィンドウなどを若干透明に
 -- call macros
 vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
+-- change color of CursorColumn
+vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#44475a')
 
 vim.fn.setcellwidths {
   { 0x2030, 0x2030, 2},
