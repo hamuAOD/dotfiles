@@ -130,6 +130,8 @@ let @t='pV3jy4j'
 let @w='VG:s/^/FILE "/gVG:s/.wav/.wav" WAVE/g'
 " Macro [r] : set ARTIST Name
 let @r='"0x/ARTISTv/"h"0p/ARTISTv/"h"0p:%s/\ \-\ //g'
+" Macro [c] : check Format
+let @c='/ \l\|[^\x01-\x7E]'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found
@@ -137,6 +139,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
   \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
+
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync
