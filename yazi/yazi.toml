@@ -7,3 +7,8 @@ sort_by        = "alphabetical"
 # linemode       = "none"
 show_hidden    = true
 show_symlink   = true
+
+[opener]
+edit = [
+	{ run = 'nvim "$@"', block = true },
+]
