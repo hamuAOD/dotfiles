@@ -4,9 +4,11 @@ let @s='/- \dwwv/.wavhy/SONGvep03j'
 " Macro [t] : copy
 let @t='pV3jy4j'
 " Macro [w] : edit format for CUE-EDIT
-let @w='0GIFILE "wGdVG:s/.wav/.wav" WAVE/g'
-" Macro [l] : line feed
-let @l='V:s///g'
+let @w='VG:s/^/FILE "/gVG:s/.wav/.wav" WAVE/g'
+" Macro [r] : set ARTIST Name
+let @r='"0x/ARTISTv/"h"0p/ARTISTv/"h"0p:%s/\ \-\ //g'
+" Macro [c] : check Format
+let @c='/ \l\|[^\x01-\x7E]'
 
 " 最後にカーソルがあった場所に移動
 augroup vimrcEx
