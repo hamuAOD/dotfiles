@@ -1,6 +1,6 @@
 # Starship
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG="/Users/hamu/dotfiles/starship.toml"
+export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
 
 # zsh-autocomplete
 ### Add at or near the top
@@ -26,7 +26,7 @@ alias bu='brew update && brew upgrade && brew cleanup'
 alias v='vim'
 alias nv='nvim'
 alias nvcd='nvim ~/Music/CD'
-alias nvc='nvim ~/.config/nvim'
+alias nvc='nvim ${HOME}/.config/nvim'
 alias fd='fd -H'
 alias rm='rm -rf'
 alias gotopb='gotop -l battery'
