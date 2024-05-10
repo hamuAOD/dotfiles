@@ -1,9 +1,9 @@
 return {
-  "hrsh7th/nvim-insx",
+  "norcalli/nvim-colorizer.lua",
   event = { "BufRead", "BufNewFile" },
   -- event = { "BufReadPre", "BufNewFile" },
   config = function()
-    require("insx.preset.standard").setup()
+    require("colorizer").setup()
 
     local insx = require('insx')
 
