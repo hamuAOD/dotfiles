@@ -33,10 +33,10 @@ alias gotopb='gotop -l battery'
 alias ttyc='tty-clock -sc'
 alias mg='~/Music/XLD/rsgain.command'
 alias rg='~/Music/mp3/rsgain-radio.command'
-##### exa #####
-alias ls='exa --icons'
-alias ll='exa --icons -l'
-alias la='exa --icons -la'
+##### eza #####
+alias ls='eza --icons'
+alias ll='eza --icons -l'
+alias la='eza --icons -la'
 ##### 7-zip #####
 alias 7za='7zz a -ba -t7z -xr'\''!.*'\'''
 alias 7zx='7zz x'
