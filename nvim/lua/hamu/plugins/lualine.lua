@@ -65,6 +65,17 @@ return {
         globalstatus = true,
       },
       sections = {
+        lualine_c = {
+          {
+            'filename',
+            symbols = {
+              modified = '[+]',      -- Text to show when the file is modified.
+              readonly = '[RO]',     -- Text to show when the file is non-modifiable or readonly.
+              unnamed = '[No Name]', -- Text to show for unnamed buffers.
+              newfile = '[New]',     -- Text to show for newly created file before first write
+            }
+          }
+        },
         lualine_x = {
           {
             lazy_status.updates,
