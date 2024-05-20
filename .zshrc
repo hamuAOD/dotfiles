@@ -34,9 +34,9 @@ alias ttyc='tty-clock -sc'
 alias mg='~/Music/XLD/rsgain.command'
 alias rg='~/Music/mp3/rsgain-radio.command'
 ##### eza #####
-alias ls='eza --icons'
-alias ll='eza --icons -l'
-alias la='eza --icons -la'
+alias ls='eza --icons=always'
+alias ll='eza --icons=always -l'
+alias la='eza --icons=always -la'
 ##### 7-zip #####
 alias 7za='7zz a -ba -t7z -xr'\''!.*'\'''
 alias 7zx='7zz x'
