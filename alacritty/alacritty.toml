@@ -49,3 +49,12 @@ bindings = [
   { key = "Back",       mods = "Command", chars = "\u0015" },
   { key = "Back",       mods = "Option",  chars = "\u001B\u007f" },
 ]
+
+# TMUXを起動時に自動起動する
+[shell]
+program = "/bin/zsh"
+args = [
+  "-l",
+  "-c",
+  "/opt/homebrew/bin/tmux a -t 0 || /opt/homebrew/bin/tmux -u",
+]
