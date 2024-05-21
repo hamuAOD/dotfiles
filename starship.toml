@@ -11,6 +11,7 @@ $git_branch\
 $git_status\
 $git_metrics\
 $python\
+$rust\
 [](fg:#1e1f2a)\
 $fill\
 $cmd_duration\
@@ -83,6 +84,11 @@ disabled = false
 
 [python]
 symbol = '󰌠 '
+style = 'fg:#f1fa8c bg:#1e1f2a bold'
+format = '[ ❱ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[rust]
+symbol = '󱘗 '
 style = 'fg:#f1fa8c bg:#1e1f2a bold'
 format = '[ ❱ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
