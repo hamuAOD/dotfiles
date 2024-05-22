@@ -210,6 +210,6 @@ return
     local NS = { noremap = true, silent = true }
 
     vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-    keymap.set("n", "<leader>ee", "<cmd>Neotree toggle<CR>", { desc = "Neo-tree toggle" }, NS)
+    keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Neo-tree toggle" }, NS)
   end
 }
