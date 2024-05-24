@@ -12,7 +12,7 @@ return {
     local NS = { noremap = true, silent = true }
 
     keymap.set('n', '<leader>ff', "<cmd>lua require('fzf-lua').files()<CR>", {desc = "Find files"}, NS)
-    keymap.set('n', '<leader>fg', "<cmd>lua require('fzf-lua').grep()<CR>", {desc = "Search for a pattern"}, NS)
+    keymap.set('n', '<leader>fg', "<cmd>lua require('fzf-lua').live_grep()<CR>", {desc = "Live Grep"}, NS)
   end,
 }
 
