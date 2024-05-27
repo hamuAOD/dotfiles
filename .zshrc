@@ -50,6 +50,14 @@ if [[ -e /opt/homebrew/bin/pyenv ]]; then
 fi
 
 ##### fzf #####
+# hit C-r
+source <(fzf --zsh)
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 eval "$(fzf --zsh)"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
@@ -75,6 +83,8 @@ eval "$(zoxide init zsh)"
 
 ##### zsh-autosuggestions #####
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+bindkey '\t' end-of-line
 
 ##### zsh-syntax-highlighting #####
 # Write at the end
