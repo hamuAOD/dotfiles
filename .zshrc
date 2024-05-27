@@ -1,25 +1,17 @@
-# Starship
+##### Starship #####
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
 
-# zsh-autocomplete
+##### zsh-autocomplete #####
 ### Add at or near the top
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
 
 export TERM='xterm-256color'
 
 setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
 setopt share_history     # 同時に起動したzshで履歴を共有する
 
-# Alias
+##### Alias #####
 alias cl='clear'
 alias ex='exit'
 alias bu='brew update && brew upgrade && brew cleanup'
@@ -40,10 +32,6 @@ alias la='eza --icons=always -la'
 ##### 7-zip #####
 alias 7za='7zz a -ba -t7z -xr'\''!.*'\'''
 alias 7zx='7zz x'
-
-# Enable Compsys
-#autoload -U compinit
-#compinit
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
@@ -85,20 +73,18 @@ function yy() {
 alias cd='z'
 eval "$(zoxide init zsh)"
 
-##### iTerm2 #####
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-##### zsh extensions #####
-# zsh-autosuggestions
+##### zsh-autosuggestions #####
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# zsh-syntax-highlighting
+##### zsh-syntax-highlighting #####
 # Write at the end
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# zsh-fast-syntax-highlighting
-#add the following at the end of your .zshrc:
+
+##### zsh-fast-syntax-highlighting #####
+# add the following at the end of your .zshrc:
 source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
+##### 設定ファイルの追加読み込み #####
 ZSH_DIR="${HOME}/.zsh.d"
 # .zshがディレクトリで、読み取り、実行、が可能なとき
 if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
