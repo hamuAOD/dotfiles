@@ -83,8 +83,7 @@ eval "$(zoxide init zsh)"
 
 ##### zsh-autosuggestions #####
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-bindkey '\t' end-of-line
+# bindkey '\t' end-of-line
 
 ##### zsh-syntax-highlighting #####
 # Write at the end
