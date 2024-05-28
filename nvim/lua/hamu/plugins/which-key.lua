@@ -11,7 +11,7 @@ return {
       ["<Leader>"] = {
         a = { name = "+Align", },
         b = { name = "+Buffer", },
-        e = { name = "+Explorer", },
+        e = { "Neo-Tree Toggle" },
         f = { name = "+fzf", },
         g = { name = "+git", },
         h = { name = "+Hop", },
@@ -19,16 +19,5 @@ return {
         t = { name = "+Toggle*", },
       },
     })
-    -- wk.register({
-    --   -- map
-    --   a = {
-    --     name = "+Align*",
-    --   },
-    --   -- opt
-    --   {
-    --     -- prefix = "<Leader>",
-    --     prefix = "",
-    --   },
-    -- })
   end,
 }
