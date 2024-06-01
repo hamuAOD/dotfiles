@@ -44,7 +44,7 @@ config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 -- "TITLE", "RESIZE", "TITLE | RESIZE"
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
 
 --config.background = {
 --  -- This is the deepest/back-most layer. It will be rendered first
