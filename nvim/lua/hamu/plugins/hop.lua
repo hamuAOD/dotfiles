@@ -1,5 +1,6 @@
 return {
-  'phaazon/hop.nvim',
+  -- 'phaazon/hop.nvim',
+  'smoka7/hop.nvim',
   event = { "BufRead", "BufNewFile" },
   config = function()
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
