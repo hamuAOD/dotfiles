@@ -18,32 +18,30 @@ opt.smartindent = true
 -- smartindent と cindent を両方 true にしたときは、cindent のみ true になるようです。
 -- opt.cindent = true
 
-opt.termguicolors = true
 vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
 
 opt.list = true
+opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
+-- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
 opt.number = true
 opt.numberwidth = 4
 opt.relativenumber = true
-opt.cursorline = true
-opt.cursorcolumn = true
+opt.cursorline = true                                   -- カーソルのある行をハイライト
+opt.cursorcolumn = true                                 -- カーソルのある列をハイライト
 opt.title = true
 opt.showcmd = true
 opt.smarttab = true
 opt.breakindent = true                                  -- 折り返された行を同じインデントで表示する
-opt.wrap = false
-opt.ignorecase = true                                   -- 大文字小文字を無視
+opt.wrap = false                                        -- 折り返し設定
+opt.ignorecase = true                                   -- 検索時に大文字小文字を区別しない
+opt.smartcase = true                                    -- 検索語に大文字が含まれている場合は区別する
 opt.incsearch  = true
 opt.hlsearch   = true
 opt.matchtime  = 1                                      -- 対括弧を一時ジャンプ
-opt.termguicolors = true
-opt.clipboard = "unnamedplus"
---opt.smartcase = true                                  -- 大文字小文字を区別しない
+opt.clipboard:append("unnamedplus")                     -- クリップボードと連携する
 --
 opt.textwidth = 0                                       -- 勝手に改行させない
 opt.formatoptions:remove('q')                           -- 自動改行OFF
-opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
--- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
 opt.emoji = true
 -- Indenting
 opt.expandtab = true
@@ -54,7 +52,7 @@ opt.tabstop = 2                                         -- タブの画面上で
 opt.softtabstop = 2                                     -- 連続した空白でカーソルが動く幅
 opt.showmatch = true                                    -- 括弧入力時の対応する括弧を表示
 opt.matchtime=1                                         --"対括弧を一時ジャンプ
-opt.iskeyword:append("-")
+opt.iskeyword:append("-", "_")                          -- キーワードの一部として扱う：選択時に含まれる
 --set pumheight=10                                      -- 補完メニューの高さ固定
 --
 opt.backup = false                                      -- バックアップファイルを作成しない
@@ -75,7 +73,7 @@ vim.api.nvim_set_var('loaded_netrw', 1)
 vim.api.nvim_set_var('loaded_netrwPlugin', 1)
 
 opt.helplang = 'ja'                                     -- 'en'
-opt.termguicolors = true
+opt.termguicolors = true                                -- 24bitカラー表示を有効にする
 
 -- float-transparent
 opt.winblend = 5                                        --フロートウィンドウなどを若干透明に
