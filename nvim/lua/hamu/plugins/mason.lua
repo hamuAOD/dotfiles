@@ -42,6 +42,14 @@ return {
             }
           },
         }
+        -- ommit "undefined global 'vim'"
+        if server_name == "lua_ls" then
+          opts.settings = {
+            Lua = {
+              diagnostics = { globals = { "vim" } },
+            }
+          }
+        end
         require("lspconfig")[server_name].setup(opts)
       end,
     })
