@@ -1,82 +1,90 @@
-
 -- local autocmd = vim.api.nvim_create_autocmd
 local opt = vim.opt
-local global = vim.g
+-- local global = vim.g
 
-opt.shortmess:append "sI"                               -- disable nvim intro
-
-vim.scriptencoding = 'utf-8'
-opt.encoding = 'utf-8'
-opt.fileencoding = 'utf-8'
-
--- 「※」等の記号を打つと、半角文字と重なる問題がある。「※」などを全角文字の幅で表示するために設定する
--- opt.ambiwidth = 'double'
-opt.ambiwidth = 'single'
--- 新しい行を改行で追加した時に、ひとつ上の行のインデントを引き継がせます。
-opt.autoindent = true
-opt.smartindent = true
--- smartindent と cindent を両方 true にしたときは、cindent のみ true になるようです。
--- opt.cindent = true
-
-vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
-
-opt.list = true
-opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
--- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
-opt.number = true
-opt.numberwidth = 4
-opt.relativenumber = true
+-----------------------------------------------------------
+-- Neovim UI
+-----------------------------------------------------------
+opt.number = true                                       -- 行番号表示
+opt.relativenumber = true                               -- 行番号相対表示
+opt.numberwidth = 4                                     -- 行番号表示の幅設定
+opt.signcolumn = "yes"                                  -- 行位置を常に表示
+opt.showmatch = true                                    -- 括弧入力時の対応する括弧を表示
+opt.matchtime  = 1                                      -- 対括弧を一時ジャンプ
+opt.iskeyword:append("-", "_")                          -- キーワードの一部として扱う：選択時に含まれる
 opt.cursorline = true                                   -- カーソルのある行をハイライト
 opt.cursorcolumn = true                                 -- カーソルのある列をハイライト
-opt.title = true
-opt.showcmd = true
-opt.smarttab = true
-opt.breakindent = true                                  -- 折り返された行を同じインデントで表示する
 opt.wrap = false                                        -- 折り返し設定
 opt.ignorecase = true                                   -- 検索時に大文字小文字を区別しない
 opt.smartcase = true                                    -- 検索語に大文字が含まれている場合は区別する
-opt.incsearch  = true
-opt.hlsearch   = true
-opt.matchtime  = 1                                      -- 対括弧を一時ジャンプ
+opt.termguicolors = true                                -- 24bitカラー表示を有効にする
 opt.clipboard:append("unnamedplus")                     -- クリップボードと連携する
---
-opt.textwidth = 0                                       -- 勝手に改行させない
-opt.formatoptions:remove('q')                           -- 自動改行OFF
-opt.emoji = true
--- Indenting
-opt.expandtab = true
-opt.shiftwidth = 2                                      -- インデントの空白数
+opt.list = true                                         -- 特殊文字の表示
+opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
+-- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
+opt.showcmd = true                                      -- コマンドを入力中に表示設定するかどうか
+-- opt.splitbelow = true                                -- 上下分割時下に表示
+-- opt.splitright = true                                -- 左右分割時右に表示
+--set pumheight=10                                      -- 補完メニューの高さ固定
+opt.shortmess:append "sI"                               -- disable nvim intro
+opt.winblend = 20                                       --フロートウィンドウなどを若干透明に
+
+-----------------------------------------------------------
+-- Tabs, indent
+-----------------------------------------------------------
+opt.breakindent = true                                  -- 折り返された行を同じインデントで表示する
+opt.expandtab = true                                    -- tabstop で指定したインデント
 opt.autoindent = true                                   -- 自動インデントを有効にする
-opt.smartindent = true                                  -- インデントをスマートに調整する
+opt.smartindent = true                                  -- 自動インデント設定
+-- opt.cindent = true
+-- smartindent と cindent を両方 true にしたときは、cindent のみ true になるようです。
 opt.tabstop = 2                                         -- タブの画面上での幅
 opt.softtabstop = 2                                     -- 連続した空白でカーソルが動く幅
-opt.showmatch = true                                    -- 括弧入力時の対応する括弧を表示
-opt.matchtime=1                                         --"対括弧を一時ジャンプ
-opt.iskeyword:append("-", "_")                          -- キーワードの一部として扱う：選択時に含まれる
---set pumheight=10                                      -- 補完メニューの高さ固定
---
+opt.shiftwidth = 2                                      -- インデントの空白数
+opt.smarttab = true                                     -- インデントの自動調整
+opt.formatoptions:remove('q')                           -- 自動改行OFF
+
+-----------------------------------------------------------
+-- Search
+-----------------------------------------------------------
+opt.incsearch  = true                                   -- 検索語を入力中にハイライトを表示
+opt.hlsearch   = true                                   -- 検索語をハイライト表示
+
+-----------------------------------------------------------
+-- Backups
+-----------------------------------------------------------
 opt.backup = false                                      -- バックアップファイルを作成しない
 opt.swapfile = false                                    -- スワップアップファイルを作成しない
 opt.undofile = true                                     -- undofileを作成しない
 
-opt.fillchars = { eob = " " }
-opt.signcolumn = "yes"
--- opt.splitbelow = true
--- opt.splitright = true
---
-opt.nrformats = "unsigned"
-opt.completeopt = { "menuone", "preview" }
--- opt.guifont = { "HackGen35 Console NF", "h13" }
+-----------------------------------------------------------
+-- Encoding
+-----------------------------------------------------------
+vim.scriptencoding = 'utf-8'
+opt.encoding = 'utf-8'
+opt.fileencoding = 'utf-8'
 
+-----------------------------------------------------------
+-- Other Settings
+-----------------------------------------------------------
+-- opt.guifont = { "HackGen35 Console NF", "h13" }
+opt.ambiwidth = 'single'                                -- 'double' | 「※」等の記号を打つと、半角文字と重なる問題がある。「※」などを全角文字の幅で表示するために設定する
+opt.fillchars = { eob = " " }                           -- 行末の空白の表示
+opt.emoji = true                                        -- Unicode絵文字を全角とみなす
+opt.helplang = 'ja'                                     -- 'en' | ヘルプ言語設定
+opt.title = true                                        -- ファイル情報等表示
+opt.nrformats = "unsigned"                              -- 0x00とかを数字としてみなす
+-- 補完メニューの表示設定
+opt.completeopt = { "menuone", "preview" }              -- 候補が1つでも表示、付加情報をプレビューに表示
+-- 非アクティブなウィンドウの設定
+vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
 ---- disable netrw at the very start of your init.lua
 vim.api.nvim_set_var('loaded_netrw', 1)
 vim.api.nvim_set_var('loaded_netrwPlugin', 1)
 
-opt.helplang = 'ja'                                     -- 'en'
-opt.termguicolors = true                                -- 24bitカラー表示を有効にする
-
--- float-transparent
-opt.winblend = 5                                        --フロートウィンドウなどを若干透明に
+-----------------------------------------------------------
+-- VIM Command
+-----------------------------------------------------------
 -- call macros
 vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 
@@ -84,6 +92,9 @@ vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#44475a')
 vim.cmd('autocmd ColorScheme * highlight SpecialKey guifg=#D6ACFF')
 
+-----------------------------------------------------------
+-- Set 2-byte char.
+-----------------------------------------------------------
 vim.fn.setcellwidths {
   { 0x2030, 0x2030, 2},
   { 0x2032, 0x2033, 2},
