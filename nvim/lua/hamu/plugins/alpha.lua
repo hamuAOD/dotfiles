@@ -63,12 +63,12 @@ return {
         button.opts.hl = "DashboardShotCutIcon"
         button.opts.hl_shortcut = "DashboardShotCutIcon"
       end
-      -- dashboard.section.header.opts.hl = "AlphaHeader"
-      -- dashboard.section.buttons.opts.hl = "AlphaButtons"
-      -- dashboard.section.footer.opts.hl = "AlphaFooter"
-      dashboard.section.header.opts.hl = "DashboardKey"
-      dashboard.section.buttons.opts.hl = "DashboardShotCutIcon"
-      dashboard.section.footer.opts.hl = "DashboardKey"
+      dashboard.section.header.opts.hl = "AlphaHeader"
+      dashboard.section.buttons.opts.hl = "AlphaButtons"
+      dashboard.section.footer.opts.hl = "AlphaFooter"
+      -- dashboard.section.header.opts.hl = "DashboardKey"
+      -- dashboard.section.buttons.opts.hl = "DashboardShotCutIcon"
+      -- dashboard.section.footer.opts.hl = "DashboardKey"
       dashboard.opts.layout[1].val = 8
       return dashboard
     end,
