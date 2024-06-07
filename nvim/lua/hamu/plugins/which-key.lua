@@ -11,6 +11,7 @@ return {
       ["<Leader>"] = {
         a = { name = "+Align", },
         b = { name = "+Buffer", },
+        c = { name = "+hlchunk", },
         e = { "Neo-Tree Toggle" },
         f = { name = "+fzf", },
         g = { name = "+git", },
