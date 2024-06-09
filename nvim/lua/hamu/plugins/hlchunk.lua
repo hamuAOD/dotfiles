@@ -15,6 +15,15 @@ return {
         },
         style = "#00ffff",
       },
+      indent = {
+        enable = true,
+        chars = {
+            "│",
+        },
+        style = {
+            vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
+        },
+      },
       blank = {
         enable = false,
         chars = {
@@ -26,6 +35,10 @@ return {
           { bg = "#433054" },
           { bg = "#284251" },
         },
+      },
+      line_num = {
+        enable = false,
+        style = "#806d9c",
       },
     })
     vim.keymap.set('n', '<Leader>ce', '<CMD>EnableHLChunk<CR>', {desc = "Enable hlchunk"}, { noremap = true, silent = true })
