@@ -11,7 +11,7 @@ return {
           vertical_line = "│",
           left_top = "┌",
           left_bottom = "└",
-          right_arrow = "─",
+          right_arrow = ">",
         },
         style = "#00ffff",
       },
@@ -41,7 +41,9 @@ return {
         style = "#806d9c",
       },
     })
-    vim.keymap.set('n', '<Leader>ce', '<CMD>EnableHLChunk<CR>', {desc = "Enable hlchunk"}, { noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>cd', '<CMD>DisableHLChunk<CR>', {desc = "Disable hlchunk"}, { noremap = true, silent = true })
+    -- vim.keymap.set('n', '<Leader>ce', '<CMD>EnableHLChunk<CR>', {desc = "Enable hlchunk"}, { noremap = true, silent = true })
+    -- vim.keymap.set('n', '<Leader>cd', '<CMD>DisableHLChunk<CR>', {desc = "Disable hlchunk"}, { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>ce', '<CMD>EnableHLChunk<CR><CMD>EnableHLIndent<CR>', {desc = "Enable hlchunk"}, { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>cd', '<CMD>DisableHLChunk<CR><CMD>DisableHLIndent<CR>', {desc = "Disable hlchunk"}, { noremap = true, silent = true })
   end
 }
