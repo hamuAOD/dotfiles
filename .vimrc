@@ -1,22 +1,6 @@
 syntax enable                         " 構文ごとに色分け
 filetype plugin indent on             " ファイルタイプ検出有効化、プラグイン・インデントロード
 
-let g:loaded_gzip              = 1
-let g:loaded_tar               = 1
-let g:loaded_tarPlugin         = 1
-let g:loaded_zip               = 1
-let g:loaded_zipPlugin         = 1
-let g:loaded_rrhelper          = 1
-let g:loaded_2html_plugin      = 1
-let g:loaded_vimball           = 1
-let g:loaded_vimballPlugin     = 1
-let g:loaded_getscript         = 1
-let g:loaded_getscriptPlugin   = 1
-let g:loaded_netrw             = 1
-let g:loaded_netrwPlugin       = 1
-let g:loaded_netrwSettings     = 1
-let g:loaded_netrwFileHandlers = 1
-
 set number                            " 行番号を表示
 set relativenumber                    " 相対表示
 set cursorline                        " カーソルk行のハイライト
@@ -92,9 +76,10 @@ augroup END
 "" Ctrl+Tabでタブを切り替える
 nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
-" for vim-airline
-nnoremap <C-n> :bn<CR>
-nnoremap <C-p> :bp<CR>
+" for Buffer
+nnoremap <C-n> <CMD>bn<CR>
+nnoremap <C-p> <CMD>bp<CR>
+nnoremap <C-d> <CMD>bd<CR>
 
 " 検索ハイライトをEscキー2回押しで消去
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
