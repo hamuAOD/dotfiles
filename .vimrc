@@ -18,6 +18,7 @@ set softtabstop=2                     " 連続した空白でカーソルが動�
 set showmatch                         " 括弧入力時の対応する括弧を表示
 set matchtime=1                       " 対括弧を一時ジャンプ
 set pumheight=10                      " 補完メニューの高さ固定
+set hidden                            " 編集中のバッファを保存しないで切り替え可能
 
 set nobackup                          " バックアップファイルを作成しない
 set noswapfile                        " スワップアップファイルを作成しない
@@ -104,16 +105,7 @@ nnoremap <Leader>tc :<C-u>setlocal cursorline! cursorcolumn!<CR>
 noremap <CR> o<ESC>
 " 行末までコピー
 nnoremap Y y$
-nnoremap <C-t> :tabnew<CR>
-
-" インサートモードでの操作用
-inoremap <c-d> <DEL>
-inoremap <c-b> <BS>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-h> <left>
-inoremap <c-l> <right>
-"nnoremap ^ $
+" nnoremap <C-t> :tabnew<CR>
 " スペル修正
 inoremap <C-t> <Esc><Left>"zx"zpa
 
