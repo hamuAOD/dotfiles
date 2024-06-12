@@ -25,8 +25,6 @@ alias fd='fd -H'
 alias rm='rm -rf'
 alias gotopb='gotop -l battery'
 alias ttyc='tty-clock -sc'
-alias mg='~/Music/XLD/rsgain.command'
-alias rg='~/Music/mp3/rsgain-radio.command'
 ##### eza #####
 alias ls='eza --icons=always'
 alias ll='eza --icons=always -l'
