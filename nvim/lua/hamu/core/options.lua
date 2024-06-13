@@ -2,6 +2,10 @@
 local opt = vim.opt
 -- local global = vim.g
 
+---- disable netrw at the very start of your init.lua
+vim.api.nvim_set_var('loaded_netrw', 1)
+vim.api.nvim_set_var('loaded_netrwPlugin', 1)
+
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
@@ -15,8 +19,6 @@ opt.iskeyword:append("-", "_")                          -- キーワードの一
 opt.cursorline = true                                   -- カーソルのある行をハイライト
 opt.cursorcolumn = true                                 -- カーソルのある列をハイライト
 opt.wrap = false                                        -- 折り返し設定
-opt.ignorecase = true                                   -- 検索時に大文字小文字を区別しない
-opt.smartcase = true                                    -- 検索語に大文字が含まれている場合は区別する
 opt.termguicolors = true                                -- 24bitカラー表示を有効にする
 opt.clipboard:append("unnamedplus")                     -- クリップボードと連携する
 opt.list = true                                         -- 特殊文字の表示
@@ -33,8 +35,8 @@ opt.winblend = 20                                       --フロートウィン�
 -- Tabs, indent
 -----------------------------------------------------------
 opt.breakindent = true                                  -- 折り返された行を同じインデントで表示する
-opt.expandtab = true                                    -- tabstop で指定したインデント
-opt.autoindent = true                                   -- 自動インデントを有効にする
+opt.expandtab   = true                                  -- tabstop で指定したインデント
+opt.autoindent  = true                                  -- 自動インデントを有効にする
 opt.smartindent = true                                  -- 自動インデント設定
 -- opt.cindent = true
 -- smartindent と cindent を両方 true にしたときは、cindent のみ true になるようです。
@@ -49,6 +51,8 @@ opt.formatoptions:remove('q')                           -- 自動改行OFF
 -----------------------------------------------------------
 opt.incsearch  = true                                   -- 検索語を入力中にハイライトを表示
 opt.hlsearch   = true                                   -- 検索語をハイライト表示
+opt.ignorecase = true                                   -- 検索時に大文字小文字を区別しない
+opt.smartcase  = true                                   -- 検索語に大文字が含まれている場合は区別する
 
 -----------------------------------------------------------
 -- Backups
@@ -61,8 +65,8 @@ opt.undofile = true                                     -- undofileを作成し�
 -- Encoding
 -----------------------------------------------------------
 vim.scriptencoding = 'utf-8'
-opt.encoding = 'utf-8'
-opt.fileencoding = 'utf-8'
+opt.encoding       = 'utf-8'
+opt.fileencoding   = 'utf-8'
 
 -----------------------------------------------------------
 -- Other Settings
@@ -74,14 +78,11 @@ opt.emoji = true                                        -- Unicode絵文字を�
 opt.helplang = 'ja'                                     -- 'en' | ヘルプ言語設定
 opt.title = true                                        -- ファイル情報等表示
 opt.nrformats = "unsigned"                              -- 0x00とかを数字としてみなす
-opt.hidden = true
+opt.hidden = true                                       -- 編集中のバッファを保存しないで切り替え可能
 -- 補完メニューの表示設定
 opt.completeopt = { "menuone", "preview" }              -- 候補が1つでも表示、付加情報をプレビューに表示
 -- 非アクティブなウィンドウの設定
 vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
----- disable netrw at the very start of your init.lua
-vim.api.nvim_set_var('loaded_netrw', 1)
-vim.api.nvim_set_var('loaded_netrwPlugin', 1)
 
 -----------------------------------------------------------
 -- VIM Command
