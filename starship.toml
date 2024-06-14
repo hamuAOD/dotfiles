@@ -30,7 +30,7 @@ $time\
 [os]
 # format = "[$symbol](bold white)"
 format = "[$symbol]($style)"
-style = '#D6ACFF bold'
+style = '#8BE9FD bold'
 disabled = false
 [os.symbols]
 Macos = " ❯ "  # nf-fa-apple
