@@ -4,6 +4,7 @@
 format = """
 $fill\n\
 $os\
+[ ](fg:#7aa2f7 bg:#1e1f2a)\
 $hostname\
 $directory\
 $git_branch\
@@ -29,12 +30,12 @@ $rust\
 [os]
 # format = "[$symbol](bold white)"
 format = "[$symbol]($style)"
-style = '#A4FFFF bold'
+style = 'fg:#F8F8F2 bg:#7aa2f7 bold white'
 disabled = false
 [os.symbols]
-Macos = " ❯ "  # nf-fa-apple
-Ubuntu = " ❯ " # nf-linux-ubuntu
-Debian = " ❯ " # nf-linux-debian
+Macos = "  "  # nf-fa-apple
+Ubuntu = "  " # nf-linux-ubuntu
+Debian = "  " # nf-linux-debian
 
 [hostname]
 ssh_only = true
