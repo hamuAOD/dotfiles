@@ -29,7 +29,7 @@ $rust\
 [os]
 # format = "[$symbol](bold white)"
 format = "[$symbol]($style)"
-style = 'bold white'
+style = '#bd93f9 bold'
 disabled = false
 [os.symbols]
 Macos = " ❯ "  # nf-fa-apple
