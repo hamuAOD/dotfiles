@@ -6,6 +6,9 @@ local NS = { noremap = true, silent = true }
 -- 検索ハイライトをEscキー2回押しで消去
 keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', {remap = true})
 
+-- 行末までコピー
+keymap.set('n', 'Y', '0y$', {remap = true})
+
 -- Escで日本語入力解除
 -- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
 -- vim.keymap.set('n', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)

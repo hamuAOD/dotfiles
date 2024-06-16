@@ -104,7 +104,7 @@ nnoremap <Leader>tc :<C-u>setlocal cursorline! cursorcolumn!<CR>
 " ノーマルモードでもエンターキーで改行を挿入
 noremap <CR> o<ESC>
 " 行末までコピー
-nnoremap Y y$
+nnoremap Y 0y$
 " nnoremap <C-t> :tabnew<CR>
 " スペル修正
 inoremap <C-t> <Esc><Left>"zx"zpa
