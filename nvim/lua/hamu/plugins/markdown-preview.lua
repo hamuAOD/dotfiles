@@ -15,6 +15,6 @@ return
     -- keymap.set('n', '<Leader>mo', '<Plug>MarkdownPreview',       {desc = "Markdown Preview Start"},  NS)
     -- keymap.set('n', '<Leader>mc', '<Plug>MarkdownPreviewStop',   {desc = "Markdown Preview Stop"},   NS)
     -- keymap.set('n', '<Leader>mt', '<Plug>MarkdownPreviewToggle', {desc = "Markdown Preview Toggle"}, NS)
-    keymap.set('n', '<Leader>tm', '<Plug>MarkdownPreviewToggle', {desc = "Markdown Preview Toggle"}, NS)
+    keymap.set('n', '<Leader>tm', '<Plug>MarkdownPreviewToggle', {desc = "Markdown Preview"}, NS)
   end,
 }
