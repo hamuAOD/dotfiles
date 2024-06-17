@@ -16,7 +16,7 @@ return {
         f = { name = "+fzf", },
         g = { name = "+git", },
         h = { name = "+Hop", },
-        m = { name = "+Markdown", },
+        -- m = { name = "+Markdown", },
         t = { name = "+Toggle*", },
       },
     })
