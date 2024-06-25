@@ -6,7 +6,8 @@ export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
 ### Add at or near the top
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-export TERM='xterm-256color'
+# export TERM='xterm-256color'
+export TERM=alacritty
 
 setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
 setopt share_history     # 同時に起動したzshで履歴を共有する
