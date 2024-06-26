@@ -45,7 +45,7 @@ blur = false  # Default: false
 bindings = [
     # { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
     # { key = "L", mods = "Control|Shift", chars = "l" },
-  { key = "v", mods = "Control|Shift", action = "ToggleViMode" },
+  { key = "v", mods = "Control", action = "ToggleViMode" },
   { key = "ArrowRight", mods = "Command", chars = "\u0005" },
   { key = "ArrowLeft",  mods = "Command", chars = "\u0001" },
   { key = "ArrowRight", mods = "Option",  chars = "\u001BF" },

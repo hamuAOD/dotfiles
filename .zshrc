@@ -30,6 +30,10 @@ alias ttyc='tty-clock -sc'
 alias ls='eza --icons=always'
 alias ll='eza --icons=always -l'
 alias la='eza --icons=always -la'
+##### Zellij #####
+export ZELLIJ_CONFIG_DIR="/Users/hamu/.config/zellij"
+# export ZELLIJ_CONFIG_FILE="/Users/hamu/.config/zellij/config.kdl"
+alias zj='zellij'
 ##### 7-zip #####
 alias 7za='7zz a -ba -t7z -xr'\''!.*'\'''
 alias 7zx='7zz x'
