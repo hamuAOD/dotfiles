@@ -19,6 +19,8 @@ set showmatch                         " 括弧入力時の対応する括弧を�
 set matchtime=1                       " 対括弧を一時ジャンプ
 set pumheight=10                      " 補完メニューの高さ固定
 set hidden                            " 編集中のバッファを保存しないで切り替え可能
+set spell                             " スペルチェック有効化
+set spelllang=en_us,cjk               " スペルチェックから日本語を除外
 
 set nobackup                          " バックアップファイルを作成しない
 set noswapfile                        " スワップアップファイルを作成しない
@@ -40,7 +42,6 @@ set fenc=utf-8                        " 文字コードをUFT-8に設定
 set diffopt+=vertical                 " diffsplit を左右分割をデフォルトに
 
 set gdefault                          " 置換のgオプションを常に有効化
-set spelllang=en                      " スペルチェックから日本語を除外
 set vb t_vb=                          " ビープ音を消す
 
 let mapleader="\<Space>"
@@ -98,6 +99,8 @@ nnoremap ]Q :<C-u>clast<CR>
 nnoremap <Leader>te :set expandtab!<CR>
 " set list をトグル
 nnoremap <Leader>tl :set list!<CR>
+" set spell をトグル
+nnoremap <Leader>ts :set spell!<CR>
 " カーソル位置強調表示のトグル
 nnoremap <Leader>tc :<C-u>setlocal cursorline! cursorcolumn!<CR>
 
@@ -322,6 +325,7 @@ let g:which_key_map.t = {
       \ 'i' : 'Indent-Lines',
       \ 'l' : 'List',
       \ 'c' : 'Cursor',
+      \ 's' : 'Spell',
       \ 'z' : 'Colorizer',
       \}
 let g:which_key_map.m = {

@@ -30,6 +30,7 @@ opt.showcmd = true                                      -- コマンドを入力
 --set pumheight=10                                      -- 補完メニューの高さ固定
 opt.shortmess:append "sI"                               -- disable nvim intro
 opt.winblend = 20                                       --フロートウィンドウなどを若干透明に
+opt.spell = true                                        -- スペルチェック有効
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -76,6 +77,7 @@ opt.ambiwidth = 'single'                                -- 'double' | 「※」�
 opt.fillchars = { eob = " " }                           -- 行末の空白の表示
 opt.emoji = true                                        -- Unicode絵文字を全角とみなす
 opt.helplang = 'ja'                                     -- 'en' | ヘルプ言語設定
+opt.spelllang = { 'en_us', 'cjk' }                      -- スペルチェックから日本語を除外
 opt.title = true                                        -- ファイル情報等表示
 opt.nrformats = "unsigned"                              -- 0x00とかを数字としてみなす
 opt.hidden = true                                       -- 編集中のバッファを保存しないで切り替え可能
