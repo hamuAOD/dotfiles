@@ -30,6 +30,9 @@ position = { x = 40, y = 80 }
 # Blank space added around the window in pixels
 padding = { x = 6, y = 6 }  # Default: x = 0, y = 0
 
+# for Zellij
+option_as_alt = "Both"
+
 # Opacity
 opacity = 0.97  # Default: 1.0
 
