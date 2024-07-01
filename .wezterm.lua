@@ -96,6 +96,7 @@ config.keys = {
   { key = 'Backspace',  mods = 'CMD',    action = act{SendString="\x15"}},
   { key = 'Backspace',  mods = 'OPT',    action = act{SendString="\x1b\x7f"}},
   { key = 'c',          mods = 'LEADER', action = act.ActivateCopyMode},
+  { key = 'q',          mods = 'LEADER', action = act.ActivateCopyMode},
   -- Pane
   { key = '[',          mods = 'CTRL',   action = act.PaneSelect},
   { key = ']',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Next'},
