@@ -8,6 +8,8 @@ keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', {remap = true})
 
 -- 行末までコピー
 keymap.set('n', 'Y', '0y$', {remap = true})
+-- 改行だけ挿入
+keymap.set('n', '<CR>', 'o<ESC>', {remap = true})
 
 -- Escで日本語入力解除
 -- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
