@@ -7,18 +7,15 @@ return {
 
     local wk = require("which-key")
     wk.setup()
-    wk.register({
-      ["<Leader>"] = {
-        a = { name = "+Align", },
-        b = { name = "+Buffer", },
-        c = { name = "+hlchunk", },
-        e = { "Neo-Tree Toggle" },
-        f = { name = "+fzf", },
-        g = { name = "+git", },
-        h = { name = "+Hop", },
-        -- m = { name = "+Markdown", },
-        t = { name = "+Toggle*", },
-      },
+    wk.add({
+      { "<Leader>a", group = "Align" },
+      { "<Leader>b", group = "Buffer" },
+      { "<Leader>c", group = "hlchunk" },
+      { "<Leader>e", desc = "Neo-Tree Toggle" },
+      { "<Leader>f", group = "fzf" },
+      { "<Leader>g", group = "git" },
+      { "<Leader>h", group = "Hop" },
+      { "<Leader>t", group = "Toggle*" },
     })
   end,
 }
