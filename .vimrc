@@ -166,6 +166,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
+  Plug 'ap/vim-buftabline'
   " for SSH
   Plug 'ShikChen/osc52.vim'
   " Git
