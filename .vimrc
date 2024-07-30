@@ -131,7 +131,7 @@ let @w='VG:s/^/FILE "/gVG:s/.wav/.wav" WAVE/g'
 " Macro [r] : set ARTIST Name
 let @r='"0x/ARTISTv/"h"0p/ARTISTv/"h"0p:%s/\ \-\ //g'
 " Macro [c] : check Format
-let @c='/ \l\|[^\x01-\x7E]'
+let @c='/ \l\|[^\x01-\x7E]\|TITLE'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found
