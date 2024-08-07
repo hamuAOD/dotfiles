@@ -41,7 +41,8 @@ alias zj='zellij'
 alias 7za='7zz a -ba -t7z -xr'\''!.*'\'''
 alias 7zx='7zz x'
 
-export PATH=$PATH:"/Users/hamu/.local/bin"
+export PATH="$PATH:/Users/hamu/.local/bin"
+export PATH="$PATH:/Users/hamu/go/bin"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
