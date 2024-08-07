@@ -29,8 +29,8 @@ opt.showcmd = true                                      -- コマンドを入力
 -- opt.splitright = true                                -- 左右分割時右に表示
 --set pumheight=10                                      -- 補完メニューの高さ固定
 opt.shortmess:append "sI"                               -- disable nvim intro
-opt.winblend = 20                                       --フロートウィンドウなどを若干透明に
-opt.spell = true                                        -- スペルチェック有効
+opt.winblend = 20                                       -- フロートウィンドウなどを若干透明に
+opt.spell = false                                       -- スペルチェック有効
 
 -----------------------------------------------------------
 -- Tabs, indent
