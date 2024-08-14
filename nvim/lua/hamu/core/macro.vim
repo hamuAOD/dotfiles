@@ -18,7 +18,7 @@ augroup END
 " 保存時に行末の空白削除
 autocmd BufWritePre * :%s/\s\+$//ge
 " for FC2
-autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge
+" autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge
 " option e : マッチしなかった時にエラーメッセージを表示しない
 
 " 特定文字の強調
