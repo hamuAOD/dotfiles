@@ -51,7 +51,7 @@ let maplocalleader = ','
 autocmd BufWritePre * :%s/\s\+$//ge             " 保存時に行末の空白削除
 autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge   " for FC2
 """ for SAMBA
-autocmd BufWritePost * sleep 1
+autocmd BufWritePost * sleep 100m
 autocmd BufWritePost * checktime
 set autoread
 " option e : マッチしなかった時にエラーメッセージを表示しない
