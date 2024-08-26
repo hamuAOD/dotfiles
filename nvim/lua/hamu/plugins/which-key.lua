@@ -12,7 +12,7 @@ return {
       { "<Leader>b", group = "Buffer" },
       { "<Leader>c", group = "hlchunk" },
       { "<Leader>e", desc = "Neo-Tree Toggle" },
-      { "<Leader>f", group = "fzf" },
+      { "<Leader>f", group = "Telescope" },
       { "<Leader>g", group = "git" },
       { "<Leader>h", group = "Hop" },
       { "<Leader>t", group = "Toggle*" },
