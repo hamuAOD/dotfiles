@@ -1,14 +1,6 @@
 """"" MyMacros
-" Macro [s] : copy song title for CUE-EDIT
-let @s='/- \dwwv/.wavhy/SONGvep03j'
-" Macro [t] : copy
-let @t='pV3jy4j'
-" Macro [w] : edit format for CUE-EDIT
-let @w='VG:s/^/FILE "/gVG:s/.wav/.wav" WAVE/g'
-" Macro [r] : set ARTIST Name
-let @r='"0x/ARTISTv/"h"0p/ARTISTv/"h"0p:%s/\ \-\ //g'
 " Macro [c] : check Format
-let @c='/ \l\|[^\x01-\x7E]'
+let @c='/ \l\|[^\x01-\x7E]\|TITLE'
 
 " 最後にカーソルがあった場所に移動
 " augroup vimrcEx
