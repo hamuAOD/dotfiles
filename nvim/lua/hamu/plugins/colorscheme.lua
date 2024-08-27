@@ -46,7 +46,7 @@ return {
       require("dracula").setup({
         style = "default", -- The theme comes in three styles, `default`, a darker variant `soft` and `day`
         -- light_style = "day", -- The theme is used when the background is set to light
-        transparent = false, -- Enable this to disable setting the background color
+        transparent = true, -- Enable this to disable setting the background color
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
         styles = {
           -- Style to be applied to different syntax groups
