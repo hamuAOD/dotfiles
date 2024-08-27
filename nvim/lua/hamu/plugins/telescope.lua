@@ -18,6 +18,7 @@ return {
     local NS = { noremap = true, silent = true }
     vim.keymap.set('n', '<Leader>b', ':Telescope buffers<CR>', {desc = "Buffers"}, NS)
     vim.keymap.set('n', '<Leader>r', ':Telescope registers<CR>', {desc = "Registers"}, NS)
+    vim.keymap.set('n', '<Leader>/', ':Telescope current_buffer_fuzzy_find<CR>', {desc = "Adv. Search"}, NS)
     vim.keymap.set('n', '<Leader>fb', ':Telescope buffers<CR>', {desc = "Buffers"}, NS)
     vim.keymap.set('n', '<Leader>fc', ':Telescope command_history<CR>', {desc = "Command History"}, NS)
     vim.keymap.set('n', '<Leader>ff', ':Telescope find_files<CR>', {desc = "Files"}, NS)
