@@ -74,8 +74,11 @@ return {
         { name = 'nvim_lua' },
         { name = 'luasnip' },
         { name = 'buffer' },
+        { name = 'path' },
+        { name = 'cmdline' },
         { name = 'async_path' },
         { name = 'calc' },
+        { name = 'git' },
         { name = 'nvim_lsp_signature_help' },
       }),
       formatting = {
@@ -131,6 +134,7 @@ return {
   config = function(_, opts)
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local cmp = require('cmp')
+    -- nvim-autopairs integration
     cmp.event:on(
       'confirm_done',
       cmp_autopairs.on_confirm_done()
@@ -146,8 +150,6 @@ return {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({ { name = 'path' }, { name = 'cmdline' } }),
     })
-    -- nvim-autopairs integration
-    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
   end,
   -----@param opts cmp.ConfigSchema
   --opts = function(_, opts)
