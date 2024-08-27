@@ -9,6 +9,12 @@ return {
   config = function()
     require("telescope").load_extension("noice")
 
+    require('telescope').setup{
+      defaults = {
+        sorting_strategy = 'ascending',
+      },
+    }
+
     local NS = { noremap = true, silent = true }
     vim.keymap.set('n', '<Leader>b', ':Telescope buffers<CR>', {desc = "Buffers"}, NS)
     vim.keymap.set('n', '<Leader>r', ':Telescope registers<CR>', {desc = "Registers"}, NS)
