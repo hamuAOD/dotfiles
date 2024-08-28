@@ -82,7 +82,7 @@ return {
         --- You can override specific highlights to use other groups or a hex color
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function() end,
-        use_background = "auto", -- can be light/dark/auto. When auto, background will be set to vim.o.background
+        use_background = "dark", -- can be light/dark/auto. When auto, background will be set to vim.o.background
 
         cache = true, -- When set to true, the theme will be cached for better performance
 
