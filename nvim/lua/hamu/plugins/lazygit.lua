@@ -1,5 +1,6 @@
 return {
   "kdheepak/lazygit.nvim",
+  event = { "BufRead", "BufNewFile" },
   cmd = {
     "LazyGit",
     "LazyGitConfig",
