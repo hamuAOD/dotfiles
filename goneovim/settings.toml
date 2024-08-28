@@ -40,7 +40,7 @@ Height = 900
 
 ## This option makes the whole GUI window in semi-transparent.
 ## This setting also implicitly enables the Drawborder setting
-# Transparent = 1.0
+# Transparent = 0.9
 
 ## Launch goneovim with full screen window size.
 # StartFullscreen = false
@@ -129,7 +129,7 @@ FontSize = 13
 # OptionsToUseGuideWidth = "tabstop"
 
 ## Animates the scrolling behavior of Neovim when the scroll command is entered.
-# SmoothScroll = false
+SmoothScroll = true
 ## Specifies the speed of animation in smooth scrolling.
 # SmoothScrollDuration = 300
 ## Disables horizontal scrolling for smooth scrolling with the touchpad.
