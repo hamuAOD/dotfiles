@@ -18,9 +18,9 @@ return
       exclude_groups = {}, -- table: groups you don't want to clear
     })
 
-    require("nvim-surround").setup({
-      -- Configuration here, or leave empty to use defaults
-    })
+    -- require("nvim-surround").setup({
+    --   -- Configuration here, or leave empty to use defaults
+    -- })
     -- require('transparent').clear_prefix('lualine')
     -- require('transparent').clear_prefix('NeoTree')
     -- keymap
