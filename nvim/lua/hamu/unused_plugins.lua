@@ -187,6 +187,19 @@ return {
         case_insensitive_regex = false,
       })
     end,
+  },
+  -- commnet 2024.08.30 => Default from ver0.1
+  {
+    'numToStr/Comment.nvim',
+    event = { "BufRead", "BufNewFile" },
+    opts = {
+        -- add any options here
+    },
+    lazy = false,
+
+    config = function ()
+      require('Comment').setup()
+    end,
   }
 }
 
