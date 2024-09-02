@@ -1,48 +1,4 @@
 return {
-  -- {
-  --   "Mofiqul/dracula.nvim",
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd[[colorscheme dracula]]
-  --   end,
-  --   -- 背景をTerminalに合わせる
-  --   vim.cmd 'autocmd ColorScheme * highlight Normal ctermbg=none',
-  --   vim.cmd 'autocmd ColorScheme * highlight LineNr ctermbg=none',
-  -- },
-  -- {
-  --   -- "rebelot/kanagawa.nvim",
-  --   "maxmx03/dracula.nvim",
-  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  --   priority = 1000, -- make sure to load this before all the other start plugins
-  --   config = function ()
-  --     local dracula = require 'dracula'
-  --     dracula.setup()
-  --     vim.cmd.colorscheme 'dracula'
-  --   end,
-  --   -- 背景をTerminalに合わせる
-  --   -- vim.cmd 'autocmd ColorScheme * highlight Normal ctermbg=none',
-  --   -- vim.cmd 'autocmd ColorScheme * highlight LineNr ctermbg=none',
-  -- },
-  -- {
-  --   "Mofiqul/dracula.nvim",
-  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  --   priority = 1000, -- make sure to load this before all the other start plugins
-  --   config = function ()
-  --     local dracula = require 'dracula'
-  --     dracula.setup()
-  --     vim.cmd.colorscheme 'dracula'
-  --   end,
-  -- },
-  -- {
-  --   "binhtran432k/dracula.nvim",
-  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  --   priority = 1000, -- make sure to load this before all the other start plugins
-  --   config = function ()
-  --     local dracula = require 'dracula'
-  --     dracula.setup()
-  --     vim.cmd.colorscheme 'dracula'
-  --   end,
-  -- },
   {
     "binhtran432k/dracula.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -87,19 +43,6 @@ return {
         cache = true, -- When set to true, the theme will be cached for better performance
 
         prefer_undercurl = true, -- When set to true, the undercurl will be used place of underline in specific contexts.
-
-        plugins = {
-          -- enable all plugins when not using lazy.nvim
-          -- set to false to manually enable/disable plugins
-          all = package.loaded.lazy == nil,
-          -- uses your plugin manager to automatically enable needed plugins
-          -- currently only lazy.nvim is supported
-          auto = true,
-          -- add any plugins here that you want to enable
-          -- for all possible plugins, see:
-          --   * https://github.com/folke/tokyonight.nvim/tree/main/lua/tokyonight/groups
-          -- telescope = true,
-        },
       })
       vim.cmd.colorscheme 'dracula'
     end,
