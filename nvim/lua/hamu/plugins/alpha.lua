@@ -48,11 +48,11 @@ return {
       dashboard.section.buttons.val = {
         dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("f", " " .. " Find file", ":<cmd>Telescope find_files<CR>"),
-        dashboard.button("g", "󰷾 " .. " Find text", "<cmd>lua require('fzf-lua').live_grep()<CR>"),
+        dashboard.button("g", "󰷾 " .. "  Find text", "<cmd>lua require('fzf-lua').live_grep()<CR>"),
         dashboard.button("b", " " .. " File browser", ":Neotree toggle<CR>"),
-        dashboard.button("o", "󰄉 " .. " Old files", "<cmd>Telescope oldfiles<CR>"),
+        dashboard.button("o", "󰄉 " .. "  Old files", "<cmd>Telescope oldfiles<CR>"),
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-        dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
+        dashboard.button("l", "󰒲 " .. "  Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }
 
