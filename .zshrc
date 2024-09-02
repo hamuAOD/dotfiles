@@ -15,6 +15,7 @@ setopt share_history     # 同時に起動したzshで履歴を共有する
 ##### Alias #####
 alias cl='clear'
 alias ex='exit'
+alias cp='cp -v'
 alias bu='brew update && brew upgrade && brew cleanup'
 alias v='vim'
 alias vf='vim $(fzf)'
