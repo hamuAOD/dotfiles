@@ -34,6 +34,7 @@ alias ll='eza --icons=always -l'
 alias la='eza --icons=always -la'
 ##### GO #####
 alias gobld='go build -ldflags="-s -w" -trimpath'
+alias goimp='goimports -l -w'
 ##### Zellij #####
 export ZELLIJ_CONFIG_DIR="/Users/hamu/.config/zellij"
 # export ZELLIJ_CONFIG_FILE="/Users/hamu/.config/zellij/config.kdl"
