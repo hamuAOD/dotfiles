@@ -349,7 +349,6 @@ let g:which_key_map.m = {
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-packadd! dracula
 syntax enable
 colorscheme dracula
 set modifiable
