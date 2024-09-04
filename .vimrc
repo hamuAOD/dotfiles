@@ -188,6 +188,8 @@ call plug#begin('~/.vim/plugged')
   " vim-markdown
   Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
+  " Colorscheme
+  Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # fzf #
@@ -346,12 +348,6 @@ let g:which_key_map.m = {
 " Background transparent
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" install Dracula colortheme
-if empty(glob('~/.vim/pack/themes/start/dracula/colors/dracula.vim'))
-  silent !mkdir -p ~/.vim/pack/themes/start && \
-  !git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
-endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 packadd! dracula
 syntax enable
