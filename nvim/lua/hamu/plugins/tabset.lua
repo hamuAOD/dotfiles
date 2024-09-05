@@ -1,6 +1,8 @@
 return
 {
   "FotiadisM/tabset.nvim",
+  event = { "BufRead", "BufNewFile" },
+
   config = function()
     require("tabset").setup({
       defaults = {
@@ -11,7 +13,12 @@ return
         go = {
           tabwidth = 4,
           expandtab = false
+        },
+        python = {
+          tabwidth = 4,
+          expandtab = true
         }
+
       }
     })
   end,
