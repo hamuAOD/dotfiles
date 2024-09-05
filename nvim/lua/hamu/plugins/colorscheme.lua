@@ -1,5 +1,14 @@
 local themes = {
-  dracura = {
+  catppuccin = {
+    'catppuccin/nvim',
+    lazy = false,
+    priority = 1000,
+
+    config = function ()
+      vim.cmd[[colorscheme catppuccin-mocha]]
+    end,
+  },
+  dracula_432k = {
     "binhtran432k/dracula.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
@@ -12,7 +21,7 @@ local themes = {
       require("dracula").setup({
         style = "default", -- The theme comes in three styles, `default`, a darker variant `soft` and `day`
         -- light_style = "day", -- The theme is used when the background is set to light
-        transparent = false, -- Enable this to disable setting the background color
+        transparent = true, -- Enable this to disable setting the background color
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
         styles = {
           -- Style to be applied to different syntax groups
@@ -44,9 +53,9 @@ local themes = {
 
         prefer_undercurl = true, -- When set to true, the undercurl will be used place of underline in specific contexts.
       })
-      vim.cmd.colorscheme 'dracula'
+      vim.cmd[[colorscheme dracula]]
     end,
   },
 }
 
-return themes.dracura
+return themes.dracula_432k
