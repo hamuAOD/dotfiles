@@ -2,6 +2,10 @@
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
 
+##### zsh-fast-syntax-highlighting #####
+# add the following at the end of your .zshrc:
+source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
 ##### zsh-autocomplete #####
 ### Add at or near the top
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -112,7 +116,7 @@ fi
 
 ##### zsh-fast-syntax-highlighting #####
 # add the following at the end of your .zshrc:
-source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 ##### 設定ファイルの追加読み込み #####
 ZSH_DIR="${HOME}/.zsh.d"
