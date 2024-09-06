@@ -1,0 +1,97 @@
+abbrevs:
+  - name: move to dotfiles directory
+    abbr: zd
+    snippet: z ~/dotfiles
+
+  - name: clear
+    abbr: cl
+    snippet: clear
+
+  - name: exit
+    abbr: ex
+    snippet: exit
+
+  - name: cp -v
+    abbr: cp
+    snippet: cp -v
+
+  - name: mv -v
+    abbr: mv
+    snippet: mv -v
+
+  - name: homebrew
+    abbr: bu
+    snippet: brew update && brew upgrade && brew cleanup
+
+  - name: vim
+    abbr: v
+    snippet: vim
+  - name: vim $(fzf)
+    abbr: vf
+    snippet: vim $(fzf)
+
+  - name: nvim
+    abbr: nv
+    snippet: nvim
+  - name: nvim $(fzf)
+    abbr: nvf
+    snippet: nvim $(fzf)
+
+  - name: fd -H
+    abbr: fd
+    snippet: fd -H
+
+  - name: rm -rf
+    abbr: rm
+    snippet: rm -rf
+
+  - name: gotop
+    abbr: gotop
+    snippet: gotop -l battery
+
+  - name: ttye
+    abbr: ttyc
+    snippet: tty-clock -sc
+
+  - name: lazygit
+    abbr: lg
+    snippet: lazygit
+
+  - name: eza default
+    abbr: ls
+    snippet: eza --icons=always
+  - name: eza list
+    abbr: ll
+    snippet: eza --icons=always -l
+  - name: eza list+
+    abbr: la
+    snippet: eza --icons=always -la
+
+  - name: go build
+    abbr: b
+    snippet: build -ldflags="-s -w" -trimpath
+    global: true
+    context: '^go\s'
+  - name: goimports
+    abbr: goimports
+    snippet: goimports -l -w
+
+  - name: zellij
+    abbr: zj
+    snippet: zellij
+
+  - name: 7z
+    abbr: 7za
+    snippet: 7zz a -ba -t7z -xr'\''!.*'\''
+  - name: 7z
+    abbr: 7zx
+    snippet: 7zz x
+
+##### zoxide #####
+  - name: zoxide
+    abbr: cd
+    snippet: z
+
+  - name: yazi
+    abbr: yz
+    snippet: yazi
