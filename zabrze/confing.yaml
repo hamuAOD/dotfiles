@@ -8,6 +8,13 @@ abbrevs:
     global: true
     context: '^z\s'
 
+  - name: move to Trash
+    abbr: t
+    snippet: '{} ~/.Trash'
+    cursor: "{}"
+    global: true
+    context: '^mv -v\s'
+
   - name: clear
     abbr: cl
     snippet: clear
@@ -52,7 +59,9 @@ abbrevs:
     abbr: f
     snippet: $(fzf)
     global: true
-    context: '^nvim\s'
+  - name: nvim config
+    abbr: nvc
+    snippet: nvim ~/dotfiles/nvim/lua/hamu/
   - name: nvim zshrc
     abbr: z
     snippet: ~/.zshrc
