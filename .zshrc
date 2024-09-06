@@ -12,38 +12,6 @@ export TERM=alacritty
 setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
 setopt share_history     # 同時に起動したzshで履歴を共有する
 
-##### Alias #####
-alias cl='clear'
-alias ex='exit'
-alias cp='cp -v'
-alias mv='mv -v'
-alias bu='brew update && brew upgrade && brew cleanup'
-alias v='vim'
-alias vf='vim $(fzf)'
-alias nv='nvim'
-alias nvf='nvim $(fzf)'
-alias nvcd='nvim ~/Music/CD'
-alias nvc='nvim ${HOME}/.config/nvim'
-alias fd='fd -H'
-alias rm='rm -rf'
-alias gotopb='gotop -l battery'
-alias ttyc='tty-clock -sc'
-alias lg='lazygit'
-##### eza #####
-alias ls='eza --icons=always'
-alias ll='eza --icons=always -l'
-alias la='eza --icons=always -la'
-##### GO #####
-alias gobld='go build -ldflags="-s -w" -trimpath'
-alias goimp='goimports -l -w'
-##### Zellij #####
-export ZELLIJ_CONFIG_DIR="/Users/hamu/.config/zellij"
-# export ZELLIJ_CONFIG_FILE="/Users/hamu/.config/zellij/config.kdl"
-alias zj='zellij'
-##### 7-zip #####
-alias 7za='7zz a -ba -t7z -xr'\''!.*'\'''
-alias 7zx='7zz x'
-
 export PATH="$PATH:/Users/hamu/.local/bin"
 export PATH="$PATH:/Users/hamu/go/bin"
 export PATH="/opt/homebrew/bin:$PATH"
@@ -80,7 +48,6 @@ export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
 --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
 
 ##### yazi #####
-alias yz='yazi'
 function yy() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
   yazi "$@" --cwd-file="$tmp"
@@ -91,8 +58,11 @@ function yy() {
 }
 
 ##### zoxide #####
-alias cd='z'
 eval "$(zoxide init zsh)"
+##### Zellij #####
+export ZELLIJ_CONFIG_DIR="/Users/hamu/.config/zellij"
+##### zabrze #####
+eval "$(zabrze init --bind-keys)"
 
 ##### zsh-autosuggestions #####
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
