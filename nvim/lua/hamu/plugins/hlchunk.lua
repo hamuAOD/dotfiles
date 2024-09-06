@@ -14,6 +14,7 @@ return {
           right_arrow = ">",
         },
         style = "#00ffff",
+        use_treesitter = true,
       },
       indent = {
         enable = true,
