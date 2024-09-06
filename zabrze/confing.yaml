@@ -1,7 +1,12 @@
 abbrevs:
+  - name: zoxide
+    abbr: cd
+    snippet: z
   - name: move to dotfiles directory
-    abbr: zd
-    snippet: z ~/dotfiles
+    abbr: d
+    snippet: ~/dotfiles
+    global: true
+    context: '^z\s'
 
   - name: clear
     abbr: cl
@@ -34,8 +39,15 @@ abbrevs:
     abbr: nv
     snippet: nvim
   - name: nvim $(fzf)
-    abbr: nvf
-    snippet: nvim $(fzf)
+    abbr: f
+    snippet: $(fzf)
+    global: true
+    context: '^nvim\s'
+  - name: nvim zshrc
+    abbr: z
+    snippet: ~/.zshrc
+    global: true
+    context: '^nvim\s'
 
   - name: fd -H
     abbr: fd
@@ -86,11 +98,6 @@ abbrevs:
   - name: 7z
     abbr: 7zx
     snippet: 7zz x
-
-##### zoxide #####
-  - name: zoxide
-    abbr: cd
-    snippet: z
 
   - name: yazi
     abbr: yz
