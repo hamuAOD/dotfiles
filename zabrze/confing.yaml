@@ -27,6 +27,16 @@ abbrevs:
   - name: homebrew
     abbr: bu
     snippet: brew update && brew upgrade && brew cleanup
+  - name: homebrew search
+    abbr: s
+    snippet: search
+    global: true
+    context: '^brew\s'
+  - name: homebrew install
+    abbr: i
+    snippet: install
+    global: true
+    context: '^brew\s'
 
   - name: vim
     abbr: v
