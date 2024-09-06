@@ -45,9 +45,9 @@ abbrevs:
     abbr: rm
     snippet: rm -rf
 
-  - name: gotop
-    abbr: gotop
-    snippet: gotop -l battery
+  # - name: gotop
+  #   abbr: gotop
+  #   snippet: gotop -l battery
 
   - name: ttye
     abbr: ttyc
