@@ -44,6 +44,11 @@ abbrevs:
     snippet: install
     global: true
     context: '^brew\s'
+  - name: homebrew install
+    abbr: u
+    snippet: uninstall
+    global: true
+    context: '^brew\s'
 
   - name: vim
     abbr: v
