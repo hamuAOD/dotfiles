@@ -72,6 +72,17 @@ abbrevs:
     snippet: ~/.zshrc
     global: true
     context: '^nvim\s'
+  - name: nvim zshrc
+    abbr: zab
+    snippet: ~/dotfiles/zabrze/confing.yaml
+    global: true
+    context: '^nvim\s'
+
+  - name: ssh Ubuntu Server
+    abbr: us
+    snippet: hamu@192.168.1.10
+    global: true
+    context: '^ssh\s'
 
   - name: fd -H
     abbr: fd
