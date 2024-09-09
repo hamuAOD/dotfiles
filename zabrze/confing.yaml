@@ -8,12 +8,18 @@ abbrevs:
     global: true
     context: '^z\s'
 
-  - name: move to Trash
-    abbr: t
-    snippet: '{} ~/.Trash'
-    cursor: "{}"
-    global: true
-    context: '^mv -v\s'
+  # - name: move to Trash
+  #   abbr: t
+  #   snippet: '{} ~/.Trash'
+  #   cursor: "{}"
+  #   global: true
+  #   context: '^mv -v\s'
+
+  # - name: trash
+  #   abbr-pattern: ^trash$
+  #   snippet: mv -v {} ~/.Trash
+  #   cursor: "{}"
+  #   evaluate: true
 
   - name: clear
     abbr: cl
@@ -23,13 +29,14 @@ abbrevs:
     abbr: ex
     snippet: exit
 
-  - name: cp -v
-    abbr: cp
-    snippet: cp -v
-
-  - name: mv -v
-    abbr: mv
-    snippet: mv -v
+  - name: cp/mv -iv
+    abbr-pattern: ^(cp|mv)$
+    snippet: $abbr -iv
+    evaluate: true
+  - name: trash -v
+    abbr: rm
+    snippet: trash -v
+    if: '(( ${+commands[trash]} ))'
 
   - name: homebrew
     abbr: bu
@@ -44,7 +51,7 @@ abbrevs:
     snippet: install
     global: true
     context: '^brew\s'
-  - name: homebrew install
+  - name: homebrew uninstall
     abbr: u
     snippet: uninstall
     global: true
@@ -88,9 +95,9 @@ abbrevs:
     abbr: fd
     snippet: fd -H
 
-  - name: rm -rf
-    abbr: rm
-    snippet: rm -rf
+  # - name: rm -rf
+  #   abbr: rm
+  #   snippet: rm -rf
 
   # - name: gotop
   #   abbr: gotop
@@ -137,3 +144,8 @@ abbrevs:
   - name: yazi
     abbr: yz
     snippet: yazi
+
+  - name: check host
+    abbr: chro
+    snippet: echo 'CHECK!'
+    if: '[[ $(hostname -s) =~ Studio ]]'
