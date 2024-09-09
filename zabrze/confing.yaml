@@ -37,6 +37,10 @@ abbrevs:
     abbr: rm
     snippet: trash -v
     if: '(( ${+commands[trash]} ))'
+  - name: trash -v
+    abbr: tra
+    snippet: trash -v
+    if: '(( ${+commands[trash]} ))'
 
   - name: homebrew
     abbr: bu
