@@ -48,4 +48,19 @@ return {
       { "nvim-telescope/telescope-fzy-native.nvim" },
     },
   },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim"
+    },
+    event = "VeryLazy",
+    config = function ()
+      require("telescope").load_extension "file_browser"
+
+      vim.keymap.set("n", "<space>fe", function()
+	      require("telescope").extensions.file_browser.file_browser()
+      end, {desc = "Open Explorer"}, { noremap = true, silent = true })
+    end,
+  },
 }
