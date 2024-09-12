@@ -10,6 +10,10 @@ return
 
   config = function()
     require('render-markdown').setup({
+      heading = {
+        sign = false,
+        icons = { '① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ' },
+      },
     })
 
     local keymap = vim.keymap
