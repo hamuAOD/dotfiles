@@ -44,7 +44,7 @@ return {
     })
     -- vim.keymap.set('n', '<Leader>ce', '<CMD>EnableHLChunk<CR>', {desc = "Enable hlchunk"}, { noremap = true, silent = true })
     -- vim.keymap.set('n', '<Leader>cd', '<CMD>DisableHLChunk<CR>', {desc = "Disable hlchunk"}, { noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>ce', '<CMD>EnableHLChunk<CR><CMD>EnableHLIndent<CR>', {desc = "Enable hlchunk"}, { noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>cd', '<CMD>DisableHLChunk<CR><CMD>DisableHLIndent<CR>', {desc = "Disable hlchunk"}, { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>he', '<CMD>EnableHLChunk<CR><CMD>EnableHLIndent<CR>', {desc = "Enable hlchunk"}, { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>hd', '<CMD>DisableHLChunk<CR><CMD>DisableHLIndent<CR>', {desc = "Disable hlchunk"}, { noremap = true, silent = true })
   end
 }

@@ -8,7 +8,7 @@ return {
     local wk = require("which-key")
     wk.setup()
     wk.add({
-      { "<Leader>c", group = "hlchunk" },
+      { "<Leader>h", group = "hlchunk" },
       { "<Leader>f", group = "Telescope" },
       { "<Leader>t", group = "Toggle*" },
     })
