@@ -10,6 +10,8 @@ keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', {remap = true})
 keymap.set('n', 'Y', '0y$', {remap = true})
 -- 改行だけ挿入
 keymap.set('n', '<CR>', 'o<ESC>', {remap = true})
+-- Current Directoryをファイルの場所にを変更
+keymap.set('n', '<Leader>dc', '<CMD>cd %:h<CR>', {desc = "Change Current Directory"}, NS)
 
 -- Escで日本語入力解除
 -- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
