@@ -11,6 +11,12 @@ augroup vimrc-remember-cursor-position
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
+augroup vimrc-samba-delay
+  autocmd BufWritePost * sleep 100m
+  autocmd BufWritePost * checktime
+  set autoread
+augroup END
+
 " 保存時に行末の空白削除
 autocmd BufWritePre * :%s/\s\+$//ge
 " for FC2
