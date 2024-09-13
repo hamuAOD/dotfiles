@@ -13,7 +13,14 @@ return
       heading = {
         sign = false,
         icons = { '① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ' },
+        width = 'block',
       },
+      code = {
+        width = 'block', -- block, full
+      },
+      dash = {
+        width = 150,
+      }
     })
 
     local keymap = vim.keymap
