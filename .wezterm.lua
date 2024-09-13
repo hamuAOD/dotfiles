@@ -114,6 +114,7 @@ config.keys = {
   -- Font size
   { key = '+',          mods = 'CMD',    action = act.IncreaseFontSize},
   { key = '-',          mods = 'CMD',    action = act.DecreaseFontSize},
+  { key = '0',          mods = 'CTRL',   action = act.ResetFontAndWindowSize},
   -- { key = 'Backspace',  mods = 'CMD',  action = act.SendKey{ key = 'u', mods = 'CTRL' } },
   -- { key = 'L',          mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
   -- { key = 'p', mods = 'SHIFT|CTRL', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false }}
