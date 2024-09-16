@@ -42,6 +42,12 @@ abbrevs:
     snippet: trash -v
     if: '(( ${+commands[trash]} ))'
 
+  - name: scp Ubuntu Server Downloads
+    abbr: us
+    snippet: 'hamu@192.168.1.10:/home/hamu/Downloads/'
+    global: true
+    context: '^scp\s'
+
   - name: homebrew
     abbr: bu
     snippet: brew update && brew upgrade && brew cleanup
