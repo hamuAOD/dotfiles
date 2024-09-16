@@ -94,6 +94,11 @@ abbrevs:
     snippet: ~/dotfiles/zabrze/confing.yaml
     global: true
     context: '^nvim\s'
+  - name: nvim 伊集院光cue
+    abbr: ij
+    snippet: ~/Music/伊集院光\ 深夜の馬鹿力.cue
+    global: true
+    context: '^nvim\s'
 
   - name: ssh Ubuntu Server
     abbr: us
