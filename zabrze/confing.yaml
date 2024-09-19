@@ -110,6 +110,10 @@ abbrevs:
     abbr: fd
     snippet: fd -H
 
+  - name: yt-dlp
+    abbr: yt
+    snippet: yt-dlp
+
   # - name: rm -rf
   #   abbr: rm
   #   snippet: rm -rf
