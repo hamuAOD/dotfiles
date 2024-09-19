@@ -96,6 +96,8 @@ vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#44475a')
 vim.cmd('autocmd ColorScheme * highlight SpecialKey guifg=#D6ACFF')
 
+-- set filetype
+vim.cmd('autocmd BufNewFile,BufRead *.xdc set filetype=xdc')
 -----------------------------------------------------------
 -- Set 2-byte char.
 -----------------------------------------------------------
