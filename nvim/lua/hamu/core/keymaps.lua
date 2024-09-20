@@ -8,6 +8,11 @@ keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', {remap = true})
 
 -- 行末までコピー
 keymap.set('n', 'Y', '0y$', {remap = true})
+-- リドゥ
+keymap.set('n', 'U', '<c-r>', {remap = true})
+-- インデント操作を連続でできるように
+keymap.set('x', '<', '<gv', {remap = true})
+keymap.set('x', '>', '>gv', {remap = true})
 -- 改行だけ挿入
 keymap.set('n', '<CR>', 'o<ESC>', {remap = true})
 -- Current Directoryをファイルの場所にを変更
