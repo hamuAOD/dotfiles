@@ -26,6 +26,7 @@ return {
       vim.keymap.set('n', '<Leader>fg', ':Telescope live_grep<CR>', {desc = "Live Grep"}, NS)
       vim.keymap.set('n', '<Leader>fo', ':Telescope oldfiles<CR>', {desc = "Old Files"}, NS)
       vim.keymap.set('n', '<Leader>fr', ':Telescope registers<CR>', {desc = "Registers"}, NS)
+      vim.keymap.set('n', '<Leader>fk', ":lua require'telescope.builtin'.keymaps{}<CR>", {desc = "keymaps"}, NS)
 
     end,
   },
