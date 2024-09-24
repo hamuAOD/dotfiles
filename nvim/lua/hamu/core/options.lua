@@ -20,7 +20,7 @@ opt.cursorline = true                                   -- カーソルのある
 opt.cursorcolumn = true                                 -- カーソルのある列をハイライト
 opt.wrap = false                                        -- 折り返し設定
 opt.termguicolors = true                                -- 24bitカラー表示を有効にする
-opt.clipboard:append("unnamedplus")                     -- クリップボードと連携する
+opt.clipboard:append{'unnamedplus'}                     -- クリップボードと連携する
 opt.list = true                                         -- 特殊文字の表示
 opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
 -- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
