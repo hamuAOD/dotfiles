@@ -76,6 +76,11 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# 補完候補一覧をカラー表示
+zstyle ':completion:*' list-colors ''
+
 ##### zsh-syntax-highlighting #####
 # Write at the end
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
