@@ -6,18 +6,8 @@ export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
 ### Add at or near the top
 # source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-# export TERM='xterm-256color'
-export TERM=alacritty
-
 setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
 setopt share_history     # 同時に起動したzshで履歴を共有する
-
-export PATH="$PATH:/Users/hamu/.local/bin"
-export PATH="$PATH:/Users/hamu/go/bin"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/opt/homebrew/opt/git/bin:$PATH"
 
 ##### rbenv #####
 if [[ -e /opt/homebrew/bin/rbenv ]]; then
