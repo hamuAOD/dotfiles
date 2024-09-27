@@ -9,6 +9,11 @@ export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
 setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
 setopt share_history     # 同時に起動したzshで履歴を共有する
 
+##### ZLE #####
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey "^O" edit-command-line
+
 ##### rbenv #####
 if [[ -e /opt/homebrew/bin/rbenv ]]; then
   if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
