@@ -1,9 +1,6 @@
 return
 {
   "folke/noice.nvim",
-  -- Apply 4.4.7
-  -- 4.5.0 has bug: "Cursor position outside buffer stack traceback"
-  commit = "d9328ef903168b6f52385a751eb384ae7e906c6f",
   event = "VeryLazy",
   opts = {
     -- add any options here
