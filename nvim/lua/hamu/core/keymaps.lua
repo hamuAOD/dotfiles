@@ -13,6 +13,9 @@ keymap.set('n', 'U', '<c-r>', {remap = true})
 -- インデント操作を連続でできるように
 keymap.set('x', '<', '<gv', {remap = true})
 keymap.set('x', '>', '>gv', {remap = true})
+-- ウィンドウの幅調整
+keymap.set('n', '<', '<C-w><<C-w>', {remap = true})
+keymap.set('n', '>', '<C-w>><C-w>', {remap = true})
 -- 改行だけ挿入
 keymap.set('n', '<CR>', 'o<ESC>', {remap = true})
 -- Current Directoryをファイルの場所にを変更
