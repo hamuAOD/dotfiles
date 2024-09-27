@@ -1,4 +1,5 @@
 export LANG=ja_JP.UTF-8
+export EDITOR=nvim VISUAL=nvim
 
 export PATH="$PATH:/Users/hamu/.local/bin"
 export PATH="$PATH:/Users/hamu/go/bin"
