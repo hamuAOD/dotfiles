@@ -46,7 +46,7 @@ set vb t_vb=                          " ビープ音を消す
 
 let mapleader="\<Space>"
 let maplocalleader = ','
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" 自動化 """""
 autocmd BufWritePre * :%s/\s\+$//ge             " 保存時に行末の空白削除
 autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge   " for FC2
@@ -77,7 +77,7 @@ augroup BadChar
   au!
   autocmd BufWinEnter * match Error /‐\|–\|“\|’\|е\| \+$/
 augroup END
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" Key Bindings """""
 "" Ctrl+Tabでタブを切り替える
 nnoremap <C-Tab> gt
@@ -112,6 +112,10 @@ nnoremap <Leader>tc :<C-u>setlocal cursorline! cursorcolumn!<CR>
 noremap <CR> o<ESC>
 " 行末までコピー
 nnoremap Y 0y$
+" リドゥ リマップ
+nnoremap U <C-r>
+" 括弧ジャンプ
+nnoremap M %
 " nnoremap <C-t> :tabnew<CR>
 " スペル修正
 inoremap <C-t> <Esc><Left>"zx"zpa
@@ -122,14 +126,6 @@ vnoremap Y y:call SendViaOSC52(getreg('"'))<CR>
 set iskeyword+=-
 
 """"" MyMacros
-" Macro [s] : copy song title for CUE-EDIT
-let @s='/- \dwwv/.wavhy/SONGvep03j'
-" Macro [t] : copy
-let @t='pV3jy4j'
-" Macro [w] : edit format for CUE-EDIT
-let @w='VG:s/^/FILE "/gVG:s/.wav/.wav" WAVE/g'
-" Macro [r] : set ARTIST Name
-let @r='"0x/ARTISTv/"h"0p/ARTISTv/"h"0p:%s/\ \-\ //g'
 " Macro [c] : check Format
 let @c='/ \l\|[^\x01-\x7E]\|TITLE'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -142,6 +138,8 @@ function s:toupper_prev_word()
 endfunction
 
 inoremap <expr> <C-u> "<C-w>" .. <SID>toupper_prev_word()
+
+inoremap <C-o> <ESC>bgUlgi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found

@@ -6,18 +6,19 @@ local NS = { noremap = true, silent = true }
 -- 検索ハイライトをEscキー2回押しで消去
 keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', {remap = true})
 
--- 行末までコピー
-keymap.set('n', 'Y', '0y$', {remap = true})
--- リドゥ
-keymap.set('n', 'U', '<c-r>', {remap = true})
+-- Change Keymaps
+keymap.set('n', 'Y', '0y$', {remap = true})       -- 行末までコピー
+keymap.set('n', 'U', '<c-r>', {remap = true})     -- リドゥ
+keymap.set('n', 'M', '%', {remap = true})         -- 括弧ジャンプ
+keymap.set('n', '<CR>', 'o<ESC>', {remap = true}) -- 改行だけ挿入
+keymap.set('n', 'gg', '0gg', {remap = true})      -- Vim Styleの先頭へ移動
+
 -- インデント操作を連続でできるように
 keymap.set('x', '<', '<gv', {remap = true})
 keymap.set('x', '>', '>gv', {remap = true})
 -- ウィンドウの幅調整
 keymap.set('n', '<', '<C-w><<C-w>', {remap = true})
 keymap.set('n', '>', '<C-w>><C-w>', {remap = true})
--- 改行だけ挿入
-keymap.set('n', '<CR>', 'o<ESC>', {remap = true})
 -- Current Directoryをファイルの場所にを変更
 keymap.set('n', 'cd', '<CMD>cd %:h<CR>', {desc = "Change Current Directory"}, NS)
 
@@ -31,8 +32,6 @@ keymap.set('n', 'sv', '<CMD>vsplit<CR><C-w>w', {desc = "Split Window Vertical"},
 -- 画面移動
 keymap.set('n', 'sn', '<C-w>w', {desc = "Next Window"}, NS)
 keymap.set('n', 'sp', '<C-w><S-w>', {desc = "Previous Window"}, NS)
-
-keymap.set('n', 'gg', '0gg', {desc = "Move to TOP"}, NS)
 -- バッファ移動
 -- keymap.set('n', '<C-p>', '<CMD>bprev<CR>', {desc = "Buffer Previous"}, NS)
 -- keymap.set('n', '<C-n>', '<CMD>bnext<CR>', {desc = "Buffer Next"}, NS)
@@ -47,11 +46,7 @@ keymap.set('n', '<Leader>tc', '<CMD>setlocal cursorline! cursorcolumn!<CR>', {de
 -- スペルチェック
 keymap.set('n', '<Leader>ts', '<CMD>set spell!<CR>', {desc = "Toggle Spell-Check"}, NS)
 
--- ノーマルモードでもエンターキーで改行を挿入
--- keymap.set('n', '<CR>', 'o<ESC>', {noremap = true})
------------------------------------------------------------
--- VIM Function
------------------------------------------------------------
+-- カーソルの直前の単語を大文字にする
 vim.keymap.set("i", "<C-u>",
   function()
     local line = vim.fn.getline(".")
@@ -62,3 +57,5 @@ vim.keymap.set("i", "<C-u>",
   end,
   {expr = true}
 )
+--- カーソルの直前の単語の先頭を大文字にする
+vim.keymap.set('i', '<C-o>', '<ESC>bgUlgi', NS)
