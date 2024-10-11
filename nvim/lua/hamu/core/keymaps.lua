@@ -49,3 +49,16 @@ keymap.set('n', '<Leader>ts', '<CMD>set spell!<CR>', {desc = "Toggle Spell-Check
 
 -- ノーマルモードでもエンターキーで改行を挿入
 -- keymap.set('n', '<CR>', 'o<ESC>', {noremap = true})
+-----------------------------------------------------------
+-- VIM Function
+-----------------------------------------------------------
+vim.keymap.set("i", "<C-u>",
+  function()
+    local line = vim.fn.getline(".")
+    local col = vim.fn.getpos(".")[3]
+    local substring = line:sub(1, col - 1)
+    local result = vim.fn.matchstr(substring, [[\v<(\k(<)@!)*$]])
+    return "<C-w>" .. result:upper()
+  end,
+  {expr = true}
+)

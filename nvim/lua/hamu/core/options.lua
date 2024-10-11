@@ -99,19 +99,6 @@ vim.cmd('autocmd ColorScheme * highlight SpecialKey guifg=#D6ACFF')
 -- set filetype
 vim.cmd('autocmd BufNewFile,BufRead *.xdc set filetype=xdc')
 -----------------------------------------------------------
--- VIM Function
------------------------------------------------------------
-vim.keymap.set("i", "<C-u>",
-  function()
-    local line = vim.fn.getline(".")
-    local col = vim.fn.getpos(".")[3]
-    local substring = line:sub(1, col - 1)
-    local result = vim.fn.matchstr(substring, [[\v<(\k(<)@!)*$]])
-    return "<C-w>" .. result:upper()
-  end,
-  {expr = true}
-)
------------------------------------------------------------
 -- Set 2-byte char.
 -----------------------------------------------------------
 vim.fn.setcellwidths {
