@@ -133,6 +133,16 @@ let @r='"0x/ARTISTv/"h"0p/ARTISTv/"h"0p:%s/\ \-\ //g'
 " Macro [c] : check Format
 let @c='/ \l\|[^\x01-\x7E]\|TITLE'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim function
+function s:toupper_prev_word()
+  let col = getpos('.')[2]
+  let substring = getline('.')[0:col-1]
+  let word = matchstr(substring, '\v<(\k(<)@!)*$')
+  return toupper(word)
+endfunction
+
+inoremap <expr> <C-u> "<C-w>" .. <SID>toupper_prev_word()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
