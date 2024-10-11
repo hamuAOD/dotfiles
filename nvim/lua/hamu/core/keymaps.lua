@@ -11,7 +11,7 @@ keymap.set('n', 'Y', '0y$', {remap = true})       -- 行末までコピー
 keymap.set('n', 'U', '<c-r>', {remap = true})     -- リドゥ
 keymap.set('n', 'M', '%', {remap = true})         -- 括弧ジャンプ
 keymap.set('n', '<CR>', 'o<ESC>', {remap = true}) -- 改行だけ挿入
-keymap.set('n', 'gg', '0gg', {remap = true})      -- Vim Styleの先頭へ移動
+keymap.set('n', 'gg', '0gg', NS)      -- Vim Styleの先頭へ移動
 
 -- インデント操作を連続でできるように
 keymap.set('x', '<', '<gv', {remap = true})
@@ -65,13 +65,6 @@ vim.keymap.set("i", "<C-u>",
   {expr = true}
 )
 --- カーソルの直前の単語の先頭を大文字にする
--- vim.keymap.set("n", "i",
---   function()
---     if empty(getline('.')) then
---   end,
---   {expr = true}
--- )
--- 空行での編集開始時に自動でインデント
--- nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
--- nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
+vim.keymap.set('i', '<C-o>', '<ESC>bgUlgi', NS)
+
 

@@ -2,6 +2,13 @@
 " Macro [c] : check Format
 let @c='/ \l\|[^\x01-\x7E]\|TITLE'
 
+" カーソル下のキーワードを置換
+nnoremap S :%s/\V\<<C-r><C-w>\>//g<Left><Left>
+xnoremap S "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
+"" 空行での編集開始時に自動でインデント
+nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
+nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
+
 " 最後にカーソルがあった場所に移動
 " augroup vimrcEx
 "   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
