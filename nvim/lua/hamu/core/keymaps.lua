@@ -22,6 +22,13 @@ keymap.set('n', '>', '<C-w>><C-w>', {remap = true})
 -- Current Directoryをファイルの場所にを変更
 keymap.set('n', 'cd', '<CMD>cd %:h<CR>', {desc = "Change Current Directory"}, NS)
 
+-- カーソル下のキーワードを置換
+-- keymap.set('n', 'S', "<CMD>%s/\V\<<C-r><C-w>\>//g<Left><Left>", {remap = true})
+-- keymap.set('x', 'S', 'zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>', {remap = true})
+-- ペースト結果のインデントを自動で揃える
+keymap.set('n', 'p', ']p`]', {remap = true})
+keymap.set('n', 'P', ']P`]', {remap = true})
+
 -- Escで日本語入力解除
 -- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
 -- vim.keymap.set('n', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
@@ -58,4 +65,13 @@ vim.keymap.set("i", "<C-u>",
   {expr = true}
 )
 --- カーソルの直前の単語の先頭を大文字にする
-vim.keymap.set('i', '<C-o>', '<ESC>bgUlgi', NS)
+-- vim.keymap.set("n", "i",
+--   function()
+--     if empty(getline('.')) then
+--   end,
+--   {expr = true}
+-- )
+-- 空行での編集開始時に自動でインデント
+-- nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
+-- nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
+

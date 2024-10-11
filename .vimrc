@@ -119,7 +119,15 @@ nnoremap M %
 " nnoremap <C-t> :tabnew<CR>
 " スペル修正
 inoremap <C-t> <Esc><Left>"zx"zpa
-
+" 空行での編集開始時に自動でインデント
+nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
+nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
+" カーソル下のキーワードを置換
+nnoremap S :%s/\V\<<C-r><C-w>\>//g<Left><Left>
+xnoremap S "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
+" ペースト結果のインデントを自動で揃える
+nnoremap p ]p`]
+nnoremap P ]P`]
 " osc52
 vnoremap Y y:call SendViaOSC52(getreg('"'))<CR>
 " 単語として認識
