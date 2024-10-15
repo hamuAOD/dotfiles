@@ -14,6 +14,9 @@ keymap.set('x', 'M', '%', {remap = true})         -- 括弧ジャンプ
 keymap.set('n', '<CR>', 'o<ESC>', {remap = true}) -- 改行だけ挿入
 keymap.set('n', 'gg', '0gg', NS)      -- Vim Styleの先頭へ移動
 
+-- CUEファイル用検索
+keymap.set('n', '<Leader>c', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE"}, NS)
+
 -- インデント操作を連続でできるように
 keymap.set('x', '<', '<gv', {remap = true})
 keymap.set('x', '>', '>gv', {remap = true})
@@ -53,8 +56,6 @@ keymap.set('n', '<Leader>tl', '<CMD>set list!<CR>', {desc = "Toggle LIST"}, NS)
 keymap.set('n', '<Leader>tc', '<CMD>setlocal cursorline! cursorcolumn!<CR>', {desc = "Toggle Cursor"}, NS)
 -- スペルチェック
 keymap.set('n', '<Leader>ts', '<CMD>set spell!<CR>', {desc = "Toggle Spell-Check"}, NS)
-
-keymap.set('n', '<Leader>c', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE"}, NS)
 
 -- カーソルの直前の単語を大文字にする
 vim.keymap.set("i", "<C-u>",

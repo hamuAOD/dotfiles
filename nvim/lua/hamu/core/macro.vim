@@ -1,5 +1,3 @@
-""""" MyMacros
-
 " カーソル下のキーワードを置換
 nnoremap S :%s/\V\<<C-r><C-w>\>//g<Left><Left>
 xnoremap S "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
