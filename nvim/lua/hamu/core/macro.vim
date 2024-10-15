@@ -1,6 +1,4 @@
 """"" MyMacros
-" Macro [c] : check Format
-let @c='/ \l\|[^\x01-\x7E]\|TITLE'
 
 " カーソル下のキーワードを置換
 nnoremap S :%s/\V\<<C-r><C-w>\>//g<Left><Left>

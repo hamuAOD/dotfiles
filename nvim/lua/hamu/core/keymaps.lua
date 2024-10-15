@@ -10,6 +10,7 @@ keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', {remap = true})
 keymap.set('n', 'Y', '0y$', {remap = true})       -- 行末までコピー
 keymap.set('n', 'U', '<c-r>', {remap = true})     -- リドゥ
 keymap.set('n', 'M', '%', {remap = true})         -- 括弧ジャンプ
+keymap.set('x', 'M', '%', {remap = true})         -- 括弧ジャンプ
 keymap.set('n', '<CR>', 'o<ESC>', {remap = true}) -- 改行だけ挿入
 keymap.set('n', 'gg', '0gg', NS)      -- Vim Styleの先頭へ移動
 
@@ -52,6 +53,8 @@ keymap.set('n', '<Leader>tl', '<CMD>set list!<CR>', {desc = "Toggle LIST"}, NS)
 keymap.set('n', '<Leader>tc', '<CMD>setlocal cursorline! cursorcolumn!<CR>', {desc = "Toggle Cursor"}, NS)
 -- スペルチェック
 keymap.set('n', '<Leader>ts', '<CMD>set spell!<CR>', {desc = "Toggle Spell-Check"}, NS)
+
+keymap.set('n', '<Leader>c', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE"}, NS)
 
 -- カーソルの直前の単語を大文字にする
 vim.keymap.set("i", "<C-u>",

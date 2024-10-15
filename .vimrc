@@ -133,9 +133,10 @@ vnoremap Y y:call SendViaOSC52(getreg('"'))<CR>
 " 単語として認識
 set iskeyword+=-
 
-""""" MyMacros
-" Macro [c] : check Format
-let @c='/ \l\|[^\x01-\x7E]\|TITLE'
+" CUEファイルチェック用検索
+nnoremap <Leader>c /\( \l\\|[^\x01-\x7E]\\|TITLE\)<CR>
+
+"""" MyMacros
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim function
 function s:toupper_prev_word()
