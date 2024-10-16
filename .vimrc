@@ -124,7 +124,7 @@ nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
 nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
 " カーソル下のキーワードを置換
 nnoremap S :%s/\V\<<C-r><C-w>\>//<Left>
-xnoremap S "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
+" xnoremap S "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
 " ペースト結果のインデントを自動で揃える
 nnoremap p ]p`]
 nnoremap P ]P`]
