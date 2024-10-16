@@ -4,8 +4,8 @@ nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
 
 " 最後にカーソルがあった場所に移動
 augroup vimrc-remember-cursor-position
-    autocmd!
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
 augroup vimrc-samba-delay
@@ -16,8 +16,8 @@ augroup END
 
 " 保存時に行末の空白削除
 autocmd BufWritePre * :%s/\s\+$//ge
-" for FC2
- autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge
+" 保存時にFC2のゴミ削除
+autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge
 " option e : マッチしなかった時にエラーメッセージを表示しない
 
 " 特定文字の強調
