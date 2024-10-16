@@ -7,7 +7,7 @@ local NS = { noremap = true, silent = true }
 keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', {remap = true})
 
 -- Change Keymaps
-keymap.set('n', 'Y', '0y$', {remap = true})       -- 行末までコピー
+keymap.set('n', 'Y', 'y$', {remap = true})       -- 行末までコピー
 keymap.set('n', 'U', '<c-r>', {remap = true})     -- リドゥ
 keymap.set('n', 'M', '%', {remap = true})         -- 括弧ジャンプ
 keymap.set('x', 'M', '%', {remap = true})         -- 括弧ジャンプ
