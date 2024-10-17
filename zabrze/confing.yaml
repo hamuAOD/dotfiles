@@ -95,6 +95,11 @@ abbrevs:
     snippet: ~/.zshrc
     global: true
     context: '^nvim\s'
+  - name: nvim wezterm
+    abbr: w
+    snippet: ~/dotfiles/wezterm/wezterm.lua
+    global: true
+    context: '^nvim\s'
   - name: nvim zabrze
     abbr: zab
     snippet: ~/dotfiles/zabrze/confing.yaml
