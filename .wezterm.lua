@@ -109,6 +109,7 @@ config.keys = {
   { key = 'UpArrow',    mods = 'LEADER', action = act.ActivatePaneDirection 'Up'},
   { key = 'DownArrow',  mods = 'LEADER', action = act.ActivatePaneDirection 'Down'},
   { key = 'w',          mods = 'LEADER', action = act.CloseCurrentPane{confirm = true}},
+  { key = 't',          mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain'},
   { key = 's',          mods = 'LEADER', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
   { key = 'v',          mods = 'LEADER', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
   -- Font size
