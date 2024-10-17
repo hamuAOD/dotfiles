@@ -11,9 +11,10 @@ return
         'SignColumn', 'CursorLineNr', 'EndOfBuffer',
       },
       extra_groups = {
-        -- "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
+        "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
         "NvimTreeNormal",
-        "NeoTreeNormal", "NeoTreeNormalNC"
+        "NeoTreeNormal",
+        "NeoTreeNormalNC"
       }, -- table: additional groups that should be cleared
       exclude_groups = {}, -- table: groups you don't want to clear
     })
