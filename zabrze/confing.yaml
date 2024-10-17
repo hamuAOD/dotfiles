@@ -80,6 +80,7 @@ abbrevs:
   - name: nvim $(fzf)
     abbr: f
     snippet: $(fzf)
+    context: '^nvim\s'
     global: true
   - name: nvim config
     abbr: nvc
