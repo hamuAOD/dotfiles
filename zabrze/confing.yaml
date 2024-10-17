@@ -85,12 +85,17 @@ abbrevs:
   - name: nvim config
     abbr: nvc
     snippet: nvim ~/dotfiles/nvim/lua/hamu/
+  - name: nvim dotfiles
+    abbr: d
+    snippet: ~/dotfiles
+    global: true
+    context: '^nvim\s'
   - name: nvim zshrc
     abbr: z
     snippet: ~/.zshrc
     global: true
     context: '^nvim\s'
-  - name: nvim zshrc
+  - name: nvim zabrze
     abbr: zab
     snippet: ~/dotfiles/zabrze/confing.yaml
     global: true
