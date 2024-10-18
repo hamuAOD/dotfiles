@@ -18,18 +18,18 @@ keymap.set('n', 'gg', '0gg', NS)                  -- Vim Styleの先頭へ移動
 keymap.set('n', '<Leader>c', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE"}, NS)
 
 -- インデント操作を連続でできるように
-keymap.set('x', '<', '<gv', {remap = true})
-keymap.set('x', '>', '>gv', {remap = true})
+keymap.set('x', '<', '<gv', NS)
+keymap.set('x', '>', '>gv', NS)
 -- ウィンドウの幅調整
-keymap.set('n', '<', '<C-w><<C-w>', {remap = true})
-keymap.set('n', '>', '<C-w>><C-w>', {remap = true})
+keymap.set('n', '<', '<C-w><<C-w>', NS)
+keymap.set('n', '>', '<C-w>><C-w>', NS)
 -- Current Directoryをファイルの場所にを変更
 keymap.set('n', 'cd', '<CMD>cd %:h<CR>', {desc = "Change Current Directory"}, NS)
 -- カーソル下のキーワードを置換
 keymap.set('n', 'S', ':%s/\\V\\<<C-r><C-w>\\>//g<Left><Left>', {remap = true})
 -- ペースト結果のインデントを自動で揃える
-keymap.set('n', 'p', ']p`]', {remap = true})
-keymap.set('n', 'P', ']P`]', {remap = true})
+keymap.set('n', 'p', ']p`]', NS)
+keymap.set('n', 'P', ']P`]', NS)
 
 -- Escで日本語入力解除
 -- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
