@@ -4,14 +4,14 @@ local keymap = vim.keymap
 local NS = { noremap = true, silent = true }
 
 -- 検索ハイライトをEscキー2回押しで消去
-keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', {remap = true})
+keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', NS)
 
 -- Change Keymaps
-keymap.set('n', 'Y', 'y$', {remap = true})       -- 行末までコピー
-keymap.set('n', 'U', '<c-r>', {remap = true})     -- リドゥ
-keymap.set('n', 'M', '%', {remap = true})         -- 括弧ジャンプ
-keymap.set('x', 'M', '%', {remap = true})         -- 括弧ジャンプ
-keymap.set('n', '<CR>', 'o<ESC>', {remap = true}) -- 改行だけ挿入
+keymap.set('n', 'Y', 'y$', NS)        -- 行末までコピー
+keymap.set('n', 'U', '<c-r>', NS)     -- リドゥ
+keymap.set('n', 'M', '%', NS)         -- 括弧ジャンプ
+keymap.set('x', 'M', '%', NS)         -- 括弧ジャンプ
+keymap.set('n', '<CR>', 'o<ESC>', NS) -- 改行だけ挿入
 keymap.set('n', 'gg', '0gg', NS)                  -- Vim Styleの先頭へ移動
 
 -- CUEファイル用検索
