@@ -124,6 +124,12 @@ abbrevs:
   - name: yt-dlp
     abbr: yt
     snippet: yt-dlp
+  - name: MakeCue
+    abbr: mc
+    snippet: MakeCue
+  - name: Lyrics2Txt
+    abbr: lt
+    snippet: Lyrics2Txt
 
   # - name: rm -rf
   #   abbr: rm
