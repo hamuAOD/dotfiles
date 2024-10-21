@@ -131,6 +131,18 @@ abbrevs:
     abbr: lt
     snippet: Lyrics2Txt
 
+  - name: xattr -d
+    abbr: d
+    snippet: -d com.apple.metadata:kMDItemWhereFroms
+    global: true
+    context: '^xattr\s'
+  - name: xattr -rc
+    abbr: r
+    snippet: -rc
+    global: true
+    context: '^xattr\s'
+
+
   # - name: rm -rf
   #   abbr: rm
   #   snippet: rm -rf
