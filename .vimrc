@@ -44,6 +44,8 @@ set diffopt+=vertical                 " diffsplit を左右分割をデフォル
 set gdefault                          " 置換のgオプションを常に有効化
 set vb t_vb=                          " ビープ音を消す
 
+set iskeyword+=-                      " 単語として認識
+
 let mapleader="\<Space>"
 let maplocalleader = ','
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,15 +125,14 @@ inoremap <C-t> <Esc><Left>"zx"zpa
 nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
 nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
 " カーソル下のキーワードを置換
-nnoremap S :%s/\V\<<C-r><C-w>\>//<Left>
-" xnoremap S "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
+nnoremap R :%s/\V\<<C-r><C-w>\>//<Left>
+" 選択したキーワードを置換
+xnoremap R "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
 " ペースト結果のインデントを自動で揃える
 nnoremap p ]p`]
 nnoremap P ]P`]
 " osc52
 vnoremap Y y:call SendViaOSC52(getreg('"'))<CR>
-" 単語として認識
-set iskeyword+=-
 
 " CUEファイルチェック用検索
 nnoremap <Leader>c /\( \l\\|[^\x01-\x7E]\\|TITLE\)<CR>
@@ -139,6 +140,7 @@ nnoremap <Leader>c /\( \l\\|[^\x01-\x7E]\\|TITLE\)<CR>
 """" MyMacros
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim function
+
 function s:toupper_prev_word()
   let col = getpos('.')[2]
   let substring = getline('.')[0:col-1]
