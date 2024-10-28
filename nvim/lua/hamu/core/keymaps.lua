@@ -28,7 +28,6 @@ keymap.set('n', 'cd', '<CMD>cd %:h<CR>', {desc = "Change Current Directory"}, NS
 -- カーソル下のキーワードを置換
 keymap.set('n', 'R', ':%s/\\V\\<<C-r><C-w>\\>//ge<Left><Left><Left>', {remap = true})
 -- 選択したキーワードを置換
--- keymap.set('x', 'S', '"zy:%s/\\V<C-r><C-r>=escape\\(@z,'\\/\\\'\\)<CR>//gce<Left><Left><Left><Left>', {remap = true})
 keymap.set('x', 'R', '"zy:%s/\\V<C-r><C-r>=escape(@z,\' /\\\')<CR>//ge<Left><Left><Left>', {remap = true})
 -- ペースト結果のインデントを自動で揃える
 keymap.set('n', 'p', ']p`]', NS)
