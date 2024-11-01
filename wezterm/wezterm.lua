@@ -25,10 +25,11 @@ wezterm.on('gui-startup', function(cmd)
 
 config.initial_cols = 130
 config.initial_rows = 50
-config.font = wezterm.font('HackGen35 Console NF', { weight = 'Bold', italic = false })
+-- config.font = wezterm.font('HackGen35 Console NF', { weight = 'Bold', italic = false })
+config.font = wezterm.font('UDEV Gothic 35NFLG', { weight = 'Bold', italic = false })
 config.font_size = 13
-config.line_height = 1.10
-config.cell_width = 1.00
+config.line_height = 1.1
+config.cell_width = 1.0
 config.window_padding = {
   left = '1.1cell',
   right = '1.1cell',
