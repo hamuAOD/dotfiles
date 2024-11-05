@@ -37,7 +37,7 @@ return {
     config = function()
       require("telescope").load_extension("smart_open")
 
-      vim.keymap.set("n", "<leader>o", function ()
+      vim.keymap.set("n", "<leader>fs", function ()
         require("telescope").extensions.smart_open.smart_open()
       end, {desc = "Open file"}, { noremap = true, silent = true })
     end,
