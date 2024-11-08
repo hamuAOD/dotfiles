@@ -93,7 +93,8 @@ vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
 vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 
 -- Change colors
-vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#44475a')
+vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#474a5d')
+vim.cmd('autocmd ColorScheme * highlight CursorLine guibg=#474a5d')
 vim.cmd('autocmd ColorScheme * highlight SpecialKey guifg=#D6ACFF')
 
 -- set filetype
