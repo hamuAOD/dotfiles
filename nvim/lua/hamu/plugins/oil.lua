@@ -1,31 +1,40 @@
 return
 {
-  'stevearc/oil.nvim',
-  opts = {},
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
 
-  event = "VeryLazy",
+    config = function()
+      require("oil").setup({
+        default_file_explorer = true,
+        delete_to_trash = true,
+        -- skip_confirm_for_simple_edits = false,
+        columns = {
+          "icon",
+          "permissions",
+          "size",
+          "mtime",
+        },
+        view_options = {
+          show_hidden = true,
+          natural_order = true,
+        },
+        win_options = {
+          signcolumn = "yes:2",
+        },
+      })
 
-  config = function()
-    require("oil").setup({
-      default_file_explorer = true,
-      delete_to_trash = true,
-      -- skip_confirm_for_simple_edits = false,
-      columns = {
-        "icon",
-        "permissions",
-        "size",
-        "mtime",
-      },
-      view_options = {
-        show_hidden = true,
-        natural_order = true,
-      }
-    })
+      local NS = { noremap = true, silent = true }
+      vim.keymap.set('n', '-', '<CMD>Oil<CR>', {desc = "Oil"}, NS)
 
-    local NS = { noremap = true, silent = true }
-    vim.cmd([[let g:translate_copy_result = 1]])
-    vim.keymap.set('n', '-', '<CMD>Oil<CR>', {desc = "Oil"}, NS)
-
-  end,
+    end,
+  },
+  {
+    "refractalize/oil-git-status.nvim",
+    dependencies = { "stevearc/oil.nvim" },
+    event = "VeryLazy",
+    config = true,
+  },
 }
