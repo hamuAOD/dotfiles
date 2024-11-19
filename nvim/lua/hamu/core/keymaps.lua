@@ -13,7 +13,7 @@ keymap.set('n', 'M', '%', NS)                 -- 括弧ジャンプ
 keymap.set('x', 'M', '%', NS)                 -- 括弧ジャンプ
 keymap.set('n', '<CR>', 'o<ESC>', NS)         -- 改行だけ挿入
 keymap.set('n', 'gg', '0gg', NS)              -- Vim Styleの先頭へ移動
-keymap.set('n', '*', '/<C-r><C-w><CR>N', NS)  -- 検索後にカーソルを移動しない
+-- keymap.set('n', '*', '/<C-r><C-w><CR>N', NS)  -- 検索後にカーソルを移動しない
 
 -- CUEファイル用検索
 keymap.set('n', '<Leader>c', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE"}, NS)
