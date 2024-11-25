@@ -5,7 +5,7 @@ return {
     require("hlchunk").setup({
       chunk = {
         priority = 0,
-        enable = false,
+        enable = true,
         chars = {
           horizontal_line = "─",
           vertical_line = "│",
@@ -21,18 +21,18 @@ return {
         chars = {
             "│",
         },
-        -- style = {
-        --     vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
-        -- },
         style = {
-          "#FF79C6",
-          "#FF7F00",
-          "#F1FA8C",
-          "#50FA7B",
-          "#BD93F9",
-          "#8BE9FD",
-          "#FF5555",
+            vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
         },
+        -- style = {
+        --   "#FF79C6",
+        --   "#FF7F00",
+        --   "#F1FA8C",
+        --   "#50FA7B",
+        --   "#BD93F9",
+        --   "#8BE9FD",
+        --   "#FF5555",
+        -- },
       },
       blank = {
         enable = false,

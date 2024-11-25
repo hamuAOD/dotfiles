@@ -14,8 +14,8 @@ return
         sign = false,
         -- icons = { '① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ' },
         icons = {'', '', '', '', '', ''},
-        width = 'block',
-        min_width = 40,
+        -- width = 'block',
+        -- min_width = 40,
       },
       code = {
         width = 'block', -- block, full
