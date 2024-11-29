@@ -17,6 +17,9 @@ return
         -- width = 'block',
         -- min_width = 40,
       },
+      checkbox = {
+        checked = { scope_highlight = '@markup.strikethrough' },
+      },
       code = {
         width = 'block', -- block, full
       },
