@@ -125,14 +125,14 @@ inoremap <C-t> <Esc><Left>"zx"zpa
 nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
 nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
 " カーソル下のキーワードを置換
-nnoremap R :%s/\V\<<C-r><C-w>\>//<Left>
+nnoremap S :%s/\V\<<C-r><C-w>\>//<Left>
 " 選択したキーワードを置換
-xnoremap R "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
+xnoremap S "zy:%s/\V<C-r><C-r>=escape(@z,'/\')<CR>//gce<Left><Left><Left><Left>
 " ペースト結果のインデントを自動で揃える
 nnoremap p ]p`]
 nnoremap P ]P`]
 " osc52
-vnoremap Y y:call SendViaOSC52(getreg('"'))<CR>
+" vnoremap Y y:call SendViaOSC52(getreg('"'))<CR>
 
 " CUEファイルチェック用検索
 nnoremap <Leader>c /\( \l\\|[^\x01-\x7E]\\|TITLE\)<CR>
