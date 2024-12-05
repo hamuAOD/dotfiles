@@ -1,7 +1,7 @@
 return {
   "hrsh7th/nvim-insx",
   event = { "BufRead", "BufNewFile" },
-  commit = "02fe0f3b0e6eeb5c60ffedacadda0274a8d2b187",
+  -- commit = "02fe0f3b0e6eeb5c60ffedacadda0274a8d2b187",
 
   config = function()
     require("insx.preset.standard").setup()
