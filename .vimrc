@@ -122,8 +122,8 @@ nnoremap M %
 " スペル修正
 inoremap <C-t> <Esc><Left>"zx"zpa
 " 空行での編集開始時に自動でインデント
-nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
-nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
+" nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
+" nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
 " カーソル下のキーワードを置換
 nnoremap S :%s/\V\<<C-r><C-w>\>//<Left>
 " 選択したキーワードを置換
