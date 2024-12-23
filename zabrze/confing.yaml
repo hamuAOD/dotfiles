@@ -127,6 +127,11 @@ abbrevs:
   - name: MakeCue
     abbr: mc
     snippet: MakeCue
+  - name: MekeCue CD
+    abbr: cd
+    snippet: ~/Music/CD/
+    context: '^MakeCue\s'
+    global: true
   - name: Lyrics2Txt
     abbr: lt
     snippet: Lyrics2Txt
