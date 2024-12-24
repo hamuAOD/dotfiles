@@ -129,7 +129,8 @@ abbrevs:
     snippet: MakeCue
   - name: MekeCue CD
     abbr: cd
-    snippet: ~/Music/CD/
+    snippet: ~/Music/CD/{}
+    cursor: "{}"
     context: '^MakeCue\s'
     global: true
   - name: Lyrics2Txt
