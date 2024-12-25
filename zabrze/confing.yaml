@@ -128,6 +128,10 @@ abbrevs:
     abbr: mc
     snippet: MakeCue
   - name: MekeCue CD
+    abbr: mcc
+    snippet: MakeCue ~/Music/CD/|
+    cursor: "|"
+  - name: MekeCue CD2
     abbr: cd
     snippet: ~/Music/CD/|
     cursor: "|"
