@@ -10,6 +10,10 @@ IgnoreSaveConfirmationWithCloseButton = false
 ## Makes the application window frameless.
 # BorderlessWindow = false
 
+## EnableBackgroundBlur applies a translucent Blur/Acrylic effect to the window
+## background.
+# EnableBackgroundBlur = true
+
 ## Controls whether the title bar is displayed when the borderless
 ## window setting is enabled.
 # HideTitlebar = false
@@ -40,7 +44,7 @@ Height = 900
 
 ## This option makes the whole GUI window in semi-transparent.
 ## This setting also implicitly enables the Drawborder setting
-Transparent = 0.95
+Transparent = 0.92
 
 ## Launch goneovim with full screen window size.
 # StartFullscreen = false
@@ -68,6 +72,23 @@ FontFamily = "HackGen35 Console NF"
 # FontFamily = "Windows"
 ## Fontsize is
 FontSize = 13
+## FontWeight specifis the glyph weight for the configured font family.
+## * Possible values are:
+##    - "Thin", "Hairline"
+##    - "ExtraLight", "Ultralight"
+##    - "Light"
+##    - "Normal", "regular"
+##    - "Medium"
+##    - "DemiBold", "SemiBold"
+##    - "Bold"
+##    - "Extra Bold", "UltraBold"
+##    - "Black"
+## * Default value is "Normal".
+## * Note that for the glyphs of a specified weight to be validly displayed,
+##   a font of the corresponding weight must be installed.
+# FontWeight = "normal"
+## FontStretch is the ratio of Horizontal stretch. Default is 100 [%]
+# FontStretch = 100
 ## letterspace is
 # Letterspace = 0
 
@@ -94,6 +115,14 @@ FontSize = 13
 ## Copy yanked text to clipboard
 # Clipboard = true
 
+## WSL Integration Options
+## If UseWSL is set to true, it will connect to nvim on WSL.
+## The behavior is the same as when --wslw is specified as an argument.
+# UseWSL = false
+## WSLDist specifies the WSL distribution.
+## It is actually used as the value of the -d argument to the wsl startup command.
+# WSLDist = ""
+
 ## This setting is equivalent to Macmeta in MacVim.
 # Macmeta = false
 
@@ -116,6 +145,12 @@ FontSize = 13
 ## when you type a key, and to redisplay it when you move the mouse cursor again.
 # HideMouseWhenTyping = false
 
+## Specifies a list of characters to be scaled to the full height of the line. This solves
+## the problem of characters that form the UI not filling the UI design when `set linespace`
+## is used to increase the line spacing.
+## The default character list is as follows.
+# CharsScaledLineHeight = ["", "", "", "", "", "", "", "", "", "", "│"]
+
 ## Draw borders on the GUI side instead of the vertical border and status line that nvim draws.
 # DrawWindowSeparator = false
 # WindowSeparatorTheme = "dark"
@@ -127,6 +162,15 @@ FontSize = 13
 # IndentGuide = false
 # IndentGuideIgnoreFtList = ["md"]
 # OptionsToUseGuideWidth = "tabstop"
+
+## Enable manual font fallback.
+## When this option is enabled, if a character is not found in the specified font, an attempt
+##  is made to use the fallback destination fonts specified as comma-separated in order.
+# ManualFontFallback = false
+
+## When opening a file by drag & drop, if there is already a file opened in the buffer,
+## display a dialog box asking if you want to take a diff.
+ShowDiffDialogOnDrop = true
 
 ## Animates the scrolling behavior of Neovim when the scroll command is entered.
 SmoothScroll = true
