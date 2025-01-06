@@ -34,7 +34,7 @@ format = "[$symbol]($style)"
 style = 'fg:#7aa2f7 bold'
 disabled = false
 [os.symbols]
-Macos = " "  # nf-fa-apple
+Macos = " "  # nf-fa-apple
 Ubuntu = " " # nf-linux-ubuntu
 Debian = " " # nf-linux-debian
 
