@@ -36,8 +36,8 @@ config.window_padding = {
   top = '0.5cell',
   bottom = '0.5cell',
 }
--- config.window_background_opacity = 0.92
--- config.macos_window_background_blur = 12
+config.window_background_opacity = 0.92
+config.macos_window_background_blur = 12
 -- config.treat_east_asian_ambiguous_width_as_wide = true
 config.window_close_confirmation = 'NeverPrompt'  -- AlwaysPrompt
 -- Colorscheme
