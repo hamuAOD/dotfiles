@@ -4,7 +4,7 @@
 format = """
 $fill\n\
 $os\
-[❱ ](fg:#7aa2f7)\
+[❱ ](fg:#7aa2f7 bold)\
 $hostname\
 $directory\
 $git_branch\
