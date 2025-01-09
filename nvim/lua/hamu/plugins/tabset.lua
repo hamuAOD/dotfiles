@@ -17,8 +17,14 @@ return
         python = {
           tabwidth = 4,
           expandtab = true
+        },
+        {
+          filetypes = { "text", "markdown" },
+          config = {
+            tabwidth = 4,
+            expandtab = false
+          }
         }
-
       }
     })
   end,
