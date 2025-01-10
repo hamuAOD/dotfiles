@@ -625,4 +625,35 @@ return {
       vim.keymap.set('n', '<Leader>ti', '<CMD>IBLToggle<CR>', {desc = "Toggle IndentLine"}, { noremap = true, silent = true })
     end,
   },
+  -- tabset 2025.01.10
+  {
+    "FotiadisM/tabset.nvim",
+    event = { "BufRead", "BufNewFile" },
+
+    config = function()
+      require("tabset").setup({
+        defaults = {
+          tabwidth = 2,
+          expandtab = true
+        },
+        language = {
+          go = {
+            tabwidth = 4,
+            expandtab = false
+          },
+          python = {
+            tabwidth = 4,
+            expandtab = true
+          },
+          {
+            filetypes = { "text", "markdown" },
+            config = {
+              tabwidth = 4,
+              expandtab = false
+            }
+          }
+        }
+      })
+    end,
+  },
 }
