@@ -25,7 +25,7 @@ return
     local opts = { noremap = true, silent = true }
     vim.keymap.set('n', '<C-p>', '<CMD>BufferPrevious<CR>', {desc = "Buffer Previous"}, opts)
     vim.keymap.set('n', '<C-n>', '<CMD>BufferNext<CR>', {desc = "Buffer Next"}, opts)
-    vim.keymap.set('n', '<C-d>', '<CMD>BufferClose<CR>', {desc = "Buffer Delete"}, opts)
+    vim.keymap.set('n', '<C-w>', '<CMD>BufferClose<CR>', {desc = "Buffer Delete"}, opts)
     vim.keymap.set('n', '<C-,>', '<CMD>BufferMovePrevious<CR>', {desc = "Move Buffer Previous"}, opts)
     vim.keymap.set('n', '<C-.>', '<CMD>BufferMoveNext<CR>', {desc = "Move Buffer Next"}, opts)
   end,
