@@ -101,6 +101,7 @@ vim.cmd('autocmd ColorScheme * highlight LineNrBelow guifg=#6272A4')
 
 -- set filetype
 vim.cmd('autocmd BufNewFile,BufRead *.xdc set filetype=xdc')
+vim.cmd('autocmd BufNewFile,BufRead *.txt set filetype=text')
 -----------------------------------------------------------
 -- Set 2-byte char.
 -----------------------------------------------------------
