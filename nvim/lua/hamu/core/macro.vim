@@ -9,11 +9,11 @@ augroup vimrc-remember-cursor-position
 augroup END
 
 " for SAMBA -> delete: oil.nvim
-augroup vimrc-samba-delay
-  autocmd BufWritePost * sleep 100m
-  autocmd BufWritePost * checktime
-  set autoread
-augroup END
+"augroup vimrc-samba-delay
+"  autocmd BufWritePost * sleep 100m
+"  autocmd BufWritePost * checktime
+"  set autoread
+"augroup END
 
 " 保存時に行末の空白削除
 autocmd BufWritePre * :%s/\s\+$//ge
