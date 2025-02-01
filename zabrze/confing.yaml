@@ -185,7 +185,7 @@ abbrevs:
     abbr: la
     snippet: eza --icons=always -la --time-style long-iso
   - name: eza list+ with size
-    abbr: la
+    abbr: las
     snippet: eza --icons=always -la --total-size --time-style long-iso
 
   - name: go build
