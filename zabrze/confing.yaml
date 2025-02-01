@@ -177,8 +177,14 @@ abbrevs:
     snippet: eza --icons=always
   - name: eza list
     abbr: ll
+    snippet: eza --icons=always -l --time-style long-iso
+  - name: eza list with size
+    abbr: lls
     snippet: eza --icons=always -l --total-size --time-style long-iso
   - name: eza list+
+    abbr: la
+    snippet: eza --icons=always -la --time-style long-iso
+  - name: eza list+ with size
     abbr: la
     snippet: eza --icons=always -la --total-size --time-style long-iso
 
