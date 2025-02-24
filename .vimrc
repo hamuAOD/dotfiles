@@ -113,7 +113,8 @@ nnoremap <Leader>tc :<C-u>setlocal cursorline! cursorcolumn!<CR>
 " ノーマルモードでもエンターキーで改行を挿入
 noremap <CR> o<ESC>
 " 行末までコピー
-nnoremap Y 0y$
+" nnoremap Y 0y$
+nnoremap Y y$
 " リドゥ リマップ
 nnoremap U <C-r>
 " 括弧ジャンプ
