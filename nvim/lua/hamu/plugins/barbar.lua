@@ -17,6 +17,7 @@ return
 
   config = function ()
     require'barbar'.setup ({
+      highlight_alternate = true,
       sidebar_filetypes = {
         ['neo-tree'] = {event = 'BufWipeout', text = 'Neo-tree'},
       },
