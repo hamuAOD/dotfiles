@@ -188,6 +188,10 @@ abbrevs:
     abbr: las
     snippet: eza --icons=always -la --total-size --time-style long-iso
 
+  - name: open lazygit of dotfiles
+    abbr: lgd
+    snippet: cd ~/dotfiles && lazygit
+
   - name: go build
     abbr: b
     snippet: build -ldflags="-s -w" -trimpath
