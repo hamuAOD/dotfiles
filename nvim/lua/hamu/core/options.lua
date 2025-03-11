@@ -95,7 +95,7 @@ vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 -- Change colors
 vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#474a5d')
 vim.cmd('autocmd ColorScheme * highlight CursorLine guibg=#474a5d')
-vim.cmd('autocmd ColorScheme * highlight Whitespace guifg=#FF79C6')
+-- vim.cmd('autocmd ColorScheme * highlight Whitespace guifg=#FF79C6')
 vim.cmd('autocmd ColorScheme * highlight LineNrAbove guifg=#6272A4')
 vim.cmd('autocmd ColorScheme * highlight LineNrBelow guifg=#6272A4')
 
