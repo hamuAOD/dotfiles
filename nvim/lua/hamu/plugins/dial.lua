@@ -19,6 +19,14 @@ return {
           -- if true, it only matches dates with word boundary
           word = false,
         },
+        augend.date.new{
+          pattern = "%Y-%m-%d",
+          default_kind = "day",
+          -- if true, it does not match dates which does not exist, such as 2022/05/32
+          only_valid = true,
+          -- if true, it only matches dates with word boundary
+          word = false,
+        },
       },
     }
 
