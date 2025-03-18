@@ -212,6 +212,13 @@ abbrevs:
     abbr: 7zx
     snippet: 7zz x
 
+  - name: Go Build
+    abbr: gob
+    snippet: go build -ldflags="-s -w" -trimpath
+  - name: Go Document Formatting
+    abbr: god
+    snippet: $ goimports -l -w main.go
+
   - name: yazi
     abbr: yz
     snippet: yazi
