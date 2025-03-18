@@ -216,8 +216,8 @@ abbrevs:
     abbr: gob
     snippet: go build -ldflags="-s -w" -trimpath
   - name: Go Document Formatting
-    abbr: god
-    snippet: $ goimports -l -w main.go
+    abbr: gof
+    snippet: goimports -l -w main.go
 
   - name: yazi
     abbr: yz
