@@ -103,6 +103,55 @@ vim.cmd('autocmd ColorScheme * highlight LineNrBelow guifg=#6272A4')
 vim.cmd('autocmd BufNewFile,BufRead *.xdc set filetype=xdc')
 vim.cmd('autocmd BufNewFile,BufRead *.txt set filetype=text')
 vim.cmd('autocmd BufNewFile,BufRead *.txt highlight Whitespace guifg=#FF79C6')
+
+-----------------------------------------------------------
+-- 最後にカーソルがあった場所に移動
+-----------------------------------------------------------
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    local last_pos = vim.fn.line("'\"")
+    if last_pos > 1 and last_pos <= vim.fn.line("$") then
+      vim.cmd('normal! g`"')
+    end
+  end
+})
+-- augroup vimrc-remember-cursor-position
+--   autocmd!
+--   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+-- augroup END
+
+-----------------------------------------------------------
+-- 保存時の処理
+-----------------------------------------------------------
+-- 保存時に行末の空白削除
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    command = [[%s/\s\+$//ge]]
+})
+-- 保存時にFC2のゴミ削除
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    command = [[%s/\*\*\*ysqxzzosy//ge]]
+})
+-- autocmd BufWritePre * :%s/\s\+$//ge
+-- autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge
+-- option e : マッチしなかった時にエラーメッセージを表示しない
+
+-----------------------------------------------------------
+-- 特定文字の強調
+-----------------------------------------------------------
+vim.api.nvim_create_augroup("BadChar", { clear = true })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    group = "BadChar",
+    pattern = "*",
+    command = [[match Error /‐\|–\|“\|’\| \+$/]]
+})
+-- augroup BadChar
+--   au!
+--   autocmd BufWinEnter * match Error /‐\|–\|“\|’\| \+$/
+-- augroup END
+
 -----------------------------------------------------------
 -- Set 2-byte char.
 -----------------------------------------------------------
