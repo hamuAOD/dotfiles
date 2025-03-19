@@ -63,10 +63,8 @@ keymap.set('n', '<Leader>tc', '<CMD>setlocal cursorline! cursorcolumn!<CR>', {de
 keymap.set('n', '<Leader>ts', '<CMD>set spell!<CR>', {desc = "Toggle Spell-Check"}, NS)
 
 -- 空行での編集開始時に自動でインデント
-vim.api.nvim_set_keymap('n', 'i', "v:lua.empty_line_insert()", {expr = true, noremap = true})
-vim.api.nvim_set_keymap('n', 'A', "v:lua.empty_line_append()", {expr = true, noremap = true})
--- "nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
--- "nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
+keymap.set('n', 'i', "v:lua.empty_line_insert()", { expr = true })
+keymap.set('n', 'A', "v:lua.empty_line_append()", { expr = true })
 
 function _G.empty_line_insert()
   return vim.fn.empty(vim.fn.getline('.')) == 1 and '"_cc' or 'i'
@@ -79,7 +77,7 @@ end
 -- nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
 
 -- カーソルの直前の単語を大文字にする
-vim.keymap.set("i", "<C-u>",
+keymap.set("i", "<C-u>",
   function()
     local line = vim.fn.getline(".")
     local col = vim.fn.getpos(".")[3]
@@ -90,5 +88,5 @@ vim.keymap.set("i", "<C-u>",
   {expr = true}
 )
 --- カーソルの直前の単語の先頭を大文字にする
-vim.keymap.set('i', '<C-o>', '<ESC>bgUlgi', NS)
+keymap.set('i', '<C-o>', '<ESC>bgUlgi', NS)
 

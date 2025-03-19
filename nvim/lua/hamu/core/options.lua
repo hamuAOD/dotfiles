@@ -107,7 +107,9 @@ vim.cmd('autocmd BufNewFile,BufRead *.txt highlight Whitespace guifg=#FF79C6')
 -----------------------------------------------------------
 -- 最後にカーソルがあった場所に移動
 -----------------------------------------------------------
+local cursor_group = vim.api.nvim_create_augroup("RememberCursor", { clear = true })
 vim.api.nvim_create_autocmd("BufReadPost", {
+  group = cursor_group,
   pattern = "*",
   callback = function()
     local last_pos = vim.fn.line("'\"")
@@ -124,15 +126,18 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -----------------------------------------------------------
 -- 保存時の処理
 -----------------------------------------------------------
+local save_cleanup_group = vim.api.nvim_create_augroup("SaveCleanup", { clear = true })
 -- 保存時に行末の空白削除
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    command = [[%s/\s\+$//ge]]
+  group = save_cleanup_group,
+  pattern = "*",
+  command = [[%s/\s\+$//ge]]
 })
 -- 保存時にFC2のゴミ削除
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    command = [[%s/\*\*\*ysqxzzosy//ge]]
+  group = save_cleanup_group,
+  pattern = "*",
+  command = [[%s/\*\*\*ysqxzzosy//ge]]
 })
 -- autocmd BufWritePre * :%s/\s\+$//ge
 -- autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge
@@ -141,9 +146,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -----------------------------------------------------------
 -- 特定文字の強調
 -----------------------------------------------------------
-vim.api.nvim_create_augroup("BadChar", { clear = true })
+local emphasis_bad_char = vim.api.nvim_create_augroup("BadChar", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
-    group = "BadChar",
+    group = emphasis_bad_char,
     pattern = "*",
     command = [[match Error /‐\|–\|“\|’\| \+$/]]
 })
