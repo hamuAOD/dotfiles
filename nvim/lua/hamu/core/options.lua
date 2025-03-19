@@ -90,7 +90,7 @@ vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
 -- VIM Command
 -----------------------------------------------------------
 -- call macros
-vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
+-- vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 
 -- Change colors
 vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#474a5d')
