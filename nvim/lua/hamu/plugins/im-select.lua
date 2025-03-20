@@ -1,15 +1,14 @@
-if vim.fn.has('mac') == 1 then
-  return{
-      "keaising/im-select.nvim",
-      event = { "BufRead", "BufNewFile" },
-      config = function()
-        require("im_select").setup({
-          default_im_select = "com.apple.keylayout.ABC",
-          default_command = "/opt/homebrew/bin/macism",
-        })
-      end,
-  }
-end
+return{
+  "keaising/im-select.nvim",
+  cond = vim.fn.has("macunix") == 1,  -- Mac ならロード
+  event = { "BufRead", "BufNewFile" },
+  config = function()
+    require("im_select").setup({
+      default_im_select = "com.apple.keylayout.ABC",
+      default_command = "/opt/homebrew/bin/macism",
+    })
+  end,
+}
 -- Install im-select
 -- brew tap daipeihust/tap && brew install im-select
 -- Install macism
