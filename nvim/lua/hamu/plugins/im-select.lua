@@ -1,6 +1,9 @@
 return{
   "keaising/im-select.nvim",
-  cond = vim.fn.has("macunix") == 1,  -- Mac ならロード
+  cond = function()
+    local os = vim.loop.os_uname().sysname
+    return os == "Darwin"  -- Mac なら true（ロードされる）、Ubuntu なら false（ロードされない）
+  end,
   event = { "BufRead", "BufNewFile" },
   config = function()
     require("im_select").setup({
