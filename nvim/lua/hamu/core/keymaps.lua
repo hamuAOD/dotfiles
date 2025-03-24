@@ -57,6 +57,8 @@ keymap.set('n', 'sp', '<C-w><S-w>', {desc = "Previous Window"}, NS)
 keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB"}, NS)
 -- set list をトグル
 keymap.set('n', '<Leader>tl', '<CMD>set list!<CR>', {desc = "Toggle LIST"}, NS)
+-- set wrap をトグル
+keymap.set('n', '<Leader>tw', '<CMD>set wrap!<CR>', {desc = "Toggle WRAP"}, NS)
 -- カーソル位置強調表示のトグル
 keymap.set('n', '<Leader>tc', '<CMD>setlocal cursorline! cursorcolumn!<CR>', {desc = "Toggle Cursor"}, NS)
 -- スペルチェック
