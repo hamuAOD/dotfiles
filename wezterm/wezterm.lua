@@ -28,7 +28,7 @@ config.initial_rows = 50
 config.font = wezterm.font('HackGen35 Console NF', { weight = "Bold" })
 -- config.font = wezterm.font('UDEV Gothic 35NFLG', { weight = 'Bold' })
 config.font_size = 13
-config.line_height = 1.30
+config.line_height = 1.2
 config.cell_width = 1.0
 config.window_padding = {
   left = '1.1cell',
