@@ -496,4 +496,11 @@ adjust-cell-height = 2
 background-opacity = 1.0
 background-blur = false
 
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = false
+window-padding-color = background
+window-height = 50
+window-width = 130
+
 term = xterm-256color
