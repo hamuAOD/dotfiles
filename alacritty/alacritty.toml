@@ -5,13 +5,12 @@ term = "xterm-256color"
 [font]
 
 # Normal font style
-normal = { family = "HackGen35 Console NF", style = "Regular" }  # Default for Linux/BSD: "monospace", Regular
+normal = { family = "HackGen35 Console NF", style = "Bold" }  # Default for Linux/BSD: "monospace", Regular
 
 size = 13.0
 
 # Offset is extra space around each character
-offset = { x = 1, y = 1 }  # Default: x = 0, y = 0
-
+offset = { x = 1, y = 3 }  # Default: x = 0, y = 0
 
 [window]
 
@@ -29,7 +28,7 @@ padding = { x = 6, y = 6 }  # Default: x = 0, y = 0
 option_as_alt = "Both"
 
 # Opacity
-opacity = 0.97  # Default: 1.0
+opacity = 0.92  # Default: 1.0
 
 # Request compositor to blur content behind transparent windows.
 blur = false  # Default: false
