@@ -29,4 +29,4 @@ window-position-y = 140
 
 term = xterm-256color
 
-keybind = super+w=write_screen_file:open
+keybind = super+o=write_screen_file:open
