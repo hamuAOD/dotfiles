@@ -24,8 +24,8 @@ window-padding-balance = false
 window-padding-color = background
 window-height = 50
 window-width = 130
-window-position-x = 50
-window-position-y = 140
+window-position-x = 70
+window-position-y = 70
 
 term = xterm-256color
 
