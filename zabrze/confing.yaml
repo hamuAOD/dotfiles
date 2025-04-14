@@ -184,6 +184,12 @@ abbrevs:
     abbr: 7zx
     snippet: 7zz x
 # etc
+  - name: clear
+    abbr: cl
+    snippet: clear
+  - name: exit
+    abbr: ex
+    snippet: exit
   - name: ttye
     abbr: ttyc
     snippet: tty-clock -sc
