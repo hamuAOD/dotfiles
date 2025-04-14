@@ -1,4 +1,5 @@
 abbrevs:
+# Zoxide
   - name: zoxide
     abbr: cd
     snippet: z
@@ -7,32 +8,37 @@ abbrevs:
     snippet: ~/dotfiles
     global: true
     context: '^z\s'
-
-  # - name: move to Trash
-  #   abbr: t
-  #   snippet: '{} ~/.Trash'
-  #   cursor: "{}"
-  #   global: true
-  #   context: '^mv -v\s'
-
-  # - name: trash
-  #   abbr-pattern: ^trash$
-  #   snippet: mv -v {} ~/.Trash
-  #   cursor: "{}"
+# FD
+  - name: fd -H
+    abbr: fd
+    snippet: fd -H
+# EZA
+  - name: eza default
+    abbr: ls
+    snippet: eza --icons=always
+  - name: eza list
+    abbr: ll
+    snippet: eza --icons=always -l --time-style long-iso
+  - name: eza list with size
+    abbr: lls
+    snippet: eza --icons=always -l --total-size --time-style long-iso
+  - name: eza list+
+    abbr: la
+    snippet: eza --icons=always -la --time-style long-iso
+  - name: eza list+ with size
+    abbr: las
+    snippet: eza --icons=always -la --total-size --time-style long-iso
+# Command - Move
+  # - name: cp/mv -iv
+  #   abbr-pattern: ^(cp|mv)$
+  #   snippet: $abbr -iv
   #   evaluate: true
-
-  - name: clear
-    abbr: cl
-    snippet: clear
-
-  - name: exit
-    abbr: ex
-    snippet: exit
-
-  - name: cp/mv -iv
-    abbr-pattern: ^(cp|mv)$
-    snippet: $abbr -iv
-    evaluate: true
+  - name: cp -aiv
+    abbr: cp
+    snippet: cp -aiv
+  - name: mv -iv
+    abbr: mv
+    snippet: mv -iv
   - name: trash -v
     abbr: rm
     snippet: trash -v
@@ -41,14 +47,8 @@ abbrevs:
     abbr: tra
     snippet: trash -v
     if: '(( ${+commands[trash]} ))'
-
-  - name: scp Ubuntu Server Downloads
-    abbr: us
-    snippet: 'hamu@192.168.1.10:/home/hamu/Downloads/'
-    global: true
-    context: '^scp\s'
-
-  - name: homebrew
+# Homebrew
+  - name: homebrew update
     abbr: bu
     snippet: brew update && brew upgrade && brew cleanup
   - name: homebrew search
@@ -66,14 +66,14 @@ abbrevs:
     snippet: uninstall
     global: true
     context: '^brew\s'
-
+# Vim
   - name: vim
     abbr: v
     snippet: vim
   - name: vim $(fzf)
     abbr: vf
     snippet: vim $(fzf)
-
+# Neovim
   - name: nvim
     abbr: nv
     snippet: nvim
@@ -113,20 +113,29 @@ abbrevs:
     snippet: ~/Music/伊集院光\ 深夜の馬鹿力.cue
     global: true
     context: '^nvim\s'
+  - name: nvim yt-dlp-list
+    abbr: yt
+    snippet: ~/Music/yt-dlp-list.txt
+    global: true
+    context: '^nvim\s'
+  - name: nvim yt-dlp-4k-list
+    abbr: yt4k
+    snippet: ~/Music/yt-dlp-4k-list.txt
+    global: true
+    context: '^nvim\s'
 
+# for Ubuntu Server
   - name: ssh Ubuntu Server
     abbr: us
     snippet: hamu@192.168.1.10
     global: true
     context: '^ssh\s'
-
-  - name: fd -H
-    abbr: fd
-    snippet: fd -H
-
-  - name: yt-dlp
-    abbr: yt
-    snippet: yt-dlp
+  - name: scp Ubuntu Server Downloads
+    abbr: us
+    snippet: 'hamu@192.168.1.10:/home/hamu/Downloads/'
+    global: true
+    context: '^scp\s'
+# Scripts
   - name: MakeCue
     abbr: mc
     snippet: MakeCue
@@ -143,7 +152,7 @@ abbrevs:
   - name: Lyrics2Txt
     abbr: lt
     snippet: Lyrics2Txt
-
+# XATTR
   - name: xattr -d
     abbr: d
     snippet: -d com.apple.metadata:kMDItemWhereFroms
@@ -154,76 +163,69 @@ abbrevs:
     snippet: -rc
     global: true
     context: '^xattr\s'
-
-
-  # - name: rm -rf
-  #   abbr: rm
-  #   snippet: rm -rf
-
-  # - name: gotop
-  #   abbr: gotop
-  #   snippet: gotop -l battery
-
-  - name: ttye
-    abbr: ttyc
-    snippet: tty-clock -sc
-
-  - name: lazygit
-    abbr: lg
-    snippet: lazygit
-
-  - name: eza default
-    abbr: ls
-    snippet: eza --icons=always
-  - name: eza list
-    abbr: ll
-    snippet: eza --icons=always -l --time-style long-iso
-  - name: eza list with size
-    abbr: lls
-    snippet: eza --icons=always -l --total-size --time-style long-iso
-  - name: eza list+
-    abbr: la
-    snippet: eza --icons=always -la --time-style long-iso
-  - name: eza list+ with size
-    abbr: las
-    snippet: eza --icons=always -la --total-size --time-style long-iso
-
-  - name: open lazygit of dotfiles
-    abbr: lgd
-    snippet: cd ~/dotfiles && lazygit
-
-  - name: go build
-    abbr: b
-    snippet: build -ldflags="-s -w" -trimpath
-    global: true
-    context: '^go\s'
-  - name: goimports
-    abbr: goimports
-    snippet: goimports -l -w
-
-  - name: zellij
-    abbr: zj
-    snippet: zellij
-
+# YT-DLP
+  - name: yt-dlp
+    abbr: ytd
+    snippet: yt-dlp
+  - name: yt-dlp bestaudio
+    abbr: ytdba
+    snippet: yt-dlp -f bestaudio
+  - name: yt-dlp HD
+    abbr: ytdhd
+    snippet: yt-dlp -f "bv[ext=mp4]+ba[ext=m4a]" --merge-output-format mp4 --write-thumbnail -o '~/Movies/YouTube/%(channel)s/%(upload_date)s %(title)s [%(id)s].%(ext)s'
+  - name: yt-dlp 4K
+    abbr: ytd4k
+    snippet: yt-dlp -f "bv[ext=webm]+ba[ext=webm]" --merge-output-format webm --recode-video mp4 --write-thumbnail -o '~/Movies/YouTube/%(channel)s/%(upload_date)s %(title)s [%(id)s].%(ext)s'
+# 7Z
   - name: 7z
     abbr: 7za
     snippet: 7zz a -ba -t7z -xr'\''!.*'\''
   - name: 7z
     abbr: 7zx
     snippet: 7zz x
-
-  - name: Go Build
-    abbr: gob
-    snippet: go build -ldflags="-s -w" -trimpath
-  - name: Go Document Formatting
-    abbr: gof
-    snippet: goimports -l -w main.go
-
+# etc
+  - name: ttye
+    abbr: ttyc
+    snippet: tty-clock -sc
+  - name: lazygit
+    abbr: lg
+    snippet: lazygit
+  - name: open lazygit of dotfiles
+    abbr: lgd
+    snippet: cd ~/dotfiles && lazygit
+  - name: zellij
+    abbr: zj
+    snippet: zellij
   - name: yazi
     abbr: yz
     snippet: yazi
-
+# etc: SYSTEM
   - name: check host
     abbr: chro
     snippet: echo 'CHECK!'
     if: '[[ $(hostname -s) =~ Studio ]]'
+
+# - name: move to Trash
+#   abbr: t
+#   snippet: '{} ~/.Trash'
+#   cursor: "{}"
+#   global: true
+#   context: '^mv -v\s'
+
+# - name: trash
+#   abbr-pattern: ^trash$
+#   snippet: mv -v {} ~/.Trash
+#   cursor: "{}"
+#   evaluate: true
+# GO-lang (not in use)
+  # - name: go build
+  #   abbr: b
+  #   snippet: build -ldflags="-s -w" -trimpath
+  #   global: true
+  #   context: '^go\s'
+  # - name: goimports
+  #   abbr: goimports
+  #   snippet: goimports -l -w
+  # - name: Go Document Formatting
+  #   abbr: gof
+  #   snippet: goimports -l -w main.go
