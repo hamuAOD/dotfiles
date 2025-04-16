@@ -196,6 +196,12 @@ abbrevs:
   - name: lazygit
     abbr: lg
     snippet: lazygit
+  - name: mactop
+    abbr: top
+    snippet: sudo mactop
+  - name: grep
+    abbr: grep
+    snippet: grep -i
   - name: open lazygit of dotfiles
     abbr: lgd
     snippet: cd ~/dotfiles && lazygit
