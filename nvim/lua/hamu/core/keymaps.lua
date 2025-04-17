@@ -17,7 +17,7 @@ keymap.set('n', 'gg', '0gg', NS)              -- Vim Styleの先頭へ移動
 
 -- for Mac
 keymap.set('n', '<D-c>', 'y', NS)
-keymap.set('n', '<D-v>', 'p', NS)             -- リドゥ
+keymap.set('n', '<D-v>', 'p', NS)
 
 -- CUEファイル用検索
 keymap.set('n', '<Leader>c', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE"}, NS)
@@ -85,6 +85,7 @@ callback = function()
   vim.keymap.set("n", '<Leader>j', [[:%!jq '.'<CR>]], {desc = "format JSON"}, NS)
 end,
 })
+vim.keymap.set('x', '<Leader>j', [[:'<,'>!jq .<CR>]], {desc = "format selected JSON"}, NS)
 
 -- カーソルの直前の単語を大文字にする
 keymap.set("i", "<C-u>",
