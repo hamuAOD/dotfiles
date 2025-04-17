@@ -78,6 +78,14 @@ end
 -- nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
 -- nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
 
+-- JSON formatter : brew install jq
+vim.api.nvim_create_autocmd("FileType", {
+pattern = "json",
+callback = function()
+  vim.keymap.set("n", '<Leader>j', [[:%!jq '.'<CR>]], {desc = "format JSON"}, NS)
+end,
+})
+
 -- カーソルの直前の単語を大文字にする
 keymap.set("i", "<C-u>",
   function()
