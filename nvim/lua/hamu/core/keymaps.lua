@@ -22,6 +22,10 @@ keymap.set('n', '<D-v>', 'p', NS)
 -- CUEファイル用検索
 keymap.set('n', '<Leader>c', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE"}, NS)
 
+-- 単語の先頭を大文字に変換
+keymap.set('n', '<Leader>n', [[:%s/\<\u\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR>]], {desc = "Normalize caps (whole file)"}, NS)
+keymap.set('v', '<Leader>n', [[:s/\<\u\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR>]], {desc = "Normalize caps (visual selection)"}, NS)
+
 -- インデント操作を連続でできるように
 keymap.set('x', '<', '<gv', NS)
 keymap.set('x', '>', '>gv', NS)
