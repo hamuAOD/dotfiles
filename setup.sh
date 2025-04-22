@@ -10,6 +10,7 @@ ln -sf "$directory/dotfiles/nvim" "$directory/.config/nvim"
 ln -sf "$directory/dotfiles/.zshrc" "$directory/.zshrc"
 ln -sf "$directory/dotfiles/.zshenv" "$directory/.zshenv"
 ln -sf "$directory/dotfiles/wezterm" "$directory/.config/wezterm"
+ln -sf "$directory/dotfiles/tmux/tmux.conf" "$directory/.config/tmux"
 
 ln -sf "$directory/dotfiles/yazi" "$directory/.config/yazi"
 ln -sf "$directory/dotfiles/karabiner.json" "$directory/.config/karabiner/karabiner.json"
