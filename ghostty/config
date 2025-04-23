@@ -1,7 +1,7 @@
 font-family = HackGen35 Console NF
 # font-family = UDEV Gothic 35NFLG
 # font-family = Moralerspace Argon HWNF
-font-style-bold = false
+font-style-bold = true
 font-style-italic = false
 font-style-bold-italic = false
 font-style = bold
@@ -14,9 +14,10 @@ font-feature = -dlig
 
 theme = dracula2
 # adjust-cell-width = 1
-adjust-cell-height = 4
+adjust-cell-height = 25%
 background-opacity = 1.0
 background-blur = false
+unfocused-split-opacity = 0.8
 
 window-padding-x = 10
 window-padding-y = 10
@@ -30,3 +31,21 @@ window-position-y = 70
 term = xterm-256color
 
 keybind = super+o=write_screen_file:open
+
+# Keybind: Tab
+keybind = ctrl+;>c=new_tab
+keybind = ctrl+;>[=next_tab
+keybind = ctrl+;>]=previous_tab
+# Keybind: Pane
+keybind = ctrl+;>j=goto_split:bottom
+keybind = ctrl+;>k=goto_split:top
+keybind = ctrl+;>h=goto_split:left
+keybind = ctrl+;>l=goto_split:right
+keybind = ctrl+;>n=goto_split:previous
+keybind = ctrl+;>p=goto_split:next
+
+keybind = alt+left=text:\x1bb
+keybind = alt+right=text:\x1bf
+
+# Other
+copy-on-select = clipboard
