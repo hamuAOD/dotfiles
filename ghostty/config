@@ -35,7 +35,7 @@ keybind = super+o=write_screen_file:open
 keybind = super+i=write_screen_file:paste
 # Keybind: Tab
 keybind = ctrl+;>t=new_tab
-keybind = ctrl+;>w=close_surface
+keybind = ctrl+;>x=close_surface
 keybind = ctrl+;>f=next_tab
 keybind = ctrl+;>b=previous_tab
 # Keybind: Pane
