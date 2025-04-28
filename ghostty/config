@@ -1,9 +1,9 @@
 font-family = HackGen35 Console NF
 # font-family = UDEV Gothic 35NFLG
 # font-family = Moralerspace Argon HWNF
-font-style-bold = true
-font-style-italic = false
-font-style-bold-italic = false
+font-style-bold = HackGen35 Console NF Bold
+# font-style-italic = false
+# font-style-bold-italic = false
 font-style = bold
 font-size = 13
 font-thicken = true
