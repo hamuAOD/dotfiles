@@ -34,11 +34,10 @@ term = xterm-256color
 keybind = super+o=write_screen_file:open
 keybind = super+i=write_screen_file:paste
 # Keybind: Tab
-keybind = ctrl+;>c=new_tab
-# keybind = ctrl+;>[=next_tab
-# keybind = ctrl+;>]=previous_tab
-# keybind = ctrl+;>n=next_tab
-# keybind = ctrl+;>p=previous_tab
+keybind = ctrl+;>t=new_tab
+keybind = ctrl+;>w=close_surface
+keybind = ctrl+;>f=next_tab
+keybind = ctrl+;>b=previous_tab
 # Keybind: Pane
 keybind = ctrl+;>s=new_split:right
 keybind = ctrl+;>shift+s=new_split:down
