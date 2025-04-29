@@ -123,7 +123,6 @@ abbrevs:
     snippet: ~/Music/yt-dlp-4k-list.txt
     global: true
     context: '^nvim\s'
-
 # for Ubuntu Server
   - name: ssh Ubuntu Server
     abbr: us
@@ -205,6 +204,9 @@ abbrevs:
   - name: open lazygit of dotfiles
     abbr: lgd
     snippet: cd ~/dotfiles && lazygit
+  - name: tmux
+    abbr: tm
+    snippet: tmux
   - name: zellij
     abbr: zj
     snippet: zellij
