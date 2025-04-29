@@ -114,13 +114,13 @@ abbrevs:
     global: true
     context: '^nvim\s'
   - name: nvim yt-dlp-list
-    abbr: yt
-    snippet: ~/Music/yt-dlp-list.txt
+    abbr: ytl
+    snippet: ~/Movies/yt-dlp-list.txt
     global: true
     context: '^nvim\s'
   - name: nvim yt-dlp-4k-list
-    abbr: yt4k
-    snippet: ~/Music/yt-dlp-4k-list.txt
+    abbr: ytl4
+    snippet: ~/Movies/yt-dlp-4k-list.txt
     global: true
     context: '^nvim\s'
 # for Ubuntu Server
