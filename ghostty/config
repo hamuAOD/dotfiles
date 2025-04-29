@@ -18,6 +18,7 @@ adjust-cell-height = 15%
 background-opacity = 1.0
 background-blur = false
 unfocused-split-opacity = 0.8
+macos-titlebar-style = tabs
 
 window-padding-x = 10
 window-padding-y = 10
@@ -25,19 +26,21 @@ window-padding-balance = false
 window-padding-color = background
 window-height = 50
 window-width = 130
-window-position-x = 70
-window-position-y = 70
-
+window-position-x = 60
+window-position-y = 60
+# etc
 term = xterm-256color
+shell-integration-features = sudo
 
-# Keybind
+### Keybind
 keybind = super+o=write_screen_file:open
 keybind = super+i=write_screen_file:paste
+keybind = ctrl+;>\=toggle_quick_terminal
 # Keybind: Tab
-keybind = ctrl+;>t=new_tab
+keybind = ctrl+;>c=new_tab
 keybind = ctrl+;>x=close_surface
-keybind = ctrl+;>f=next_tab
-keybind = ctrl+;>b=previous_tab
+keybind = ctrl+;>shift+n=next_tab
+keybind = ctrl+;>shift+p=previous_tab
 # Keybind: Pane
 keybind = ctrl+;>s=new_split:right
 keybind = ctrl+;>shift+s=new_split:down
@@ -55,5 +58,6 @@ keybind = ctrl+;>n=goto_split:next
 keybind = alt+left=text:\x1bb
 keybind = alt+right=text:\x1bf
 # Other
+keybind = ctrl+;>f=reset_font_size
 keybind = ctrl+;>r=reload_config
 copy-on-select = clipboard
