@@ -207,6 +207,9 @@ abbrevs:
   - name: tmux
     abbr: tm
     snippet: tmux
+  - name: tmux
+    abbr: tma
+    snippet: tmux a
   - name: zellij
     abbr: zj
     snippet: zellij
