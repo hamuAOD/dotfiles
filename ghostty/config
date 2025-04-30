@@ -8,6 +8,7 @@ font-style = bold
 font-size = 13
 font-thicken = true
 font-thicken-strength = 1
+alpha-blending = linear
 
 # 日本語文字化け対策
 font-feature = -dlig
