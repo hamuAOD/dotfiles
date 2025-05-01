@@ -12,7 +12,7 @@ IgnoreSaveConfirmationWithCloseButton = false
 
 ## EnableBackgroundBlur applies a translucent Blur/Acrylic effect to the window
 ## background.
-# EnableBackgroundBlur = true
+EnableBackgroundBlur = true
 
 ## Controls whether the title bar is displayed when the borderless
 ## window setting is enabled.
@@ -44,7 +44,7 @@ Height = 900
 
 ## This option makes the whole GUI window in semi-transparent.
 ## This setting also implicitly enables the Drawborder setting
-Transparent = 1.00
+Transparent = 0.86
 
 ## Launch goneovim with full screen window size.
 # StartFullscreen = false
