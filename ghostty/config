@@ -7,8 +7,8 @@ font-style-bold = HackGen35 Console NF Bold
 font-style = bold
 font-size = 13
 font-thicken = true
-font-thicken-strength = 1
-alpha-blending = linear
+font-thicken-strength = 100
+alpha-blending = native
 
 # 日本語文字化け対策
 font-feature = -dlig
@@ -16,7 +16,7 @@ font-feature = -dlig
 theme = dracula2
 # adjust-cell-width = 1
 adjust-cell-height = 15%
-background-opacity = 0.95
+background-opacity = 0.90
 background-blur = true
 unfocused-split-opacity = 0.8
 macos-titlebar-style = tabs
@@ -55,6 +55,11 @@ keybind = ctrl+;>left=goto_split:left
 keybind = ctrl+;>right=goto_split:right
 keybind = ctrl+;>p=goto_split:previous
 keybind = ctrl+;>n=goto_split:next
+keybind = ctrl+;>shift+j=resize_split:down,30
+keybind = ctrl+;>shift+k=resize_split:up,30
+keybind = ctrl+;>shift+h=resize_split:left,30
+keybind = ctrl+;>shift+l=resize_split:right,30
+keybind = ctrl+;>e=equalize_splits
 # Key-Text
 keybind = alt+left=text:\x1bb
 keybind = alt+right=text:\x1bf
