@@ -77,6 +77,9 @@ abbrevs:
   - name: nvim
     abbr: nv
     snippet: nvim
+  - name: nvim +
+    abbr: nvp
+    snippet: nvim +
   - name: nvim $(fzf)
     abbr: f
     snippet: $(fzf)
