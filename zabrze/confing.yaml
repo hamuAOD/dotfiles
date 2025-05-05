@@ -192,6 +192,9 @@ abbrevs:
   - name: exit
     abbr: ex
     snippet: exit
+  - name: sleep
+    abbr: sleep
+    snippet: pmset sleepnow
   - name: ttye
     abbr: ttyc
     snippet: tty-clock -sc
