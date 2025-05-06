@@ -195,6 +195,9 @@ abbrevs:
   - name: sleep
     abbr: sleep
     snippet: pmset sleepnow
+  - name: sleep
+    abbr: sl
+    snippet: pmset sleepnow
   - name: ttye
     abbr: ttyc
     snippet: tty-clock -sc
