@@ -9,10 +9,14 @@ return {
   config = function()
     local servers = {
       "clangd",
-      "lua_ls",
       "gopls",
+      "jsonls",
+      "lua_ls",
+      "markdown_oxide",
+      "mesonlsp",
       "pylsp",
       "rust_analyzer",
+      "textlsp",
       "vimls",
       "vls",
     }
