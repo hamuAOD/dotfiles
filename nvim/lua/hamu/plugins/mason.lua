@@ -1,12 +1,22 @@
 return {
-  "williamboman/mason.nvim", -- LSP Installer
+  "mason-org/mason.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    "nvim-lua/plenary.nvim",
   },
   event = "VeryLazy",
+
   config = function()
+    local servers = {
+      "clangd",
+      "lua_ls",
+      "gopls",
+      "pylsp",
+      "rust_analyzer",
+      "vimls",
+      "vls",
+    }
+
     require("mason").setup({
       ui = {
         icons = {
@@ -16,44 +26,44 @@ return {
         },
       }
     })
-    require("mason-lspconfig").setup {
-      ensure_installed = {
-        "clangd",
-        "lua_ls",
-        "gopls",
-        "pylsp",
-        "rust_analyzer",
-        "vimls",
-        "vls",
-      }
-    }
+
+    require("mason-lspconfig").setup ({
+      ensure_installed = servers,
+    })
+
     local mason_lspconfig = require("mason-lspconfig")
+    local lspconfig = require("lspconfig")
+
     local on_attach = function(_, bufnr)
-      vim.api.nvim_buf_set_option(bufnr, "formatexpr",
-      "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
+      vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
       -- _G.lsp_onattach_func(i, bufnr)
     end
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        local opts = {
-          on_attach = on_attach,
-          settings = {
-            ["omniSharp"] = {
-              useGlobalMono = "always"
-            }
-          },
+
+    local settings_for = {
+      lua_ls = {
+        Lua = {
+          diagnostics = { globals = { "vim" } },
         }
-        -- ommit "undefined global 'vim'"
-        if server_name == "lua_ls" then
-          opts.settings = {
-            Lua = {
-              diagnostics = { globals = { "vim" } },
-            }
-          }
-        end
-        require("lspconfig")[server_name].setup(opts)
-      end,
-    })
+      },
+      omniSharp = {
+        omniSharp = {
+          useGlobalMono = "always"
+        }
+      }
+    }
+
+    for _, server in ipairs(servers) do
+      local opts = {
+        on_attach = on_attach,
+      }
+
+      if settings_for[server] then
+        opts.settings = settings_for[server]
+      end
+
+      lspconfig[server].setup(opts)
+    end
+
     vim.cmd("LspStart") -- 初回起動時はBufEnterが発火しない
   end,
 }
