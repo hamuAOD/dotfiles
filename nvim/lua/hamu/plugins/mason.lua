@@ -2,6 +2,7 @@ return {
   "mason-org/mason.nvim",
   dependencies = {
     "mason-org/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",
   },
   event = "VeryLazy",
@@ -20,6 +21,12 @@ return {
       "vimls",
       "vls",
     }
+    -- DAP / Linter / Formatter
+    local tools = {
+      "clang-format",
+      "shellcheck",
+      "shfmt",
+    }
 
     require("mason").setup({
       ui = {
@@ -33,6 +40,12 @@ return {
 
     require("mason-lspconfig").setup ({
       ensure_installed = servers,
+    })
+
+    require("mason-tool-installer").setup({
+      ensure_installed = tools,
+      auto_update = false,
+      run_on_start = true,
     })
 
     local mason_lspconfig = require("mason-lspconfig")
