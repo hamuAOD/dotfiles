@@ -1,4 +1,4 @@
-command = /bin/zsh -c "tmux a || tmux"
+command = /bin/zsh -c "tmux a || tmux new -s Ghostty"
 confirm-close-surface = false
 
 font-family = HackGen35 Console NF
