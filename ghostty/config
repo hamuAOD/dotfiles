@@ -1,3 +1,6 @@
+command = /bin/zsh -c "tmux a || tmux"
+confirm-close-surface = false
+
 font-family = HackGen35 Console NF
 # font-family = UDEV Gothic 35NFLG
 # font-family = Moralerspace Argon HWNF
