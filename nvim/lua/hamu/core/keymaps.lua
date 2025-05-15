@@ -53,9 +53,9 @@ keymap.set('n', 'sv', '<CMD>vsplit<CR><C-w>w', {desc = "Split Window Vertical"},
 keymap.set('n', 'sn', '<C-w>w', {desc = "Next Window"}, NS)
 keymap.set('n', 'sp', '<C-w><S-w>', {desc = "Previous Window"}, NS)
 -- バッファ移動
--- keymap.set('n', '<C-p>', '<CMD>bprev<CR>', {desc = "Buffer Previous"}, NS)
--- keymap.set('n', '<C-n>', '<CMD>bnext<CR>', {desc = "Buffer Next"}, NS)
--- keymap.set('n', '<C-d>', '<CMD>bdelete<CR>', {desc = "Buffer Delete"}, NS)
+keymap.set('n', '<C-p>', '<CMD>bprev<CR>', NS)    -- Buffer Previous
+keymap.set('n', '<C-n>', '<CMD>bnext<CR>', NS)    -- Buffer Next
+keymap.set('n', '<C-d>', '<CMD>bdelete<CR>', NS)  -- Buffer Delete
 
 -- set expandtab をトグル
 keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB"}, NS)
