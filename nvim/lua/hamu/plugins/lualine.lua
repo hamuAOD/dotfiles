@@ -65,16 +65,27 @@ return {
         globalstatus = true,
       },
       sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {
+          -- {
+          --   'filename',
+          --   symbols = {
+          --     modified = '[+]',      -- Text to show when the file is modified.
+          --     readonly = '[RO]',     -- Text to show when the file is non-modifiable or readonly.
+          --     unnamed = '[No Name]', -- Text to show for unnamed buffers.
+          --     newfile = '[New]',     -- Text to show for newly created file before first write
+          --   }
+          -- },
           {
-            'filename',
-            symbols = {
-              modified = '[+]',      -- Text to show when the file is modified.
-              readonly = '[RO]',     -- Text to show when the file is non-modifiable or readonly.
-              unnamed = '[No Name]', -- Text to show for unnamed buffers.
-              newfile = '[New]',     -- Text to show for newly created file before first write
-            }
-          }
+            'buffers',
+            mode = 4,
+            use_mode_colors = true,
+            buffers_color = {
+              inactive = "lualine_c_inactive", -- Color for active buffer.
+              active = "lualine_a_inactive", -- Color for inactive buffer.
+            },
+          },
         },
         lualine_x = {
           {
@@ -86,6 +97,16 @@ return {
           { "fileformat" },
           { "filetype" },
         },
+        lualine_y = {'progress'},
+        lualine_z = {'location'},
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
       },
     })
 
