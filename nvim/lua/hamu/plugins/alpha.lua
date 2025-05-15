@@ -47,7 +47,7 @@ return {
       dashboard.section.header.val = vim.split(logo .. "\n" .. greeting, "\n")
       dashboard.section.buttons.val = {
         dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("f", " " .. " Find file", ":<cmd>Telescope find_files<CR>"),
+        dashboard.button("f", " " .. " Find file", "<cmd>Telescope find_files<CR>"),
         dashboard.button("g", "󰷾 " .. "  Find text", "<cmd>lua require('fzf-lua').live_grep()<CR>"),
         dashboard.button("b", " " .. " File browser", ":Neotree toggle<CR>"),
         dashboard.button("o", "󰄉 " .. "  Old files", "<cmd>Telescope oldfiles<CR>"),
@@ -61,18 +61,22 @@ return {
       for _, button in ipairs(dashboard.section.buttons.val) do
         -- button.opts.hl = "AlphaButtons"
         -- button.opts.hl_shortcut = "AlphaShortcut"
-        button.opts.hl = "DashboardShotCutIcon"
-        button.opts.hl_shortcut = "DashboardShotCutIcon"
+        button.opts.hl = "DashboardShortCutIcon"
+        button.opts.hl_shortcut = "DashboardShortCutIcon"
       end
       dashboard.section.header.opts.hl = "AlphaHeader"
       dashboard.section.buttons.opts.hl = "AlphaButtons"
       dashboard.section.footer.opts.hl = "AlphaFooter"
-      dashboard.opts.layout[1].val = 8
+      -- dashboard.opts.layout[1].val = 8
+      if dashboard.opts.layout and dashboard.opts.layout[1] then
+        dashboard.opts.layout[1].val = 8
+      end
       return dashboard
     end,
+
     config = function(_, dashboard)
       -- close Lazy and re-open when the dashboard is ready
-      if vim.o.filetype == "lazy" then
+      if vim.bo.filetype == "lazy" then
         vim.cmd.close()
         vim.api.nvim_create_autocmd("User", {
           pattern = "AlphaReady",
