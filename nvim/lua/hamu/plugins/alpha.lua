@@ -45,36 +45,37 @@ return {
       local userName = "hamu"
       local greeting = getGreeting(userName)
       dashboard.section.header.val = vim.split(logo .. "\n" .. greeting, "\n")
+
       dashboard.section.buttons.val = {
-        dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("f", " " .. " Find file", "<cmd>Telescope find_files<CR>"),
-        dashboard.button("g", "󰷾 " .. "  Find text", "<cmd>lua require('fzf-lua').live_grep()<CR>"),
-        dashboard.button("b", " " .. " File browser", ":Neotree toggle<CR>"),
-        dashboard.button("o", "󰄉 " .. "  Old files", "<cmd>Telescope oldfiles<CR>"),
-        -- dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-        dashboard.button("l", "󰒲 " .. "  Lazy", ":Lazy<CR>"),
-        dashboard.button("m", "󰣪 " .. "  Mason", ":Mason<CR>"),
-        dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+        dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("f", "  Find file", "<cmd>Telescope find_files<CR>"),
+        dashboard.button("g", "󰷾  Find text", "<cmd>lua require('fzf-lua').live_grep()<CR>"),
+        dashboard.button("b", "  File browser", ":Neotree toggle<CR>"),
+        dashboard.button("o", "󰄉  Old files", "<cmd>Telescope oldfiles<CR>"),
+        dashboard.button("l", "󰒲  Lazy", ":Lazy<CR>"),
+        dashboard.button("m", "󰣪  Mason", ":Mason<CR>"),
+        dashboard.button("q", "  Quit", ":qa<CR>"),
       }
 
       -- set highlight
       for _, button in ipairs(dashboard.section.buttons.val) do
-        -- button.opts.hl = "AlphaButtons"
-        -- button.opts.hl_shortcut = "AlphaShortcut"
-        button.opts.hl = "DashboardShortCutIcon"
-        button.opts.hl_shortcut = "DashboardShortCutIcon"
+        button.opts.hl = "DashboardShortcutIcon"
+        button.opts.hl_shortcut = "DashboardShortcutIcon"
       end
+
       dashboard.section.header.opts.hl = "AlphaHeader"
       dashboard.section.buttons.opts.hl = "AlphaButtons"
       dashboard.section.footer.opts.hl = "AlphaFooter"
-      -- dashboard.opts.layout[1].val = 8
+
+      -- layout safe check
       if dashboard.opts.layout and dashboard.opts.layout[1] then
         dashboard.opts.layout[1].val = 8
       end
-      return dashboard
+
+      return dashboard.opts
     end,
 
-    config = function(_, dashboard)
+    config = function(_, opts)
       -- close Lazy and re-open when the dashboard is ready
       if vim.bo.filetype == "lazy" then
         vim.cmd.close()
@@ -86,7 +87,7 @@ return {
         })
       end
 
-      require("alpha").setup(dashboard.opts)
+      require("alpha").setup(opts)
 
       vim.api.nvim_create_autocmd("User", {
         pattern = "LazyVimStarted",
@@ -96,7 +97,7 @@ return {
           local version = "  󰥱 v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
           local plugins = "⚡Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
           local footer = version .. "\t" .. plugins .. "\n"
-          dashboard.section.footer.val = footer
+          require("alpha.themes.dashboard").section.footer.val = footer
           pcall(vim.cmd.AlphaRedraw)
         end,
       })
