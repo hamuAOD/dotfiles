@@ -2,7 +2,7 @@ return {
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       library = {
         -- See the configuration section for more details
@@ -13,6 +13,7 @@ return {
   },
   { -- optional cmp completion source for require statements and module annotations
     "hrsh7th/nvim-cmp",
+    event = { "BufReadPre", "BufNewFile" },
     opts = function(_, opts)
       opts.sources = opts.sources or {}
       table.insert(opts.sources, {
@@ -23,6 +24,7 @@ return {
   },
   { -- optional blink completion source for require statements and module annotations
     "saghen/blink.cmp",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       sources = {
         -- add lazydev to your completion providers
