@@ -65,9 +65,11 @@ return {
         globalstatus = true,
       },
       sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_a = { "mode" , },
+        lualine_b = {},
         lualine_c = {
+          { "branch", },
+          { "diff", },
           -- {
           --   'filename',
           --   symbols = {
@@ -78,8 +80,13 @@ return {
           --   }
           -- },
           {
-            'buffers',
-            mode = 4,
+            "buffers",
+            color = {bg = colors.green},
+            mode = 0, -- 0: Shows buffer name
+                -- 1: Shows buffer index
+                -- 2: Shows buffer name + buffer index
+                -- 3: Shows buffer number
+                -- 4: Shows buffer name + buffer number
             use_mode_colors = true,
             buffers_color = {
               inactive = "lualine_c_inactive", -- Color for active buffer.
@@ -88,6 +95,7 @@ return {
           },
         },
         lualine_x = {
+          { "diagnostics", },
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
@@ -97,14 +105,14 @@ return {
           { "fileformat" },
           { "filetype" },
         },
-        lualine_y = {'progress'},
-        lualine_z = {'location'},
+        lualine_y = {"progress"},
+        lualine_z = {"location"},
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = {"filename"},
+        lualine_x = {"location"},
         lualine_y = {},
         lualine_z = {}
       },
