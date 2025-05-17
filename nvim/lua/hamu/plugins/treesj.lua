@@ -8,9 +8,7 @@ return {
       use_default_keymaps = false
     })
 
-    local keymap = vim.keymap
-    local NS = { noremap = true, silent = true }
-    keymap.set("n", "<Leader>tj", "<CMD>TSJToggle<CR>", {desc = "Toggle TreeSJ"}, NS)
+    vim.keymap.set("n", "<Leader>tj", "<CMD>TSJToggle<CR>", {desc = "Toggle TreeSJ", noremap = true, silent = true})
     -- map("n", "<Leader>js", "<CMD>TSJSplit<CR>", {desc = "split node under cursor"}, NS)
     -- map("n", "<Leader>jj", "<CMD>TSJJoin<CR>", {desc = "join node under cursor"}, NS)
   end,

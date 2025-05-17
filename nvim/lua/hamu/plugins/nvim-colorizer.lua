@@ -6,7 +6,6 @@ return {
     require("colorizer").setup()
 
     local keymap = vim.keymap
-    local NS = { noremap = true, silent = true }
-    keymap.set("n", "<Leader>tz", "<CMD>ColorizerToggle<CR>", {desc = "Toggle Colorizer"}, NS)
+    keymap.set("n", "<Leader>tz", "<CMD>ColorizerToggle<CR>", {desc = "Toggle Colorizer", noremap = true})
   end,
 }

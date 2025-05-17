@@ -25,8 +25,7 @@ return
     -- require('transparent').clear_prefix('lualine')
     -- require('transparent').clear_prefix('NeoTree')
     -- keymap
-    local NS = { noremap = true, silent = true }
-    vim.keymap.set('n', '<Leader>tt', ':TransparentToggle<CR>', {desc = "Toggle Transparent"}, NS)
+    vim.keymap.set('n', '<Leader>tt', ':TransparentToggle<CR>', {desc = "Toggle Transparent", noremap = true, silent = true})
 
     vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "ExtraGroup" })
 -- vimscript: let g:transparent_groups = extend(get(g:, 'transparent_groups', []), ["ExtraGroup"])
