@@ -89,8 +89,10 @@ abbrevs:
     abbr: nvc
     snippet: nvim ~/dotfiles/nvim/lua/hamu/
   - name: nvim CD
-    abbr: nvd
-    snippet: nvim ~/Music/CD/
+    abbr: cd
+    snippet: ~/Music/CD
+    global: true
+    context: '^nvim\s'
   - name: nvim dotfiles
     abbr: d
     snippet: ~/dotfiles
