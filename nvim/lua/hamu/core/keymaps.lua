@@ -4,7 +4,7 @@ local keymap = vim.keymap
 local NS = { noremap = true, silent = true }
 
 -- 検索ハイライトをEscキー2回押しで消去
-keymap.set('n', '<ESC><ESC>', ':nohlsearch<CR><ESC>', NS)
+keymap.set('n', '<ESC><ESC>', '<CMD>nohlsearch<CR>', NS)
 
 -- Change Keymaps
 keymap.set('n', 'Y', 'y$', NS)                -- 行末までコピー
@@ -20,11 +20,14 @@ keymap.set('n', '<D-c>', 'y', NS)
 keymap.set('n', '<D-v>', 'p', NS)
 
 -- CUEファイル用検索
-keymap.set('n', '<Leader>c', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE", noremap = true, silent = true})
-
+keymap.set('n', '<Leader>cc', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE", noremap = true, silent = true})
 -- 単語の先頭を大文字に変換
-keymap.set('n', '<Leader>n', [[:%s/\<\u\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR>]], {desc = "Normalize caps (whole file)", noremap = true, silent = true})
-keymap.set('v', '<Leader>n', [[:s/\<\u\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR>]], {desc = "Normalize caps (visual selection), noremap = true, silent = true"})
+keymap.set('n', '<Leader>cn', [[:%s/\<\w\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR><CMD>nohlsearch<CR>]], {desc = "Normalize caps", noremap = true, silent = true})  -- whole file
+keymap.set('v', '<Leader>cn', [[:s/\<\w\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR><CMD>nohlsearch<CR>]], {desc = "Normalize caps", noremap = true, silent = true})   -- visual selection
+--- カーソルの直前の単語の先頭を大文字にする
+keymap.set('i', '<C-o>', '<ESC>bguwgUlgi', NS)
+--- カーソルの直前の単語を全てを大文字にする
+keymap.set('i', '<C-S-o>', '<ESC>bveUgi', NS)
 
 -- インデント操作を連続でできるように
 keymap.set('x', '<', '<gv', NS)
@@ -46,12 +49,12 @@ keymap.set('n', 'P', ']P`]', NS)
 -- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
 -- vim.keymap.set('n', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
 
--- 画面分割
-keymap.set('n', 'sh', '<CMD>split<CR><C-w>w', {desc = "Split Window Holizontal", noremap = true, silent = true})
-keymap.set('n', 'sv', '<CMD>vsplit<CR><C-w>w', {desc = "Split Window Vertical", noremap = true, silent = true})
+-- 画面分割s
+keymap.set('n', '<Leader>pS', '<CMD>split<CR><C-w>w', {desc = "Split Window Holizontal", noremap = true, silent = true})
+keymap.set('n', '<Leader>ps', '<CMD>vsplit<CR><C-w>w', {desc = "Split Window Vertical", noremap = true, silent = true})
 -- 画面移動
-keymap.set('n', 'sn', '<C-w>w', {desc = "Next Window", noremap = true, silent = true})
-keymap.set('n', 'sp', '<C-w><S-w>', {desc = "Previous Window", noremap = true, silent = true})
+keymap.set('n', '<Leader>pn', '<C-w>w', {desc = "Next Pane", noremap = true, silent = true})
+keymap.set('n', '<Leader>pp', '<C-w><S-w>', {desc = "Previous Pane", noremap = true, silent = true})
 -- バッファ移動
 keymap.set('n', '<C-p>', '<CMD>bprev<CR>', NS)    -- Buffer Previous
 keymap.set('n', '<C-n>', '<CMD>bnext<CR>', NS)    -- Buffer Next
@@ -105,6 +108,3 @@ keymap.set("i", "<C-u>",
   end,
   {expr = true}
 )
---- カーソルの直前の単語の先頭を大文字にする
-keymap.set('i', '<C-o>', '<ESC>bgUlgi', NS)
-
