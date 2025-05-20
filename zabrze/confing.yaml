@@ -78,16 +78,18 @@ abbrevs:
     abbr: nv
     snippet: nvim
   - name: nvim +
-    abbr: nvp
+    abbr: nvb
     snippet: nvim +
   - name: nvim $(fzf)
-    abbr: f
-    snippet: $(fzf)
-    context: '^nvim\s'
+    abbr: nvf
+    snippet: nvim $(fzf)
     global: true
   - name: nvim config
     abbr: nvc
     snippet: nvim ~/dotfiles/nvim/lua/hamu/
+  - name: nvim temporary
+    abbr: nvt
+    snippet: nvim ~/Documents/temp.txt
   - name: nvim CD
     abbr: cd
     snippet: ~/Music/CD
