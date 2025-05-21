@@ -10,16 +10,20 @@ return
     "rcarriga/nvim-notify",
   },
   config = function()
-    require("notify").setup({
-      background_colour = "#000000",
-    })
+    -- require("notify").setup({
+    --   background_colour = "#484a56",
+    -- })
+
+    vim.api.nvim_set_hl(0, "NoiceCmdlinePopup", { bg = "#484a56" })
+
     require("noice").setup({
       health = {
         checker = true,
       },
       routes = {
         {
-          view = "cmdline",filter = { event = "msg_showmode" },
+          view = "cmdline",
+          filter = { event = "msg_showmode" },
         },
       },
       lsp = {
