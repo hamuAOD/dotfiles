@@ -5,7 +5,12 @@ local themes = {
     priority = 1000,
 
     config = function ()
-      vim.cmd[[colorscheme catppuccin-mocha]]
+      require("catppuccin").setup({
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        transparent_background = false,
+        show_end_of_buffer = true,
+      })
+      vim.cmd[[colorscheme catppuccin]]
     end,
   },
   dracula_432k = {
@@ -59,3 +64,4 @@ local themes = {
 }
 
 return themes.dracula_432k
+-- return themes.catppuccin

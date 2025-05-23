@@ -8,98 +8,94 @@ return {
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
     local colors = {
-      blue = "#65D1FF",
-      green = "#3EFFC3",--#9ac47c",--"#3EFFDC",
-      violet = "#FF61EF",
-      yellow = "#FFDA7B",
-      red = "#FF4A4A",
-      fg = "#c3ccdc",
-      bg = "#112638",
-      inactive_bg = "#2c3043",
+      gray       = '#44475a',
+      lightgray  = '#5f6a94',
+      orange     = '#ffb86c',
+      purple     = '#bd93f9',
+      red        = '#ff5555',
+      yellow     = '#f1fa8c',
+      green      = '#50fa7b',
+      white      = '#f8f8f2',
+      black      = '#282a36',
     }
 
-    local my_lualine_theme = {
+    local my_dracula_theme = {
       normal = {
-        -- a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-        a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.purple, fg = colors.black, gui = 'bold' },
+        b = { bg = colors.lightgray, fg = colors.white },
+        c = { bg = colors.gray, fg = colors.white },
       },
       insert = {
-        -- a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-        a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.green, fg = colors.black, gui = 'bold' },
+        b = { bg = colors.lightgray, fg = colors.white },
+        c = { bg = colors.gray, fg = colors.white },
       },
       visual = {
-        a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      command = {
-        a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.yellow, fg = colors.black, gui = 'bold' },
+        b = { bg = colors.lightgray, fg = colors.white },
+        c = { bg = colors.gray, fg = colors.white },
       },
       replace = {
-        a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { bg = colors.red, fg = colors.black, gui = 'bold' },
+        b = { bg = colors.lightgray, fg = colors.white },
+        c = { bg = colors.gray, fg = colors.white },
+      },
+      command = {
+        a = { bg = colors.orange, fg = colors.black, gui = 'bold' },
+        b = { bg = colors.lightgray, fg = colors.white },
+        c = { bg = colors.gray, fg = colors.white },
       },
       inactive = {
-        a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-        b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-        c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+        a = { bg = colors.gray, fg = colors.white, gui = 'bold' },
+        b = { bg = colors.lightgray, fg = colors.white },
+        c = { bg = colors.gray, fg = colors.white },
       },
     }
 
     -- configure lualine with modified theme
     lualine.setup({
       options = {
-        -- theme = my_lualine_theme,
-        theme = 'dracula',
-        -- theme = 'catppuccin',
+        theme = my_dracula_theme,
+        -- theme = 'dracula',
         component_separators = { left = '❱', right = '❰'},
         section_separators = { left = '', right = ''},
         -- Global Status Line
         globalstatus = true,
       },
       sections = {
-        lualine_a = { "mode" , },
-        lualine_b = {},
-        lualine_c = {
+        lualine_a = {
+          { "mode", },
+        },
+        lualine_b = {
+          {
+            'filename',
+            newfile_status = true,
+            symbols = {
+              modified = '[+]',      -- Text to show when the file is modified.
+              readonly = '[RO]',     -- Text to show when the file is non-modifiable or readonly.
+              unnamed = '[No Name]', -- Text to show for unnamed buffers.
+              newfile = '[New]',     -- Text to show for newly created file before first write
+            }
+          },
           { "branch", },
           { "diff", },
-          -- {
-          --   'filename',
-          --   symbols = {
-          --     modified = '[+]',      -- Text to show when the file is modified.
-          --     readonly = '[RO]',     -- Text to show when the file is non-modifiable or readonly.
-          --     unnamed = '[No Name]', -- Text to show for unnamed buffers.
-          --     newfile = '[New]',     -- Text to show for newly created file before first write
-          --   }
-          -- },
+          { "diagnostics", },
+        },
+        lualine_c = {
           {
             "buffers",
-            color = {bg = colors.green},
             mode = 0, -- 0: Shows buffer name
                 -- 1: Shows buffer index
                 -- 2: Shows buffer name + buffer index
                 -- 3: Shows buffer number
                 -- 4: Shows buffer name + buffer number
             use_mode_colors = true,
-            buffers_color = {
-              inactive = "lualine_c_inactive", -- Color for active buffer.
-              active = "lualine_a_inactive", -- Color for inactive buffer.
-            },
           },
         },
         lualine_x = {
-          { "diagnostics", },
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
           },
           { "encoding" },
           { "fileformat" },
