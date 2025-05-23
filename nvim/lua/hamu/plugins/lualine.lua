@@ -17,6 +17,7 @@ return {
       green      = '#50fa7b',
       white      = '#f8f8f2',
       black      = '#282a36',
+      inactive   = '#7f8ab4',
     }
 
     local my_dracula_theme = {
@@ -48,7 +49,7 @@ return {
       inactive = {
         a = { bg = colors.gray, fg = colors.white, gui = 'bold' },
         b = { bg = colors.lightgray, fg = colors.white },
-        c = { bg = colors.gray, fg = colors.white },
+        c = { bg = colors.gray, fg = colors.inactive },
       },
     }
 
@@ -89,7 +90,18 @@ return {
                 -- 2: Shows buffer name + buffer index
                 -- 3: Shows buffer number
                 -- 4: Shows buffer name + buffer number
+            hide_filename_extension = true,
             use_mode_colors = true,
+            -- buffers_color = {
+            --   -- Same values as the general color option can be used here.
+            --   active = 'lualine_{section}_normal',     -- Color for active buffer.
+            --   inactive = 'lualine_{section}_inactive', -- Color for inactive buffer.
+            -- },
+            symbols = {
+              modified = ' + ',      -- Text to show when the buffer is modified
+              alternate_file = '#', -- Text to show to identify the alternate file
+              directory =  '',     -- Text to show when the buffer is a directory
+            },
           },
         },
         lualine_x = {
