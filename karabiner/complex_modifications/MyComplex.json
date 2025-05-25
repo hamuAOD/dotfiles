@@ -140,7 +140,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "p",
+            "key_code": "semicolon",
             "modifiers": {
               "mandatory": [
                 "right_command"
@@ -248,7 +248,7 @@
           },
           "to": [
             {
-              "key_code": "left_control",
+              "key_code": "right_control",
               "lazy": true
             }
           ],
@@ -262,14 +262,14 @@
       ]
     },
     {
-      "description": "Left ctrl + hjkl to arrow keys Vim",
+      "description": "right ctrl + hjkl to arrow keys Vim",
       "manipulators": [
         {
           "from": {
             "key_code": "h",
             "modifiers": {
               "mandatory": [
-                "left_control"
+                "right_control"
               ],
               "optional": [
                 "any"
@@ -288,7 +288,7 @@
             "key_code": "j",
             "modifiers": {
               "mandatory": [
-                "left_control"
+                "right_control"
               ],
               "optional": [
                 "any"
@@ -307,7 +307,7 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "left_control"
+                "right_control"
               ],
               "optional": [
                 "any"
@@ -326,7 +326,7 @@
             "key_code": "l",
             "modifiers": {
               "mandatory": [
-                "left_control"
+                "right_control"
               ],
               "optional": [
                 "any"
