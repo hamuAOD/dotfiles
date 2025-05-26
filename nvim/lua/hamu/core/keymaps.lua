@@ -25,9 +25,9 @@ keymap.set('n', '<Leader>cc', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc 
 keymap.set('n', '<Leader>cn', [[:%s/\<\w\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR><CMD>nohlsearch<CR>]], {desc = "Normalize caps", noremap = true, silent = true})  -- whole file
 keymap.set('v', '<Leader>cn', [[:s/\<\w\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR><CMD>nohlsearch<CR>]], {desc = "Normalize caps", noremap = true, silent = true})   -- visual selection
 --- カーソルの直前の単語の先頭を大文字にする
-keymap.set('i', '<C-o>', '<ESC>bguwgUlgi', NS)
+keymap.set('i', '<C-t>', '<ESC>bguwgUlgi', NS)
 --- カーソルの直前の単語を全てを大文字にする
-keymap.set('i', '<C-S-o>', '<ESC>bveUgi', NS)
+keymap.set('i', '<C-o>', '<ESC>bveUgi', NS)
 
 -- インデント操作を連続でできるように
 keymap.set('x', '<', '<gv', NS)
