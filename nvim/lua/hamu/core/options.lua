@@ -86,8 +86,8 @@ opt.completeopt = { "menuone", "preview" }              -- 候補が1つでも�
 -- 非アクティブなウィンドウの設定
 vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
 
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#forldexpr()"
+-- opt.foldmethod = "expr"
+-- opt.foldexpr = "nvim_treesitter#forldexpr()"
 
 -----------------------------------------------------------
 -- VIM Command
