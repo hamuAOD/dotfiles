@@ -26,8 +26,12 @@ return {
         "typescript",
         "vim",
         "yaml"
-      },
+      }, -- List of parsers to ignore installing (or "all")
+      ignore_install = {},
       highlight = {
+        enable = true,
+      },
+      indent = {
         enable = true,
       },
     }
