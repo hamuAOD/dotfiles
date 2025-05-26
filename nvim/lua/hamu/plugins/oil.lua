@@ -26,8 +26,7 @@ return
         },
       })
 
-      local NS = { noremap = true, silent = true }
-      vim.keymap.set('n', '-', '<CMD>Oil<CR>', {desc = "Oil"}, NS)
+      vim.keymap.set('n', '-', '<CMD>Oil<CR>', {desc = "Oil", noremap = true, silent = true})
 
     end,
   },
