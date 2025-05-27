@@ -581,6 +581,30 @@
         },
         {
           "type": "basic",
+          "description": "Window: center alt",
+          "conditions": [
+            {
+              "name": "hyper_sublayer_w",
+              "type": "variable_if",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -g rectangle://execute-action?name=center"
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "description": "Window: maximize",
           "conditions": [
             {
