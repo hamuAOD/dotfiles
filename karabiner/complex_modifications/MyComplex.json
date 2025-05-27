@@ -29,9 +29,11 @@
       ]
     },
     {
-      "description": "right ctrl + hjkl to arrow keys Vim",
+      "description": "Right Ctrl Mod.",
       "manipulators": [
         {
+          "type": "basic",
+          "description": "Right Control + h to left arrow",
           "from": {
             "key_code": "h",
             "modifiers": {
@@ -47,10 +49,11 @@
             {
               "key_code": "left_arrow"
             }
-          ],
-          "type": "basic"
+          ]
         },
         {
+          "type": "basic",
+          "description": "Right Control + j to down arrow",
           "from": {
             "key_code": "j",
             "modifiers": {
@@ -66,10 +69,11 @@
             {
               "key_code": "down_arrow"
             }
-          ],
-          "type": "basic"
+          ]
         },
         {
+          "type": "basic",
+          "description": "Right Control + k to up arrow",
           "from": {
             "key_code": "k",
             "modifiers": {
@@ -85,10 +89,11 @@
             {
               "key_code": "up_arrow"
             }
-          ],
-          "type": "basic"
+          ]
         },
         {
+          "type": "basic",
+          "description": "Right Control + l to right arrow",
           "from": {
             "key_code": "l",
             "modifiers": {
@@ -104,8 +109,27 @@
             {
               "key_code": "right_arrow"
             }
-          ],
-          "type": "basic"
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + / to hyphen",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": [
+                "right_control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen"
+            }
+          ]
         }
       ]
     },
