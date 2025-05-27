@@ -566,7 +566,7 @@
             }
           ],
           "from": {
-            "key_code": "c",
+            "key_code": "y",
             "modifiers": {
               "optional": [
                 "any"
