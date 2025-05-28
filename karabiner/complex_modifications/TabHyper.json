@@ -2,10 +2,10 @@
   "title": "TabHyper",
   "rules": [
     {
-      "type": "basic",
       "description": "Remap Tab to Hyper key when held, Tab when tapped",
       "manipulators": [
         {
+          "type": "basic",
           "from": {
             "key_code": "tab"
           },
