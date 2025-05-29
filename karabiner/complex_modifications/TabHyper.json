@@ -160,6 +160,76 @@
         },
         {
           "type": "basic",
+          "description": "open Homerow",
+          "conditions": [
+            {
+              "name": "hyper",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "hyper_sublayer_q",
+              "type": "variable_if",
+              "value": 0
+            }
+          ],
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "left_shift",
+                "left_control",
+                "left_option",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "open Homerow-Scroll",
+          "conditions": [
+            {
+              "name": "hyper",
+              "type": "variable_if",
+              "value": 1
+            },
+            {
+              "name": "hyper_sublayer_q",
+              "type": "variable_if",
+              "value": 0
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "left_shift",
+                "left_control",
+                "left_option",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "description": "open Notes",
           "conditions": [
             {
