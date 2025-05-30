@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = "VeryLazy",
+  event = "BufReadPost",
   build = ":TSUpdate",
   config = function()
     require('nvim-treesitter.configs').setup {
@@ -27,13 +27,16 @@ return {
         "vim",
         "yaml"
       }, -- List of parsers to ignore installing (or "all")
+      sync_install = false,
+      auto_install = true,
       ignore_install = {},
+
       highlight = {
         enable = true,
       },
-      -- indent = {
-      --   enable = true,
-      -- },
+      indent = {
+        enable = true,
+      },
     }
   end
 }
