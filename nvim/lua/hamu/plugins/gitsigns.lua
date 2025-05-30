@@ -45,6 +45,9 @@ return {
     -- yadm = {
     --   enable = false
     -- },
+
+    -- Gitsigns のDiff表示トグル
+    vim.keymap.set('n', '<Leader>tg', '<CMD>Gitsigns toggle_word_diff<CR>', {desc = "Toggle Git-Word Diff"})
   }
   end,
 }
