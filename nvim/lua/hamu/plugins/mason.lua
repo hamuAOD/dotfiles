@@ -5,7 +5,7 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",
   },
-  event = "BufReadPre",
+  event = "VeryLazy",
 
   config = function()
     local servers = {
