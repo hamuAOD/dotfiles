@@ -4,32 +4,45 @@ return {
     tag = '0.1.8',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-    event = "VeryLazy",
+    -- event = "VeryLazy",
 
     config = function()
       require("telescope").load_extension("noice")
 
-      require('telescope').setup{
+      require('telescope').setup({
         defaults = {
           sorting_strategy = 'ascending',
+          -- デフォルト検索モードをFZFにする
+          generic_sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
+          file_sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
         },
-      }
+        extensions = {
+          fzf = {
+            fuzzy = true,          -- あいまい検索を有効化
+            override_generic_sorter = true, -- デフォルトのソートを置き換え
+            override_file_sorter = true,    -- ファイルソートを置き換え
+            case_mode = "smart_case",       -- 大文字小文字の扱いを柔軟に
+          },
+        },
+      })
+      -- FZFエクステンションをロード
+      require("telescope").load_extension("fzf")
 
       local keymap = vim.keymap -- for conciseness
       local telescope = require('telescope.builtin')
       local sorters = require('telescope.sorters')
 
-      keymap.set('n', '<Leader>b', ':Telescope buffers<CR>', {desc = "Buffers", noremap = true, silent = true})
-      keymap.set('n', '<Leader>r', ':Telescope registers<CR>', {desc = "Registers", noremap = true, silent = true})
-      keymap.set('n', '<C-/>', ':Telescope current_buffer_fuzzy_find<CR>', {desc = "Adv. Search", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fb', ':Telescope buffers<CR>', {desc = "Buffers", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fc', ':Telescope command_history<CR>', {desc = "Command History", noremap = true, silent = true})
-      keymap.set('n', '<Leader>ff', ':Telescope find_files<CR>', {desc = "Files", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fg', ':Telescope live_grep<CR>', {desc = "Live Grep", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fo', ':Telescope oldfiles<CR>', {desc = "Old Files", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fr', ':Telescope registers<CR>', {desc = "Registers", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fk', ":lua require'telescope.builtin'.keymaps{}<CR>", {desc = "keymaps", noremap = true, silent = true})
+      keymap.set('n', '<Leader>b', telescope.buffers, {desc = "Buffers", noremap = true, silent = true})
+      keymap.set('n', '<Leader>fb', telescope.buffers, {desc = "Buffers", noremap = true, silent = true})
+      keymap.set('n', '<Leader>r', '<CMD>Telescope registers<CR>', {desc = "Registers", noremap = true, silent = true})
+      keymap.set('n', '<Leader>fr', '<CMD>Telescope registers<CR>', {desc = "Registers", noremap = true, silent = true})
+      keymap.set('n', '<Leader>fc', '<CMD>Telescope command_history<CR>', {desc = "Command History", noremap = true, silent = true})
+      keymap.set('n', '<Leader>ff', telescope.find_files, {desc = "Find Files", noremap = true, silent = true})
+      keymap.set('n', '<Leader>fg', telescope.live_grep, {desc = "Live Grep", noremap = true, silent = true})
+      keymap.set('n', '<Leader>fo', telescope.oldfiles, {desc = "Old Files", noremap = true, silent = true})
+      keymap.set('n', '<Leader>fk', "<CMD>lua require'telescope.builtin'.keymaps{}<CR>", {desc = "keymaps", noremap = true, silent = true})
 
       keymap.set('n', '<Leader>fz', function()
         telescope.current_buffer_fuzzy_find({
@@ -37,7 +50,7 @@ return {
           case_mode = "ignore_case",
           sorter = sorters.sort_by_position,
         })
-      end, { desc = "Grep current buffer by position", noremap = true, silent = true })
+      end, { desc = "Grep current buffer", noremap = true, silent = true })
 
     end,
   },
@@ -72,7 +85,7 @@ return {
 
       vim.keymap.set("n", "<space>fe", function()
 	      require("telescope").extensions.file_browser.file_browser()
-      end, {desc = "Open Explorer"}, { noremap = true, silent = true })
+      end, {desc = "Open Explorer", noremap = true, silent = true })
     end,
   },
 }
