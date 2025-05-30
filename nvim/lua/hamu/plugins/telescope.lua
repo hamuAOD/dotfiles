@@ -17,7 +17,9 @@ return {
       }
 
       local keymap = vim.keymap -- for conciseness
-      local NS = { noremap = true, silent = true }
+      local telescope = require('telescope.builtin')
+      local sorters = require('telescope.sorters')
+
       keymap.set('n', '<Leader>b', ':Telescope buffers<CR>', {desc = "Buffers", noremap = true, silent = true})
       keymap.set('n', '<Leader>r', ':Telescope registers<CR>', {desc = "Registers", noremap = true, silent = true})
       keymap.set('n', '<C-/>', ':Telescope current_buffer_fuzzy_find<CR>', {desc = "Adv. Search", noremap = true, silent = true})
@@ -28,6 +30,14 @@ return {
       keymap.set('n', '<Leader>fo', ':Telescope oldfiles<CR>', {desc = "Old Files", noremap = true, silent = true})
       keymap.set('n', '<Leader>fr', ':Telescope registers<CR>', {desc = "Registers", noremap = true, silent = true})
       keymap.set('n', '<Leader>fk', ":lua require'telescope.builtin'.keymaps{}<CR>", {desc = "keymaps", noremap = true, silent = true})
+
+      keymap.set('n', '<Leader>fz', function()
+        telescope.current_buffer_fuzzy_find({
+          fuzzy = false,
+          case_mode = "ignore_case",
+          sorter = sorters.sort_by_position,
+        })
+      end, { desc = "Grep current buffer by position", noremap = true, silent = true })
 
     end,
   },
