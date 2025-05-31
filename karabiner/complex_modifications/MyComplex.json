@@ -29,6 +29,30 @@
       ]
     },
     {
+      "description": "right_shift -> cmd+tab if pressed alone",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "right_shift"
+          },
+          "to": [
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Right Ctrl Mod",
       "manipulators": [
         {
