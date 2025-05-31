@@ -1,24 +1,19 @@
 {
-  "title": "TabHyper",
+  "title": "TabVHyper",
   "rules": [
     {
-      "description": "Remap Tab to Hyper key when held, Tab when tapped",
+      "description": "VHyper Setup",
       "manipulators": [
         {
           "type": "basic",
+          "description": "Remap Tab to Virtual-Hyper key when held, Tab when tapped",
           "from": {
             "key_code": "tab"
           },
           "to": [
             {
-              "key_code": "left_shift",
-              "modifiers": [
-                "any"
-              ]
-            },
-            {
               "set_variable": {
-                "name": "hyper",
+                "name": "vhyper",
                 "value": 1
               }
             }
@@ -26,7 +21,7 @@
           "to_after_key_up": [
             {
               "set_variable": {
-                "name": "hyper",
+                "name": "vhyper",
                 "value": 0
               }
             }
@@ -40,22 +35,46 @@
       ]
     },
     {
-      "description": "Hyper-APP",
+      "description": "VHyper-Sublayer Q: APP",
       "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            { "name": "vhyper", "type": "variable_if", "value": 1 },
+            { "name": "vhyper_sublayer_1", "type": "variable_if", "value": 0 },
+            { "name": "vhyper_sublayer_2", "type": "variable_if", "value": 0 }
+          ],
+          "description": "Toggle VHyper sublayer q",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "vhyper_sublayer_q",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "vhyper_sublayer_q",
+                "value": 0
+              }
+            }
+          ]
+        },
         {
           "type": "basic",
           "description": "open Activity Monitor",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "a",
@@ -67,27 +86,18 @@
           },
           "to": [
             {
-              "shell_command": "open '/System/Applications/Utilities/Activity Monitor.app'"
+              "shell_command": "open -a 'Activity Monitor.app'"
             }
           ]
         },
         {
           "type": "basic",
-          "description": "open Google Chrome",
+          "description": "open Browser(Safari)",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "c",
+            "key_code": "b",
             "modifiers": {
               "optional": [
                 "any"
@@ -96,7 +106,27 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Google Chrome.app'"
+              "shell_command": "open -a 'Safari.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "open Numbers",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Numbers.app"
             }
           ]
         },
@@ -104,16 +134,7 @@
           "type": "basic",
           "description": "open Finder",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "f",
@@ -131,18 +152,71 @@
         },
         {
           "type": "basic",
+          "description": "open Google Chrome",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "open Homerow",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [ "left_shift", "left_control", "left_option", "left_command" ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "open Homerow-Scroll",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [ "left_shift", "left_control", "left_option", "left_command" ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "description": "open iCompta",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "i",
@@ -160,21 +234,12 @@
         },
         {
           "type": "basic",
-          "description": "open Homerow",
+          "description": "open Karabiner-Elements",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "slash",
+            "key_code": "k",
             "modifiers": {
               "optional": [
                 "any"
@@ -183,33 +248,18 @@
           },
           "to": [
             {
-              "key_code": "6",
-              "modifiers": [
-                "left_shift",
-                "left_control",
-                "left_option",
-                "left_command"
-              ]
+              "shell_command": "open -a Karabiner-Elements.app"
             }
           ]
         },
         {
           "type": "basic",
-          "description": "open Homerow-Scroll",
+          "description": "open Fission",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "l",
+            "key_code": "m",
             "modifiers": {
               "optional": [
                 "any"
@@ -218,13 +268,7 @@
           },
           "to": [
             {
-              "key_code": "7",
-              "modifiers": [
-                "left_shift",
-                "left_control",
-                "left_option",
-                "left_command"
-              ]
+              "shell_command": "open -a 'Fission.app'"
             }
           ]
         },
@@ -232,16 +276,7 @@
           "type": "basic",
           "description": "open Notes",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "n",
@@ -261,16 +296,7 @@
           "type": "basic",
           "description": "open Obsidian",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "o",
@@ -288,18 +314,29 @@
         },
         {
           "type": "basic",
+          "description": "open Photoshop",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Adobe Photoshop 2025.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "description": "open Roon",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "r",
@@ -317,18 +354,9 @@
         },
         {
           "type": "basic",
-          "description": "open Safari",
+          "description": "open Terminal",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "s",
@@ -340,24 +368,15 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Safari.app'"
+              "shell_command": "open -a 'Swinsian.app'"
             }
           ]
         },
         {
           "type": "basic",
-          "description": "open Terminal",
+          "description": "open Tag Editor",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "t",
@@ -369,7 +388,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Ghostty.app'"
+              "shell_command": "open -a 'Tag Editor.app'"
             }
           ]
         },
@@ -377,16 +396,7 @@
           "type": "basic",
           "description": "open Vim-App;",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "v",
@@ -406,16 +416,7 @@
           "type": "basic",
           "description": "open XLD",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "x",
@@ -435,16 +436,7 @@
           "type": "basic",
           "description": "open System Settings",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "semicolon",
@@ -464,16 +456,7 @@
           "type": "basic",
           "description": "open Ghostty",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            },
-            {
-              "name": "hyper_sublayer_q",
-              "type": "variable_if",
-              "value": 0
-            }
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
             "key_code": "return_or_enter",
@@ -492,41 +475,25 @@
       ]
     },
     {
-      "description": "Hyper-Sublayer Q",
+      "description": "VHyper-Sublayer 1: Window",
       "manipulators": [
         {
           "type": "basic",
+          "description": "Toggle VHyper sublayer 1",
           "conditions": [
-            {
-              "name": "hyper",
-              "type": "variable_if",
-              "value": 1
-            }
+            { "name": "vhyper", "type": "variable_if", "value": 1 },
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 0 },
+            { "name": "vhyper_sublayer_2", "type": "variable_if", "value": 0 }
           ],
-          "description": "Toggle Hyper sublayer q",
           "from": {
-            "key_code": "q",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
+            "key_code": "1",
+            "modifiers": { "optional": [ "any" ] }
           },
           "to": [
-            {
-              "set_variable": {
-                "name": "hyper_sublayer_q",
-                "value": 1
-              }
-            }
+            { "set_variable": { "name": "vhyper_sublayer_1", "value": 1 } }
           ],
           "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "hyper_sublayer_q",
-                "value": 0
-              }
-            }
+            { "set_variable": { "name": "vhyper_sublayer_1", "value": 0 } }
           ]
         },
         {
@@ -534,7 +501,7 @@
           "description": "Window: left-half",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -558,7 +525,7 @@
           "description": "Window: right-half",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -582,7 +549,7 @@
           "description": "Window: top-half",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -606,7 +573,7 @@
           "description": "Window: bottom-half",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -630,7 +597,7 @@
           "description": "Window: center",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -654,7 +621,7 @@
           "description": "Window: center alt",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -678,7 +645,7 @@
           "description": "Window: maximize",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -702,7 +669,7 @@
           "description": "Window: almost maximize",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -726,7 +693,7 @@
           "description": "Window: restore",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -750,7 +717,7 @@
           "description": "Window: top-left",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -774,7 +741,7 @@
           "description": "Window: top-right",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -798,7 +765,7 @@
           "description": "Window: bottom-left",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -822,7 +789,7 @@
           "description": "Window: bottom-right",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -846,7 +813,7 @@
           "description": "Window: first-two-thirds",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -870,7 +837,7 @@
           "description": "Window: last-third",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -894,7 +861,7 @@
           "description": "Window: make larger",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -918,7 +885,7 @@
           "description": "Window: make smaller",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -942,7 +909,7 @@
           "description": "Window: next-display",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -966,7 +933,7 @@
           "description": "Window: previous-display",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -990,7 +957,7 @@
           "description": "Window: next window",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -1017,7 +984,7 @@
           "description": "Window: previous window",
           "conditions": [
             {
-              "name": "hyper_sublayer_q",
+              "name": "vhyper_sublayer_1",
               "type": "variable_if",
               "value": 1
             }
@@ -1037,6 +1004,94 @@
                 "left_command",
                 "left_shift"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "VHyper-Sublayer 2: System",
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "Toggle VHyper sublayer 2",
+          "conditions": [
+            { "name": "vhyper", "type": "variable_if", "value": 1 },
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 0 },
+            { "name": "vhyper_sublayer_1", "type": "variable_if", "value": 0 }
+          ],
+          "from": {
+            "key_code": "2",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            { "set_variable": { "name": "vhyper_sublayer_2", "value": 1 } }
+          ],
+          "to_after_key_up": [
+            { "set_variable": { "name": "vhyper_sublayer_2", "value": 0 } }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "Volume Decrement",
+          "conditions": [
+            { "name": "vhyper_sublayer_2", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "comma",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            {
+              "key_code": "volume_decrement"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "Volume Increment",
+          "conditions": [
+            { "name": "vhyper_sublayer_2", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "period",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            {
+              "key_code": "volume_increment"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "change Audio Source: 複数出力装置",
+          "conditions": [
+            { "name": "vhyper_sublayer_2", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "m",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            {
+              "shell_command": "/opt/homebrew/bin/switchaudiosource -s '複数出力装置'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "change Audio Source: Mac Studioのスピーカー",
+          "conditions": [
+            { "name": "vhyper_sublayer_2", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "n",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            {
+              "shell_command": "/opt/homebrew/bin/switchaudiosource -s 'Mac Studioのスピーカー'"
             }
           ]
         }
