@@ -38,6 +38,7 @@ return {
       }
     })
 
+    local mason_lspconfig = require("mason-lspconfig")
     require("mason-lspconfig").setup ({
       ensure_installed = servers,
     })
@@ -48,7 +49,6 @@ return {
       run_on_start = true,
     })
 
-    local mason_lspconfig = require("mason-lspconfig")
     local lspconfig = require("lspconfig")
 
     local on_attach = function(_, bufnr)
@@ -81,6 +81,6 @@ return {
       lspconfig[server].setup(opts)
     end
 
-    vim.cmd("LspStart") -- 初回起動時はBufEnterが発火しない
+    -- vim.cmd("LspStart") -- 初回起動時はBufEnterが発火しない
   end,
 }
