@@ -77,6 +77,8 @@ keymap.set('n', '<Leader>ts', '<CMD>set spell!<CR>', {desc = "Toggle Spell-Check
 keymap.set('n', 'i', "v:lua.empty_line_insert()", { expr = true })
 keymap.set('n', 'A', "v:lua.empty_line_append()", { expr = true })
 
+keymap.set('v', '<Leader>sl', [[:s/\r/\r/g<CR>]], { desc = "Replace CR for Mac", noremap = true, silent = true })
+
 function _G.empty_line_insert()
   return vim.fn.empty(vim.fn.getline('.')) == 1 and '"_cc' or 'i'
 end
