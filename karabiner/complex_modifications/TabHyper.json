@@ -198,7 +198,7 @@
             { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "l",
+            "key_code": "y",
             "modifiers": {
               "optional": [
                 "any"
@@ -434,12 +434,32 @@
         },
         {
           "type": "basic",
+          "description": "open Google Chrome",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "description": "open System Settings",
           "conditions": [
             { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "semicolon",
+            "key_code": "return_or_enter",
             "modifiers": {
               "optional": [
                 "any"
@@ -454,12 +474,52 @@
         },
         {
           "type": "basic",
+          "description": "open Safari",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Safari.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "open Vim-App;",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Goneovim.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "description": "open Ghostty",
           "conditions": [
             { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "return_or_enter",
+            "key_code": "semicolon",
             "modifiers": {
               "optional": [
                 "any"
