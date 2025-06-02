@@ -139,7 +139,7 @@
           "type": "basic",
           "description": "Right Control + q to backquart",
           "from": {
-            "key_code": "q",
+            "key_code": "period",
             "modifiers": {
               "mandatory": [
                 "right_control"
