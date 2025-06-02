@@ -152,7 +152,7 @@
         },
         {
           "type": "basic",
-          "description": "open Google Chrome",
+          "description": "open Goneovim",
           "conditions": [
             { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
@@ -166,7 +166,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Google Chrome.app'"
+              "shell_command": "open -a 'Goneovim.app'"
             }
           ]
         },
@@ -229,6 +229,26 @@
           "to": [
             {
               "shell_command": "open -a iCompta.app"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "open Kid3",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Kid3.app"
             }
           ]
         },
@@ -334,7 +354,7 @@
         },
         {
           "type": "basic",
-          "description": "open Terminal",
+          "description": "open Swinsian",
           "conditions": [
             { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
