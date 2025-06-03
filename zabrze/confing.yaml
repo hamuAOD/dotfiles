@@ -191,16 +191,16 @@ abbrevs:
     snippet: 7zz x
 # etc
   - name: clear
-    abbr: cl
+    abbr: c
     snippet: clear
   - name: exit
-    abbr: ex
+    abbr: e
     snippet: exit
   - name: sleep
     abbr: sleep
     snippet: pmset sleepnow
   - name: sleep
-    abbr: sl
+    abbr: s
     snippet: pmset sleepnow
   - name: ttye
     abbr: ttyc
