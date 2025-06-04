@@ -75,7 +75,7 @@ abbrevs:
     snippet: vim $(fzf)
 # Neovim
   - name: nvim
-    abbr: nv
+    abbr: n
     snippet: nvim
   - name: nvim +
     abbr: nvb
