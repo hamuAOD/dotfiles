@@ -152,26 +152,6 @@
         },
         {
           "type": "basic",
-          "description": "open Goneovim",
-          "conditions": [
-            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
-          ],
-          "from": {
-            "key_code": "g",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Goneovim.app'"
-            }
-          ]
-        },
-        {
-          "type": "basic",
           "description": "open iCompta",
           "conditions": [
             { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
@@ -187,46 +167,6 @@
           "to": [
             {
               "shell_command": "open -a iCompta.app"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "description": "open Kid3",
-          "conditions": [
-            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
-          ],
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a Kid3.app"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "description": "open Fission",
-          "conditions": [
-            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
-          ],
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Fission.app'"
             }
           ]
         },
@@ -317,7 +257,7 @@
             { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "s",
+            "key_code": "m",
             "modifiers": {
               "optional": [
                 "any"
@@ -352,6 +292,66 @@
         },
         {
           "type": "basic",
+          "description": "open XLD",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open '/Applications/XLD.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "open Kid3",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Kid3.app"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "open Fission",
+          "conditions": [
+            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Fission.app'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "description": "open Vim-App;",
           "conditions": [
             { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
@@ -367,26 +367,6 @@
           "to": [
             {
               "shell_command": "open -a 'Goneovim.app'"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "description": "open XLD",
-          "conditions": [
-            { "name": "vhyper_sublayer_q", "type": "variable_if", "value": 1 }
-          ],
-          "from": {
-            "key_code": "x",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open '/Applications/XLD.app'"
             }
           ]
         },
