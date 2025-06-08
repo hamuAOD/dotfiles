@@ -66,29 +66,22 @@ abbrevs:
     snippet: uninstall
     global: true
     context: '^brew\s'
-# Vim
-  - name: vim
-    abbr: v
-    snippet: vim
-  - name: vim $(fzf)
-    abbr: vf
-    snippet: vim $(fzf)
 # Neovim
   - name: nvim
-    abbr: n
+    abbr: v
     snippet: nvim
   - name: nvim +
-    abbr: nb
+    abbr: vb
     snippet: nvim +
   - name: nvim $(fzf)
-    abbr: nf
+    abbr: vf
     snippet: nvim $(fzf)
     global: true
   - name: nvim config
-    abbr: nc
+    abbr: vc
     snippet: nvim ~/dotfiles/nvim/lua/hamu/
   - name: nvim temporary
-    abbr: nt
+    abbr: vt
     snippet: nvim ~/Documents/temp.txt
   - name: nvim CD
     abbr: cd
