@@ -113,7 +113,7 @@ FontSize = 13
 # DisableLigatures = true
 
 ## Copy yanked text to clipboard
-# Clipboard = true
+Clipboard = true
 
 ## WSL Integration Options
 ## If UseWSL is set to true, it will connect to nvim on WSL.
