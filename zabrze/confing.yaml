@@ -82,7 +82,7 @@ abbrevs:
     snippet: nvim ~/dotfiles/nvim/lua/hamu/
   - name: nvim Obsidian
     abbr: vo
-    snippet: nvim /Users/hamu/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault
+    snippet: nvim $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault
   - name: nvim temporary
     abbr: vt
     snippet: nvim ~/Documents/temp.txt
