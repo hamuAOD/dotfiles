@@ -2,6 +2,7 @@ return
 {
   'MeanderingProgrammer/render-markdown.nvim',
   event = { "BufRead", "BufNewFile" },
+  ft = { "markdown" },
   opts = {},
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
