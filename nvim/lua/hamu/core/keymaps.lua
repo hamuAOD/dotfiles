@@ -79,6 +79,10 @@ keymap.set('n', 'A', "v:lua.empty_line_append()", { expr = true })
 
 keymap.set('v', '<Leader>sl', [[:s/\r/\r/g<CR>]], { desc = "Replace CR for Mac", noremap = true, silent = true })
 
+-- for Markdown
+keymap.set('n', '<Leader>mc', 'V<CMD>s/\\[\\ \\]/\\[x\\]/ge<CR><ESC>', { desc = "check checklist", noremap = true, silent = true })
+keymap.set('n', '<Leader>mu', 'V<CMD>s/\\[x\\]/\\[\\ \\]/ge<CR><ESC>', { desc = "uncheck checklist", noremap = true, silent = true })
+
 function _G.empty_line_insert()
   return vim.fn.empty(vim.fn.getline('.')) == 1 and '"_cc' or 'i'
 end
