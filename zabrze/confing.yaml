@@ -48,20 +48,20 @@ abbrevs:
     snippet: trash -v
     if: '(( ${+commands[trash]} ))'
 # Homebrew
-  - name: homebrew update
+  - name: Homebrew update
     abbr: bu
     snippet: brew update && brew upgrade && brew cleanup
-  - name: homebrew search
+  - name: Homebrew search
     abbr: s
     snippet: search
     global: true
     context: '^brew\s'
-  - name: homebrew install
+  - name: Homebrew install
     abbr: i
     snippet: install
     global: true
     context: '^brew\s'
-  - name: homebrew uninstall
+  - name: Homebrew uninstall
     abbr: u
     snippet: uninstall
     global: true
@@ -82,7 +82,7 @@ abbrevs:
     snippet: nvim ~/dotfiles/nvim/lua/hamu/
   - name: nvim Obsidian
     abbr: vo
-    snippet: nvim $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault
+    snippet: nvim "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/ObsidianVault"
   - name: nvim temporary
     abbr: vt
     snippet: nvim ~/Documents/temp.txt
@@ -141,16 +141,6 @@ abbrevs:
   - name: MakeCue
     abbr: mc
     snippet: MakeCue
-  - name: MekeCue CD
-    abbr: mcc
-    snippet: MakeCue ~/Music/CD/|
-    cursor: "|"
-  - name: MekeCue CD2
-    abbr: cd
-    snippet: ~/Music/CD/|
-    cursor: "|"
-    context: '^MakeCue\s'
-    global: true
   - name: Lyrics2Txt
     abbr: lt
     snippet: Lyrics2Txt
@@ -214,19 +204,16 @@ abbrevs:
     abbr: lgd
     snippet: cd ~/dotfiles && lazygit
   - name: tmux
-    abbr: tm
+    abbr: t
     snippet: tmux
   - name: tmux
-    abbr: tma
+    abbr: ta
     snippet: tmux a
   - name: tmux Def
-    abbr: tmd
+    abbr: td
     snippet: tmux a -t Def || tmux new -s Def
-  - name: zellij
-    abbr: zj
-    snippet: zellij
   - name: yazi
-    abbr: yz
+    abbr: y
     snippet: yazi
 # etc: SYSTEM
   - name: check host
