@@ -13,7 +13,7 @@ return
       },
     })
 
-    require('mini.completion').setup()
+    -- require('mini.completion').setup()
 
     require('mini.cursorword').setup({
       vim.cmd [[highlight MiniCursorword guibg=darkcyan guifg=lightgray]]
