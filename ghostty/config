@@ -48,6 +48,7 @@ keybind = ctrl+;>shift+p=previous_tab
 # Keybind: Pane
 keybind = ctrl+;>s=new_split:right
 keybind = ctrl+;>shift+s=new_split:down
+keybind = ctrl+;>a=new_split:down
 keybind = ctrl+;>j=goto_split:bottom
 keybind = ctrl+;>k=goto_split:top
 keybind = ctrl+;>h=goto_split:left
