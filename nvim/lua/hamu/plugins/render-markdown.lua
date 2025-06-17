@@ -12,9 +12,11 @@ return
   config = function()
     require('render-markdown').setup({
       heading = {
-        sign = false,
+        sign = true,
         -- icons = { '① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ' },
-        icons = {'', '', '', '', '', ''},
+        -- icons = {'󰎤 ', '󰎧 ', '󰎪 ', '󰎭 ', '󰎱 ', '󰎳 '},
+        -- icons = {'󰎦 ', '󰎩 ', '󰎬 ', '󰎮 ', '󰎰 ', '󰎵 '},
+        icons = {'󰎥 ', '󰎨 ', '󰎫 ', '󰎲 ', '󰎯 ', '󰎴 '},
         -- width = 'block',
         -- min_width = 40,
       },
