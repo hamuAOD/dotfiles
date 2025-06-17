@@ -10,6 +10,6 @@ return {
     },
   },
   config = function ()
-    vim.keymap.set('n', '<Leader>z', '<CMD>ZenMode<CR>', {desc = "ZenMode", noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>tz', '<CMD>ZenMode<CR>', {desc = "ZenMode", noremap = true, silent = true })
   end
 }
