@@ -91,7 +91,7 @@ opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.o.foldcolumn = "1"                                  -- 左に折りたたみインジケーターを表示（任意）
 vim.o.foldlevel = 99                                    -- すべて展開された状態で開始
-vim.o.foldlevelstart = 99
+vim.o.foldlevelstart = 2
 vim.o.foldenable = true
 
 -----------------------------------------------------------

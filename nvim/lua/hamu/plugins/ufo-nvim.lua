@@ -4,11 +4,12 @@ return {
   dependencies = {
     "kevinhwang91/promise-async", -- 必須依存
   },
+
   config = function()
     require("ufo").setup({
-      provider_selector = function()
-        return { "lsp", "indent" }
-      end,
+      provider_selector = function(bufnr, filetype, buftype)
+				return { "treesitter", "indent" }
+			end,
       close_fold_kinds = {} -- 自動閉じを抑制
     })
 
