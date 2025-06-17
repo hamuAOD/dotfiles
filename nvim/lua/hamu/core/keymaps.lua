@@ -62,6 +62,8 @@ keymap.set('n', '<C-p>', '<CMD>bprev<CR>', NS)    -- Buffer Previous
 keymap.set('n', '<C-n>', '<CMD>bnext<CR>', NS)    -- Buffer Next
 keymap.set('n', '<C-d>', '<CMD>bdelete<CR>', NS)  -- Buffer Delete
 
+keymap.set('n', 'zj', 'za', {desc = "Toggle fold under cursor", noremap = true, silent = true})
+
 -- set expandtab をトグル
 keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB", noremap = true, silent = true})
 -- set list をトグル
