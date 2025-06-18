@@ -90,7 +90,8 @@ vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
 
 opt.foldmethod = 'expr'
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldtext = [[vim.treesitter.foldtext()]]
+opt.foldtext = ""
+-- opt.foldtext = [[vim.treesitter.foldtext()]]
 -- opt.foldtext = [["v:lua.FoldText()"]]
 vim.o.foldcolumn = "1"                                  -- 左に折りたたみインジケーターを表示（任意）
 vim.o.foldlevel = 99                                    -- すべて展開された状態で開始

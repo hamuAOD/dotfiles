@@ -15,6 +15,7 @@ return {
       { "<Leader>m", group = "Markdown" },
       { "<Leader>p", group = "Pane" },
       { "<Leader>t", group = "Toggle*" },
+      { "<Leader>tf", group = "Toggle FOLD" },
     })
   end,
 }

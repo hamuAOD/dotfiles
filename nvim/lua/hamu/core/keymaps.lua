@@ -62,7 +62,42 @@ keymap.set('n', '<C-p>', '<CMD>bprev<CR>', NS)    -- Buffer Previous
 keymap.set('n', '<C-n>', '<CMD>bnext<CR>', NS)    -- Buffer Next
 keymap.set('n', '<C-d>', '<CMD>bdelete<CR>', NS)  -- Buffer Delete
 
+-- fold
 keymap.set('n', 'zj', 'za', {desc = "Toggle fold under cursor", noremap = true, silent = true})
+
+function ToggleFoldLevel(level)
+  local hasClosed = false
+
+  -- まず level に一致する閉じている fold があるか調べる
+  for lnum = 1, vim.fn.line("$") do
+    if vim.fn.foldlevel(lnum) == level and vim.fn.foldclosed(lnum) ~= -1 then
+      hasClosed = true
+      break
+    end
+  end
+
+  if hasClosed then
+    -- 閉じている fold がある → level だけ開く
+    for lnum = 1, vim.fn.line("$") do
+      if vim.fn.foldlevel(lnum) == level and vim.fn.foldclosed(lnum) ~= -1 then
+        vim.cmd(lnum .. "foldopen")
+      end
+    end
+  else
+    -- すべて開いている → foldlevel を下げて「表示」だけ制限（閉じたように見せる）
+    vim.cmd("setlocal foldlevel=" .. (level - 1))
+  end
+end
+
+vim.api.nvim_create_user_command("ToggleFoldLevel1", function() ToggleFoldLevel(1) end, {})
+vim.api.nvim_create_user_command("ToggleFoldLevel2", function() ToggleFoldLevel(2) end, {})
+vim.api.nvim_create_user_command("ToggleFoldLevel3", function() ToggleFoldLevel(3) end, {})
+vim.api.nvim_create_user_command("ToggleFoldLevel4", function() ToggleFoldLevel(4) end, {})
+
+vim.keymap.set("n", "<Leader>tfu", ":ToggleFoldLevel1<CR>", {desc = "Toggle Fold Level1", noremap = true, silent = true})
+vim.keymap.set("n", "<Leader>tfi", ":ToggleFoldLevel2<CR>", {desc = "Toggle Fold Level2", noremap = true, silent = true})
+vim.keymap.set("n", "<Leader>tfo", ":ToggleFoldLevel3<CR>", {desc = "Toggle Fold Level3", noremap = true, silent = true})
+vim.keymap.set("n", "<Leader>tfp", ":ToggleFoldLevel4<CR>", {desc = "Toggle Fold Level4", noremap = true, silent = true})
 
 -- set expandtab をトグル
 keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB", noremap = true, silent = true})
