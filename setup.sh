@@ -7,6 +7,7 @@ ln -sf "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
 
 ln -sf "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
 ln -sf "$HOME/dotfiles/.zshenv" "$HOME/.zshenv"
+ln -sf "$HOME/dotfiles/starship/starship.toml" "$HOME/.config/starship.toml"
 ln -sf "$HOME/dotfiles/wezterm" "$HOME/.config/wezterm"
 ln -sf "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.config/tmux"
 

@@ -1,6 +1,5 @@
 ##### Starship #####
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG="${HOME}/dotfiles/starship.toml"
 
 ##### zsh-autocomplete #####
 ### Add at or near the top
