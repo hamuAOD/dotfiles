@@ -93,11 +93,13 @@ vim.api.nvim_create_user_command("ToggleFoldLevel1", function() ToggleFoldLevel(
 vim.api.nvim_create_user_command("ToggleFoldLevel2", function() ToggleFoldLevel(2) end, {})
 vim.api.nvim_create_user_command("ToggleFoldLevel3", function() ToggleFoldLevel(3) end, {})
 vim.api.nvim_create_user_command("ToggleFoldLevel4", function() ToggleFoldLevel(4) end, {})
+vim.api.nvim_create_user_command("ToggleFoldLevel5", function() ToggleFoldLevel(5) end, {})
 
 vim.keymap.set("n", "<Leader>tfu", ":ToggleFoldLevel1<CR>", {desc = "Toggle Fold Level1", noremap = true, silent = true})
 vim.keymap.set("n", "<Leader>tfi", ":ToggleFoldLevel2<CR>", {desc = "Toggle Fold Level2", noremap = true, silent = true})
 vim.keymap.set("n", "<Leader>tfo", ":ToggleFoldLevel3<CR>", {desc = "Toggle Fold Level3", noremap = true, silent = true})
 vim.keymap.set("n", "<Leader>tfp", ":ToggleFoldLevel4<CR>", {desc = "Toggle Fold Level4", noremap = true, silent = true})
+vim.keymap.set("n", "<Leader>tf[", ":ToggleFoldLevel5<CR>", {desc = "Toggle Fold Level5", noremap = true, silent = true})
 
 -- set expandtab をトグル
 keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB", noremap = true, silent = true})

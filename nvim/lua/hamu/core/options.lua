@@ -9,58 +9,58 @@ vim.api.nvim_set_var('loaded_netrwPlugin', 1)
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
-opt.number = true                                       -- 行番号表示
-opt.relativenumber = true                               -- 行番号相対表示
-opt.numberwidth = 4                                     -- 行番号表示の幅設定
-opt.signcolumn = "yes"                                  -- 行位置を常に表示
-opt.showmatch = true                                    -- 括弧入力時の対応する括弧を表示
-opt.matchtime  = 1                                      -- 対括弧を一時ジャンプ
-opt.iskeyword:append("-", "_")                          -- キーワードの一部として扱う：選択時に含まれる
-opt.cursorline = true                                   -- カーソルのある行をハイライト
-opt.cursorcolumn = true                                 -- カーソルのある列をハイライト
-opt.wrap = false                                        -- 折り返し設定
-opt.termguicolors = true                                -- 24bitカラー表示を有効にする
-opt.clipboard:append{'unnamedplus'}                     -- クリップボードと連携する
-opt.list = true                                         -- 特殊文字の表示
-opt.listchars = { eol = '$', tab = '>-', trail = '_' }  -- 特殊文字の表示設定
+opt.number = true                                           -- 行番号表示
+opt.relativenumber = true                                   -- 行番号相対表示
+opt.numberwidth = 4                                         -- 行番号表示の幅設定
+opt.signcolumn = "yes"                                      -- 行位置を常に表示
+opt.showmatch = true                                        -- 括弧入力時の対応する括弧を表示
+opt.matchtime  = 1                                          -- 対括弧を一時ジャンプ
+opt.iskeyword:append("-", "_")                              -- キーワードの一部として扱う：選択時に含まれる
+opt.cursorline = true                                       -- カーソルのある行をハイライト
+opt.cursorcolumn = true                                     -- カーソルのある列をハイライト
+opt.wrap = false                                            -- 折り返し設定
+opt.termguicolors = true                                    -- 24bitカラー表示を有効にする
+opt.clipboard:append{'unnamedplus'}                         -- クリップボードと連携する
+opt.list = true                                             -- 特殊文字の表示
+opt.listchars = { eol = '$', tab = '>-', trail = '_' }      -- 特殊文字の表示設定
 -- opt.listchars = { eol = '↲', tab = '»-', trail = '_' }  -- 特殊文字の表示設定
-opt.showcmd = true                                      -- コマンドを入力中に表示設定するかどうか
--- opt.splitbelow = true                                -- 上下分割時下に表示
--- opt.splitright = true                                -- 左右分割時右に表示
---set pumheight=10                                      -- 補完メニューの高さ固定
-opt.shortmess:append "sI"                               -- disable nvim intro
-opt.winblend = 20                                       -- フロートウィンドウなどを若干透明に
-opt.spell = false                                       -- スペルチェック有効
+opt.showcmd = true                                          -- コマンドを入力中に表示設定するかどうか
+-- opt.splitbelow = true                                    -- 上下分割時下に表示
+-- opt.splitright = true                                    -- 左右分割時右に表示
+--set pumheight=10                                          -- 補完メニューの高さ固定
+opt.shortmess:append "sI"                                   -- disable nvim intro
+opt.winblend = 20                                           -- フロートウィンドウなどを若干透明に
+opt.spell = false                                           -- スペルチェック有効
 
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
-opt.breakindent = true                                  -- 折り返された行を同じインデントで表示する
-opt.expandtab   = true                                  -- tabstop で指定したインデント
-opt.autoindent  = true                                  -- 自動インデントを有効にする
-opt.smartindent = true                                  -- 自動インデント設定
+opt.breakindent = true                                      -- 折り返された行を同じインデントで表示する
+opt.expandtab   = true                                      -- tabstop で指定したインデント
+opt.autoindent  = true                                      -- 自動インデントを有効にする
+opt.smartindent = true                                      -- 自動インデント設定
 -- opt.cindent = true
 -- smartindent と cindent を両方 true にしたときは、cindent のみ true になるようです。
-opt.tabstop = 2                                         -- タブの画面上での幅
-opt.softtabstop = 2                                     -- 連続した空白でカーソルが動く幅
-opt.shiftwidth = 2                                      -- インデントの空白数
-opt.smarttab = true                                     -- インデントの自動調整
-opt.formatoptions:remove('q')                           -- 自動改行OFF
+opt.tabstop = 2                                             -- タブの画面上での幅
+opt.softtabstop = 2                                         -- 連続した空白でカーソルが動く幅
+opt.shiftwidth = 2                                          -- インデントの空白数
+opt.smarttab = true                                         -- インデントの自動調整
+opt.formatoptions:remove('q')                               -- 自動改行OFF
 
 -----------------------------------------------------------
 -- Search
 -----------------------------------------------------------
-opt.incsearch  = true                                   -- 検索語を入力中にハイライトを表示
-opt.hlsearch   = true                                   -- 検索語をハイライト表示
-opt.ignorecase = true                                   -- 検索時に大文字小文字を区別しない
-opt.smartcase  = true                                   -- 検索語に大文字が含まれている場合は区別する
+opt.incsearch  = true                                       -- 検索語を入力中にハイライトを表示
+opt.hlsearch   = true                                       -- 検索語をハイライト表示
+opt.ignorecase = true                                       -- 検索時に大文字小文字を区別しない
+opt.smartcase  = true                                       -- 検索語に大文字が含まれている場合は区別する
 
 -----------------------------------------------------------
 -- Backups
 -----------------------------------------------------------
-opt.backup = false                                      -- バックアップファイルを作成しない
-opt.swapfile = false                                    -- スワップアップファイルを作成しない
-opt.undofile = true                                     -- undofileを作成しない
+opt.backup = false                                          -- バックアップファイルを作成しない
+opt.swapfile = false                                        -- スワップアップファイルを作成しない
+opt.undofile = true                                         -- undofileを作成しない
 
 -----------------------------------------------------------
 -- Encoding
@@ -73,30 +73,27 @@ opt.fileencoding   = 'utf-8'
 -- Other Settings
 -----------------------------------------------------------
 -- opt.guifont = { "HackGen35 Console NF", "h13" }
-opt.ambiwidth = 'single'                                -- 'double' | 「※」等の記号を打つと、半角文字と重なる問題がある。「※」などを全角文字の幅で表示するために設定する
-opt.fillchars = { fold = " ", eob = " " }                           -- 行末の空白の表示
-opt.emoji = true                                        -- Unicode絵文字を全角とみなす
-opt.helplang = 'ja'                                     -- 'en' | ヘルプ言語設定
-opt.spelllang = { 'en_us', 'cjk' }                      -- スペルチェックから日本語を除外
-opt.title = true                                        -- ファイル情報等表示
-opt.nrformats = "unsigned"                              -- 0x00とかを数字としてみなす
-opt.hidden = true                                       -- 編集中のバッファを保存しないで切り替え可能
--- 補完メニューの表示設定
-opt.completeopt = { "menuone", "preview" }              -- 候補が1つでも表示、付加情報をプレビューに表示
--- 非アクティブなウィンドウの設定
-vim.api.nvim_win_set_option(0, 'signcolumn', 'yes:1')
+opt.ambiwidth = 'single'                                    -- 'double' | 「※」等の記号を打つと、半角文字と重なる問題がある。「※」などを全角文字の幅で表示するために設定する
+opt.fillchars = { fold = " ", eob = " " }                   -- 行末の空白の表示
+opt.emoji = true                                            -- Unicode絵文字を全角とみなす
+opt.helplang = 'ja'                                         -- 'en' | ヘルプ言語設定
+opt.spelllang = { 'en_us', 'cjk' }                          -- スペルチェックから日本語を除外
+opt.title = true                                            -- ファイル情報等表示
+opt.nrformats = "unsigned"                                  -- 0x00とかを数字としてみなす
+opt.hidden = true                                           -- 編集中のバッファを保存しないで切り替え可能
+opt.completeopt = { "menuone", "preview" }                  -- 補完メニュー：候補が1つでも表示、付加情報をプレビューに表示
+vim.wo.signcolumn = 'yes:1'                                 --
 
 -- 折り畳み設定
-
 opt.foldmethod = 'expr'
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldtext = ""
 -- opt.foldtext = [[vim.treesitter.foldtext()]]
 -- opt.foldtext = [["v:lua.FoldText()"]]
+vim.o.foldenable = true
 vim.o.foldcolumn = "1"                                  -- 左に折りたたみインジケーターを表示（任意）
 vim.o.foldlevel = 99                                    -- すべて展開された状態で開始
-vim.o.foldlevelstart = 2
-vim.o.foldenable = true
+-- vim.o.foldlevelstart = 2
 
 -----------------------------------------------------------
 -- VIM Command
