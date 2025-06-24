@@ -64,6 +64,7 @@ keymap.set('n', '<C-d>', '<CMD>bdelete<CR>', NS)  -- Buffer Delete
 
 -- fold
 keymap.set('n', 'zj', 'za', {desc = "Toggle fold under cursor", noremap = true, silent = true})
+keymap.set('n', 'zJ', 'zA', {desc = "Toggle all folds under cursor", noremap = true, silent = true})
 
 function ToggleFoldLevel(level)
   local hasClosed = false
