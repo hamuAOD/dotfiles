@@ -1,0 +1,218 @@
+{
+  "actions" : [
+    {
+      "key" : ";",
+      "type" : "application",
+      "value" : "/Applications/Ghostty.app"
+    },
+    {
+      "key" : "s",
+      "type" : "application",
+      "value" : "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+    },
+    {
+      "key" : "v",
+      "type" : "application",
+      "value" : "/Applications/goneovim.app"
+    },
+    {
+      "key" : "n",
+      "type" : "application",
+      "value" : "/System/Applications/Notes.app"
+    },
+    {
+      "key" : "o",
+      "type" : "application",
+      "value" : "/Applications/Obsidian.app"
+    },
+    {
+      "key" : "'",
+      "type" : "application",
+      "value" : "/System/Applications/Preview.app"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "s",
+          "type" : "application",
+          "value" : "/Applications/Safari.app"
+        },
+        {
+          "key" : "f",
+          "type" : "application",
+          "value" : "/Applications/Fission.app"
+        },
+        {
+          "key" : "v",
+          "type" : "application",
+          "value" : "/Applications/goneovim.app"
+        },
+        {
+          "key" : "c",
+          "type" : "application",
+          "value" : "/Applications/Google Chrome.app"
+        },
+        {
+          "key" : "e",
+          "type" : "application",
+          "value" : "/Applications/Numbers.app"
+        },
+        {
+          "key" : "r",
+          "type" : "application",
+          "value" : "/Applications/Roon.app"
+        },
+        {
+          "key" : "t",
+          "type" : "application",
+          "value" : "/Applications/Tag Editor.app"
+        },
+        {
+          "key" : "x",
+          "type" : "application",
+          "value" : "/Applications/XLD.app"
+        },
+        {
+          "key" : "k",
+          "type" : "application",
+          "value" : "/Applications/kid3.app"
+        },
+        {
+          "key" : "i",
+          "type" : "application",
+          "value" : "/Applications/iCompta.app"
+        }
+      ],
+      "key" : "a",
+      "label" : "APP",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "e",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+        },
+        {
+          "key" : "p",
+          "type" : "url",
+          "value" : "raycast://confetti"
+        },
+        {
+          "key" : "c",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/system/open-camera"
+        }
+      ],
+      "key" : "r",
+      "label" : "Raycast",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "h",
+          "label" : "Left-Half",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=left-half"
+        },
+        {
+          "key" : "j",
+          "label" : "Bottom-Half",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=bottom-half"
+        },
+        {
+          "key" : "k",
+          "label" : "Top-Half",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=top-half"
+        },
+        {
+          "key" : "l",
+          "label" : "Right-Half",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=right-half"
+        },
+        {
+          "key" : "c",
+          "label" : "Center",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=center"
+        },
+        {
+          "key" : "↵",
+          "label" : "Max",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=maximize"
+        },
+        {
+          "key" : " ",
+          "label" : "Almost Max",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=almost-maximize"
+        },
+        {
+          "key" : "r",
+          "label" : "Restore",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=restore"
+        },
+        {
+          "key" : "u",
+          "label" : "Top-Left",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=top-left"
+        },
+        {
+          "key" : "i",
+          "label" : "Top-Right",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=top-right"
+        },
+        {
+          "key" : "o",
+          "label" : "Bottom-Left",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=bottom-left"
+        },
+        {
+          "key" : "p",
+          "label" : "Bottom-Right",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=bottom-right"
+        },
+        {
+          "key" : "[",
+          "label" : "First 2/3",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=first-two-thirds"
+        },
+        {
+          "key" : "]",
+          "label" : "Last 1/3",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=last-third"
+        },
+        {
+          "key" : ".",
+          "label" : "Next Display",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=next-display"
+        },
+        {
+          "key" : ",",
+          "label" : "Previous Display",
+          "type" : "url",
+          "value" : "rectangle://execute-action?name=previous-display"
+        }
+      ],
+      "iconPath" : "window.horizontal.closed",
+      "key" : "w",
+      "label" : "Window",
+      "type" : "group"
+    }
+  ],
+  "type" : "group"
+}
