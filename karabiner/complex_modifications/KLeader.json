@@ -693,7 +693,7 @@
             { "name": "kleader-s", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "close-bracket",
+            "key_code": "quote",
             "modifiers": { "optional": [ "any" ] }
           },
           "to": [
