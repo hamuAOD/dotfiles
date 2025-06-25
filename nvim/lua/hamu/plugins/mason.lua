@@ -4,6 +4,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",
+    "b0o/schemastore.nvim",
   },
   event = "VeryLazy",
 
@@ -14,6 +15,7 @@ return {
       "jsonls",
       "lua_ls",
       "markdown_oxide",
+      "marksman",
       "mesonlsp",
       "pylsp",
       "rust_analyzer",
@@ -80,6 +82,17 @@ return {
 
       lspconfig[server].setup(opts)
     end
+
+    require("lspconfig").marksman.setup({})
+
+    require('lspconfig').jsonls.setup {
+      settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    }
 
     -- vim.cmd("LspStart") -- 初回起動時はBufEnterが発火しない
   end,
