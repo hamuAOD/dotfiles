@@ -339,7 +339,7 @@
             ]
           },
           "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 1500
+            "basic.to_delayed_action_delay_milliseconds": 2500
           }
         }
       ]
@@ -636,7 +636,7 @@
             ]
           },
           "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 1500
+            "basic.to_delayed_action_delay_milliseconds": 2500
           }
         }
       ]
@@ -741,7 +741,7 @@
             ]
           },
           "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 1500
+            "basic.to_delayed_action_delay_milliseconds": 2500
           }
         }
       ]
@@ -770,7 +770,7 @@
             ]
           },
           "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 1500
+            "basic.to_delayed_action_delay_milliseconds": 2500
           }
         }
       ]
