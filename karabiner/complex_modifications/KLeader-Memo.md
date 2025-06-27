@@ -6,40 +6,37 @@
 
 ## Key-Tree
 
-- ' : Preview
-- . : [ System ]
-	- ] : Lock-Screen
-	- a : Activity Monitor
-	- k : Karabiner-Elements
-	- s : System Settings
-	- ⏎ : start ScreenSaver
+- ' :
+- . : System Settings
 - ; : Terminal (Ghostty)
-- a :
+- ] : Lock-Screen
+- a : Activity Monitor
 - b :
 - c : Google Chrome
 - d : Dock
 - e :
 - f : Finder
+- F : Fission
 - g :
 - h : Homerow
-- i :
+- H : Homerow-Scroll
+- i : iCompta
 - j :
-- k :
+- k : Karabiner-Elements
+- K : Kid3
 - l :
-- m : [ Music ]
-	- f : Fission
-	- k : Kid3
-	- r : Roon
-	- s : Swinsian
-	- t : Tag Editor
-	- x : XLD
+- m :
 - n : Notes
 - o : Obsidian
 - p : Photoshop
+- P : Preview
 - q :
 - r : Autoraise
+- R : Roon
 - s : Safari
+- S : Swinsian
 - t :
+- T : Tag Editor
 - u :
 - v : Vim (Goneovim)
 - w : [ Window Management ]
@@ -63,7 +60,8 @@
 	- '⏎' : Maximize
 	- '␣' : almost Maximize
 - x :
-- y : Homerow-Scroll
+- X : XLD
+- y :
 - z :
 - ⏎ : start ScreenSaver
 
