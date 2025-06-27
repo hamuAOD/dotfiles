@@ -12,12 +12,12 @@
 - ] : Lock-Screen
 - a : Activity Monitor
 - b :
-- c : Google Chrome
+- c : Fantastical
 - d : Dock
 - e :
 - f : Finder
 - F : Fission
-- g :
+- g : Google Chrome
 - G : ChatGPT
 - h : Homerow
 - H : Homerow-Scroll
@@ -36,7 +36,7 @@
 - R : Roon
 - s : Safari
 - S : Swinsian
-- t :
+- t : Tag Editor
 - T : Tag Editor
 - u :
 - v : Vim (Goneovim)
@@ -60,7 +60,7 @@
 	- '⌫' : Restore
 	- '⏎' : Maximize
 	- '␣' : almost Maximize
-- x :
+- x : XLD
 - X : XLD
 - y :
 - z :
