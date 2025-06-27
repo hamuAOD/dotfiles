@@ -18,6 +18,7 @@
 - f : Finder
 - F : Fission
 - g :
+- G : ChatGPT
 - h : Homerow
 - H : Homerow-Scroll
 - i : iCompta
