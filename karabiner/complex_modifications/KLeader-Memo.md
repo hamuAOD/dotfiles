@@ -17,6 +17,7 @@
 - d : Dock
 - D : Set Audio Output Device
 - e :
+- E : Epson Scan 2
 - f : Finder
 - F : Fission
 - g : Google Chrome
@@ -38,8 +39,8 @@
 - R : Roon
 - s : Safari
 - S : Swinsian
-- t : Tag Editor
-- T : Tag Editor
+- t : Tag Editor 2
+- T : Tag Editor 2
 - u :
 - v : Vim (Goneovim)
 - w : [ Window Management ]
