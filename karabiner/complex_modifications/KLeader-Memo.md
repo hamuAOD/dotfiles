@@ -11,9 +11,11 @@
 - ; : Terminal (Ghostty)
 - ] : Lock-Screen
 - a : Activity Monitor
+- A : Audio Hijack
 - b :
 - c : Fantastical
 - d : Dock
+- D : Set Audio Output Device
 - e :
 - f : Finder
 - F : Fission

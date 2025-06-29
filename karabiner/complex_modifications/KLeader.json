@@ -64,6 +64,20 @@
           ]
         },
         {
+          "description": "open Audio Hijack",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader-s", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "a",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            { "shell_command": "open -a 'Audio Hijack'" }
+          ]
+        },
+        {
           "description": "open Fantastical",
           "type": "basic",
           "conditions": [
@@ -91,6 +105,23 @@
             {
               "key_code": "f3",
               "modifiers": [ "left_control" ]
+            }
+          ]
+        },
+        {
+          "description": "Set Audio Output Device",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader-s", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "d",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [ "left_command", "left_option", "left_control", "left_shift" ]
             }
           ]
         },
