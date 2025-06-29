@@ -29,12 +29,12 @@
       ]
     },
     {
-      "description": "Right Shift -> Hyper-Key",
+      "description": "Tab -> Hyper-Key",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "right_shift"
+            "key_code": "tab"
           },
           "parameters": {
             "basic.to_if_held_down_threshold_milliseconds": 100
@@ -44,14 +44,14 @@
               "key_code": "right_command",
               "modifiers": [
                 "right_shift",
-                "right_control",
+                "left_control",
                 "right_option"
               ]
             }
           ],
           "to_if_alone": [
             {
-              "key_code": "right_shift"
+              "key_code": "tab"
             }
           ]
         }
