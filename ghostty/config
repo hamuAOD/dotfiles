@@ -39,7 +39,7 @@ shell-integration-features = sudo
 ### Keybind
 keybind = super+o=write_screen_file:open
 keybind = super+i=write_screen_file:paste
-keybind = ctrl+;>\=toggle_quick_terminal
+keybind = ctrl+;>t=toggle_quick_terminal
 # Keybind: Tab
 keybind = ctrl+;>c=new_tab
 keybind = ctrl+;>x=close_surface
