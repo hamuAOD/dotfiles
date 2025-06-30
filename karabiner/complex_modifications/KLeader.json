@@ -132,7 +132,7 @@
             { "name": "kleader-s", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "f",
+            "key_code": "e",
             "modifiers": { "optional": [ "any" ] }
           },
           "to": [
