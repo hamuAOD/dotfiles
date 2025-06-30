@@ -39,7 +39,7 @@
             { "name": "kleader", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "close-bracket",
+            "key_code": "close_bracket",
             "modifiers": { "optional": [ "any" ] }
           },
           "to": [
@@ -272,6 +272,20 @@
           ]
         },
         {
+          "description": "open IINA",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader-s", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "i",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            { "shell_command": "open -a IINA" }
+          ]
+        },
+        {
           "description": "open Note",
           "type": "basic",
           "conditions": [
@@ -426,6 +440,20 @@
           },
           "to": [
             { "shell_command": "open -a 'Goneovim.app'" }
+          ]
+        },
+        {
+          "description": "open VLC",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader-s", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "v",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            { "shell_command": "open -a VLC" }
           ]
         },
         {

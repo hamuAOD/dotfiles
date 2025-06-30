@@ -25,6 +25,7 @@
 - h : Homerow
 - H : Homerow-Scroll
 - i : iCompta
+- I : IINA
 - j :
 - k : Karabiner-Elements
 - K : Kid3
@@ -43,6 +44,7 @@
 - T : Tag Editor 2
 - u :
 - v : Vim (Goneovim)
+- V : VLC
 - w : [ Window Management ]
 	- 'h' : left-half
 	- 'j' : bottom-half
