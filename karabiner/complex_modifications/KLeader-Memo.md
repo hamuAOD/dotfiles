@@ -30,6 +30,7 @@
 - k : Karabiner-Elements
 - K : Kid3
 - l :
+- L : Lyn
 - m :
 - n : Notes
 - o : Obsidian
