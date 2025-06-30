@@ -5,68 +5,10 @@
       "description": "Remap Caps Lock to Ctrl when held, Esc when tapped",
       "manipulators": [
         {
-          "from": {
-            "key_code": "caps_lock",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_control",
-              "lazy": true
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "escape"
-            }
-          ],
-          "type": "basic"
-        }
-      ]
-    },
-    {
-      "description": "Spacebar + hjkkl to Arrow-Key",
-      "manipulators": [
-        {
           "type": "basic",
-          "description": "Spacebar + h to left arrow",
-          "conditions": [ { "name": "spacebar-flag", "type": "variable_if", "value": 1 } ],
-          "from": { "key_code": "h" },
-          "to": [ { "key_code": "left_arrow" } ]
-        },
-        {
-          "type": "basic",
-          "description": "Spacebar + j to down arrow",
-          "conditions": [ { "name": "spacebar-flag", "type": "variable_if", "value": 1 } ],
-          "from": { "key_code": "j" },
-          "to": [ { "key_code": "down_arrow" } ]
-        },
-        {
-          "type": "basic",
-          "description": "Spacebar + k to up arrow",
-          "conditions": [ { "name": "spacebar-flag", "type": "variable_if", "value": 1 } ],
-          "from": { "key_code": "k" },
-          "to": [ { "key_code": "up_arrow" } ]
-        },
-        {
-          "type": "basic",
-          "description": "Spacebar + l to right arrow",
-          "conditions": [ { "name": "spacebar-flag", "type": "variable_if", "value": 1 } ],
-          "from": { "key_code": "l" },
-          "to": [ { "key_code": "right_arrow" } ]
-        },
-        { "description": "Spacebar Flag",
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar"
-          },
-          "to": [ { "set_variable": { "name": "spacebar-flag", "value": 1 } } ],
-          "to_after_key_up": [ { "set_variable": { "name": "spacebar-flag", "value": 0 } } ],
-          "to_if_alone": [ { "key_code": "spacebar" } ]
+          "from": { "key_code": "caps_lock", "modifiers": { "optional": [ "any" ] } },
+          "to": [ { "key_code": "right_control", "lazy": true } ],
+          "to_if_alone": [ { "key_code": "escape" } ]
         }
       ]
     },
@@ -75,27 +17,15 @@
       "manipulators": [
         {
           "type": "basic",
-          "from": {
-            "key_code": "tab"
-          },
-          "parameters": {
-            "basic.to_if_held_down_threshold_milliseconds": 100
-          },
+          "from": { "key_code": "tab" },
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
           "to_if_held_down": [
             {
               "key_code": "right_command",
-              "modifiers": [
-                "right_shift",
-                "left_control",
-                "right_option"
-              ]
+              "modifiers": [ "right_shift", "left_control", "right_option" ]
             }
           ],
-          "to_if_alone": [
-            {
-              "key_code": "tab"
-            }
-          ]
+          "to_if_alone": [ { "key_code": "tab" } ]
         }
       ]
     },
@@ -104,43 +34,57 @@
       "manipulators": [
         {
           "type": "basic",
+          "description": "Right Control + h to left arrow",
+          "from": {
+            "key_code": "h",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "left_arrow" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + j to down arrow",
+          "from": {
+            "key_code": "j",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "down_arrow" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + k to up arrow",
+          "from": {
+            "key_code": "k",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "up_arrow" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + l to right arrow",
+          "from": {
+            "key_code": "l",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "right_arrow" } ]
+        },
+        {
+          "type": "basic",
           "description": "Right Control + q to backquart",
           "from": {
             "key_code": "period",
-            "modifiers": {
-              "mandatory": [
-                "right_control"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
           },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ]
+          "to": [ { "key_code": "grave_accent_and_tilde" } ]
         },
         {
           "type": "basic",
           "description": "Right Control + / to hyphen",
           "from": {
             "key_code": "slash",
-            "modifiers": {
-              "mandatory": [
-                "right_control"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
           },
-          "to": [
-            {
-              "key_code": "hyphen"
-            }
-          ]
+          "to": [ { "key_code": "hyphen" } ]
         }
       ]
     },
@@ -151,61 +95,23 @@
           "type": "basic",
           "from": {
             "key_code": "left_command",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
+            "modifiers": { "optional": [ "any" ] }
           },
-          "parameters": {
-            "basic.to_if_held_down_threshold_milliseconds": 100
-          },
-          "to": [
-            {
-              "key_code": "left_command",
-              "lazy": true
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "left_command"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "japanese_eisuu"
-            }
-          ]
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
+          "to": [ { "key_code": "left_command", "lazy": true } ],
+          "to_if_held_down": [ { "key_code": "left_command" } ],
+          "to_if_alone": [ { "key_code": "japanese_eisuu" } ]
         },
         {
           "type": "basic",
           "from": {
             "key_code": "right_command",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
+            "modifiers": { "optional": [ "any" ] }
           },
-          "parameters": {
-            "basic.to_if_held_down_threshold_milliseconds": 100
-          },
-          "to": [
-            {
-              "key_code": "right_command",
-              "lazy": true
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "right_command"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "japanese_kana"
-            }
-          ]
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
+          "to": [ { "key_code": "right_command", "lazy": true } ],
+          "to_if_held_down": [ { "key_code": "right_command" } ],
+          "to_if_alone": [ { "key_code": "japanese_kana" } ]
         }
       ]
     },
@@ -216,17 +122,9 @@
           "type": "basic",
           "from": {
             "key_code": "period",
-            "modifiers": {
-              "mandatory": [
-                "command"
-              ]
-            }
+            "modifiers": { "mandatory": [ "command" ] }
           },
-          "to": [
-            {
-              "key_code": "escape"
-            }
-          ]
+          "to": [ { "key_code": "escape" } ]
         }
       ]
     },
@@ -237,17 +135,9 @@
           "type": "basic",
           "from": {
             "key_code": "delete_or_backspace",
-            "modifiers": {
-              "mandatory": [
-                "shift"
-              ]
-            }
+            "modifiers": { "mandatory": [ "shift" ] }
           },
-          "to": [
-            {
-              "key_code": "delete_forward"
-            }
-          ]
+          "to": [ { "key_code": "delete_forward" } ]
         }
       ]
     }
