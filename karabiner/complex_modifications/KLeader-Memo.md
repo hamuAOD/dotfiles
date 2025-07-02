@@ -65,7 +65,7 @@
 	- 'r' : Restore
 	- '⌫' : Restore
 	- '⏎' : Maximize
-	- '␣' : almost Maximize
+	- ''' : almost Maximize
 - x : XLD
 - X : XLD
 - y :
