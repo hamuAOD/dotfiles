@@ -17,6 +17,7 @@
       "manipulators": [
         {
           "type": "basic",
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
           "from": { "key_code": "tab" },
           "to_if_held_down": [
             {
