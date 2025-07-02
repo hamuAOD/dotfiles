@@ -210,4 +210,15 @@ vim.fn.setcellwidths {
   { 0xf310, 0xf430, 2},
   { 0xf435, 0xf479, 2},
   { 0xf47f, 0xf4a8, 2},
+  -- Mac Symbols
+  { 0x2303, 0x2303, 2 },  -- ⌃ Control
+  { 0x2318, 0x2318, 2 },  -- ⌘ Command
+  { 0x2325, 0x2325, 2 },  -- ⌥ Option
+  { 0x232b, 0x232b, 2 },  -- ⌫ Delete
+  { 0x238b, 0x238b, 2 },  -- ⎋ Escape
+  { 0x23ce, 0x23ce, 2 },  -- ⏎ Return
+  { 0x2423, 0x2423, 2 },  -- ␣ Space
+  { 0x2726, 0x2726, 2 },  -- ✦ Black Four Pointed Star
+  -- { 0x21e7, 0x21e7, 2 },  -- ⇧ Shift
+  -- { 0x21ea, 0x21ea, 2 },  -- ⇪ CapsLock
 }
