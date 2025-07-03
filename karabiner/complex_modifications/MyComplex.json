@@ -2,6 +2,19 @@
   "title": "My Complex",
   "rules": [
     {
+      "description": "Redirect Cmd+Opt+Shift+Ctrl+, to F18 for Raycast",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": { "mandatory": [ "command", "option", "shift", "control" ] }
+          },
+          "to": [ { "key_code": "f18" } ]
+        }
+      ]
+    },
+    {
       "description": "Remap Caps Lock to Ctrl when held, Esc when tapped",
       "manipulators": [
         {
