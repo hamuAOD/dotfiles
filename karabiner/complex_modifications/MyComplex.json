@@ -32,24 +32,6 @@
       ]
     },
     {
-      "description": "Remap Command+H to Hyper-H | Homerow",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": { "mandatory": [ "command" ] }
-          },
-          "to": [
-            {
-              "key_code": "h",
-              "modifiers": [ "right_command", "right_shift", "left_control", "right_option" ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "Remap Caps Lock to Ctrl when held, Esc when tapped",
       "manipulators": [
         {
