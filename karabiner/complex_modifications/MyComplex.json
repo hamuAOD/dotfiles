@@ -2,15 +2,50 @@
   "title": "My Complex",
   "rules": [
     {
-      "description": "Redirect Cmd+Opt+Shift+Ctrl+, to F18 for Raycast",
+      "description": "Remap Tab to Hyper-Key when held, Tab when tapped",
+      "manipulators": [
+        {
+          "type": "basic",
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 50 },
+          "from": { "key_code": "tab" },
+          "to_if_held_down": [
+            {
+              "key_code": "left_command",
+              "modifiers": [ "left_shift", "left_control", "left_option" ]
+            }
+          ],
+          "to_if_alone": [ { "key_code": "tab" } ]
+        }
+      ]
+    },
+    {
+      "description": "Shift + Backspace to DEL",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "comma",
-            "modifiers": { "mandatory": [ "command", "option", "shift", "control" ] }
+            "key_code": "delete_or_backspace",
+            "modifiers": { "mandatory": [ "shift" ] }
           },
-          "to": [ { "key_code": "f18" } ]
+          "to": [ { "key_code": "delete_forward" } ]
+        }
+      ]
+    },
+    {
+      "description": "Remap Command+H to Hyper-H | Homerow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": { "mandatory": [ "command" ] }
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [ "right_command", "right_shift", "left_control", "right_option" ]
+            }
+          ]
         }
       ]
     },
@@ -26,47 +61,47 @@
       ]
     },
     {
-      "description": "Remap Left Control to Ctrl when held, ⌘+c when tapped",
+      "description": "Command Mod",
       "manipulators": [
         {
-          "type": "basic",
-          "from": { "key_code": "left_control" },
-          "to": [ { "key_code": "left_control" } ],
-          "to_if_alone": [ {
-            "key_code": "c",
-            "modifiers": [ "left_command" ]
-          } ]
-        }
-      ]
-    },
-    {
-      "description": "Remap Left Option to option when held, ⌘+v when tapped",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": { "key_code": "left_option" },
-          "to": [ { "key_code": "left_option" } ],
-          "to_if_alone": [ {
-            "key_code": "v",
-            "modifiers": [ "left_command" ]
-          } ]
-        }
-      ]
-    },
-    {
-      "description": "Tab -> Hyper-Key",
-      "manipulators": [
-        {
-          "type": "basic",
-          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 50 },
-          "from": { "key_code": "tab" },
-          "to_if_held_down": [
+          "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)",
+          "manipulators": [
             {
-              "key_code": "right_command",
-              "modifiers": [ "right_shift", "left_control", "right_option" ]
+              "type": "basic",
+              "from": {
+                "key_code": "left_command",
+                "modifiers": { "optional": [ "any" ] }
+              },
+              "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
+              "to": [ { "key_code": "left_command", "lazy": true } ],
+              "to_if_held_down": [ { "key_code": "left_command" } ],
+              "to_if_alone": [ { "key_code": "japanese_eisuu" } ]
+            },
+            {
+              "type": "basic",
+              "from": {
+                "key_code": "right_command",
+                "modifiers": { "optional": [ "any" ] }
+              },
+              "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
+              "to": [ { "key_code": "right_command", "lazy": true } ],
+              "to_if_held_down": [ { "key_code": "right_command" } ],
+              "to_if_alone": [ { "key_code": "japanese_kana" } ]
             }
-          ],
-          "to_if_alone": [ { "key_code": "tab" } ]
+          ]
+        },
+        {
+          "description": "Cmd + Period to ESC",
+          "manipulators": [
+            {
+              "type": "basic",
+              "from": {
+                "key_code": "period",
+                "modifiers": { "mandatory": [ "command" ] }
+              },
+              "to": [ { "key_code": "escape" } ]
+            }
+          ]
         }
       ]
     },
@@ -124,7 +159,7 @@
         },
         {
           "type": "basic",
-          "description": "Right Control + q to backquart",
+          "description": "Right Control + '.' to backquart",
           "from": {
             "key_code": "period",
             "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
@@ -133,7 +168,7 @@
         },
         {
           "type": "basic",
-          "description": "Right Control + / to hyphen",
+          "description": "Right Control + '/' to hyphen",
           "from": {
             "key_code": "slash",
             "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
@@ -143,55 +178,41 @@
       ]
     },
     {
-      "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 3)",
+      "description": "Virtural Function-Key for Raycast",
       "manipulators": [
         {
+          "description": "Redirect Cmd+Opt+Shift+Ctrl+, to F18",
           "type": "basic",
           "from": {
-            "key_code": "left_command",
-            "modifiers": { "optional": [ "any" ] }
+            "key_code": "comma",
+            "modifiers": { "mandatory": [ "command", "option", "shift", "control" ] }
           },
-          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
-          "to": [ { "key_code": "left_command", "lazy": true } ],
-          "to_if_held_down": [ { "key_code": "left_command" } ],
-          "to_if_alone": [ { "key_code": "japanese_eisuu" } ]
+          "to": [ { "key_code": "f18" } ]
+        }
+      ]
+    },
+    {
+      "description": "Remap Left Control/Option to Copy/Paste when tapped",
+      "manipulators": [
+        {
+          "description": "Remap Left Control to Ctrl when held, ⌘+c when tapped",
+          "type": "basic",
+          "from": { "key_code": "left_control" },
+          "to": [ { "key_code": "left_control" } ],
+          "to_if_alone": [ {
+            "key_code": "c",
+            "modifiers": [ "left_command" ]
+          } ]
         },
         {
+          "description": "Remap Left Option to option when held, ⌘+v when tapped",
           "type": "basic",
-          "from": {
-            "key_code": "right_command",
-            "modifiers": { "optional": [ "any" ] }
-          },
-          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
-          "to": [ { "key_code": "right_command", "lazy": true } ],
-          "to_if_held_down": [ { "key_code": "right_command" } ],
-          "to_if_alone": [ { "key_code": "japanese_kana" } ]
-        }
-      ]
-    },
-    {
-      "description": "Cmd + Period to ESC",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "period",
-            "modifiers": { "mandatory": [ "command" ] }
-          },
-          "to": [ { "key_code": "escape" } ]
-        }
-      ]
-    },
-    {
-      "description": "Shift + Backspace to DEL",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "delete_or_backspace",
-            "modifiers": { "mandatory": [ "shift" ] }
-          },
-          "to": [ { "key_code": "delete_forward" } ]
+          "from": { "key_code": "left_option" },
+          "to": [ { "key_code": "left_option" } ],
+          "to_if_alone": [ {
+            "key_code": "v",
+            "modifiers": [ "left_command" ]
+          } ]
         }
       ]
     }
