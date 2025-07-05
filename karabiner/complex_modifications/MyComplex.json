@@ -30,6 +30,30 @@
       ]
     },
     {
+      "description": "Remap Left Control/Option to Copy/Paste when tapped",
+      "manipulators": [ {
+          "description": "Remap Left Control to Ctrl when held, ⌘+c when tapped",
+          "type": "basic",
+          "from": { "key_code": "left_control" },
+          "to": [ { "key_code": "left_control" } ],
+          "to_if_alone": [ {
+            "key_code": "c",
+            "modifiers": [ "left_command" ]
+          } ]
+        },
+        {
+          "description": "Remap Left Option to option when held, ⌘+v when tapped",
+          "type": "basic",
+          "from": { "key_code": "left_option" },
+          "to": [ { "key_code": "left_option" } ],
+          "to_if_alone": [ {
+            "key_code": "v",
+            "modifiers": [ "left_command" ]
+          } ]
+        }
+      ]
+    }
+    {
       "description": "Shift + Backspace to DEL",
       "manipulators": [
         {
@@ -68,10 +92,24 @@
           ]
         },
         {
+          "description": "open System Settings",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "comma",
+            "modifiers": { "mandatory": [ "command", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "open '/System/Applications/System Settings.app'" }
+          ]
+        },
+        {
           "description": "open Preview",
           "type": "basic",
           "from": {
-            "key_code": "slash",
+            "key_code": "open_bracket",
             "modifiers": { "mandatory": [ "command", "shift" ] }
           },
           "to": [
@@ -194,45 +232,6 @@
             "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
           },
           "to": [ { "key_code": "hyphen" } ]
-        }
-      ]
-    },
-    {
-      "description": "Virtural Function-Key for Raycast",
-      "manipulators": [
-        {
-          "description": "Redirect Cmd+Opt+Shift+Ctrl+, to F18",
-          "type": "basic",
-          "from": {
-            "key_code": "comma",
-            "modifiers": { "mandatory": [ "command", "option", "shift", "control" ] }
-          },
-          "to": [ { "key_code": "f18" } ]
-        }
-      ]
-    },
-    {
-      "description": "Remap Left Control/Option to Copy/Paste when tapped",
-      "manipulators": [
-        {
-          "description": "Remap Left Control to Ctrl when held, ⌘+c when tapped",
-          "type": "basic",
-          "from": { "key_code": "left_control" },
-          "to": [ { "key_code": "left_control" } ],
-          "to_if_alone": [ {
-            "key_code": "c",
-            "modifiers": [ "left_command" ]
-          } ]
-        },
-        {
-          "description": "Remap Left Option to option when held, ⌘+v when tapped",
-          "type": "basic",
-          "from": { "key_code": "left_option" },
-          "to": [ { "key_code": "left_option" } ],
-          "to_if_alone": [ {
-            "key_code": "v",
-            "modifiers": [ "left_command" ]
-          } ]
         }
       ]
     }
