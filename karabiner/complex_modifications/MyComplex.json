@@ -97,6 +97,15 @@
       "description": "Command Mod",
       "manipulators": [
         {
+          "description": "Cmd + Period to ESC",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": { "mandatory": [ "command" ] }
+          },
+          "to": [ { "key_code": "escape" } ]
+        },
+        {
           "description": "Remap Left-Command to Eisuu",
           "type": "basic",
           "from": {
@@ -104,7 +113,7 @@
             "modifiers": { "optional": [ "any" ] }
           },
           "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
-          "to": [ { "key_code": "left_command", "lazy": true } ],
+          "to": [ { "key_code": "left_command" } ],
           "to_if_held_down": [ { "key_code": "left_command" } ],
           "to_if_alone": [ { "key_code": "japanese_eisuu" } ]
         },
@@ -116,22 +125,9 @@
             "modifiers": { "optional": [ "any" ] }
           },
           "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
-          "to": [ { "key_code": "right_command", "lazy": true } ],
+          "to": [ { "key_code": "right_command" } ],
           "to_if_held_down": [ { "key_code": "right_command" } ],
           "to_if_alone": [ { "key_code": "japanese_kana" } ]
-        },
-        {
-          "description": "Cmd + Period to ESC",
-          "manipulators": [
-            {
-              "type": "basic",
-              "from": {
-                "key_code": "period",
-                "modifiers": { "mandatory": [ "command" ] }
-              },
-              "to": [ { "key_code": "escape" } ]
-            }
-          ]
         }
       ]
     },
