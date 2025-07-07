@@ -11,7 +11,7 @@
             { "name": "kleader", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "period",
+            "key_code": "comma",
             "modifiers": { "optional": [ "any" ] }
           },
           "to": [
