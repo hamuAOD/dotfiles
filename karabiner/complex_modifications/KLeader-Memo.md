@@ -6,8 +6,8 @@
 
 ## Key-Tree
 
-- ' :
-- . : System Settings
+- ' : Safari
+- , : System Settings
 - ; : Terminal (Ghostty)
 - ] : Lock-Screen
 - a : Activity Monitor
