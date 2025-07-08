@@ -67,6 +67,19 @@
       ]
     },
     {
+      "description": "Virtual Function Key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [ { "key_code": "f18" } ]
+        }
+      ]
+    },
+    {
       "description": "Command + Shift Mod",
       "manipulators": [
         {
