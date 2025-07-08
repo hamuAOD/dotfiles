@@ -9,6 +9,7 @@
 - ' : Safari
 - , : System Settings
 - ; : Terminal (Ghostty)
+- [ : Preview
 - ] : Lock-Screen
 - a : Activity Monitor
 - A : Audio Hijack
@@ -35,7 +36,6 @@
 - n : Notes
 - o : Obsidian
 - p : Photoshop
-- P : Preview
 - q :
 - r : Autoraise
 - R : Roon

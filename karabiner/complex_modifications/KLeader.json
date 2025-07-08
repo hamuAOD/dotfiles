@@ -359,10 +359,10 @@
           "description": "open Preview",
           "type": "basic",
           "conditions": [
-            { "name": "kleader-s", "type": "variable_if", "value": 1 }
+            { "name": "kleader", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "p",
+            "key_code": "open_bracket",
             "modifiers": { "optional": [ "any" ] }
           },
           "to": [
@@ -723,7 +723,7 @@
             { "name": "kleader-w", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "open-bracket",
+            "key_code": "open_bracket",
             "modifiers": { "optional": [ "any" ] }
           },
           "to": [
@@ -737,7 +737,7 @@
             { "name": "kleader-w", "type": "variable_if", "value": 1 }
           ],
           "from": {
-            "key_code": "close-bracket",
+            "key_code": "close_bracket",
             "modifiers": { "optional": [ "any" ] }
           },
           "to": [
