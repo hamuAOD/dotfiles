@@ -221,8 +221,8 @@
           },
           "to": [
             {
-              "key_code": "h",
-              "modifiers": [ "left_shift", "left_control", "left_option", "left_command" ]
+              "key_code": "spacebar",
+              "modifiers": [ "left_shift", "left_command" ]
             }
           ]
         },
@@ -238,8 +238,8 @@
           },
           "to": [
             {
-              "key_code": "y",
-              "modifiers": [ "left_shift", "left_control", "left_option", "left_command" ]
+              "key_code": "j",
+              "modifiers": [ "left_shift", "left_command" ]
             }
           ]
         },
