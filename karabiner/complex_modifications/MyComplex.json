@@ -67,9 +67,43 @@
       ]
     },
     {
-      "description": "Virtual Function Key",
+      "description": "Hyper Mod",
       "manipulators": [
         {
+          "description": "open active-page of Safari in Chrome",
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openPageinChrome.sh" }
+          ]
+        },
+        {
+          "description": "open clipboard in Chrome",
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openURLinChrome.sh" }
+          ]
+        },
+        {
+          "description": "open clipboard in Safari",
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openURLinSafari.sh" }
+          ]
+        },
+        {
+          "description": "vF18 for Raycast",
           "type": "basic",
           "from": {
             "key_code": "comma",
