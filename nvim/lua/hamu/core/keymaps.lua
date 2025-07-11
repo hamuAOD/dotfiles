@@ -138,6 +138,11 @@ keymap.set('n', '<Leader>tm', function()
   end
 end, { desc = "Toggle checklist checkbox", noremap = true, silent = true })
 
+-----------------------------------------------------------
+-- hlchunk用処理
+-----------------------------------------------------------
+keymap.set("n", "<Leader>th", require("hamu.plugins.hlchunk").toggle, { desc = "Toggle HLChunk" })
+
 -- for Markdown
 function _G.empty_line_insert()
   return vim.fn.empty(vim.fn.getline('.')) == 1 and '"_cc' or 'i'

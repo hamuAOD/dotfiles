@@ -1,3 +1,17 @@
+local enabled = true
+
+local function toggle()
+  if enabled then
+    vim.cmd("DisableHLChunk")
+    vim.cmd("DisableHLIndent")
+  else
+    vim.cmd("EnableHLChunk")
+    vim.cmd("EnableHLIndent")
+  end
+  enabled = not enabled
+end
+-- See hamu/core/kekeymaps.lua for keybinding
+
 return {
   "shellRaining/hlchunk.nvim",
   event = { "BufReadPre", "BufNewFile" },
@@ -54,7 +68,8 @@ return {
     })
     -- vim.keymap.set('n', '<Leader>ce', '<CMD>EnableHLChunk<CR>', {desc = "Enable hlchunk"}, { noremap = true, silent = true })
     -- vim.keymap.set('n', '<Leader>cd', '<CMD>DisableHLChunk<CR>', {desc = "Disable hlchunk"}, { noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>he', '<CMD>EnableHLChunk<CR><CMD>EnableHLIndent<CR>', {desc = "Enable hlchunk", noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>hd', '<CMD>DisableHLChunk<CR><CMD>DisableHLIndent<CR>', {desc = "Disable hlchunk", noremap = true, silent = true })
-  end
+    -- vim.keymap.set('n', '<Leader>he', '<CMD>EnableHLChunk<CR><CMD>EnableHLIndent<CR>', {desc = "Enable hlchunk", noremap = true, silent = true })
+    -- vim.keymap.set('n', '<Leader>hd', '<CMD>DisableHLChunk<CR><CMD>DisableHLIndent<CR>', {desc = "Disable hlchunk", noremap = true, silent = true })
+  end,
+  toggle = toggle,
 }
