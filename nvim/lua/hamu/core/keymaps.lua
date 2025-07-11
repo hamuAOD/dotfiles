@@ -120,9 +120,25 @@ keymap.set('n', 'A', "v:lua.empty_line_append()", { expr = true })
 keymap.set('v', '<Leader>sl', [[:s/\r/\r/g<CR>]], { desc = "Replace CR for Mac", noremap = true, silent = true })
 
 -- for Markdown
-keymap.set('n', '<Leader>mc', 'V<CMD>s/\\[\\ \\]/\\[x\\]/ge<CR><ESC>', { desc = "check checklist", noremap = true, silent = true })
-keymap.set('n', '<Leader>mu', 'V<CMD>s/\\[x\\]/\\[\\ \\]/ge<CR><ESC>', { desc = "uncheck checklist", noremap = true, silent = true })
+-- keymap.set('n', '<Leader>mc', 'V<CMD>s/\\[\\ \\]/\\[x\\]/ge<CR><ESC>', { desc = "check checklist", noremap = true, silent = true })
+-- keymap.set('n', '<Leader>mu', 'V<CMD>s/\\[x\\]/\\[\\ \\]/ge<CR><ESC>', { desc = "uncheck checklist", noremap = true, silent = true })
+keymap.set('n', '<Leader>tm', function()
+  local row = vim.api.nvim_win_get_cursor(0)[1] -- 現在の行番号（1-based）
+  local line = vim.api.nvim_get_current_line()
 
+  local new_line
+  if line:match("%[ %]") then
+    new_line = line:gsub("%[ %]", "[x]")
+  elseif line:match("%[x%]") then
+    new_line = line:gsub("%[x%]", "[ ]")
+  end
+
+  if new_line then
+    vim.api.nvim_buf_set_lines(0, row - 1, row, false, { new_line })
+  end
+end, { desc = "Toggle checklist checkbox", noremap = true, silent = true })
+
+-- for Markdown
 function _G.empty_line_insert()
   return vim.fn.empty(vim.fn.getline('.')) == 1 and '"_cc' or 'i'
 end
