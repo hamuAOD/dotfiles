@@ -21,7 +21,8 @@ theme = dracula2
 adjust-cell-height = 15%
 background-opacity = 0.90
 background-blur = true
-unfocused-split-opacity = 0.8
+unfocused-split-opacity = 0.6
+unfocused-split-fill = #101010
 macos-titlebar-style = tabs
 
 window-padding-x = 10
