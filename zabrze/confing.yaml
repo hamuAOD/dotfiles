@@ -96,6 +96,9 @@ abbrevs:
     snippet: ~/dotfiles
     global: true
     context: '^nvim\s'
+  - name: nvim ShellScript
+    abbr: vs
+    snippet: nvim ~/Documents/ShellScript
   - name: nvim zshrc
     abbr: z
     snippet: ~/.zshrc
