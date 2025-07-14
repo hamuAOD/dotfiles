@@ -13,21 +13,26 @@ return {
       "clangd",
       "gopls",
       "jsonls",
+      "jsonnet_ls",
       "lua_ls",
       "markdown_oxide",
       "marksman",
       "mesonlsp",
+      "prosemd_lsp",
       "pylsp",
       "rust_analyzer",
       "textlsp",
       "vimls",
       "vls",
+      "zk",
     }
     -- DAP / Linter / Formatter
     local tools = {
       "clang-format",
+      "prettier",
       "shellcheck",
       "shfmt",
+      "swiftlint",
     }
 
     require("mason").setup({
