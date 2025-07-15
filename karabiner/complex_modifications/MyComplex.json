@@ -103,6 +103,15 @@
           ]
         },
         {
+          "description": "vF17 for Raycast",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [ { "key_code": "f17" } ]
+        },
+        {
           "description": "vF18 for Raycast",
           "type": "basic",
           "from": {
