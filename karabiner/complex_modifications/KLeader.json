@@ -759,6 +759,62 @@
           ]
         },
         {
+          "description": "W: Window first-third",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader-w", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=first-third" }
+          ]
+        },
+        {
+          "description": "W: Window last-two-thirds",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader-w", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "x",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=last-two-thirds" }
+          ]
+        },
+        {
+          "description": "W: Window first-fourth",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader-w", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=first-fourth" }
+          ]
+        },
+        {
+          "description": "W: Window last-three-fourths",
+          "type": "basic",
+          "conditions": [
+            { "name": "kleader-w", "type": "variable_if", "value": 1 }
+          ],
+          "from": {
+            "key_code": "z",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=last-three-fourths" }
+          ]
+        },
+        {
           "description": "W: Window make larger",
           "type": "basic",
           "conditions": [
