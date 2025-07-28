@@ -101,6 +101,10 @@ vim.o.foldlevel = 99                                    -- すべて展開され
 -- call macros
 -- vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
 
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
 -- Change colors
 vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#474a5d')
 vim.cmd('autocmd ColorScheme * highlight CursorLine guibg=#474a5d')
