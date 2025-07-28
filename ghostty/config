@@ -37,6 +37,7 @@ window-position-x = 60
 window-position-y = 60
 # etc
 # term = xterm-256color
+term = xterm-ghostty
 shell-integration-features = sudo
 
 ### Keybind
