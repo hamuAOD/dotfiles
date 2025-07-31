@@ -201,7 +201,7 @@ abbrevs:
     snippet: grep -i
   - name: open lazygit of dotfiles
     abbr: lgd
-    snippet: cd ~/dotfiles && lazygit
+    snippet: lazygit -p ~/dotfiles
   - name: tmux
     abbr: t
     snippet: tmux
