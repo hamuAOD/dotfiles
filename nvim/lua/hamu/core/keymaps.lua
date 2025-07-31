@@ -38,7 +38,7 @@ keymap.set('x', '>', '>gv', NS)
 keymap.set('n', '<', '<C-w><<C-w>', NS)
 keymap.set('n', '>', '<C-w>><C-w>', NS)
 -- Current Directoryをファイルの場所にを変更
-keymap.set('n', 'cd', '<CMD>cd %:h<CR>', {desc = "Change Current Directory", noremap = true, silent = true})
+keymap.set('n', '<Leader>cd', '<CMD>cd %:h<CR>', {desc = "Change Current Directory", noremap = true, silent = true})
 -- カーソル下のキーワードを置換
 keymap.set('n', 'S', ':%s/\\V\\<<C-r><C-w>\\>//ge<Left><Left><Left>', {remap = true})
 -- 選択したキーワードを置換
