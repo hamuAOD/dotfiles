@@ -1,20 +1,18 @@
 # command = /bin/zsh -c "tmux a -t Ghostty || tmux new -s Ghostty"
 confirm-close-surface = false
 
-# font-family = HackGen35 Console NF
-# font-family = Bizin Gothic NF
-# font-family = HackGen Console NF
-font-family = UDEV Gothic 35NFLG
-# font-family = Moralerspace Argon HWNF
-# font-style-bold = HackGen35 Console NF Bold
-# font-style-italic = false
-# font-style-bold-italic = false
+font-family = "Firple"
+font-family = "HackGen35 Console NF"
+font-family = "UDEV Gothic 35NFLG"
+
 font-style = bold
 font-size = 13
 font-thicken = true
-font-thicken-strength = 255
-alpha-blending = native
+font-thicken-strength = 70
+font-style-italic = false
+font-style-bold-italic = false
 
+alpha-blending = native
 # 日本語文字化け対策
 font-feature = -dlig
 
