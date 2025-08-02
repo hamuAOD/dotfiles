@@ -112,10 +112,27 @@ vim.cmd('autocmd ColorScheme * highlight CursorLine guibg=#474a5d')
 vim.cmd('autocmd ColorScheme * highlight LineNrAbove guifg=#6272A4')
 vim.cmd('autocmd ColorScheme * highlight LineNrBelow guifg=#6272A4')
 
--- set filetype
-vim.cmd('autocmd BufNewFile,BufRead *.xdc set filetype=xdc')
-vim.cmd('autocmd BufNewFile,BufRead *.txt set filetype=text')
 vim.cmd('autocmd BufNewFile,BufRead *.txt highlight Whitespace guifg=#FF79C6')
+
+do  -- ファイルタイプ自動設定グループ
+  local filetypes = {
+    ["*.txt"] = "text",
+    ["*.xdc"] = "xdc",
+    ["*.cue"] = "cuesheet",
+  }
+
+  local group = vim.api.nvim_create_augroup("CustomFiletypes", { clear = true })
+
+  for pattern, ftype in pairs(filetypes) do
+    vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+      pattern = pattern,
+      group = group,
+      callback = function()
+        vim.bo.filetype = ftype
+      end,
+    })
+  end
+end
 
 -----------------------------------------------------------
 -- 最後にカーソルがあった場所に移動
