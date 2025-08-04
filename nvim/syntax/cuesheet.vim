@@ -13,7 +13,7 @@ setl conceallevel=2
 
 syn region String matchgroup=cueString start=/"/ skip=/\\"/ end=/"/
       \ transparent contains=NONE
-syn region Comment start=/^\s*REM / end=/$/ contains=specialComment
+syn region Comment start=/^\s*REM / end=/$/ contains=SpecialComment,String,Number
 syn region String matchgroup=cuefString start=/"/ end=/"/
 " syn keyword Comment REM
 syn keyword SpecialComment COMMENT DATE DISCID GENRE DISCNUMBER TOTALDISCS
