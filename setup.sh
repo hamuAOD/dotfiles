@@ -10,6 +10,7 @@ ln -sf "$HOME/dotfiles/.zshenv" "$HOME/.zshenv"
 ln -sf "$HOME/dotfiles/starship/starship.toml" "$HOME/.config/starship.toml"
 ln -sf "$HOME/dotfiles/wezterm" "$HOME/.config/wezterm"
 ln -sf "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.config/tmux"
+ln -sf "$HOME/dotfiles/ssh/config" "$HOME/.ssh/"
 
 ln -sf "$HOME/dotfiles/yazi" "$HOME/.config/yazi"
 ln -sf "$HOME/dotfiles/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
