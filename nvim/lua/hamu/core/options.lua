@@ -30,7 +30,13 @@ opt.showcmd = true                                          -- コマンドを�
 --set pumheight=10                                          -- 補完メニューの高さ固定
 opt.shortmess:append "sI"                                   -- disable nvim intro
 opt.winblend = 20                                           -- フロートウィンドウなどを若干透明に
-opt.spell = true                                           -- スペルチェック有効
+-- opt.spell = true                                           -- スペルチェック有効
+vim.api.nvim_create_autocmd("FileType", {
+pattern = { "markdown", "cuesheet", "tex" },
+callback = function()
+  vim.opt.spell = true
+end
+})
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -85,11 +91,14 @@ opt.completeopt = { "menuone", "preview" }                  -- 補完メニュ�
 vim.wo.signcolumn = 'yes:1'                                 --
 
 -- 折り畳み設定
-opt.foldmethod = 'expr'
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    vim.opt.foldmethod = 'expr'
+    vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  end
+})
 opt.foldtext = ""
--- opt.foldtext = [[vim.treesitter.foldtext()]]
--- opt.foldtext = [["v:lua.FoldText()"]]
+
 vim.o.foldenable = true
 vim.o.foldcolumn = "1"                                  -- 左に折りたたみインジケーターを表示（任意）
 vim.o.foldlevel = 99                                    -- すべて展開された状態で開始
@@ -106,11 +115,22 @@ vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Change colors
-vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#474a5d')
-vim.cmd('autocmd ColorScheme * highlight CursorLine guibg=#474a5d')
--- vim.cmd('autocmd ColorScheme * highlight Whitespace guifg=#FF79C6')
-vim.cmd('autocmd ColorScheme * highlight LineNrAbove guifg=#6272A4')
-vim.cmd('autocmd ColorScheme * highlight LineNrBelow guifg=#6272A4')
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#474a5d" })
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#474a5d" })
+    vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6272A4" })
+    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = "#6272A4" })
+    -- 必要に応じてここに全部まとめる
+  end,
+})
+
+-- vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#474a5d')
+-- vim.cmd('autocmd ColorScheme * highlight CursorLine guibg=#474a5d')
+-- -- vim.cmd('autocmd ColorScheme * highlight Whitespace guifg=#FF79C6')
+-- vim.cmd('autocmd ColorScheme * highlight LineNrAbove guifg=#6272A4')
+-- vim.cmd('autocmd ColorScheme * highlight LineNrBelow guifg=#6272A4')
 
 vim.cmd('autocmd BufNewFile,BufRead *.txt highlight Whitespace guifg=#FF79C6')
 

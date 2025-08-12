@@ -1,7 +1,7 @@
 return
 {
   "sindrets/diffview.nvim",
-  event = "VeryLazy",
+  event = { "BufRead", "BufNewFile" },
   config = function()
     require("diffview").setup()
 

@@ -1,7 +1,8 @@
 return
 {
   "chentoast/marks.nvim",
-  event = "VeryLazy",
+  event = { "BufRead", "BufNewFile" },
+
   opts = {},
 
   config = function()
