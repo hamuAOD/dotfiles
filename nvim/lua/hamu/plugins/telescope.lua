@@ -2,6 +2,7 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
+    cmd = { "Telescope" }, -- ":Telescope"実行後にdependenciesが読み込まれる
     dependencies = {
       'nvim-lua/plenary.nvim',
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
