@@ -187,9 +187,9 @@ abbrevs:
   - name: sleep
     abbr: s
     snippet: pmset sleepnow
-  - name: ttye
-    abbr: ttyc
-    snippet: tty-clock -sc
+  - name: tty-clock setup
+    abbr: tt
+    snippet: tty-clock -sc -C 4
   - name: lazygit
     abbr: lg
     snippet: lazygit
