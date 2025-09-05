@@ -195,6 +195,23 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- option e : マッチしなかった時にエラーメッセージを表示しない
 
 -----------------------------------------------------------
+-- 開いたファイルの場所をカレントディレクトリにする
+-----------------------------------------------------------
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.buftype == "" then
+      local file = vim.api.nvim_buf_get_name(0)
+      if file ~= "" then
+        local dir = vim.fn.fnamemodify(file, ":p:h")
+        if vim.fn.isdirectory(dir) == 1 then
+          vim.cmd("tcd " .. dir)
+        end
+      end
+    end
+  end,
+})
+
+-----------------------------------------------------------
 -- 特定文字の強調
 -----------------------------------------------------------
 local emphasis_bad_char = vim.api.nvim_create_augroup("BadChar", { clear = true })
