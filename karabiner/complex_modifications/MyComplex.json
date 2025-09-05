@@ -114,7 +114,7 @@
           ]
         },
         {
-          "description": "open clipboard in Safari",
+          "description": "open Chrome with Profile-Default",
           "type": "basic",
           "from": {
             "key_code": "9",
@@ -125,7 +125,7 @@
           ]
         },
         {
-          "description": "open clipboard in Safari",
+          "description": "open Chrome with Profile-1",
           "type": "basic",
           "from": {
             "key_code": "0",
