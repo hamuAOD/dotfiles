@@ -6,6 +6,11 @@ local NS = { noremap = true, silent = true }
 -- 検索ハイライトをEscキー2回押しで消去
 keymap.set('n', '<ESC><ESC>', '<CMD>nohlsearch<CR>', NS)
 
+-- "jk" で ESC
+vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
+-- jk の認識時間を短めに（デフォルト 1000ms → 300ms）
+vim.o.timeoutlen = 500
+
 -- Change Keymaps
 keymap.set('n', 'Y', 'y$', NS)                -- 行末までコピー
 keymap.set('n', 'U', '<c-r>', NS)             -- リドゥ
