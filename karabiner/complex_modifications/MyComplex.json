@@ -300,6 +300,33 @@
           "to": [ { "key_code": "equal_sign" } ]
         }
       ]
+    },
+    {
+      "description": "Left Ctrl + Left Option Mod",
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "Window Left-half",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": { "mandatory": [ "left_control", "left_option" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=left-half" }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "Window Right-half",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": { "mandatory": [ "left_control", "left_option" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=right-half" }
+          ]
+        }
+      ]
     }
   ]
 }
