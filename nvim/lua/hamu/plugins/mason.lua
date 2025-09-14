@@ -23,7 +23,6 @@ return {
       "rust_analyzer",
       "textlsp",
       "vimls",
-      "vls",
       "zk",
     }
     -- DAP / Linter / Formatter
