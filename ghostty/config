@@ -31,8 +31,8 @@ window-padding-balance = false
 window-padding-color = background
 window-height = 50
 window-width = 130
-window-position-x = 60
-window-position-y = 60
+# window-position-x = 60
+# window-position-y = 60
 # etc
 # term = xterm-256color
 term = xterm-ghostty
