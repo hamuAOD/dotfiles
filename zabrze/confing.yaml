@@ -9,9 +9,9 @@ abbrevs:
     global: true
     context: '^z\s'
 # FD
-  - name: fd -H
+  - name: fd -IH
     abbr: fd
-    snippet: fd -H
+    snippet: fd -IH
 # EZA
   - name: eza default
     abbr: ls
