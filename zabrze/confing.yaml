@@ -202,6 +202,9 @@ abbrevs:
   - name: open lazygit of dotfiles
     abbr: lgd
     snippet: lazygit -p ~/dotfiles
+  - name: scp for Ubuntu-Server
+    abbr: scpu
+    snippet: scp {} hamu@192.168.1.10:/home/hamu/Downloads/
   - name: tmux
     abbr: t
     snippet: tmux
