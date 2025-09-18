@@ -57,7 +57,8 @@ return {
   },
   {
     "danielfalk/smart-open.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = { "BufRead", "BufNewFile" },
     branch = "0.2.x",
     config = function()
       require("telescope").load_extension("smart_open")
@@ -80,7 +81,8 @@ return {
     --   "nvim-telescope/telescope.nvim",
     --   "nvim-lua/plenary.nvim"
     -- },
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = { "BufRead", "BufNewFile" },
     config = function ()
       require("telescope").load_extension "file_browser"
 
