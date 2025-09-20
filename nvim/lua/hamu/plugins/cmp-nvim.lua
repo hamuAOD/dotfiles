@@ -10,8 +10,15 @@ return {
   event = { "InsertEnter", "CmdlineEnter"},
 
   config = function()
-    local cmp = require('cmp')
+    local cmp = require("cmp")
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    local default_matching = {
+      disallow_partial_matching = false,
+      disallow_prefix_unmatching = false,
+      disallow_fullfuzzy_matching = false,
+      disallow_symbol_nonprefix_matching = false,
+      ignore_case = true,
+    }
 
     -- Insert モード補完
     cmp.setup({
@@ -33,6 +40,7 @@ return {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
+      matching = default_matching,
       experimental = { ghost_text = true },
     })
 
@@ -47,6 +55,7 @@ return {
         keyword_length = 1,
         max_item_count = 10,
       }},
+      matching = default_matching
     })
 
     -- `:` (コマンド) 補完
@@ -62,6 +71,7 @@ return {
           max_item_count = 15,
         },
       }),
+      matching = default_matching
     })
   end,
 }
