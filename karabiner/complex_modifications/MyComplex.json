@@ -298,6 +298,15 @@
             "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
           },
           "to": [ { "key_code": "equal_sign" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 'y' to Backspace",
+          "from": {
+            "key_code": "y",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "delete_or_backspace" } ]
         }
       ]
     },
