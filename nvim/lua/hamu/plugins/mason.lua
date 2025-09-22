@@ -1,9 +1,9 @@
 return {
   "mason-org/mason.nvim",
   dependencies = {
+    "neovim/nvim-lspconfig",
     "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "neovim/nvim-lspconfig",
     "b0o/schemastore.nvim",
   },
   event = "VeryLazy",
@@ -44,7 +44,6 @@ return {
       }
     })
 
-    local mason_lspconfig = require("mason-lspconfig")
     require("mason-lspconfig").setup ({
       ensure_installed = servers,
     })
@@ -56,6 +55,7 @@ return {
     })
 
     local lspconfig = require("lspconfig")
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     local on_attach = function(_, bufnr)
       vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
@@ -78,6 +78,7 @@ return {
     for _, server in ipairs(servers) do
       local opts = {
         on_attach = on_attach,
+        capabilities = capabilities,
       }
 
       if settings_for[server] then
@@ -97,6 +98,11 @@ return {
         },
       },
     }
+
+    -- vim.lsp.config("*", {
+    --   capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    -- })
+    -- vim.lsp.enable(servers)
 
     -- vim.cmd("LspStart") -- 初回起動時はBufEnterが発火しない
   end,
