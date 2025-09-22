@@ -54,56 +54,56 @@ return {
       run_on_start = true,
     })
 
-    local lspconfig = require("lspconfig")
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-    local on_attach = function(_, bufnr)
-      vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
-      -- _G.lsp_onattach_func(i, bufnr)
-    end
-
-    local settings_for = {
-      lua_ls = {
-        Lua = {
-          diagnostics = { globals = { "vim" } },
-        }
-      },
-      omniSharp = {
-        omniSharp = {
-          useGlobalMono = "always"
-        }
-      }
-    }
-
-    for _, server in ipairs(servers) do
-      local opts = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-      }
-
-      if settings_for[server] then
-        opts.settings = settings_for[server]
-      end
-
-      lspconfig[server].setup(opts)
-    end
-
-    require("lspconfig").marksman.setup({})
-
-    require('lspconfig').jsonls.setup {
-      settings = {
-        json = {
-          schemas = require('schemastore').json.schemas(),
-          validate = { enable = true },
-        },
-      },
-    }
-
-    -- vim.lsp.config("*", {
-    --   capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    -- })
-    -- vim.lsp.enable(servers)
+    -- local lspconfig = require("lspconfig")
+    -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    --
+    -- local on_attach = function(_, bufnr)
+    --   vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
+    --   -- _G.lsp_onattach_func(i, bufnr)
+    -- end
+    --
+    -- local settings_for = {
+    --   lua_ls = {
+    --     Lua = {
+    --       diagnostics = { globals = { "vim" } },
+    --     }
+    --   },
+    --   omniSharp = {
+    --     omniSharp = {
+    --       useGlobalMono = "always"
+    --     }
+    --   }
+    -- }
+    --
+    -- for _, server in ipairs(servers) do
+    --   local opts = {
+    --     on_attach = on_attach,
+    --     capabilities = capabilities,
+    --   }
+    --
+    --   if settings_for[server] then
+    --     opts.settings = settings_for[server]
+    --   end
+    --
+    --   lspconfig[server].setup(opts)
+    -- end
+    --
+    -- require("lspconfig").marksman.setup({})
+    --
+    -- require('lspconfig').jsonls.setup {
+    --   settings = {
+    --     json = {
+    --       schemas = require('schemastore').json.schemas(),
+    --       validate = { enable = true },
+    --     },
+    --   },
+    -- }
 
     -- vim.cmd("LspStart") -- 初回起動時はBufEnterが発火しない
+
+    vim.lsp.config("*", {
+      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    })
+    vim.lsp.enable(servers)
   end,
 }
