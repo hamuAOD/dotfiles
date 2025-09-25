@@ -1,14 +1,14 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    { "L3MON4D3/LuaSnip", lazy = true },
-    {"saadparwaiz1/cmp_luasnip", lazy = true },
-    {"uga-rosa/cmp-dictionary", lazy = true },
-    {'windwp/nvim-autopairs', lazy = true },
-    {'hrsh7th/cmp-buffer', lazy = true },
-    {'hrsh7th/cmp-path', lazy = true },
-    {'hrsh7th/cmp-cmdline', lazy = true },
-    {'hrsh7th/cmp-nvim-lsp', lazy = true },
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
+    "uga-rosa/cmp-dictionary",
+    'windwp/nvim-autopairs',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-nvim-lsp',
   },
   event = { "InsertEnter", "CmdlineEnter"},
 
