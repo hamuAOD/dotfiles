@@ -1,0 +1,53 @@
+{
+  "process": {
+    "prefix": "process",
+    "body": [
+      "process(CLK)",
+      "begin",
+      "\tif (RST='1') then",
+      "\t\t",
+      "\telsif (rising_edge(CLK)) then",
+      "\t\t",
+      "\tend if;",
+      "end process;"
+    ]
+  },
+  "component": {
+    "prefix": "component",
+    "body": [
+      "component $1 is port (",
+      "\t",
+      "); end component $1;"
+    ]
+  },
+  "entity": {
+    "prefix": "entity",
+    "body": [
+      "entity $TM_FILENAME_BASE is",
+      "\tport (",
+      "\t\tCLK : in std_logic;",
+      "\t\tRST : in std_logic;",
+      "\t\t",
+      "\t);",
+      "end entity $TM_FILENAME_BASE;"
+    ]
+  },
+  "instance": {
+    "prefix": "instance",
+    "body": [
+      "$1_Inst : $1 port map(",
+      "\t",
+      ");"
+    ]
+  },
+  "architecture": {
+    "prefix": "architecture",
+    "body": [
+      "architecture rtl of $TM_FILENAME_BASE is",
+      "\t$1",
+      "begin",
+      "\t",
+      "end architecture rtl;"
+    ]
+  }
+}

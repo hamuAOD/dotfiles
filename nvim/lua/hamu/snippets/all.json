@@ -1,0 +1,7 @@
+{
+  "process": {
+    "prefix": "jtest",
+    "body": ["json test!!"],
+    "description": "json snippet test"
+  }
+}
