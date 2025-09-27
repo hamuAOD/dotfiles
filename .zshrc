@@ -86,6 +86,9 @@ zstyle ':completion:*' list-colors ''
 # add the following at the end of your .zshrc:
 source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
+##### bat #####
+export BAT_THEME="Dracula"
+
 ##### 設定ファイルの追加読み込み #####
 ZSH_DIR="${HOME}/.zsh.d"
 # .zshがディレクトリで、読み取り、実行、が可能なとき
