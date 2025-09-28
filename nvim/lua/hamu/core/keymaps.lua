@@ -143,9 +143,7 @@ keymap.set('n', '<Leader>tm', function()
   end
 end, { desc = "Toggle checklist checkbox", noremap = true, silent = true })
 
------------------------------------------------------------
 -- hlchunk用処理
------------------------------------------------------------
 keymap.set("n", "<Leader>th", require("hamu.plugins.hlchunk").toggle, { desc = "Toggle HLChunk" })
 
 -- for Markdown
@@ -158,6 +156,12 @@ function _G.empty_line_append()
 end
 -- nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
 -- nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
+
+-- PLEX用日付整形
+vim.keymap.set("v", "<leader>ct", function()
+  vim.cmd([[s/\v(\d{4})(\d{2})(\d{2})/\1-\2-\3 -/g]])
+  vim.cmd("nohlsearch")
+end, { desc = "Convert YYYYMMDD → YYYY-MM-DD in selection" })
 
 -- "Show Diagnostic"を表示
 keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic message", noremap = true, silent = true })
