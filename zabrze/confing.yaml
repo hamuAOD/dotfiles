@@ -243,26 +243,20 @@ abbrevs:
     abbr: grep
     snippet: grep -i
   - name: yazi
-    abbr: y
+    abbr: yz
     snippet: yazi
 # etc: SYSTEM
   - name: check host
     abbr: chro
     snippet: echo 'CHECK!'
     if: '[[ $(hostname -s) =~ Studio ]]'
+###################
+# Custom Commands #
+###################
+  - name: open CUE files
+    abbr: oc
+    snippet: 'fd -e cue -0 . ~/Music/CD | xargs -0 nvim'
 
-# - name: move to Trash
-#   abbr: t
-#   snippet: '{} ~/.Trash'
-#   cursor: "{}"
-#   global: true
-#   context: '^mv -v\s'
-
-# - name: trash
-#   abbr-pattern: ^trash$
-#   snippet: mv -v {} ~/.Trash
-#   cursor: "{}"
-#   evaluate: true
 # GO-lang (not in use)
   # - name: go build
   #   abbr: b
