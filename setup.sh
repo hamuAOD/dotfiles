@@ -5,8 +5,9 @@ ln -sf "$HOME/dotfiles/.gvimrc" "$HOME/.gvimrc"
 ln -sf "$HOME/dotfiles/nvim/syntax" "$HOME/.vim/syntax"
 ln -sf "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
 
-ln -sf "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
-ln -sf "$HOME/dotfiles/.zshenv" "$HOME/.zshenv"
+ln -sf "$HOME/dotfiles/zsh/.zshrc" "$HOME/.zshrc"
+ln -sf "$HOME/dotfiles/zsh/.zshenv" "$HOME/.zshenv"
+
 ln -sf "$HOME/dotfiles/starship/starship.toml" "$HOME/.config/starship.toml"
 ln -sf "$HOME/dotfiles/wezterm" "$HOME/.config/wezterm"
 ln -sf "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.config/tmux"
