@@ -6,8 +6,10 @@ abbrevs:
   - name: move to dotfiles directory
     abbr: d
     snippet: ~/dotfiles
-    global: true
     context: '^z\s'
+  - name: move to dotfiles directory
+    abbr: zd
+    snippet: 'z ~/dotfiles'
 # FD
   - name: fd -IH
     abbr: fd
@@ -48,38 +50,46 @@ abbrevs:
     snippet: trash -v
     if: '(( ${+commands[trash]} ))'
 # Homebrew
+  - name: Homebrew
+    abbr: b
+    snippet: brew
   - name: Homebrew update
     abbr: bu
     snippet: brew update && brew upgrade && brew cleanup
   - name: Homebrew search
     abbr: s
     snippet: search
-    global: true
     context: '^brew\s'
+    global: true
   - name: Homebrew install
     abbr: i
     snippet: install
-    global: true
     context: '^brew\s'
+    global: true
   - name: Homebrew uninstall
     abbr: u
     snippet: uninstall
-    global: true
     context: '^brew\s'
+    global: true
 # Neovim
   - name: nvim
     abbr: v
     snippet: nvim
-  - name: nvim +
+  - name: Open Neovim and select the end of the file
     abbr: vb
     snippet: nvim +
   - name: nvim $(fzf)
     abbr: vf
     snippet: nvim $(fzf)
-    global: true
   - name: nvim config
     abbr: vc
     snippet: nvim ~/dotfiles/nvim/lua/hamu/
+  - name: nvim zshrc
+    abbr: vz
+    snippet: 'nvim ~/.zshrc'
+  - name: nvim zabrze
+    abbr: vza
+    snippet: 'nvim ~/dotfiles/zabrze/confing.yaml'
   - name: nvim Obsidian
     abbr: vo
     snippet: nvim "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/ObsidianVault"
@@ -87,49 +97,55 @@ abbrevs:
     abbr: vt
     snippet: nvim ~/Documents/temp.txt
   - name: nvim CD
+    abbr: vcd
+    snippet: 'nvim ~/Music/CD'
+  - name: nvim CD
     abbr: cd
-    snippet: ~/Music/CD
-    global: true
+    snippet: 'nvim ~/Music/CD'
     context: '^nvim\s'
+    global: true
   - name: nvim dotfiles
     abbr: d
     snippet: ~/dotfiles
-    global: true
     context: '^nvim\s'
+    global: true
   - name: nvim ShellScript
     abbr: vs
     snippet: nvim ~/Documents/ShellScript
   - name: nvim zshrc
     abbr: z
     snippet: ~/.zshrc
-    global: true
     context: '^nvim\s'
+    global: true
   - name: nvim wezterm
     abbr: w
     snippet: ~/dotfiles/wezterm/wezterm.lua
-    global: true
     context: '^nvim\s'
+    global: true
   - name: nvim zabrze
     abbr: zab
     snippet: ~/dotfiles/zabrze/confing.yaml
-    global: true
     context: '^nvim\s'
+    global: true
   - name: nvim 伊集院光cue
     abbr: ij
     snippet: ~/Music/伊集院光\ 深夜の馬鹿力.cue
-    global: true
     context: '^nvim\s'
+    global: true
   - name: nvim yt-dlp-list
     abbr: ytl
     snippet: ~/Movies/yt-dlp-list.txt
-    global: true
     context: '^nvim\s'
+    global: true
   - name: nvim yt-dlp-4k-list
     abbr: ytl4
     snippet: ~/Movies/yt-dlp-4k-list.txt
-    global: true
     context: '^nvim\s'
+    global: true
 # for Ubuntu Server
+  - name: ssh Ubuntu Server
+    abbr: sshu
+    snippet: 'ssh hamu@192.168.1.10'
   - name: ssh Ubuntu Server
     abbr: us
     snippet: hamu@192.168.1.10
@@ -138,8 +154,11 @@ abbrevs:
   - name: scp Ubuntu Server Downloads
     abbr: us
     snippet: 'hamu@192.168.1.10:/home/hamu/Downloads/'
-    global: true
     context: '^scp\s'
+    global: true
+  - name: scp Ubuntu Server Downloads
+    abbr: scpu
+    snippet: 'scp {} hamu@192.168.1.10:/home/hamu/Downloads/'
 # Scripts
   - name: MakeCue
     abbr: mc
@@ -174,37 +193,14 @@ abbrevs:
   - name: 7z
     abbr: 7zx
     snippet: 7zz x
-# etc
-  - name: clear
-    abbr: c
-    snippet: clear
-  - name: exit
-    abbr: e
-    snippet: exit
-  - name: sleep
-    abbr: sleep
-    snippet: pmset sleepnow
-  - name: sleep
-    abbr: s
-    snippet: pmset sleepnow
-  - name: tty-clock setup
-    abbr: tt
-    snippet: tty-clock -sc -C 4
+# lazygit
   - name: lazygit
     abbr: lg
     snippet: lazygit
-  - name: mactop
-    abbr: top
-    snippet: sudo mactop
-  - name: grep
-    abbr: grep
-    snippet: grep -i
   - name: open lazygit of dotfiles
     abbr: lgd
     snippet: lazygit -p ~/dotfiles
-  - name: scp for Ubuntu-Server
-    abbr: scpu
-    snippet: scp {} hamu@192.168.1.10:/home/hamu/Downloads/
+# tmux
   - name: tmux
     abbr: t
     snippet: tmux
@@ -214,6 +210,38 @@ abbrevs:
   - name: tmux Def
     abbr: td
     snippet: tmux a -t Def || tmux new -s Def
+# etc
+  - name: clear
+    abbr: c
+    snippet: clear
+  - name: exit
+    abbr: e
+    snippet: exit
+  - name: source zshrc
+    abbr: sz
+    snippet: 'source ~/.zshrc'
+  - name: '> /dev/null'
+    abbr: 'null'
+    snippet: '/dev/null'
+    global: true
+  - name: sleep
+    abbr: sleep
+    snippet: pmset sleepnow
+  - name: sleep
+    abbr: sl
+    snippet: pmset sleepnow
+  - name: tty-clock setup
+    abbr: tty
+    snippet: tty-clock -sc -C 4
+  - name: mactop
+    abbr: top
+    snippet: sudo mactop
+  - name: bottom
+    abbr: bottom
+    snippet: btm
+  - name: grep
+    abbr: grep
+    snippet: grep -i
   - name: yazi
     abbr: y
     snippet: yazi
