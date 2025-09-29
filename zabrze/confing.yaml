@@ -5,7 +5,7 @@ abbrevs:
     snippet: '~/dotfiles'
     global: true
   - name: CD
-    abbr: cd
+    abbr: /cd
     snippet: '~/Music/CD'
     global: true
 # Zoxide
