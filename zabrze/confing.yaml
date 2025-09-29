@@ -1,4 +1,13 @@
 abbrevs:
+# global
+  - name: dotfiles
+    abbr: dot
+    snippet: '~/dotfiles'
+    global: true
+  - name: CD
+    abbr: cd
+    snippet: '~/Music/CD'
+    global: true
 # Zoxide
   - name: zoxide
     abbr: cd
@@ -49,99 +58,6 @@ abbrevs:
     abbr: tra
     snippet: trash -v
     if: '(( ${+commands[trash]} ))'
-# Homebrew
-  - name: Homebrew
-    abbr: b
-    snippet: brew
-  - name: Homebrew update
-    abbr: bu
-    snippet: brew update && brew upgrade && brew cleanup
-  - name: Homebrew search
-    abbr: s
-    snippet: search
-    context: '^brew\s'
-    global: true
-  - name: Homebrew install
-    abbr: i
-    snippet: install
-    context: '^brew\s'
-    global: true
-  - name: Homebrew uninstall
-    abbr: u
-    snippet: uninstall
-    context: '^brew\s'
-    global: true
-# Neovim
-  - name: nvim
-    abbr: v
-    snippet: nvim
-  - name: Open Neovim and select the end of the file
-    abbr: vb
-    snippet: nvim +
-  - name: nvim $(fzf)
-    abbr: vf
-    snippet: nvim $(fzf)
-  - name: nvim config
-    abbr: vc
-    snippet: nvim ~/dotfiles/nvim/lua/hamu/
-  - name: nvim zshrc
-    abbr: vz
-    snippet: 'nvim ~/.zshrc'
-  - name: nvim zabrze
-    abbr: vza
-    snippet: 'nvim ~/dotfiles/zabrze/confing.yaml'
-  - name: nvim Obsidian
-    abbr: vo
-    snippet: nvim "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/ObsidianVault"
-  - name: nvim temporary
-    abbr: vt
-    snippet: nvim ~/Documents/temp.txt
-  - name: nvim CD
-    abbr: vcd
-    snippet: 'nvim ~/Music/CD'
-  - name: nvim CD
-    abbr: cd
-    snippet: 'nvim ~/Music/CD'
-    context: '^nvim\s'
-    global: true
-  - name: nvim dotfiles
-    abbr: d
-    snippet: ~/dotfiles
-    context: '^nvim\s'
-    global: true
-  - name: nvim ShellScript
-    abbr: vs
-    snippet: nvim ~/Documents/ShellScript
-  - name: nvim zshrc
-    abbr: z
-    snippet: ~/.zshrc
-    context: '^nvim\s'
-    global: true
-  - name: nvim wezterm
-    abbr: w
-    snippet: ~/dotfiles/wezterm/wezterm.lua
-    context: '^nvim\s'
-    global: true
-  - name: nvim zabrze
-    abbr: zab
-    snippet: ~/dotfiles/zabrze/confing.yaml
-    context: '^nvim\s'
-    global: true
-  - name: nvim 伊集院光cue
-    abbr: ij
-    snippet: ~/Music/伊集院光\ 深夜の馬鹿力.cue
-    context: '^nvim\s'
-    global: true
-  - name: nvim yt-dlp-list
-    abbr: ytl
-    snippet: ~/Movies/yt-dlp-list.txt
-    context: '^nvim\s'
-    global: true
-  - name: nvim yt-dlp-4k-list
-    abbr: ytl4
-    snippet: ~/Movies/yt-dlp-4k-list.txt
-    context: '^nvim\s'
-    global: true
 # for Ubuntu Server
   - name: ssh Ubuntu Server
     abbr: sshu
@@ -250,12 +166,6 @@ abbrevs:
     abbr: chro
     snippet: echo 'CHECK!'
     if: '[[ $(hostname -s) =~ Studio ]]'
-###################
-# Custom Commands #
-###################
-  - name: open CUE files
-    abbr: oc
-    snippet: 'fd -e cue -0 . ~/Music/CD | xargs -0 nvim'
 
 # GO-lang (not in use)
   # - name: go build

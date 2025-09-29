@@ -1,0 +1,4 @@
+abbrevs:
+  - name: open CUE files
+    abbr: oc
+    snippet: 'fd -e cue -0 . ~/Music/CD | xargs -0 nvim'
