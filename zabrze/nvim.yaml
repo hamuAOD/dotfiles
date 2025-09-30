@@ -35,7 +35,7 @@ abbrevs:
     context: '^nvim\s'
     global: true
   - name: nvim 伊集院光cue
-    abbr: nij
+    abbr: vij
     snippet: 'nvim ~/Music/伊集院光\ 深夜の馬鹿力.cue'
   - name: nvim yt-dlp-list
     abbr: ytl
