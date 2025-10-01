@@ -45,8 +45,8 @@ keybind = ctrl+;>t=toggle_quick_terminal
 # Keybind: Tab
 keybind = ctrl+;>c=new_tab
 keybind = ctrl+;>x=close_surface
-keybind = ctrl+;>shift+n=next_tab
-keybind = ctrl+;>shift+p=previous_tab
+keybind = ctrl+;>f=next_tab
+keybind = ctrl+;>b=previous_tab
 # Keybind: Pane
 keybind = ctrl+;>s=new_split:right
 keybind = ctrl+;>shift+s=new_split:down
@@ -68,12 +68,12 @@ keybind = super+right=resize_split:right,30
 keybind = ctrl+;>e=equalize_splits
 keybind = ctrl+;>z=toggle_split_zoom
 # Page Scroll
-keybind = ctrl+;>b=scroll_page_up
-keybind = ctrl+;>f=scroll_page_down
+# keybind = ctrl+;>b=scroll_page_up
+# keybind = ctrl+;>f=scroll_page_down
 # Key-Text
 keybind = alt+left=text:\x1bb
 keybind = alt+right=text:\x1bf
 # Other
-keybind = ctrl+;>f=reset_font_size
+keybind = ctrl+;>shift+f=reset_font_size
 keybind = ctrl+;>r=reload_config
 copy-on-select = clipboard
