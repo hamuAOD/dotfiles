@@ -3,6 +3,7 @@ export EDITOR=nvim VISUAL=nvim
 
 export PATH="$PATH:/Users/hamu/.local/bin"
 # export PATH="$PATH:/Users/hamu/go/bin"
+export PATH="$PATH:/Users/hamu/Documents/py"
 export PATH="$PATH:/Users/hamu/Documents/Swift/bin"
 export PATH="$PATH:/Users/hamu/Documents/ShellScript"
 export PATH="/opt/homebrew/bin:$PATH"
