@@ -1,0 +1,388 @@
+{
+  "title": "Hyper",
+  "rules": [
+    {
+      "description": "Remap Tab to Hyper-Key when held, Tab when tapped",
+      "manipulators": [
+        {
+          "type": "basic",
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 50 },
+          "from": { "key_code": "tab" },
+          "to_if_held_down": [{
+              "key_code": "left_command",
+              "modifiers": [ "left_shift", "left_control", "left_option" ]
+          }],
+          "to_if_alone": [ { "key_code": "tab" } ]
+        }
+      ]
+    },
+    {
+      "description": "Hyper Mod",
+      "manipulators": [
+        {
+          "description": "open active-page of Safari in Chrome",
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openPageinChrome.sh" }
+          ]
+        },
+        {
+          "description": "open clipboard in Chrome",
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openURLinChrome.sh" }
+          ]
+        },
+        {
+          "description": "open active-page of Chrome in Safari",
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openPageinSafari.sh" }
+          ]
+        },
+        {
+          "description": "open clipboard in Safari",
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openURLinSafari.sh" }
+          ]
+        },
+        {
+          "description": "open Chrome with Profile-Default",
+          "type": "basic",
+          "from": {
+            "key_code": "9",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openChromeProfileD.sh" }
+          ]
+        },
+        {
+          "description": "open Chrome with Profile-1",
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "sh $HOME/Documents/ShellScript/openChromeProfile1.sh" }
+          ]
+        },
+        {
+          "description": "open Activity Monitor",
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Activity Monitor'"
+            }
+          ]
+        },
+        {
+          "description": "open Fantastical",
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Fantastical"
+            }
+          ]
+        },
+        {
+          "description": "open Epson Scan 2",
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "open -a 'Epson Scan 2'" }
+          ]
+        },
+        {
+          "description": "open Fission",
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Fission"
+            }
+          ]
+        },
+        {
+          "description": "open chatGPT",
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a chatGPT"
+            }
+          ]
+        },
+        {
+          "description": "open iCompta",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a iCompta"
+            }
+          ]
+        },
+        {
+          "description": "open kid3",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a kid3"
+            }
+          ]
+        },
+        {
+          "description": "open Lyn",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Lyn"
+            }
+          ]
+        },
+        {
+          "description": "open Notes",
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Notes"
+            }
+          ]
+        },
+        {
+          "description": "open Obsidian",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Obsidian"
+            }
+          ]
+        },
+        {
+          "description": "open Qobuz",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Qobuz"
+            }
+          ]
+        },
+        {
+          "description": "open Roon",
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Roon"
+            }
+          ]
+        },
+        {
+          "description": "open Photoshop",
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Adobe Photoshop 2025'"
+            }
+          ]
+        },
+        {
+          "description": "open Swinsian",
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Swinsian"
+            }
+          ]
+        },
+        {
+          "description": "open Tag Editor",
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Tag Editor'"
+            }
+          ]
+        },
+        {
+          "description": "open goneovim",
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a goneovim"
+            }
+          ]
+        },
+        {
+          "description": "open XLD",
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a XLD"
+            }
+          ]
+        },
+        {
+          "description": "open Preview",
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Preview"
+            }
+          ]
+        },
+        {
+          "description": "open Google Chrome",
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome'"
+            }
+          ]
+        },
+        {
+          "description": "open Ghostty",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Ghostty"
+            }
+          ]
+        },
+        {
+          "description": "open Safari",
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Safari"
+            }
+          ]
+        },
+        {
+          "description": "Finder",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Finder"
+            }
+          ]
+        },
+        {
+          "description": "open System Settings",
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'System Settings'"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

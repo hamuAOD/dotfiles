@@ -2,23 +2,6 @@
   "title": "My Complex",
   "rules": [
     {
-      "description": "Remap Tab to Hyper-Key when held, Tab when tapped",
-      "manipulators": [
-        {
-          "type": "basic",
-          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 50 },
-          "from": { "key_code": "tab" },
-          "to_if_held_down": [
-            {
-              "key_code": "left_command",
-              "modifiers": [ "left_shift", "left_control", "left_option" ]
-            }
-          ],
-          "to_if_alone": [ { "key_code": "tab" } ]
-        }
-      ]
-    },
-    {
       "description": "Remap Caps Lock to Ctrl when held, Esc when tapped",
       "manipulators": [
         {
@@ -63,95 +46,6 @@
             "modifiers": { "mandatory": [ "shift" ] }
           },
           "to": [ { "key_code": "delete_forward" } ]
-        }
-      ]
-    },
-    {
-      "description": "Hyper Mod",
-      "manipulators": [
-        {
-          "description": "open active-page of Safari in Chrome",
-          "type": "basic",
-          "from": {
-            "key_code": "1",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [
-            { "shell_command": "sh $HOME/Documents/ShellScript/openPageinChrome.sh" }
-          ]
-        },
-        {
-          "description": "open clipboard in Chrome",
-          "type": "basic",
-          "from": {
-            "key_code": "2",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [
-            { "shell_command": "sh $HOME/Documents/ShellScript/openURLinChrome.sh" }
-          ]
-        },
-        {
-          "description": "open active-page of Chrome in Safari",
-          "type": "basic",
-          "from": {
-            "key_code": "3",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [
-            { "shell_command": "sh $HOME/Documents/ShellScript/openPageinSafari.sh" }
-          ]
-        },
-        {
-          "description": "open clipboard in Safari",
-          "type": "basic",
-          "from": {
-            "key_code": "4",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [
-            { "shell_command": "sh $HOME/Documents/ShellScript/openURLinSafari.sh" }
-          ]
-        },
-        {
-          "description": "open Chrome with Profile-Default",
-          "type": "basic",
-          "from": {
-            "key_code": "9",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [
-            { "shell_command": "sh $HOME/Documents/ShellScript/openChromeProfileD.sh" }
-          ]
-        },
-        {
-          "description": "open Chrome with Profile-1",
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [
-            { "shell_command": "sh $HOME/Documents/ShellScript/openChromeProfile1.sh" }
-          ]
-        },
-        {
-          "description": "vF17 for Raycast",
-          "type": "basic",
-          "from": {
-            "key_code": "period",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [ { "key_code": "f17" } ]
-        },
-        {
-          "description": "vF18 for Raycast",
-          "type": "basic",
-          "from": {
-            "key_code": "comma",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [ { "key_code": "f18" } ]
         }
       ]
     },
