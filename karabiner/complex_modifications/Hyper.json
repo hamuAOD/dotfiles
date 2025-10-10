@@ -188,6 +188,19 @@
           ]
         },
         {
+          "description": "open Qobuz",
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Qobuz"
+            }
+          ]
+        },
+        {
           "description": "open Notes",
           "type": "basic",
           "from": {
@@ -210,19 +223,6 @@
           "to": [
             {
               "shell_command": "open -a Obsidian"
-            }
-          ]
-        },
-        {
-          "description": "open Qobuz",
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
-          },
-          "to": [
-            {
-              "shell_command": "open -a Qobuz"
             }
           ]
         },
