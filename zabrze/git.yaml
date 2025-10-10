@@ -1,0 +1,37 @@
+abbrevs:
+  - name: git
+    abbr: g
+    snippet: 'git'
+  - name: git add
+    abbr: gad
+    snippet: 'git add'
+  - name: git add current all
+    abbr: gad.
+    snippet: 'git add .'
+  - name: git branch
+    abbr: gbr
+    snippet: 'git branch'
+  - name: git commit
+    abbr: gcm
+    snippet: 'git commit -m "{}"'
+  - name: git status
+    abbr: gst
+    snippet: 'git status'
+  - name: git status
+    abbr: gst
+    snippet: 'git status'
+  - name: git chekout
+    abbr: gco
+    snippet: 'git chekout'
+  - name: git diff
+    abbr: gdf
+    snippet: 'git diff'
+  - name: git log
+    abbr: glg
+    snippet: 'git log'
+  - name: git pull
+    abbr: gpl
+    snippet: 'git pull'
+  - name: git push
+    abbr: gps
+    snippet: 'git push'
