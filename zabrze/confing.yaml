@@ -47,9 +47,15 @@ abbrevs:
   - name: cp -aiv
     abbr: cp
     snippet: cp -aiv
+  - name: cp with monitor
+    abbr: cpm
+    snippet: 'cp -aiv {} & progress -mp $!'
   - name: mv -iv
     abbr: mv
     snippet: mv -iv
+  - name: mv with monitor
+    abbr: mvm
+    snippet: 'mv -iv {} & progress -mp $!'
   - name: trash -v
     abbr: rm
     snippet: trash -v
@@ -96,6 +102,9 @@ abbrevs:
   - name: yt-dlp bestaudio
     abbr: ytdba
     snippet: yt-dlp -f bestaudio
+  - name: yt-dlp download to Download-Directory
+    abbr: ytdd
+    snippet: 'yt-dlp --paths ~/Downloads'
   - name: yt-dlp HD
     abbr: ytdhd
     snippet: yt-dlp -f "bv[ext=mp4]+ba[ext=m4a]" --merge-output-format mp4 --write-thumbnail -o '~/Movies/YouTube/%(channel)s/%(upload_date)s %(title)s [%(id)s].%(ext)s'
