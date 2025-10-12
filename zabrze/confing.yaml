@@ -56,6 +56,9 @@ abbrevs:
   - name: mv with monitor
     abbr: mvm
     snippet: 'mv -iv {} & progress -mp $!'
+  - name: mkdir
+    abbr: mkdir
+    snippet: mkdir -p
   - name: trash -v
     abbr: rm
     snippet: trash -v
