@@ -125,9 +125,9 @@ abbrevs:
   - name: lazygit
     abbr: lg
     snippet: lazygit
-  - name: open lazygit of dotfiles
+  - name: open lazygit of .dotfiles
     abbr: lgd
-    snippet: lazygit -p ~/dotfiles
+    snippet: lazygit -p ~/.dotfiles
 # tmux
   - name: tmux
     abbr: t

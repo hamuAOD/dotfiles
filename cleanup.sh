@@ -1,5 +1,29 @@
 #!/bin/bash
 
+####################################################################################################
+unlink "$HOME/.vimrc"
+unlink "$HOME/.gvimrc"
+unlink "$HOME/.vim/syntax"
+unlink "$HOME/.config/nvim"
+
+unlink "$HOME/.zshrc"
+unlink "$HOME/.zshenv"
+unlink "$HOME/.ssh/config"
+unlink "$HOME/.warp"
+
+unlink "$HOME/.config/alacritty"
+unlink "$HOME/.config/borders"
+unlink "$HOME/.config/ghostty"
+unlink "$HOME/.config/starship.toml"
+unlink "$HOME/.config/wezterm"
+unlink "$HOME/.config/yazi"
+unlink "$HOME/.config/zabrze"
+
+unlink "$HOME/.config/goneovim/settings.toml"
+unlink "$HOME/.config/karabiner/assets/complex_modifications"
+unlink "$HOME/.config/tmux/tmux.conf"
+
+##################################################
 ln -sfv "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
 ln -sfv "$HOME/.dotfiles/.gvimrc" "$HOME/.gvimrc"
 ln -sfv "$HOME/.dotfiles/nvim/syntax" "$HOME/.vim/syntax"
