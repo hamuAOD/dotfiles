@@ -10,7 +10,7 @@ abbrevs:
     snippet: nvim $(fzf)
   - name: nvim config
     abbr: vc
-    snippet: nvim ~/dotfiles/nvim/lua/hamu/
+    snippet: nvim ~/.dotfiles/nvim/lua/hamu/
   - name: nvim zshrc
     abbr: vz
     snippet: 'nvim ~/.zshrc'
