@@ -65,7 +65,7 @@ RestoreWindowGeometry = false
 ## This is the font settings of the graphical UI as an nvim front end.
 ## Fontfamily is
 ## In MacOS,
-FontFamily = "HackGen35 Console NF"
+FontFamily = "Firple"
 ## In Linux
 # FontFamily = "Consolas"
 ## In Windows
