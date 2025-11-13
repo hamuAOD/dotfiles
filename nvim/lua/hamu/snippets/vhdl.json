@@ -91,13 +91,13 @@
 	},
 	"slv": {
 		"prefix": "slv",
-		"body": "std_logic_vector(${1:x} downto ${2:0}) ;$0",
+		"body": "std_logic_vector(${1:x} downto ${2:0});$0",
 		"description": "std_logic_vector downto",
 		"scope": "source.vhdl"
 	},
 	"slvr": {
 		"prefix": "slvr",
-		"body": "std_logic_vector(${1:signal}'range) ;$0",
+		"body": "std_logic_vector(${1:signal}'range);$0",
 		"description": "std_logic_vector range",
 		"scope": "source.vhdl"
 	},
