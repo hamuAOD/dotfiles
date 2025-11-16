@@ -1,7 +1,7 @@
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = { "kevinhwang91/promise-async" },
-  event = "VeryLazy",
+  event = { "BufRead", "BufNewFile" },
 
   opts = function()
     vim.o.foldcolumn = '1' -- '0' is not bad
