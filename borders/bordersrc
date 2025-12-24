@@ -9,6 +9,7 @@ options=(
   # active_color="glow(0xffff00f2)"
   # inactive_color=0xff0080ff
   active_color="glow(0xff0080ff)"
+  blacklist="Adobe Photoshop 2026"
 )
 
 borders "${options[@]}"
