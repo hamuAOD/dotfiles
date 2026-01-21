@@ -1,0 +1,221 @@
+# global
+[[abbrevs]]
+name = "dotfiles"
+abbr = "dot"
+snippet = '~/dotfiles'
+global = true
+[[abbrevs]]
+name = "CD"
+abbr = "/cd"
+snippet = '~/Music/CD'
+global = true
+# Zoxide
+[[abbrevs]]
+name = "zoxide"
+abbr = "cd"
+snippet = 'z'
+[[abbrevs]]
+name = "move to dotfiles directory"
+abbr = "d"
+snippet = '~/dotfiles'
+context = "^z\s"
+[[abbrevs]]
+name = "move to dotfiles directory"
+abbr = "zd"
+snippet = 'z ~/dotfiles'
+# FD
+[[abbrevs]]
+name = "fd -IH"
+abbr = "fd"
+snippet = 'fd -IH'
+# EZA
+[[abbrevs]]
+name = "eza default"
+abbr = "ls"
+snippet = 'eza --icons=always'
+[[abbrevs]]
+name = "eza list"
+abbr = "ll"
+snippet = 'eza --icons=always -l --time-style long-iso'
+[[abbrevs]]
+name = "eza list with size"
+abbr = "lls"
+snippet = 'eza --icons=always -l --total-size --time-style long-iso'
+[[abbrevs]]
+name = "eza list+"
+abbr = "la"
+snippet = 'eza --icons=always -la --time-style long-iso'
+[[abbrevs]]
+name = "eza list+ with size"
+abbr = "las"
+snippet = 'eza --icons=always -la --total-size --time-style long-iso'
+# Command - Move
+  # - name: cp/mv -iv
+  #   abbr-pattern: ^(cp|mv)$
+  #   snippet: $abbr -iv
+  #   evaluate: true
+[[abbrevs]]
+name = "cp -aiv"
+abbr = "cp"
+snippet = 'cp -aiv'
+[[abbrevs]]
+name = "cp with monitor"
+abbr = "cpm"
+snippet = 'cp -aiv {} & progress -mp $!'
+[[abbrevs]]
+name = "mv -iv"
+abbr = "mv"
+snippet = 'mv -iv'
+[[abbrevs]]
+name = "mv with monitor"
+abbr = "mvm"
+snippet = 'mv -iv {} & progress -mp $!'
+[[abbrevs]]
+name = "mkdir"
+abbr = "mkdir"
+snippet = 'mkdir -p'
+[[abbrevs]]
+name = "trash -v"
+abbr = "rm"
+snippet = 'trash -v'
+if = "(( ${+commands[trash]} ))"
+[[abbrevs]]
+name = "trash -v"
+abbr = "tra"
+snippet = 'trash -v'
+if = "(( ${+commands[trash]} ))"
+# for Ubuntu Server
+[[abbrevs]]
+name = "ssh Ubuntu Server"
+abbr = "sshu"
+snippet = 'ssh hamu@192.168.1.10'
+[[abbrevs]]
+name = "ssh Ubuntu Server2"
+abbr = "us"
+snippet = 'hamu@192.168.1.10'
+global = true
+context = "^ssh\s"
+[[abbrevs]]
+name = "scp Ubuntu Server Downloads"
+abbr = "us"
+snippet = 'hamu@192.168.1.10:/home/hamu/Downloads/'
+context = "^scp\s"
+global = true
+[[abbrevs]]
+name = "scp Ubuntu Server Downloads"
+abbr = "scpu"
+snippet = 'scp {} hamu@192.168.1.10:/home/hamu/Downloads/'
+# Scripts
+[[abbrevs]]
+name = "MakeCue"
+abbr = "mc"
+snippet = 'MakeCue'
+[[abbrevs]]
+name = "Lyrics2Txt"
+abbr = "lt"
+snippet = 'Lyrics2Txt'
+# XATTR
+[[abbrevs]]
+name = "xattr -d"
+abbr = "xd"
+snippet = 'xattr -d com.apple.metadata:kMDItemWhereFroms'
+[[abbrevs]]
+name = "xattr -rc"
+abbr = "xr"
+snippet = 'xattr -rc'
+# 7Z
+[[abbrevs]]
+name = "7z"
+abbr = "7za"
+snippet = '7zz a -ba -t7z -xr'\''!.*'\'''
+[[abbrevs]]
+name = "7z"
+abbr = "7zx"
+snippet = '7zz x'
+# lazygit
+[[abbrevs]]
+name = "lazygit"
+abbr = "lg"
+snippet = 'lazygit'
+[[abbrevs]]
+name = "open lazygit of .dotfiles"
+abbr = "lgd"
+snippet = 'lazygit -p ~/.dotfiles'
+# tmux
+[[abbrevs]]
+name = "tmux"
+abbr = "t"
+snippet = 'tmux'
+[[abbrevs]]
+name = "tmux"
+abbr = "ta"
+snippet = 'tmux a'
+[[abbrevs]]
+name = "tmux Def"
+abbr = "td"
+snippet = 'tmux a -t Def || tmux new -s Def'
+# etc
+[[abbrevs]]
+name = "clear"
+abbr = "c"
+snippet = 'clear'
+[[abbrevs]]
+name = "exit"
+abbr = "e"
+snippet = 'exit'
+[[abbrevs]]
+name = "source zshrc"
+abbr = "sz"
+snippet = 'source ~/.zshrc'
+[[abbrevs]]
+name = "> /dev/null"
+abbr = "null"
+snippet = '/dev/null'
+global = true
+[[abbrevs]]
+name = "sleep"
+abbr = 'sleep'
+snippet = 'pmset sleepnow'
+[[abbrevs]]
+name = "sleep"
+abbr = "sl"
+snippet = 'pmset sleepnow'
+[[abbrevs]]
+name = "tty-clock setup"
+abbr = "tty"
+snippet = 'tty-clock -sc -C 4'
+[[abbrevs]]
+name = "mactop"
+abbr = "top"
+snippet = 'sudo mactop'
+[[abbrevs]]
+name = "bottom"
+abbr = "bottom"
+snippet = 'btm'
+[[abbrevs]]
+name = "grep"
+abbr = "grep"
+snippet = 'grep -i'
+[[abbrevs]]
+name = "yazi"
+abbr = "yz"
+snippet = 'yazi'
+# etc: SYSTEM
+[[abbrevs]]
+name = "check host"
+abbr = "chro"
+snippet = 'echo "CHECK!"'
+if = '[[ $(hostname -s) =~ Studio ]]'
+
+# GO-lang (not in use)
+  # - name: go build
+  #   abbr: b
+  #   snippet: build -ldflags="-s -w" -trimpath
+  #   global: true
+  #   context: '^go\s'
+  # - name: goimports
+  #   abbr: goimports
+  #   snippet: goimports -l -w
+  # - name: Go Document Formatting
+  #   abbr: gof
+  #   snippet: goimports -l -w main.go
