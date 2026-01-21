@@ -1,60 +1,60 @@
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim"
 abbr = "v"
 snippet = 'nvim'
-[[[abbrevs]]
+[[abbrevs]]
 name = "Open Neovim and select the end of the file"
 abbr = "vb"
 snippet = 'nvim +'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim $(fzf)"
 abbr = "vf"
 snippet = 'nvim $(fzf)'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim config"
 abbr = "vc"
 snippet = 'nvim ~/.dotfiles/nvim/lua/hamu/'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim zshrc"
 abbr = "vz"
 snippet = 'nvim ~/.zshrc'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim zabrze"
 abbr = "vza"
 snippet = 'nvim ~/dotfiles/zabrze/'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim Obsidian"
 abbr = "vo"
 snippet = 'nvim "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/ObsidianVault"'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim temporary"
 abbr = 'vt'
 snippet = 'nvim ~/Documents/temp.txt'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim CD"
 abbr = "vcd"
 snippet = 'nvim ~/Music/CD'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim ShellScript"
 abbr = "vs"
 snippet = 'nvim ~/Documents/ShellScript'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim zabrze"
 abbr = "zab"
 snippet = '~/dotfiles/zabrze/confing.yaml'
 context = '^nvim\s'
 global = true
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim 伊集院光cue"
 abbr = "vij"
 snippet = 'nvim ~/Music/伊集院光\ 深夜の馬鹿力.cue'
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim yt-dlp-list"
 abbr = "ytl"
 snippet = '~/Movies/yt-dlp-list.txt'
 context = '^nvim\s'
 global = true
-[[[abbrevs]]
+[[abbrevs]]
 name = "nvim yt-dlp-4k-list"
 abbr = "ytl4"
 snippet = '~/Movies/yt-dlp-4k-list.txt'

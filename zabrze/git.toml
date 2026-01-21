@@ -1,44 +1,44 @@
-[[[abbrevs]]
+[[abbrevs]]
 name = "git"
 abbr = "g"
 snippet = 'git'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git add"
 abbr = "gad"
 snippet = 'git add'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git add current all"
 abbr = "gad."
 snippet = 'git add .'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git branch"
 abbr = "gbr"
 snippet = 'git branch'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git commit"
 abbr = "gcm"
 snippet = 'git commit -m "{}"'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git status"
 abbr = "gst"
 snippet = 'git status'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git chekout"
 abbr = "gco"
 snippet = 'git chekout'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git diff"
 abbr = "gdf"
 snippet = 'git diff'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git log"
 abbr = 'glg'
 snippet = 'git log'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git pull"
 abbr = "gpl"
 snippet = 'git pull'
-[[[abbrevs]]
+[[abbrevs]]
 name = "git push"
 abbr = "gps"
 snippet = 'git push'

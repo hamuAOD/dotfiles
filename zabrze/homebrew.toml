@@ -1,36 +1,36 @@
-[[[abbrevs]]
+[[abbrevs]]
 name = "Homebrew"
 abbr = "b"
 snippet = 'brew'
-[[[abbrevs]]
+[[abbrevs]]
 name = "Homebrew update"
 abbr = "bu"
 snippet = 'brew update && brew upgrade && brew cleanup'
-[[[abbrevs]]
+[[abbrevs]]
 name = "Homebrew search"
 abbr = "s"
 snippet = 'search'
 context = '^brew\s'
 global = true
-[[[abbrevs]]
+[[abbrevs]]
 name = "Homebrew install"
 abbr = "i"
 snippet = 'install'
 context = '^brew\s'
 global = true
-[[[abbrevs]]
+[[abbrevs]]
 name = "Homebrew info"
 abbr = "if"
 snippet = 'info'
 context = '^brew\s'
 global = true
-[[[abbrevs]]
+[[abbrevs]]
 name = "Homebrew uninstall"
 abbr = "u"
 snippet = 'uninstall'
 context = '^brew\s'
 global = true
-[[[abbrevs]]
+[[abbrevs]]
 name = "Homebrew cleanup"
 abbr = "c"
 snippet = 'cleanup'
