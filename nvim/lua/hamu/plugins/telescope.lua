@@ -14,9 +14,9 @@ return {
 
       require('telescope').setup({
         defaults = {
-          -- preview = {
-          --   treesitter = false,
-          -- },
+          preview = {
+            treesitter = false,
+          },
           sorting_strategy = 'ascending',
           -- デフォルト検索モードをFZFにする
           generic_sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
