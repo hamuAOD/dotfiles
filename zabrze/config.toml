@@ -124,10 +124,10 @@ name = "xattr -rc"
 abbr = "xr"
 snippet = 'xattr -rc'
 # 7Z
-# [[abbrevs]]
-# name = "7z"
-# abbr = "7za"
-# snippet = "7zz a -ba -t7z -xr\'\''!.*'\''"
+[[abbrevs]]
+name = "7z"
+abbr = "7za"
+snippet = "7zz a -ba -t7z -xr'!.*'"
 [[abbrevs]]
 name = "7z"
 abbr = "7zx"
