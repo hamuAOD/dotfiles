@@ -1,5 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 local act = wezterm.action
 
 -- This table will hold the configuration.
@@ -46,7 +47,7 @@ config.window_close_confirmation = 'NeverPrompt'  -- AlwaysPrompt
 config.color_scheme = "Dracula (Official)"
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 -- "TITLE", "RESIZE", "TITLE | RESIZE"
 config.window_decorations = "TITLE | RESIZE"
 
@@ -102,8 +103,10 @@ config.keys = {
   -- { key = 'c',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'LEADER', action = act.ActivateCopyMode},
   -- Tab
-  { key = 'x',          mods = 'LEADER', action = act.CloseCurrentPane{confirm = true}},
   { key = 'c',          mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain'},
+  { key = 'f',          mods = 'LEADER', action = act.ActivateTabRelative(1)},
+  { key = 'b',          mods = 'LEADER', action = act.ActivateTabRelative(-1)},
+  { key = 'w',          mods = 'LEADER', action = act.CloseCurrentTab{confirm = true}},
   -- Pane
   { key = 's',          mods = 'LEADER', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
   { key = 'v',          mods = 'LEADER', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
@@ -125,6 +128,7 @@ config.keys = {
   { key = 'p',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Prev'},
   { key = 'n',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Next'},
   { key = 'r',          mods = 'LEADER', action = act.RotatePanes 'Clockwise'},
+  { key = 'x',          mods = 'LEADER', action = act.CloseCurrentPane{confirm = true}},
   -- Font size
   { key = '+',          mods = 'CMD',    action = act.IncreaseFontSize},
   { key = '-',          mods = 'CMD',    action = act.DecreaseFontSize},
@@ -168,4 +172,44 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
   window:set_config_overrides(overrides)
 end)
 -- and finally, return the configuration to wezterm
+--
+tabline.setup({
+  options = {
+    icons_enabled = true,
+    theme = 'Catppuccin Mocha',
+    tabs_enabled = true,
+    theme_overrides = {},
+    section_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
+    },
+    component_separators = {
+      left = wezterm.nerdfonts.pl_left_soft_divider,
+      right = wezterm.nerdfonts.pl_right_soft_divider,
+    },
+    tab_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
+    },
+  },
+  sections = {
+    tabline_a = { 'mode' },
+    tabline_b = { 'workspace' },
+    tabline_c = { ' ' },
+    tab_active = {
+      'index',
+      { 'parent', padding = 0 },
+      '/',
+      { 'cwd', padding = { left = 0, right = 1 } },
+      { 'zoomed', padding = 0 },
+    },
+    tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
+    -- tabline_x = { 'ram', 'cpu' },
+    -- tabline_y = { 'datetime', 'battery' },
+    tabline_x = {  },
+    tabline_y = { 'datetime' },
+    tabline_z = { 'domain' },
+  },
+  extensions = {},
+})
 return config
