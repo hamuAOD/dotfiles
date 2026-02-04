@@ -124,9 +124,9 @@ config.keys = {
   -- { key = 'l',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Right'},
   -- { key = 'k',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Up'},
   -- { key = 'j',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Down'},
-  { key = '[',          mods = 'CTRL'  , action = act.PaneSelect},
-  { key = 'p',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Prev'},
-  { key = 'n',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Next'},
+  { key = '[',          mods = 'CTRL',   action = act.PaneSelect},
+  { key = 'p',          mods = 'OPT',    action = act.ActivatePaneDirection 'Prev'},
+  { key = 'n',          mods = 'OPT',    action = act.ActivatePaneDirection 'Next'},
   { key = 'r',          mods = 'LEADER', action = act.RotatePanes 'Clockwise'},
   { key = 'x',          mods = 'LEADER', action = act.CloseCurrentPane{confirm = true}},
   -- Font size
