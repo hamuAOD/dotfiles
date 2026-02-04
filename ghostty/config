@@ -74,6 +74,8 @@ keybind = ctrl+;>z=toggle_split_zoom
 keybind = alt+left=text:\x1bb
 keybind = alt+right=text:\x1bf
 # Other
+keybind = shift+enter=text:\n # Shift+Enterで改行
+keybind = cmd+k=clear_screen
 keybind = ctrl+;>shift+f=reset_font_size
 keybind = ctrl+;>r=reload_config
 copy-on-select = clipboard
