@@ -176,7 +176,7 @@ end)
 tabline.setup({
   options = {
     icons_enabled = true,
-    theme = 'Catppuccin Mocha',
+    theme = 'Wez', --Dracula (Official)',
     tabs_enabled = true,
     theme_overrides = {},
     section_separators = {
@@ -192,7 +192,7 @@ tabline.setup({
       right = wezterm.nerdfonts.pl_right_hard_divider,
     },
   },
-  -- mode / battery / cpu / datetime / domain / hostname / ram / window workspace
+  -- mode / battery / cpu / datetime / domain / hostname / ram / window / workspace
   sections = {
     tabline_a = { 'mode' },
     tabline_b = {  },
