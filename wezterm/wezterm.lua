@@ -49,7 +49,7 @@ config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = false
 -- "TITLE", "RESIZE", "TITLE | RESIZE"
-config.window_decorations = "TITLE | RESIZE"
+config.window_decorations = "RESIZE"
 
 --config.background = {
 --  -- This is the deepest/back-most layer. It will be rendered first
@@ -192,9 +192,10 @@ tabline.setup({
       right = wezterm.nerdfonts.pl_right_hard_divider,
     },
   },
+  -- mode / battery / cpu / datetime / domain / hostname / ram / window workspace
   sections = {
     tabline_a = { 'mode' },
-    tabline_b = { 'workspace' },
+    tabline_b = {  },
     tabline_c = { ' ' },
     tab_active = {
       'index',
@@ -207,8 +208,8 @@ tabline.setup({
     -- tabline_x = { 'ram', 'cpu' },
     -- tabline_y = { 'datetime', 'battery' },
     tabline_x = {  },
-    tabline_y = { 'datetime' },
-    tabline_z = { 'domain' },
+    tabline_y = {  },
+    tabline_z = { 'datetime' },
   },
   extensions = {},
 })
