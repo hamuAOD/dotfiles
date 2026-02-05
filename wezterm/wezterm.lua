@@ -102,6 +102,7 @@ config.keys = {
   { key = 'Backspace',  mods = 'OPT',    action = act{SendString="\x1b\x7f"}},
   -- { key = 'c',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'LEADER', action = act.ActivateCopyMode},
+  { key = '[',          mods = 'CTRL',   action = act.ActivateCopyMode},
   -- Tab
   { key = 'c',          mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain'},
   { key = 'f',          mods = 'LEADER', action = act.ActivateTabRelative(1)},
@@ -120,23 +121,13 @@ config.keys = {
   { key = 'DownArrow',  mods = 'LEADER', action = act.ActivatePaneDirection 'Down'},
   { key = 'p',          mods = 'LEADER', action = act.ActivatePaneDirection 'Prev'},
   { key = 'n',          mods = 'LEADER', action = act.ActivatePaneDirection 'Next'},
-  -- { key = 'h',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Left'},
-  -- { key = 'l',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Right'},
-  -- { key = 'k',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Up'},
-  -- { key = 'j',          mods = 'CTRL'  , action = act.ActivatePaneDirection 'Down'},
-  { key = '[',          mods = 'CTRL',   action = act.PaneSelect},
-  { key = 'p',          mods = 'OPT',    action = act.ActivatePaneDirection 'Prev'},
-  { key = 'n',          mods = 'OPT',    action = act.ActivatePaneDirection 'Next'},
   { key = 'r',          mods = 'LEADER', action = act.RotatePanes 'Clockwise'},
   { key = 'x',          mods = 'LEADER', action = act.CloseCurrentPane{confirm = true}},
   -- Font size
   { key = '+',          mods = 'CMD',    action = act.IncreaseFontSize},
   { key = '-',          mods = 'CMD',    action = act.DecreaseFontSize},
   { key = '0',          mods = 'CTRL',   action = act.ResetFontAndWindowSize},
-  -- { key = 'Backspace',  mods = 'CMD',  action = act.SendKey{ key = 'u', mods = 'CTRL' } },
-  -- { key = 'L',          mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
-  -- { key = 'p', mods = 'SHIFT|CTRL', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false }}
-  { key = 'p',          mods = 'LEADER', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false }},
+  { key = 'a',          mods = 'LEADER', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false }},
 }
 
 config.key_tables = {
