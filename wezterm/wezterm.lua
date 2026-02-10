@@ -122,6 +122,7 @@ config.keys = {
   { key = 'p',          mods = 'LEADER', action = act.ActivatePaneDirection 'Prev'},
   { key = 'n',          mods = 'LEADER', action = act.ActivatePaneDirection 'Next'},
   { key = 'r',          mods = 'LEADER', action = act.RotatePanes 'Clockwise'},
+  { key = 'z',          mods = 'LEADER', action = act.TogglePaneZoomState },
   { key = 'x',          mods = 'LEADER', action = act.CloseCurrentPane{confirm = true}},
   -- Font size
   { key = '+',          mods = 'CMD',    action = act.IncreaseFontSize},
