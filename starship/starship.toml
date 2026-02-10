@@ -12,17 +12,16 @@ $git_status\
 $git_metrics\
 $python\
 $rust\
+$cmd_duration\
 \n$character\
 """
 # right_format = """
 # $fill\
-# $cmd_duration\
 # $time\
 # \n$character\
 # """
 
 # right_format = """
-# $cmd_duration\
 # $battery\
 # $time\
 # """
@@ -102,9 +101,10 @@ error_symbol = "[❯](bold #ff5555)"
 success_symbol = "[❯](bold #50fa7b)"
 
 [cmd_duration]
-min_time = 1
+min_time = 0
 style = 'fg:#ebaf68 bold'
-format = "[ ❰  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
+disabled = false
+format = "[ ❱  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
 # format = "[ ❰  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
 
 [battery]
