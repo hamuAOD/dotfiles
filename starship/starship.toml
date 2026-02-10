@@ -17,13 +17,9 @@ $cmd_duration\
 """
 # right_format = """
 # $fill\
-# $time\
-# \n$character\
-# """
-
-# right_format = """
 # $battery\
 # $time\
+# \n$character\
 # """
 
 [os]
@@ -101,7 +97,7 @@ error_symbol = "[❯](bold #ff5555)"
 success_symbol = "[❯](bold #50fa7b)"
 
 [cmd_duration]
-min_time = 0
+min_time = 1_000
 style = 'fg:#ebaf68 bold'
 disabled = false
 format = "[ ❱  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
