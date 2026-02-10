@@ -98,7 +98,7 @@ success_symbol = "[❯](bold #50fa7b)"
 
 [cmd_duration]
 min_time = 1_000
-style = 'fg:#ebaf68 bold'
+style = 'fg:#FFB86C bold'
 disabled = false
 format = "[ ❱  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
 # format = "[ ❰  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
