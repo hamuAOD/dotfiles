@@ -2,9 +2,10 @@
   "title": "Hyper",
   "rules": [
     {
-      "description": "Remap Tab to Hyper-Key when held, Tab when tapped",
+      "description": "Hyper Mod",
       "manipulators": [
         {
+          "description": "Remap Tab to Hyper-Key when held, Tab when tapped",
           "type": "basic",
           "parameters": { "basic.to_if_held_down_threshold_milliseconds": 50 },
           "from": { "key_code": "tab" },
@@ -19,12 +20,7 @@
               "com.microsoft.rdc.macos"
             ]
           }]
-        }
-      ]
-    },
-    {
-      "description": "Hyper Mod",
-      "manipulators": [
+        },
         {
           "description": "open active-page of Safari in Chrome",
           "type": "basic",
