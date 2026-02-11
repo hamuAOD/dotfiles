@@ -181,6 +181,19 @@
           ]
         },
         {
+          "description": "open Google Chrome",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": { "mandatory": [ "command", "option", "control", "shift" ] }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome'"
+            }
+          ]
+        },
+        {
           "description": "open kid3",
           "type": "basic",
           "from": {
