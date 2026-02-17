@@ -1,0 +1,54 @@
+{
+  "title": "Window Management: Rectangle",
+  "rules": [
+    {
+      "description": "Ctrl + Option Mod",
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "Window Left-half",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": { "mandatory": [ "control", "option" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=left-half" }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "Window Right-half",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": { "mandatory": [ "control", "option" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=right-half" }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "Window Top-half",
+          "from": {
+            "key_code": "up_arrow",
+            "modifiers": { "mandatory": [ "control", "option" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=top-half" }
+          ]
+        },
+        {
+          "type": "basic",
+          "description": "Window Bottom-half",
+          "from": {
+            "key_code": "down_arrow",
+            "modifiers": { "mandatory": [ "control", "option" ] }
+          },
+          "to": [
+            { "shell_command": "open -g rectangle://execute-action?name=bottom-half" }
+          ]
+        }
+      ]
+    }
+  ]
+}
