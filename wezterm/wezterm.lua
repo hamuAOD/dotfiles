@@ -26,7 +26,7 @@ wezterm.on('gui-startup', function(cmd)
 
 config.initial_cols = 130
 config.initial_rows = 50
-config.font = wezterm.font('Firple', { weight = "Bold" })
+config.font = wezterm.font("Firple", {weight="Bold", stretch="Normal", style="Normal"})
 -- config.font = wezterm.font('HackGen35 Console NF', { weight = "Bold" })
 -- config.font = wezterm.font('UDEV Gothic 35NFLG', { weight = 'Bold' })
 config.font_size = 13
