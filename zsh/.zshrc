@@ -17,12 +17,6 @@ bindkey "^O" edit-command-line
 if [[ -e /opt/homebrew/bin/rbenv ]]; then
   if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 fi
-##### pyenv #####
-if [[ -e /opt/homebrew/bin/pyenv ]]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/shims:$PATH"
-  eval "$(pyenv init -)"
-fi
 
 ##### fzf #####
 # hit C-r
