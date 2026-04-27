@@ -20,6 +20,45 @@ return {
       inactive   = '#7f8ab4',
     }
 
+    local function selection_count()
+      local mode = vim.fn.mode()
+      if mode ~= "v" and mode ~= "V" and mode ~= "\22" then
+        return ""
+      end
+
+      local start_pos = vim.fn.getpos("v")
+      local end_pos = vim.fn.getpos(".")
+
+      local start_line, start_col = start_pos[2], start_pos[3]
+      local end_line, end_col = end_pos[2], end_pos[3]
+
+      if start_line > end_line or (start_line == end_line and start_col > end_col) then
+        start_line, end_line = end_line, start_line
+        start_col, end_col = end_col, start_col
+      end
+
+      local lines = vim.fn.getline(start_line, end_line)
+      if #lines == 0 then return "" end
+
+      if #lines == 1 then
+        local text = string.sub(lines[1], start_col, end_col)
+        return " " .. vim.fn.strchars(text) .. " chars"
+      end
+
+      local count = 0
+      for i, line in ipairs(lines) do
+        if i == 1 then
+          count = count + vim.fn.strchars(string.sub(line, start_col))
+        elseif i == #lines then
+          count = count + vim.fn.strchars(string.sub(line, 1, end_col))
+        else
+          count = count + vim.fn.strchars(line)
+        end
+      end
+
+      return " " .. count .. " chars"
+    end
+
     local my_dracula_theme = {
       normal = {
         a = { bg = colors.purple, fg = colors.black, gui = 'bold' },
@@ -109,6 +148,7 @@ return {
             lazy_status.updates,
             cond = lazy_status.has_updates,
           },
+          selection_count,
           { "encoding" },
           { "fileformat" },
           { "filetype" },
@@ -126,7 +166,7 @@ return {
       },
     })
 
-    vim.api.nvim_set_option('showmode', false)
+    vim.o.showmode = false
     vim.o.laststatus = 3 -- enable Global Status Line
   end,
 }
