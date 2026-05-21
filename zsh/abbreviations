@@ -1,5 +1,15 @@
 # git clone https://github.com/olets/zsh-abbr ~/.zsh-abbr
 # cd ~/.zsh-abbr && git submodule update --init
 
-abbr "lg"="lazygit"
+# mis
+alias sz='source ~/.zshrc'
+abbr c='clear'
+abbr e='exit'
+alias yz="yazi"
+abbr lg="lazygit"
+# Neovim
 abbr "v"="nvim"
+## eza
+alias ls='eza --icons=always'
+alias ll='eza --icons=always -l --time-style long-iso'
+alias la='eza --icons=always -la --time-style long-iso'
