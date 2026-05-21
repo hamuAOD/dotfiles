@@ -1,0 +1,5 @@
+# git clone https://github.com/olets/zsh-abbr ~/.zsh-abbr
+# cd ~/.zsh-abbr && git submodule update --init
+
+abbr "lg"="lazygit"
+abbr "v"="nvim"
