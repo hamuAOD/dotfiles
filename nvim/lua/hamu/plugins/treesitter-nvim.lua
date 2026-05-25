@@ -1,42 +1,27 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = "BufReadPost",
-  build = ":TSUpdate",
+  branch = 'main',
+  lazy = false,
+  build = ':TSUpdate',
   config = function()
-    require('nvim-treesitter.config').setup {
-      ensure_installed = {
-        "bash",
-        "c",
-        "css",
-        "diff",
-        "dockerfile",
-        "git_config",
-        "gitignore",
-        "go",
-        "html",
-        "ini",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "python",
-        "rust",
-        "swift",
-        "toml",
-        "typescript",
-        "vim",
-        "yaml"
-      }, -- List of parsers to ignore installing (or "all")
-      sync_install = false,
-      auto_install = true,
-      ignore_install = {},
+    local ts = require('nvim-treesitter')
 
-      highlight = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-      },
-    }
+    -- パーサーをまとめてインストール
+    ts.install({
+      "bash", "c", "css", "diff", "dockerfile",
+      "git_config", "gitignore", "go", "html", "ini",
+      "javascript", "json", "lua", "markdown", "python",
+      "rust", "swift", "toml", "typescript", "vim", "yaml"
+    })
+
+    -- ファイルを開いたときにハイライトとインデントを有効化
+    vim.api.nvim_create_autocmd('FileType', {
+      group = vim.api.nvim_create_augroup('MyTreesitter', { clear = true }),
+      pattern = '*',
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
   end
 }
