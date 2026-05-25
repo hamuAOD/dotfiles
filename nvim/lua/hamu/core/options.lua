@@ -228,24 +228,23 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 -----------------------------------------------------------
 -- OSC52
 -----------------------------------------------------------
-if vim.env.SSH_TTY then
-  -- SSH 経由のときだけ OSC52 を使う
-  vim.g.clipboard = {
-    name = 'OSC 52',
-    copy = {
-      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-    },
-    paste = {
-      ["+"] = function()
-        return { vim.fn.getreg(""), vim.fn.getregtype("") }
-      end,
-      ["*"] = function()
-        return { vim.fn.getreg(""), vim.fn.getregtype("") }
-      end,
-    },
-  }
-end
+local osc52 = require("vim.ui.clipboard.osc52")
+
+vim.g.clipboard = {
+  name = "osc52",
+  copy = {
+    ["+"] = osc52.copy("+"),
+    ["*"] = osc52.copy("*"),
+  },
+  paste = {
+    ["+"] = function()
+      return { "", "v" }
+    end,
+    ["*"] = function()
+      return { "", "v" }
+    end,
+  },
+}
 
 -----------------------------------------------------------
 -- Set 2-byte char.
