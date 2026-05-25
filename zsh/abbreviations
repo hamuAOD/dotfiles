@@ -2,11 +2,11 @@
 # cd ~/.zsh-abbr && git submodule update --init
 
 # mis
+abbr aptup='sudo apt update && sudo apt upgrade -y'
 abbr sz='source ~/.zshrc'
 abbr c='clear'
 abbr e='exit'
 abbr yz="yazi"
-abbr lg="lazygit"
 # Neovim
 abbr "v"="nvim"
 abbr vz="nvim ~/.zshrc"
@@ -16,4 +16,9 @@ abbr ls='eza --icons=always'
 abbr ll='eza --icons=always -l --time-style long-iso'
 abbr la='eza --icons=always -la --time-style long-iso'
 ## git
+abbr lg="lazygit"
 abbr lgd='lazygit -p ~/.dotfiles'
+## yt-dlp
+abbr ytdt='yt-dlp -P ~/Downloads -o "%(upload_date>%Y-%m-%d)s - %(title)s [%(id)s].%(ext)s" "https://www.twitch.tv/videos/"'
+abbr ytdtl='yt-dlp -P ~/Downloads -o "%(upload_date>%Y-%m-%d)s - %(title)s [%(id)s].%(ext)s" -a ~/Downloads/yt-dlp-list.txt'
+abbr mvt='mv -iv ~/Downloads/2026* /mnt/SV-VD/息根とめる/2026/ & progress -mp $!'
