@@ -226,27 +226,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 -- augroup END
 
 -----------------------------------------------------------
--- OSC52
------------------------------------------------------------
-local osc52 = require("vim.ui.clipboard.osc52")
-
-vim.g.clipboard = {
-  name = "osc52",
-  copy = {
-    ["+"] = osc52.copy("+"),
-    ["*"] = osc52.copy("*"),
-  },
-  paste = {
-    ["+"] = function()
-      return { "", "v" }
-    end,
-    ["*"] = function()
-      return { "", "v" }
-    end,
-  },
-}
-
------------------------------------------------------------
 -- Set 2-byte char.
 -----------------------------------------------------------
 vim.fn.setcellwidths {
