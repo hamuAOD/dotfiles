@@ -114,6 +114,11 @@ snippet = 'MakeCue'
 name = "Lyrics2Txt"
 abbr = "lt"
 snippet = 'Lyrics2Txt'
+# Tmux
+[[abbrevs]]
+name = "tmux"
+abbr = "tm"
+snippet = 'tmux'
 # XATTR
 [[abbrevs]]
 name = "xattr -d"
