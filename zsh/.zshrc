@@ -54,8 +54,6 @@ eval "$(zoxide init zsh)"
 export ZELLIJ_CONFIG_DIR="/Users/hamu/.config/zellij"
 ##### zabrze #####
 eval "$(zabrze init --bind-keys)"
-##### atuin #####
-eval "$(atuin init zsh)"
 
 ##### zsh-autosuggestions #####
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
