@@ -32,6 +32,7 @@ disabled = false
 Macos = " "  # nf-fa-apple
 Ubuntu = " " # nf-linux-ubuntu
 Debian = " " # nf-linux-debian
+Windows = "󰍲 "
 
 [hostname]
 ssh_only = true
