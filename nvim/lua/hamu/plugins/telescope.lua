@@ -64,6 +64,9 @@ return {
     event = { "BufRead", "BufNewFile" },
     branch = "0.2.x",
     config = function()
+      if vim.fn.has("win32") == 1 then
+        vim.g.sqlite_clib_path = "C:/Program Files/Neovim/bin/sqlite3.dll"
+      end
       require("telescope").load_extension("smart_open")
 
       vim.keymap.set("n", "<leader>fs", function ()
