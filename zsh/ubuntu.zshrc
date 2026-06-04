@@ -131,7 +131,11 @@ source /usr/share/doc/fzf/examples/completion.zsh
 ##### bat #####
 export BAT_THEME='Dracula'
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR=nvim
+
+ #export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
