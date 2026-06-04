@@ -83,6 +83,15 @@ source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-high
 ##### bat #####
 export BAT_THEME="Dracula"
 
+##### diff #####
+fzdiff() {
+  local file
+  file=$(diff -rq "$1" "$2" 2>/dev/null \
+    | grep '^Files' \
+    | fzf --preview 'diff $(echo {} | awk "{print \$2}") $(echo {} | awk "{print \$4}")') \
+  && nvim -d $(echo "$file" | awk '{print $2, $4}')
+}
+
 ##### 設定ファイルの追加読み込み #####
 ZSH_DIR="${HOME}/.zsh.d"
 # .zshがディレクトリで、読み取り、実行、が可能なとき
