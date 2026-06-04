@@ -25,12 +25,21 @@ return {
       ignore_case = true,
     }
 
-    local dict = {
-      ["*"] = { "$HOME/.config/nvim/lua/hamu/dict/all.dict" },
-      ft = {
-        vhdl = { "$HOME/.config/nvim/lua/hamu/dict/vhdl.dict" },
-      },
-    }
+    if vim.fn.has("win32") == 1 then
+      local config = vim.fn.stdpath("config")
+      local dict = {
+        ["*"] = { config .. "/lua/hamu/dict/all.dict" },
+        ft = {
+          vhdl = { config .. "/lua/hamu/dict/vhdl.dict" },
+        },
+    else
+      local dict = {
+        ["*"] = { "$HOME/.config/nvim/lua/hamu/dict/all.dict" },
+        ft = {
+          vhdl = { "$HOME/.config/nvim/lua/hamu/dict/vhdl.dict" },
+        },
+      }
+    end
 
     -- Lua スニペットを読み込む
     require("luasnip.loaders.from_lua").lazy_load({

@@ -6,6 +6,10 @@ return {
   config = function()
     local ts = require('nvim-treesitter')
 
+    if vim.fn.has("win32") == 1 then
+      vim.env.CC = "gcc"
+    end
+
     -- パーサーをまとめてインストール
     ts.install({
       "bash", "c", "css", "diff", "dockerfile",

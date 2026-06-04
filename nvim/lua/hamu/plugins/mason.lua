@@ -1,4 +1,5 @@
 return {
+
   "mason-org/mason.nvim",
   dependencies = {
     "neovim/nvim-lspconfig",
@@ -27,6 +28,12 @@ return {
       "yamlls",
       "zk",
     }
+
+    if vim.fn.has("win32") == 1 then
+      local win_exclude = { gopls = true, jsonnet_ls = true, zk = true, textlsp = true }
+      servers = vim.tbl_filter(function(s) return not win_exclude[s] end, servers)
+    end
+
     -- DAP / Linter / Formatter
     local tools = {
       "clang-format",
