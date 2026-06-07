@@ -127,6 +127,9 @@ source /usr/share/doc/fzf/examples/completion.zsh
 # --bind 'ctrl-/:change-preview-window(80%|hidden|)' \
 # --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
 
+##### nvm #####
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 ##### bat #####
 export BAT_THEME='Dracula'
@@ -161,3 +164,7 @@ export SUDO_EDITOR=nvim
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
