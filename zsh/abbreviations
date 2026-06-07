@@ -3,6 +3,7 @@
 
 # mis
 abbr aptup='sudo apt update && sudo apt upgrade -y'
+abbr nlup='sudo nala update && sudo nala upgrade -y'
 abbr sz='source ~/.zshrc'
 abbr c='clear'
 abbr e='exit'
