@@ -4,7 +4,8 @@ return {
   init = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 200
-
+  end,
+  config = function()
     local wk = require("which-key")
     wk.setup()
     wk.add({

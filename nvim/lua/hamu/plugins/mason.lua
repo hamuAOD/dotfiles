@@ -7,7 +7,7 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "b0o/schemastore.nvim",
   },
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
 
   config = function()
     local servers = {
@@ -113,6 +113,28 @@ return {
     vim.lsp.config("*", {
       capabilities = require('cmp_nvim_lsp').default_capabilities(),
     })
+
+    vim.lsp.config("jsonls", {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    })
+
+    vim.lsp.config("yamlls", {
+      settings = {
+        yaml = {
+          schemaStore = {
+            enable = false,
+            url = "",
+          },
+          schemas = require("schemastore").yaml.schemas(),
+        },
+      },
+    })
+
     vim.lsp.enable(servers)
   end,
 }

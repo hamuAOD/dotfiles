@@ -10,8 +10,6 @@ return {
     -- event = "VeryLazy",
 
     config = function()
-      require("telescope").load_extension("noice")
-
       require('telescope').setup({
         defaults = {
           preview = {
@@ -33,6 +31,7 @@ return {
       })
       -- FZFエクステンションをロード
       require("telescope").load_extension("fzf")
+      pcall(require("telescope").load_extension, "noice")
 
       local keymap = vim.keymap -- for conciseness
       local telescope = require('telescope.builtin')
