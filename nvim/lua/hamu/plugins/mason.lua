@@ -8,6 +8,7 @@ return {
     "b0o/schemastore.nvim",
   },
   event = { "BufReadPre", "BufNewFile" },
+  cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog", "MasonUpdate" },
 
   config = function()
     local servers = {
