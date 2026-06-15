@@ -34,7 +34,10 @@ set formatoptions=q                   " 自動改行OFF
 
 set ambiwidth=double                  " 全角記号対策
 set nrformats=                        " 10進数で扱う
-set t_Co=256                          " ターミナル色用
+" set t_Co=256                        " 古い256色端末用
+if has('termguicolors')
+  set termguicolors
+endif
 
 set enc=utf-8
 set fenc=utf-8                        " 文字コードをUFT-8に設定
@@ -50,26 +53,32 @@ let mapleader="\<Space>"
 let maplocalleader = ','
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" 自動化 """""
-autocmd BufWritePre * :%s/\s\+$//ge             " 保存時に行末の空白削除
-autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge   " for FC2
-""" for SAMBA
-autocmd BufWritePost * sleep 100m
-autocmd BufWritePost * checktime
+augroup vimrc_auto
+  autocmd!
+  autocmd BufWritePre * %s/\s\+$//ge             " 保存時に行末の空白削除
+  autocmd BufWritePre * %s/\*\*\*ysqxzzosy//ge   " for FC2
+  """ for SAMBA
+  autocmd BufWritePost * sleep 100m
+  autocmd BufWritePost * checktime
+augroup END
 set autoread
-" option e : マッチしなかった時にエラーメッセージを表示しない
-let g:vimfiler_enable_auto_cd = 1     " 自動でカレントディレクトリを変更する設定
 
 " インサートモードに入る時に自動でコメントアウトされないようにする
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup vimrc_filetype
+  autocmd!
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
 
 " 自動補完を自動で表示
 set completeopt=menuone,noinsert
-for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
-  exec "imap <expr> " . k . " pumvisible() ? '" . k . "' : '" . k . "\<C-X>\<C-P>\<C-N>'"
-endfor
+" asyncomplete に寄せるため、各英字入力時の組み込み補完起動は無効化
+" for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+"   exec "imap <expr> " . k . " pumvisible() ? '" . k . "' : '" . k . "\<C-X>\<C-P>\<C-N>'"
+" endfor
 
 " 最後にカーソルがあった場所に移動
 augroup vimrcEx
+  au!
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" | endif
 augroup END
@@ -111,7 +120,7 @@ nnoremap <Leader>ts :set spell!<CR>
 nnoremap <Leader>tc :<C-u>setlocal cursorline! cursorcolumn!<CR>
 
 " ノーマルモードでもエンターキーで改行を挿入
-noremap <CR> o<ESC>
+nnoremap <CR> o<ESC>
 " 行末までコピー
 " nnoremap Y 0y$
 nnoremap Y y$
@@ -155,18 +164,18 @@ inoremap <C-o> <ESC>bgUlgi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"" vim-plug
 " Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"   \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" endif
 
 " Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync
-  \| set modifiable
-  \| source $MYVIMRC
-  " \| PlugInstall --sync | source '~/.vimrc'
-\| endif
+" autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+"   \| PlugInstall --sync
+"   \| set modifiable
+"   \| source $MYVIMRC
+"   " \| PlugInstall --sync | source '~/.vimrc'
+" \| endif
 " nnoremap vrs :source $MYVIMRC<CR>
 " nnoremap vpu :PlugInstall<CR>
 " nnoremap vpc :PlugClean<CR>
@@ -181,7 +190,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'RRethy/vim-illuminate'
   Plug 'chrisbra/Colorizer'
   Plug 'liuchengxu/vim-which-key'
-  Plug 'yoshida-m-3/vim-im-select'
+  " Plug 'yoshida-m-3/vim-im-select'
+  Plug 'laishulu/vim-macos-ime'
   Plug 'Yggdroot/indentLine'
   Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-commentary'
@@ -213,11 +223,15 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " # fzf #
-set rtp+=/opt/homebrew/opt/fzf
+" set rtp+=/opt/homebrew/opt/fzf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" # vim-macos-ime #
+let g:macosime_macism_path = '/opt/homebrew/bin/macism'
+let g:macosime_normal_ime = 'com.apple.keylayout.ABC'
+let g:macosime_cjk_ime = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese'
 " # vim-im-select #
-let g:im_select_default = 'com.apple.keylayout.ABC'
-let g:im_select_enable_for_gvim = 1
+" let g:im_select_default = 'com.apple.keylayout.ABC'
+" let g:im_select_enable_for_gvim = 1
 " com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese
 " com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
 " com.apple.keylayout.ABC
@@ -329,7 +343,6 @@ nnoremap <silent> <localleader> :WhichKey ','<CR>
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-call which_key#register('<Space>', "g:which_key_map")
 set timeoutlen=500
 
 let g:which_key_map = {}
@@ -364,10 +377,14 @@ let g:which_key_map.m = {
       \ 'f' : 'Jump to 1 char',
       \ 'g' : 'Jump to 2 char',
       \}
+call which_key#register('<Space>', "g:which_key_map")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Background transparent
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
+augroup vimrc_colors
+  autocmd!
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  autocmd ColorScheme * highlight LineNr ctermbg=none
+augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
 colorscheme dracula

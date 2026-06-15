@@ -8,7 +8,8 @@ if has('gui_macvim')
   " colorscheme dracula
 " colorscheme onedark
 
-  set guifont=HackGen35\ Console\ NF:h13
+  set guifont=Firple-Bold:h13
+  "set guifont=HackGen35\ Console\ NF:h13
 " set guifont=SF\ Mono\ Square:h16
 " set guifont=RictyDiminished-Regular:h14
 " set guifont=HackGen\ Console:h15
