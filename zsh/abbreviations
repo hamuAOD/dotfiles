@@ -9,6 +9,7 @@ abbr c='clear'
 abbr e='exit'
 abbr yz="yazi"
 abbr bat="batcat"
+abbr tm="tmux"
 # Neovim
 abbr "v"="nvim"
 abbr vz="nvim ~/.zshrc"
