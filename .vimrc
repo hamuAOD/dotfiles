@@ -408,16 +408,4 @@ endfunction
 syntax enable
 colorscheme dracula
 call s:dracula_nvim_like()
-
-augroup vimrc_intro
-  autocmd!
-  autocmd VimEnter * if argc() == 0 && empty(expand('%')) && line('$') == 1 && getline(1) ==# '' | call timer_start(200, function('s:show_intro')) | endif
-augroup END
-
-function! s:show_intro(timer) abort
-  if argc() == 0 && empty(expand('%')) && line('$') == 1 && getline(1) ==# ''
-    intro
-  endif
-endfunction
-
 set modifiable
