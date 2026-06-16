@@ -101,6 +101,7 @@ config.keys = {
   { key = 'Backspace',  mods = 'CMD',    action = act{SendString="\x15"}},
   { key = 'Backspace',  mods = 'OPT',    action = act{SendString="\x1b\x7f"}},
   -- { key = 'c',          mods = 'LEADER', action = act.ActivateCopyMode},
+  { key = 'i',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'CTRL',   action = act.ActivateCopyMode},
   -- Tab
