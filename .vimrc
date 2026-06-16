@@ -382,10 +382,30 @@ call which_key#register('<Space>', "g:which_key_map")
 " Background transparent
 augroup vimrc_colors
   autocmd!
-  autocmd ColorScheme * highlight Normal ctermbg=none
-  autocmd ColorScheme * highlight LineNr ctermbg=none
+  autocmd ColorScheme dracula call s:dracula_nvim_like()
 augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:dracula_nvim_like() abort
+  highlight Normal       term=NONE cterm=NONE gui=NONE ctermfg=253 ctermbg=236 guifg=#F8F8F2 guibg=#282A36
+  highlight CursorLine   term=NONE cterm=NONE gui=NONE ctermbg=238 guibg=#474A5D
+  highlight CursorColumn term=NONE cterm=NONE gui=NONE ctermbg=238 guibg=#474A5D
+  highlight LineNr       term=NONE cterm=NONE gui=NONE ctermfg=61 guifg=#6272A4
+  highlight CursorLineNr term=NONE cterm=bold gui=bold ctermfg=253 guifg=#F8F8F2
+  highlight Comment      term=NONE cterm=italic gui=italic ctermfg=61 guifg=#6272A4
+  highlight Statement    term=NONE cterm=italic gui=italic ctermfg=13 guifg=#FF79C6
+  highlight Keyword      term=NONE cterm=italic gui=italic ctermfg=13 guifg=#FF79C6
+  highlight Function     term=NONE cterm=NONE gui=NONE ctermfg=84 guifg=#50FA7B
+  highlight String       term=NONE cterm=NONE gui=NONE ctermfg=228 guifg=#F1FA8C
+  highlight Type         term=NONE cterm=NONE gui=NONE ctermfg=117 guifg=#8BE9FD
+  highlight Constant     term=NONE cterm=NONE gui=NONE ctermfg=141 guifg=#BD93F9
+  highlight Identifier   term=NONE cterm=NONE gui=NONE ctermfg=117 guifg=#8BE9FD
+  highlight Visual       term=NONE cterm=NONE gui=NONE ctermfg=NONE ctermbg=60 guifg=NONE guibg=#645F84
+  highlight Search       term=NONE cterm=NONE gui=NONE ctermfg=253 ctermbg=61 guifg=#F8F8F2 guibg=#7155A3
+  highlight StatusLine   term=NONE cterm=NONE gui=NONE ctermfg=146 ctermbg=235 guifg=#CEC3E6 guibg=#21222C
+  highlight Pmenu        term=NONE cterm=NONE gui=NONE ctermfg=253 ctermbg=236 guifg=#F8F8F2 guibg=#282A36
+endfunction
+
 syntax enable
 colorscheme dracula
+call s:dracula_nvim_like()
 set modifiable
