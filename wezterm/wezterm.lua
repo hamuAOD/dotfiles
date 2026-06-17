@@ -100,8 +100,8 @@ config.keys = {
   { key = 'RightArrow', mods = 'CMD',    action = act{SendString="\x05"}},
   { key = 'Backspace',  mods = 'CMD',    action = act{SendString="\x15"}},
   { key = 'Backspace',  mods = 'OPT',    action = act{SendString="\x1b\x7f"}},
+  { key = 'Enter',      mods = 'SHIFT',  action = act{SendString="\x1b[13;2u"}},
   -- { key = 'c',          mods = 'LEADER', action = act.ActivateCopyMode},
-  { key = 'i',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'CTRL',   action = act.ActivateCopyMode},
   -- Tab
