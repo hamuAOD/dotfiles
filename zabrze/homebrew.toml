@@ -5,7 +5,7 @@ snippet = 'brew'
 [[abbrevs]]
 name = "Homebrew update"
 abbr = "bu"
-snippet = 'brew update && brew upgrade && brew cleanup'
+snippet = 'brew update && brew upgrade -y && brew cleanup'
 [[abbrevs]]
 name = "Homebrew search"
 abbr = "s"
