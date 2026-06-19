@@ -1,8 +1,29 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
     cmd = { "Telescope" }, -- ":Telescope"実行後にdependenciesが読み込まれる
+    keys = {
+      { '<Leader>b', function() require('telescope.builtin').buffers() end, desc = "Buffers" },
+      { '<Leader>fb', function() require('telescope.builtin').buffers() end, desc = "Buffers" },
+      { '<Leader>r', function() require('telescope.builtin').registers() end, desc = "Registers" },
+      { '<Leader>fr', function() require('telescope.builtin').registers() end, desc = "Registers" },
+      { '<Leader>fc', function() require('telescope.builtin').command_history() end, desc = "Command History" },
+      { '<Leader>ff', function() require('telescope.builtin').find_files() end, desc = "Find Files" },
+      { '<Leader>fg', function() require('telescope.builtin').live_grep() end, desc = "Live Grep" },
+      { '<Leader>fo', function() require('telescope.builtin').oldfiles() end, desc = "Old Files" },
+      { '<Leader>fk', function() require('telescope.builtin').keymaps() end, desc = "keymaps" },
+      {
+        '<Leader>fz',
+        function()
+          require('telescope.builtin').current_buffer_fuzzy_find({
+            fuzzy = false,
+            case_mode = "ignore_case",
+            sorter = require('telescope.sorters').sort_by_position,
+          })
+        end,
+        desc = "Grep current buffer",
+      },
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -32,47 +53,30 @@ return {
       -- FZFエクステンションをロード
       require("telescope").load_extension("fzf")
       pcall(require("telescope").load_extension, "noice")
-
-      local keymap = vim.keymap -- for conciseness
-      local telescope = require('telescope.builtin')
-      local sorters = require('telescope.sorters')
-
-      keymap.set('n', '<Leader>b', telescope.buffers, {desc = "Buffers", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fb', telescope.buffers, {desc = "Buffers", noremap = true, silent = true})
-      keymap.set('n', '<Leader>r', '<CMD>Telescope registers<CR>', {desc = "Registers", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fr', '<CMD>Telescope registers<CR>', {desc = "Registers", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fc', '<CMD>Telescope command_history<CR>', {desc = "Command History", noremap = true, silent = true})
-      keymap.set('n', '<Leader>ff', telescope.find_files, {desc = "Find Files", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fg', telescope.live_grep, {desc = "Live Grep", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fo', telescope.oldfiles, {desc = "Old Files", noremap = true, silent = true})
-      keymap.set('n', '<Leader>fk', "<CMD>lua require'telescope.builtin'.keymaps{}<CR>", {desc = "keymaps", noremap = true, silent = true})
-
-      keymap.set('n', '<Leader>fz', function()
-        telescope.current_buffer_fuzzy_find({
-          fuzzy = false,
-          case_mode = "ignore_case",
-          sorter = sorters.sort_by_position,
-        })
-      end, { desc = "Grep current buffer", noremap = true, silent = true })
-
     end,
   },
   {
     "danielfalk/smart-open.nvim",
     -- event = "VeryLazy",
     event = { "BufRead", "BufNewFile" },
+    keys = {
+      {
+        "<leader>fs",
+        function()
+          require("telescope").extensions.smart_open.smart_open()
+        end,
+        desc = "Open file",
+      },
+    },
     branch = "0.2.x",
     config = function()
       if vim.fn.has("win32") == 1 then
         vim.g.sqlite_clib_path = "C:/Program Files/Neovim/bin/sqlite3.dll"
       end
       require("telescope").load_extension("smart_open")
-
-      vim.keymap.set("n", "<leader>fs", function ()
-        require("telescope").extensions.smart_open.smart_open()
-      end, {desc = "Open file", noremap = true, silent = true })
     end,
     dependencies = {
+      "nvim-telescope/telescope.nvim",
       "kkharji/sqlite.lua",
       -- Only required if using match_algorithm fzf
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -88,12 +92,21 @@ return {
     -- },
     -- event = "VeryLazy",
     event = { "BufRead", "BufNewFile" },
+    keys = {
+      {
+        "<space>fe",
+        function()
+          require("telescope").extensions.file_browser.file_browser()
+        end,
+        desc = "Open Explorer",
+      },
+    },
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
     config = function ()
       require("telescope").load_extension "file_browser"
-
-      vim.keymap.set("n", "<space>fe", function()
-	      require("telescope").extensions.file_browser.file_browser()
-      end, {desc = "Open Explorer", noremap = true, silent = true })
     end,
   },
 }

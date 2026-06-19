@@ -6,7 +6,7 @@ return {
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
-				lua = { "lua_ls", "stylua" },
+				lua = { "stylua" },
 				sh = { "shfmt" },
 				bash = { "shfmt" },
 				zsh = { "shfmt" },
@@ -23,7 +23,7 @@ return {
 			},
 
 			vim.keymap.set("n", "<leader>v", function()
-				require("conform").format({ async = true, lsp_fallback = true })
+				require("conform").format({ async = true, lsp_format = "fallback" })
 			end, { desc = "Format file" }),
 		})
 	end,

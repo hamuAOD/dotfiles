@@ -9,6 +9,7 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lsp',
+    'folke/lazydev.nvim',
   },
   event = { "InsertEnter", "CmdlineEnter"},
 
@@ -55,8 +56,8 @@ return {
 
     vim.api.nvim_create_autocmd("BufEnter", {
       pattern = "*",
-      callback = function(ev)
-        local paths = dict.ft[vim.bo.filetype] or {}
+      callback = function()
+        local paths = vim.deepcopy(dict.ft[vim.bo.filetype] or {})
         vim.list_extend(paths, dict["*"])
         require("cmp_dictionary").setup({
           paths = paths,
@@ -92,13 +93,14 @@ return {
           end
         end, { "i", "s" }),
       }),
-      sources = cmp.config.sources({
+      sources = {
+        { name = "lazydev", group_index = 0 },
         { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "buffer", keyword_length = 1, max_item_count = 10, },
         { name = "path" },
         { name = "dictionary", keyword_length = 1, },
-      }),
+      },
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
