@@ -22,10 +22,19 @@ setopt hist_no_store         # historyコマンドは履歴に登録しない
 setopt hist_reduce_blanks    # 余分な空白は詰めて記録
 zstyle ':completion:*:default' menu select
 
-##### ZLE #####
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# 補完候補一覧をカラー表示
+zstyle ':completion:*' list-colors ''
+
+##### ZLE: open buffer line in editor #####
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^O" edit-command-line
+
+##### Suffix Aliases #####
+alias -s md="bat"
+alias -s lua"$EDITOR"
 
 ##### rbenv #####
 if [[ -e /opt/homebrew/bin/rbenv ]]; then
@@ -74,11 +83,6 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
-
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# 補完候補一覧をカラー表示
-zstyle ':completion:*' list-colors ''
 
 ##### zsh-syntax-highlighting #####
 # Write at the end

@@ -81,15 +81,30 @@ plugins=(
 DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
-setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
-setopt share_history     # 同時に起動したzshで履歴を共有する
+##### ZSHRC #####
+export LANG=ja_JP.UTF-8
+export SUDO_EDITOR=nvim EDITOR=nvim VISUAL=nvim
+
+##### History #####
+HISTFILE=~/.zsh_history      # ヒストリファイルを指定
+HISTSIZE=10000               # ヒストリに保存するコマンド数
+SAVEHIST=10000               # ヒストリファイルに保存するコマンド数
+setopt appendhistory
+setopt hist_ignore_all_dups  # 重複するコマンド行は古い方を削除
+setopt hist_ignore_dups      # 直前と同じコマンドラインはヒストリに追加しない
+setopt share_history         # コマンド履歴ファイルを共有する
+setopt append_history        # 履歴を追加 (毎回 .zsh_history を作るのではなく)
+setopt inc_append_history    # 履歴をインクリメンタルに追加
+setopt hist_no_store         # historyコマンドは履歴に登録しない
+setopt hist_reduce_blanks    # 余分な空白は詰めて記録
+zstyle ':completion:*:default' menu select
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # 補完候補一覧をカラー表示
 zstyle ':completion:*' list-colors ''
 
-##### ZLE #####
+##### ZLE: open buffer line in editor #####
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^O" edit-command-line
@@ -133,10 +148,6 @@ export NVM_DIR="$HOME/.nvm"
 
 ##### bat #####
 export BAT_THEME='Dracula'
-
-export EDITOR=nvim
-export VISUAL=nvim
-export SUDO_EDITOR=nvim
 
  #export MANPATH="/usr/local/man:$MANPATH"
 

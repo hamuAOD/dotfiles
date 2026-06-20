@@ -1,4 +1,8 @@
-# global
+##### global #####
+[[abbrevs]]
+name = "check host"
+abbr = "trdq"
+snippet = 'tr ":" "\n"'
 [[abbrevs]]
 name = "dotfiles"
 abbr = "dot"
@@ -9,7 +13,8 @@ name = "CD"
 abbr = "/cd"
 snippet = '~/Music/CD'
 global = true
-# Zoxide
+
+##### Zoxide #####
 [[abbrevs]]
 name = "zoxide"
 abbr = "cd"
@@ -23,12 +28,14 @@ context = '^z\s'
 name = "move to dotfiles directory"
 abbr = "zd"
 snippet = 'z ~/dotfiles'
-# FD
+
+##### FD #####
 [[abbrevs]]
 name = "fd -IH"
 abbr = "fd"
 snippet = 'fd -IH'
-# EZA
+
+##### EZA #####
 [[abbrevs]]
 name = "eza default"
 abbr = "ls"
@@ -49,7 +56,8 @@ snippet = 'eza --icons=always -la --time-style long-iso'
 name = "eza list+ with size"
 abbr = "las"
 snippet = 'eza --icons=always -la --total-size --time-style long-iso'
-# Command - Move
+
+##### Command - Move #####
   # - name: cp/mv -iv
   #   abbr-pattern: ^(cp|mv)$
   #   snippet: $abbr -iv
@@ -84,7 +92,8 @@ name = "trash -v"
 abbr = "tra"
 snippet = 'trash -v'
 if = "(( ${+commands[trash]} ))"
-# for Ubuntu Server
+
+##### for Ubuntu Server #####
 [[abbrevs]]
 name = "ssh Ubuntu Server"
 abbr = "sshu"
@@ -105,7 +114,8 @@ global = true
 name = "scp Ubuntu Server Downloads"
 abbr = "scpu"
 snippet = 'scp {} hamu@192.168.1.10:/home/hamu/Downloads/'
-# Scripts
+
+##### Scripts #####
 [[abbrevs]]
 name = "MakeCue"
 abbr = "mc"
@@ -114,12 +124,22 @@ snippet = 'MakeCue'
 name = "Lyrics2Txt"
 abbr = "lt"
 snippet = 'Lyrics2Txt'
-# Tmux
+
+##### Tmux #####
 [[abbrevs]]
 name = "tmux"
 abbr = "tm"
 snippet = 'tmux'
-# XATTR
+[[abbrevs]]
+name = "tmux"
+abbr = "tma"
+snippet = 'tmux a'
+[[abbrevs]]
+name = "tmux Def"
+abbr = "tmd"
+snippet = 'tmux a -t Def || tmux new -s Def'
+
+##### XATTR #####
 [[abbrevs]]
 name = "xattr -d"
 abbr = "xd"
@@ -128,7 +148,8 @@ snippet = 'xattr -d com.apple.metadata:kMDItemWhereFroms'
 name = "xattr -rc"
 abbr = "xr"
 snippet = 'xattr -rc'
-# 7Z
+
+##### 7Z #####
 [[abbrevs]]
 name = "7z"
 abbr = "7za"
@@ -137,7 +158,8 @@ snippet = "7zz a -ba -t7z -xr'!.*'"
 name = "7z"
 abbr = "7zx"
 snippet = '7zz x'
-# lazygit
+
+##### lazygit #####
 [[abbrevs]]
 name = "lazygit"
 abbr = "lg"
@@ -146,20 +168,8 @@ snippet = 'lazygit'
 name = "open lazygit of .dotfiles"
 abbr = "lgd"
 snippet = 'lazygit -p ~/.dotfiles'
-# tmux
-[[abbrevs]]
-name = "tmux"
-abbr = "t"
-snippet = 'tmux'
-[[abbrevs]]
-name = "tmux"
-abbr = "ta"
-snippet = 'tmux a'
-[[abbrevs]]
-name = "tmux Def"
-abbr = "td"
-snippet = 'tmux a -t Def || tmux new -s Def'
-# etc
+
+##### etc #####
 [[abbrevs]]
 name = "clear"
 abbr = "c"
@@ -209,7 +219,8 @@ snippet = 'grep -i'
 name = "yazi"
 abbr = "yz"
 snippet = 'yazi'
-# etc: SYSTEM
+
+##### etc: SYSTEM #####
 [[abbrevs]]
 name = "check host"
 abbr = "chro"
