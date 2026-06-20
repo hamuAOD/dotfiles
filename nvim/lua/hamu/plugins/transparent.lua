@@ -2,6 +2,9 @@ return
 {
   'xiyaowong/transparent.nvim',
   lazy = false,
+  init = function()
+    vim.g.transparent_enabled = vim.env.WEZTERM_PANE ~= nil
+  end,
   config = function()
     require("transparent").setup({
       groups = { -- table: default groups
