@@ -5,6 +5,9 @@ eval "$(starship init zsh)"
 ### Add at or near the top
 # source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
+export LANG=ja_JP.UTF-8
+export SUDO_EDITOR=nvim EDITOR=nvim VISUAL=nvim
+
 ##### History #####
 HISTFILE=~/.zsh_history      # ヒストリファイルを指定
 HISTSIZE=10000               # ヒストリに保存するコマンド数
@@ -107,3 +110,18 @@ if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
     [ -r $file ] && source $file
   done
 fi
+
+##### PATH #####
+# export PATH="/opt/homebrew/opt/git/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+# export PATH="/opt/homebrew/sbin:$PATH"
+# export PATH="/opt/homebrew/bin:$PATH"
+
+# export PATH="$PATH:/Users/hamu/go/bin"
+# export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/Documents/py"
+export PATH="$PATH:$HOME/Documents/Swift/bin"
+export PATH="$PATH:$HOME/Documents/ShellScript"
+
+typeset -U path PATH
