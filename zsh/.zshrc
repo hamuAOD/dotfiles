@@ -125,7 +125,7 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 # export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/Documents/py"
-export PATH="$PATH:$HOME/Documents/Swift/bin"
 export PATH="$PATH:$HOME/Documents/ShellScript"
+# export PATH="$PATH:$HOME/Documents/Swift/bin"
 
 typeset -U path PATH
