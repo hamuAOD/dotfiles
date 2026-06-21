@@ -3,7 +3,7 @@ return
   'xiyaowong/transparent.nvim',
   lazy = false,
   init = function()
-    vim.g.transparent_enabled = vim.env.WEZTERM_PANE ~= nil
+    vim.g.transparent_enabled = vim.env.WEZTERM_PANE ~= nil or vim.env.SSH_CONNECTION ~= nil or vim.env.SSH_TTY ~= nil
   end,
   config = function()
     require("transparent").setup({
