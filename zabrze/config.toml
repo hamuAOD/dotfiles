@@ -6,7 +6,7 @@ snippet = 'tr ":" "\n"'
 [[abbrevs]]
 name = "dotfiles"
 abbr = "dot"
-snippet = '~/dotfiles'
+snippet = '~/.dotfiles'
 global = true
 [[abbrevs]]
 name = "CD"
@@ -178,6 +178,10 @@ snippet = 'clear'
 name = "exit"
 abbr = "e"
 snippet = 'exit'
+[[abbrevs]]
+name = "ln"
+abbr = "ln"
+snippet = 'ln -sf'
 [[abbrevs]]
 name = "source zshrc"
 abbr = "sz"
