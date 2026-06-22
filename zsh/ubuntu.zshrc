@@ -1,7 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.deno/bin
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -180,6 +176,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# >>> Codex installer >>>
+##### PATH #####
+export PATH="$HOME/.deno/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-# <<< Codex installer <<<
+# export PATH="$HOME/.deno/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.deno/bin:$PATH
+
+typeset -U path PATH
