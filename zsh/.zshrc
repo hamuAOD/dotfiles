@@ -36,6 +36,9 @@ bindkey "^O" edit-command-line
 alias -s md="bat"
 alias -s lua"$EDITOR"
 
+##### alias #####
+alias path='echo -e ${PATH//:/\\n}'
+
 ##### rbenv #####
 if [[ -e /opt/homebrew/bin/rbenv ]]; then
   if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
