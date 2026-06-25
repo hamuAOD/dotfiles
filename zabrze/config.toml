@@ -115,16 +115,6 @@ name = "scp Ubuntu Server Downloads"
 abbr = "scpu"
 snippet = 'scp {} hamu@192.168.1.10:/home/hamu/Downloads/'
 
-##### Scripts #####
-[[abbrevs]]
-name = "MakeCue"
-abbr = "mc"
-snippet = 'MakeCue'
-[[abbrevs]]
-name = "Lyrics2Txt"
-abbr = "lt"
-snippet = 'Lyrics2Txt'
-
 ##### Tmux #####
 [[abbrevs]]
 name = "tmux"
