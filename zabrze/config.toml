@@ -3,15 +3,26 @@
 name = "check host"
 abbr = "trdq"
 snippet = 'tr ":" "\n"'
+##### Location #####
 [[abbrevs]]
 name = "dotfiles"
-abbr = "dot"
+abbr = "/dot"
 snippet = '~/.dotfiles'
 global = true
 [[abbrevs]]
 name = "CD"
 abbr = "/cd"
 snippet = '~/Music/CD'
+global = true
+[[abbrevs]]
+name = ".local/bin"
+abbr = "/dlb"
+snippet = '~/.local/bin'
+global = true
+[[abbrevs]]
+name = "Shell Directory"
+abbr = "/shell"
+snippet = '~/Documents/ShellScript'
 global = true
 
 ##### Zoxide #####
@@ -171,7 +182,7 @@ snippet = 'exit'
 [[abbrevs]]
 name = "ln"
 abbr = "ln"
-snippet = 'ln -sf'
+snippet = 'ln -sfv'
 [[abbrevs]]
 name = "source zshrc"
 abbr = "sz"
