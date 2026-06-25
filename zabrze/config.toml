@@ -6,8 +6,13 @@ snippet = 'tr ":" "\n"'
 ##### Location #####
 [[abbrevs]]
 name = "dotfiles"
-abbr = "/dot"
+abbr = "/dd"
 snippet = '~/.dotfiles'
+global = true
+[[abbrevs]]
+name = "Downloads"
+abbr = "/d"
+snippet = '~/Downloads'
 global = true
 [[abbrevs]]
 name = "CD"
@@ -21,7 +26,7 @@ snippet = '~/.local/bin'
 global = true
 [[abbrevs]]
 name = "Shell Directory"
-abbr = "/shell"
+abbr = "/sh"
 snippet = '~/Documents/ShellScript'
 global = true
 
