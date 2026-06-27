@@ -9,6 +9,20 @@ return {
       { '<Leader>fr', function() require('telescope.builtin').registers() end, desc = "Registers" },
       { '<Leader>fc', function() require('telescope.builtin').command_history() end, desc = "Command History" },
       { '<Leader>ff', function() require('telescope.builtin').find_files() end, desc = "Find Files" },
+      { '<Leader>ff', function() require("telescope.builtin").find_files({
+          cwd = vim.fn.expand("~"),
+          hidden = true,
+          find_command = {
+            "rg",
+            "--files",
+            "--color", "never",
+            "--glob", "!Library/**",
+            "--glob", "!.cache/**",
+            "--glob", "!.local/**",
+            "--glob", "!.rustup/**",
+          },
+        })
+      end, desc = "Find Files" },
       { '<Leader>fg', function() require('telescope.builtin').live_grep() end, desc = "Live Grep" },
       { '<Leader>fo', function() require('telescope.builtin').oldfiles() end, desc = "Old Files" },
       { '<Leader>fk', function() require('telescope.builtin').keymaps() end, desc = "keymaps" },
