@@ -62,7 +62,7 @@ auto_switch = false
 # Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
 # prefix = "ctrl+b"
-prefix = "ctrl+u"
+prefix = "ctrl+b"
 
 # Prefix-mode actions
 # help = "prefix+?"
@@ -73,13 +73,16 @@ prefix = "ctrl+u"
 # workspace_picker = "prefix+w"
 # goto = "prefix+g"
 # new_workspace = "prefix+shift+n"
+new_workspace = "prefix+t"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # rename_workspace = "prefix+shift+w"
 # close_workspace = "prefix+shift+d"
 # previous_workspace = "" # optional, unset by default
+previous_workspace = "prefix+p"
 # next_workspace = ""     # optional, unset by default
+next_workspace = "prefix+f"
 # previous_agent = ""     # optional, unset by default
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
