@@ -48,8 +48,22 @@ return {
 
       dashboard.section.buttons.val = {
         dashboard.button("n", " New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("f", " Find file", "<cmd>Telescope find_files<CR>"),
-        dashboard.button("g", "󰷾  Find text", "<cmd>Telescope live_grep<CR>"),
+        dashboard.button("f", " Find file", function()
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.expand("~"),
+            hidden = true,
+            find_command = {
+              "rg",
+              "--files",
+              "--color", "never",
+              "--glob", "!Library/**",
+              "--glob", "!.cache/**",
+              "--glob", "!.local/**",
+              "--glob", "!.rustup/**",
+            },
+          })
+        end),
+        dashboard.button("g", "󰷾  Find text", require('telescope.builtin').live_grep),
         dashboard.button("b", " File browser", ":Neotree toggle<CR>"),
         dashboard.button("o", "󰄉  Old files", require('telescope.builtin').oldfiles),
         dashboard.button("l", "󰒲  Lazy", ":Lazy<CR>"),
