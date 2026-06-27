@@ -1,3 +1,4 @@
+onboarding = false
 # herdr configuration
 # Place this file at ~/.config/herdr/config.toml
 
@@ -62,7 +63,7 @@ auto_switch = false
 # Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
 # prefix = "ctrl+b"
-prefix = "ctrl+b"
+prefix = "ctrl+semicolon"
 
 # Prefix-mode actions
 # help = "prefix+?"
@@ -127,6 +128,11 @@ copy_mode = "prefix+i"
 # key = "prefix+alt+g"
 # type = "pane"
 # command = "lazygit"
+[[keys.command]]
+key = "prefix+shift+q"
+type = "shell"
+command = "herdr server stop"
+description = "stop Herdr server"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.

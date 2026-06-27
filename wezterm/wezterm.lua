@@ -83,7 +83,7 @@ config.window_decorations = "RESIZE"
 
 -- Key Configs
 -- config.disable_default_key_bindings = true
-config.leader = { key = ';', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.leader = { key = ':', mods = 'CTRL|SHIFT', timeout_milliseconds = 1000 }
 
 config.keys = {
   {
