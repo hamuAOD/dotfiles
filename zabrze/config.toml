@@ -7,27 +7,27 @@ snippet = 'tr ":" "\n"'
 [[abbrevs]]
 name = "dotfiles"
 abbr = "/dd"
-snippet = '~/.dotfiles'
+snippet = '~/.dotfiles{}'
 global = true
 [[abbrevs]]
 name = "Downloads"
 abbr = "/d"
-snippet = '~/Downloads'
+snippet = '~/Downloads{}'
 global = true
 [[abbrevs]]
 name = "CD"
 abbr = "/cd"
-snippet = '~/Music/CD'
+snippet = '~/Music/CD{}'
 global = true
 [[abbrevs]]
 name = ".local/bin"
 abbr = "/dlb"
-snippet = '~/.local/bin'
+snippet = '~/.local/bin{}'
 global = true
 [[abbrevs]]
 name = "Shell Directory"
 abbr = "/sh"
-snippet = '~/Documents/ShellScript'
+snippet = '~/Documents/ShellScript{}'
 global = true
 
 ##### Zoxide #####
@@ -188,6 +188,10 @@ snippet = 'exit'
 name = "ln"
 abbr = "ln"
 snippet = 'ln -sfv'
+[[abbrevs]]
+name = "herdr"
+abbr = "hd"
+snippet = 'herdr'
 [[abbrevs]]
 name = "source zshrc"
 abbr = "sz"
