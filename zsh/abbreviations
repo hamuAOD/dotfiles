@@ -16,9 +16,9 @@ abbr vz="nvim ~/.zshrc"
 abbr vd="nvim ~/Downloads"
 abbr va="nvim ~/.dotfiles/zsh/abbreviations"
 # Path
-abbr "/d"="~/Downloads"
-abbr "/dd"="~/.dotfiles"
-abbr "/sh"="~/Documents/ShellScript"
+abbr -g "/d"="~/Downloads"
+abbr -g "/dd"="~/.dotfiles"
+abbr -g "/sh"="~/Documents/ShellScript"
 # # eza
 abbr ls='eza --icons=always'
 abbr ll='eza --icons=always -l --time-style long-iso'
