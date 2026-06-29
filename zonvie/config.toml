@@ -14,7 +14,7 @@ linespace = 2
 
 [window]
 blur = true
-opacity = 0.80
+opacity = 0.93
 blur_radius = 20
 
 [scrollbar]
