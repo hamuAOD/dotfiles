@@ -107,8 +107,8 @@ bindkey "^O" edit-command-line
 
 ##### zsh-abbr #####
 source ~/.zsh-abbr/zsh-job-queue/zsh-job-queue.zsh
-source ~/.zsh-abbr/zsh-abbr.zsh
 export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.dotfiles/zsh/abbreviations"
+source ~/.zsh-abbr/zsh-abbr.zsh
 
 # User configuration
 #
