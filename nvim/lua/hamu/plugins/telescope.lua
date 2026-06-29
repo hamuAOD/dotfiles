@@ -8,7 +8,6 @@ return {
       { '<Leader>r', function() require('telescope.builtin').registers() end, desc = "Registers" },
       { '<Leader>fr', function() require('telescope.builtin').registers() end, desc = "Registers" },
       { '<Leader>fc', function() require('telescope.builtin').command_history() end, desc = "Command History" },
-      { '<Leader>ff', function() require('telescope.builtin').find_files() end, desc = "Find Files" },
       { '<Leader>ff', function() require("telescope.builtin").find_files({
           cwd = vim.fn.expand("~"),
           hidden = true,
@@ -55,9 +54,14 @@ return {
           generic_sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
           file_sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
         },
+        pickers = {
+          live_grep = {
+            sorter = require("telescope.sorters").highlighter_only({}),
+          },
+        },
         extensions = {
           fzf = {
-            fuzzy = true,          -- あいまい検索を有効化
+            fuzzy = true,                   -- あいまい検索を有効化
             override_generic_sorter = true, -- デフォルトのソートを置き換え
             override_file_sorter = true,    -- ファイルソートを置き換え
             case_mode = "smart_case",       -- 大文字小文字の扱いを柔軟に
