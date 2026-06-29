@@ -68,6 +68,7 @@ prefix = "ctrl+semicolon"
 # Prefix-mode actions
 # help = "prefix+?"
 # settings = "prefix+s"
+settings = "prefix+,"
 # detach = "prefix+q"
 # reload_config = "prefix+shift+r"
 # open_notification_target = "prefix+o"
@@ -106,6 +107,8 @@ next_workspace = "prefix+f"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
 # split_vertical = "prefix+v"
 # split_horizontal = "prefix+minus"
+split_vertical = "prefix+v"
+split_horizontal = "prefix+s"
 # close_pane = "prefix+x"
 copy_mode = "prefix+i"
 # zoom = "prefix+z"       # legacy alias: fullscreen
@@ -130,6 +133,7 @@ copy_mode = "prefix+i"
 # command = "lazygit"
 [[keys.command]]
 key = "prefix+shift+q"
+
 type = "shell"
 command = "herdr server stop"
 description = "stop Herdr server"

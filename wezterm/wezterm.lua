@@ -94,6 +94,7 @@ config.keys = {
       act.SendKey { key = 'L', mods = 'CTRL' },
     },
   },
+  { key = 'R',          mods = 'CMD|SHIFT', action = wezterm.action.ReloadConfiguration, },
   { key = 'LeftArrow',  mods = 'OPT',    action = act{SendString="\x1bb"}},
   { key = 'RightArrow', mods = 'OPT',    action = act{SendString="\x1bf"}},
   { key = 'LeftArrow',  mods = 'CMD',    action = act{SendString="\x01"}},
@@ -111,8 +112,8 @@ config.keys = {
   { key = 'b',          mods = 'LEADER', action = act.ActivateTabRelative(-1)},
   { key = 'w',          mods = 'LEADER', action = act.CloseCurrentTab{confirm = true}},
   -- Pane
-  { key = 's',          mods = 'LEADER', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
-  { key = 'v',          mods = 'LEADER', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
+  { key = 'v',          mods = 'LEADER', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
+  { key = 's',          mods = 'LEADER', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
   { key = 'h',          mods = 'LEADER', action = act.ActivatePaneDirection 'Left'},
   { key = 'l',          mods = 'LEADER', action = act.ActivatePaneDirection 'Right'},
   { key = 'k',          mods = 'LEADER', action = act.ActivatePaneDirection 'Up'},
