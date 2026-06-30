@@ -12,3 +12,8 @@ function Linemode:size_and_mtime()
   return string.format("%s %s", size and ya.readable_size(size) or "-", time)
 end
 
+-- 別インスタンス間でヤンクを共有
+require("session"):setup {
+  sync_yanked = true,
+}
+
