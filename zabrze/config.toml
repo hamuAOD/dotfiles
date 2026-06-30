@@ -189,6 +189,10 @@ name = "ln"
 abbr = "ln"
 snippet = 'ln -sfv'
 [[abbrevs]]
+name = "ripgrep"
+abbr = "rg"
+snippet = 'rg -i'
+[[abbrevs]]
 name = "herdr"
 abbr = "hd"
 snippet = 'herdr'
