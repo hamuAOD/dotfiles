@@ -164,7 +164,9 @@ vim.keymap.set("v", "<leader>ct", function()
 end, { desc = "Convert YYYYMMDD → YYYY-MM-DD in selection" })
 
 -- "Show Diagnostic"を表示
-keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic message", noremap = true, silent = true })
+keymap.set("n", "<leader>d", function()
+  vim.diagnostic.open_float()
+end, { desc = "Show diagnostic message", noremap = true, silent = true })
 
 -- JSON formatter : brew install jq
 vim.api.nvim_create_autocmd("FileType", {
