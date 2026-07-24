@@ -91,7 +91,7 @@ format = '[ ❱ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)
 
 [fill]
 symbol = '─'
-style = 'fg:#606060 bold'
+style = 'fg:#505050 bold'
 
 [character]
 error_symbol = "[❯](bold #ff5555)"
