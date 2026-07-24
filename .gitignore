@@ -1,0 +1,5 @@
+.DS_Store
+lazy-lock.json
+.vimrc
+.claude
+nvim.log

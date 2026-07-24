@@ -1,0 +1,44 @@
+return
+{
+  'xiyaowong/transparent.nvim',
+  lazy = false,
+  init = function()
+    -- vim.g.transparent_enabled = vim.env.WEZTERM_PANE ~= nil or vim.env.SSH_CONNECTION ~= nil or vim.env.SSH_TTY ~= nil
+    vim.g.transparent_enabled = true
+  end,
+  config = function()
+    require("transparent").setup({
+      groups = { -- table: default groups
+        'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+        'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+        'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+        'SignColumn', 'CursorLineNr', 'EndOfBuffer',
+      },
+      extra_groups = {
+        "NormalFloat",      -- plugins which have float panel such as Lazy, Mason, LspInfo
+        "NvimTreeNormal",
+        "NeoTreeNormal",
+        "NeoTreeNormalNC"
+      }, -- table: additional groups that should be cleared
+      exclude_groups = {    -- table: groups you don't want to clear
+        "NoicePopup",
+        "NoiceCmdlinePopup",
+        "NoiceCmdlinePopupBorder",
+        "NoiceLspProgressTitle",
+        "NoiceLspProgressClient",
+        "NoiceLspProgressSpinner",
+      },
+    })
+
+    -- require("nvim-surround").setup({
+    --   -- Configuration here, or leave empty to use defaults
+    -- })
+    -- require('transparent').clear_prefix('lualine')
+    -- require('transparent').clear_prefix('NeoTree')
+    -- keymap
+    vim.keymap.set('n', '<Leader>tt', ':TransparentToggle<CR>', {desc = "Toggle Transparent", noremap = true, silent = true})
+
+    vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "ExtraGroup" })
+-- vimscript: let g:transparent_groups = extend(get(g:, 'transparent_groups', []), ["ExtraGroup"])
+  end
+}

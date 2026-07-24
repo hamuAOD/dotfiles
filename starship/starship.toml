@@ -1,0 +1,146 @@
+# ref : https://namileriblog.com/terminal/terminal_setting_starship/
+# ref : https://tech-unlimited.com/color.html
+
+format = """
+$fill\n\
+$os\
+[❱ ](fg:#7aa2f7 bold)\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+$python\
+$rust\
+$cmd_duration\
+\n$character\
+"""
+# right_format = """
+# $fill\
+# $battery\
+# $time\
+# \n$character\
+# """
+
+[os]
+# format = "[$symbol](bold white)"
+format = "[$symbol]($style)"
+# style = 'fg:#F8F8F2 bg:#7aa2f7 bold white'
+style = 'fg:#7aa2f7 bold'
+disabled = false
+[os.symbols]
+Macos = " "  # nf-fa-apple
+Ubuntu = " " # nf-linux-ubuntu
+Debian = " " # nf-linux-debian
+Windows = "󰍲 "
+
+[hostname]
+ssh_only = true
+style = 'fg:#FF79C6 bold'
+ssh_symbol = ' '
+format = '[$ssh_symbol$hostname ]($style)'
+disabled = false
+
+[directory]
+truncation_length = 100
+truncation_symbol = ' ' # nf-fa-folder_open
+truncate_to_repo = false
+home_symbol = ' ~' # nf-fa-home
+style = 'fg:#FF79C6 bold'
+read_only = ' 󰌾 ' # nf-md-lock
+read_only_style = 'fg:#F872bE bold'
+format = '[$path]($style)[$read_only]($read_only_style)'
+
+[git_branch]
+symbol = '  ' # nf-fa-github_alt, nf-fa-code_fork
+truncation_length = 4
+truncation_symbol = ''
+style = 'fg:#7aa2f7 bold'
+format = '[ ❱ $symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
+# format = '[ ❱ $symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
+
+[git_status]
+style = 'fg:#FFB86C bold'
+conflicted = '='
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕'
+up_to_date = '✓'
+untracked = '?'
+# stashed = '$'
+modified = '!${count}'
+renamed = '»'
+deleted = '✘'
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+[git_metrics]
+added_style = 'fg:#9ece6a bold'
+deleted_style = 'fg:#9ece6a bold'
+format = '[+$added/-$deleted]($deleted_style)'
+disabled = false
+
+[python]
+symbol = '󰌠 '
+style = 'fg:#f1fa8c bold'
+format = '[ ❱ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[rust]
+symbol = '󱘗 '
+style = 'fg:#f1fa8c bold'
+format = '[ ❱ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[fill]
+symbol = '─'
+style = 'fg:#606060 bold'
+
+[character]
+error_symbol = "[❯](bold #ff5555)"
+success_symbol = "[❯](bold #50fa7b)"
+vimcmd_symbol = "[❮](bold #BD93F9)"
+
+[cmd_duration]
+min_time = 1_000
+style = 'fg:#FFB86C bold'
+disabled = false
+format = "[ ❱  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
+# format = "[ ❰  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
+
+[battery]
+# style = 'fg:#e0af68'
+# style = "bold blue"
+format = ' ❰ [$symbol$percentage]($style)'
+# format = ' ❰ [$symbol$percentage]($style)'
+[[battery.display]]
+threshold = 100
+style = "bold blue"
+
+[time]
+disabled = false
+style = 'fg:#8BE9FD bold'
+format = '[ ❰  $time]($style)' # nf-pl-right_soft_divider, nf-fa-clock_o
+# format = '[   $time]($style)' # nf-pl-right_soft_divider, nf-fa-clock_o
+time_format = '%T'
+utc_time_offset = '+9'
+use_12hr = false
+
+### Dracula Default Color
+  # bg = "#282A36",
+  # selection = "#44475A",
+  # fg = "#F8F8F2",
+  # comment = "#6272A4",
+  # cyan = "#8BE9FD",
+  # green = "#50FA7B",
+  # orange = "#FFB86C",
+  # pink = "#FF79C6",
+  # purple = "#BD93F9",
+  # red = "#FF5555",
+  # yellow = "#F1FA8C",
+  # black = "#21222C",
+  # white = "#F8F8F2",
+  # bright_red = "#FF6E6E",
+  # bright_green = "#69FF94",
+  # bright_yellow = "#FFFFA5",
+  # bright_blue = "#D6ACFF",
+  # bright_magenta = "#FF92DF",
+  # bright_cyan = "#A4FFFF",
+  # bright_white = "#FFFFFF",

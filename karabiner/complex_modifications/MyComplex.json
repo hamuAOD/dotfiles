@@ -1,0 +1,266 @@
+{
+  "title": "My Complex",
+  "rules": [
+    {
+      "description": "Esc double tap to Esc and Eisuu",
+      "manipulators": [
+        {
+          "description": "Esc double tap to Esc and Eisuu",
+          "type": "basic",
+          "conditions": [
+            { "name": "escape_tapped_once", "type": "variable_if", "value": 1 }
+          ],
+          "from": { "key_code": "escape" },
+          "to": [
+            { "key_code": "escape" },
+            { "key_code": "japanese_eisuu" },
+            { "set_variable": { "name": "escape_tapped_once", "value": 0 } }
+          ]
+        },
+        {
+          "description": "Esc single tap",
+          "type": "basic",
+          "from": { "key_code": "escape" },
+          "to": [
+            { "key_code": "escape" },
+            { "set_variable": { "name": "escape_tapped_once", "value": 1 } }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              { "set_variable": { "name": "escape_tapped_once", "value": 0 } }
+            ],
+            "to_if_canceled": [
+              { "set_variable": { "name": "escape_tapped_once", "value": 0 } }
+            ]
+          },
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 500
+          }
+        }
+      ]
+    },
+    {
+      "description": "Remap Caps Lock to Ctrl when held, Esc when tapped; double tap to Esc and Eisuu",
+      "manipulators": [
+        {
+          "description": "Caps Lock double tap to Esc and Eisuu",
+          "type": "basic",
+          "conditions": [
+            { "name": "caps_lock_tapped_once", "type": "variable_if", "value": 1 }
+          ],
+          "from": { "key_code": "caps_lock", "modifiers": { "optional": [ "any" ] } },
+          "to": [ { "key_code": "right_control", "lazy": true } ],
+          "to_if_alone": [
+            { "key_code": "escape" },
+            { "key_code": "japanese_eisuu" },
+            { "set_variable": { "name": "caps_lock_tapped_once", "value": 0 } }
+          ]
+        },
+        {
+          "description": "Caps Lock to Ctrl when held, Esc when tapped",
+          "type": "basic",
+          "from": { "key_code": "caps_lock", "modifiers": { "optional": [ "any" ] } },
+          "to": [ { "key_code": "right_control", "lazy": true } ],
+          "to_if_alone": [
+            { "key_code": "escape" },
+            { "set_variable": { "name": "caps_lock_tapped_once", "value": 1 } }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              { "set_variable": { "name": "caps_lock_tapped_once", "value": 0 } }
+            ],
+            "to_if_canceled": [
+              { "set_variable": { "name": "caps_lock_tapped_once", "value": 0 } }
+            ]
+          },
+          "parameters": {
+            "basic.to_delayed_action_delay_milliseconds": 500
+          }
+        }
+      ]
+    },
+    {
+      "description": "Remap Left Control/Option to Copy/Paste when tapped",
+      "manipulators": [ {
+          "description": "Remap Left Control to Ctrl when held, ⌘+c when tapped",
+          "type": "basic",
+          "from": { "key_code": "left_control" },
+          "to": [ { "key_code": "left_control" } ],
+          "to_if_alone": [ {
+            "key_code": "c",
+            "modifiers": [ "left_command" ]
+          } ]
+        },
+        {
+          "description": "Remap Left Option to option when held, ⌘+v when tapped",
+          "type": "basic",
+          "from": { "key_code": "left_option" },
+          "to": [ { "key_code": "left_option" } ],
+          "to_if_alone": [ {
+            "key_code": "v",
+            "modifiers": [ "left_command" ]
+          } ]
+        }
+      ]
+    },
+    {
+      "description": "Shift + Backspace to DEL",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": { "mandatory": [ "shift" ] }
+          },
+          "to": [ { "key_code": "delete_forward" } ]
+        }
+      ]
+    },
+    {
+      "description": "Command + Shift Mod",
+      "manipulators": [
+        {
+          "description": "open Terminal",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": { "mandatory": [ "command", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "open -a 'Wezterm'" }
+          ]
+        },
+        {
+          "description": "open Safari",
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": { "mandatory": [ "command", "shift" ] }
+          },
+          "to": [
+            { "shell_command": "open -a 'Safari'" }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Command Mod",
+      "manipulators": [
+        {
+          "description": "Cmd + Period to ESC",
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": { "mandatory": [ "command" ] }
+          },
+          "to": [ { "key_code": "escape" } ]
+        },
+        {
+          "description": "Remap Left-Command to Eisuu",
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
+          "to": [ { "key_code": "left_command" } ],
+          "to_if_held_down": [ { "key_code": "left_command" } ],
+          "to_if_alone": [ { "key_code": "japanese_eisuu" } ]
+        },
+        {
+          "description": "Remap Left-Command to Kana",
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": { "optional": [ "any" ] }
+          },
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
+          "to": [ { "key_code": "right_command" } ],
+          "to_if_held_down": [ { "key_code": "right_command" } ],
+          "to_if_alone": [ { "key_code": "japanese_kana" } ]
+        }
+      ]
+    },
+    {
+      "description": "Right Ctrl Mod",
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "Right Control + Option -> Left Control + Option",
+          "from": {
+            "key_code": "left_option",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [{
+            "key_code": "left_option",
+            "modifiers": "left_control",
+            "lazy": true
+          }]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + h to left arrow",
+          "from": {
+            "key_code": "h",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "left_arrow" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + j to down arrow",
+          "from": {
+            "key_code": "j",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "down_arrow" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + k to up arrow",
+          "from": {
+            "key_code": "k",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "up_arrow" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + l to right arrow",
+          "from": {
+            "key_code": "l",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "right_arrow" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + '.' to backquart",
+          "from": {
+            "key_code": "comma",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "grave_accent_and_tilde" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + '.' to backquart",
+          "from": {
+            "key_code": "period",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "hyphen" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + '/' to hyphen",
+          "from": {
+            "key_code": "slash",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "equal_sign" } ]
+        }
+      ]
+    }
+  ]
+}

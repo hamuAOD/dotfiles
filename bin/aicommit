@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+
+(( $+commands[codex] )) || {
+  print -u2 "codex is not installed."
+  exit 1
+}
+
+copy_to_clipboard=true
+[[ "${1:-}" == "--no-copy" ]] && copy_to_clipboard=false
+
+diff=$(git diff --cached --no-color)
+
+[[ -n "$diff" ]] || {
+  print -u2 "No staged changes."
+  exit 1
+}
+
+message=$(
+  print -r -- "$diff" |
+    codex exec --ephemeral \
+      --sandbox read-only \
+      -m gpt-5.6-sol \
+      -c model_reasoning_effort=low \
+      'Return exactly one short English Git commit subject. No explanation or Markdown. Describe only actual changes and preserve identifier casing.' \
+      2>/dev/null
+) || exit
+
+print -r -- "$message"
+
+if [[ "$copy_to_clipboard" == true ]] && (( $+commands[pbcopy] )); then
+  print -rn -- "$message" | pbcopy
+  print "(copied to clipboard)"
+fi

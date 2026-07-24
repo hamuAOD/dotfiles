@@ -1,0 +1,104 @@
+# git clone https://github.com/olets/zsh-abbr ~/.zsh-abbr
+# cd ~/.zsh-abbr && git submodule update --init
+
+### mis
+abbr c='clear'
+abbr e='exit'
+abbr sz='source ~/.zshrc'
+abbr ez='exec zsh'
+abbr -g dnull'/dev/null'
+### for Mac ###
+abbr sleep='pmset sleepnow'
+### for Ubuntu ###
+abbr aptup='sudo apt update && sudo apt upgrade -y'
+abbr nlup='sudo nala update && sudo nala upgrade -y'
+### Path
+abbr -g "/d"="~/Downloads/%"
+abbr -g "/dd"="~/.dotfiles/%"
+abbr -g "/dc"="~/.config/%"
+abbr -g "/dlb"="~/.local/bin/%"
+abbr -g "/sh"="~/Documents/ShellScript/%"
+abbr -g "/cd"="~/Music/CD/%"
+### Neovim ###
+abbr v='nvim'
+abbr vb='nvim +'
+abbr vf='nvim $(fzf)'
+abbr vc='nvim ~/.dotfiles/nvim/lua/hamu/'
+abbr vz='nvim ~/.zshrc'
+abbr vo='nvim "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/ObsidianVault"'
+abbr vt='nvim ~/Documents/temp.txt'
+abbr vab="nvim ~/.dotfiles/zsh/abbreviations"
+abbr vcd='nvim ~/Music/CD'
+abbr vdw="nvim ~/Downloads"
+abbr vij='nvim ~/Music/伊集院光\ 深夜の馬鹿力.cue'
+abbr vsh='nvim ~/Documents/ShellScript'
+### Homebrew ###
+abbr br='brew'
+abbr bu='brew update && brew upgrade -y && brew cleanup'
+abbr brs='brew search'
+abbr bri='brew install'
+abbr bru='brew uninstall'
+abbr brf='brew info'
+abbr brc='brew cleanup'
+### Zoxide
+abbr cd='z'
+abbr zd='z ~/.dotfiles'
+### FD
+### eza
+abbr ls='eza'
+abbr ll='eza -l'
+abbr lls='eza --total-size -l'
+abbr la='eza -la'
+abbr las='eza --total-size -la'
+# abbr ls='eza --icons=always'
+# abbr ll='eza --icons=always -l --time-style long-iso'
+# abbr la='eza --icons=always -la --time-style long-iso'
+### tokscale
+abbr token='deno x npm:tokscale@latest'
+### Command-Move ###
+abbr cp='cp -aiv'
+abbr cpm='cp -aiv % & progress -mp $!'
+abbr mv='mv -iv'
+abbr mvm='mv -iv % & progress -mp $!'
+abbr mkdir='mkdir -p'
+abbr trm='trash -v'
+### Tmux ###
+abbr tm="tmux"
+abbr tma='tmux a'
+# abbr tmd='tmux a -t Def || tmux new -s Def'
+### XATTR ###
+abbr xd='xattr -d com.apple.metadata:kMDItemWhereFroms'
+abbr xr='xattr -rc'
+### 7Zip ###
+abbr 7zc="7zz a -ba -t7z -xr'!.*'"
+abbr 7zu='7zz x'
+### Lazygit ###
+abbr lg="lazygit"
+abbr lgd='lazygit -p ~/.dotfiles'
+### etc ###
+abbr fd='fd -IH'
+abbr yz="yazi"
+abbr ln='ln -snvf'
+abbr -g rg='rg -i'
+abbr -g grep='grep -i'
+abbr hd='herdr'
+abbr tty'tty-clock -c -C 4'
+abbr ttys='tty-clock -sc -C 4'
+abbr bottom='btm'
+abbr yz='yazi'
+### Git ###
+abbr g='git'
+abbr ga='git add'
+abbr gad='git add .'
+abbr gbr='git branch'
+abbr gcm='git commit -m "%"'
+abbr gst='git status'
+abbr gco='git chekout'
+abbr gdf='git diff'
+abbr glg='git log'
+abbr gpl='git pull'
+abbr gps='git push'
+### yt-dlp
+abbr ytdt='yt-dlp -P ~/Downloads -o "%(upload_date>%Y-%m-%d)s - %(title)s [%(id)s].%(ext)s" "https://www.twitch.tv/videos/"'
+abbr ytdtl='yt-dlp -P ~/Downloads -o "%(upload_date>%Y-%m-%d)s - %(title)s [%(id)s].%(ext)s" -a ~/Downloads/yt-dlp-list.txt'
+abbr mvtomeru='mv -iv ~/Downloads/2026* /mnt/SV-VD/息根とめる/2026/ & progress -mp $!'

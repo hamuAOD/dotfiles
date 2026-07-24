@@ -1,0 +1,55 @@
+gui:
+  showIcons: true
+  nerdFontsVersion: "3"
+  showNumstatInFilesView: true
+  showDivergenceFromBaseBranch: arrowAndNumber
+  sidePanelWidth: 0.25
+  showRandomTip: false
+  mouseEvents: false
+  # DRACULA
+  theme:
+   activeBorderColor:
+     - "#FF79C6"
+     - bold
+   inactiveBorderColor:
+     - "#BD93F9"
+   searchingActiveBorderColor:
+     - "#8BE9FD"
+     - bold
+   optionsTextColor:
+     - "#6272A4"
+   selectedLineBgColor:
+     - "#6272A4"
+   inactiveViewSelectedLineBgColor:
+     - bold
+   cherryPickedCommitFgColor:
+     - "#6272A4"
+   cherryPickedCommitBgColor:
+     - "#8BE9FD"
+   markedBaseCommitFgColor:
+     - "#8BE9FD"
+   markedBaseCommitBgColor:
+     - "#F1FA8C"
+   unstagedChangesColor:
+     - "#FF5555"
+   defaultFgColor:
+     - "#F8F8F2"
+# require git-delta
+git:
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+update:
+  method: never
+###customCommands:
+customCommands:
+- key: "C"
+  context: "files"
+  description: "AI commit"
+  prompts:
+    - type: "input"
+      title: "Commit message"
+      key: "Message"
+      initialValue: '{{ runCommand "aicommit --no-copy" }}'
+  command: 'git commit -m {{.Form.Message | quote}}'
+  loadingText: "Committing"
