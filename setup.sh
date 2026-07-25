@@ -4,8 +4,8 @@ LNOPT="-snv"
 # LNOPT="-snvf"
 
 ### Zsh
-ln $LM   "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
-ln $LM   "$HOME/.dotfiles/zsh/.zshenv" "$HOME/.zshenv"
+ln $LNOPT "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
+ln $LNOPT "$HOME/.dotfiles/zsh/.zshenv" "$HOME/.zshenv"
 ### Zsh for Ubuntu
 # ln $LNOPT "$HOME/.dotfiles/zsh/ubuntu.zshrc" "$HOME/.zshrc"
 # ln $LNOPT "$HOME/.dotfiles/zsh/ubuntu.zshenv" "$HOME/.zshenv"
