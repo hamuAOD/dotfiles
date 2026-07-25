@@ -21,10 +21,9 @@ opt.cursorcolumn = true                                     -- カーソルの�
 opt.wrap = false                                            -- 折り返し設定
 opt.termguicolors = true                                    -- 24bitカラー表示を有効にする
 --
--- DISPLAY/WAYLAND_DISPLAYが無い(SSH等でX11/Waylandが使えない)場合は
--- OSC52でターミナル経由のクリップボード同期にフォールバックする
--- pasteはターミナル側の応答待ちでハングすることがあるためcopyのみ設定し、
--- 貼り付けはnvim内部レジスタ(端末のbracketed pasteでの貼り付け)に任せる
+-- SSH接続時はOSC52でターミナル側のクリップボードへコピーする
+-- OSC52によるpasteは応答待ちでハングすることがあるため使用せず、
+-- 貼り付けは端末のbracketed paste（Cmd-Vなど）に任せる
 local is_ssh = vim.env.SSH_CONNECTION ~= nil or vim.env.SSH_TTY ~= nil
 --local is_ssh = vim.env.DISPLAY == nil and vim.env.WAYLAND_DISPLAY == nil
 if is_ssh then
