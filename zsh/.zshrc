@@ -119,6 +119,26 @@ alias ytdh='$HOME/Documents/ShellScript/ytd.sh --hd'
 alias ytd4='$HOME/Documents/ShellScript/ytd.sh --4k'
 alias ytda='$HOME/Documents/ShellScript/ytd.sh --aud'
 
+### My Functions ###
+7zc() {
+  if [[ -z "${1:-}" ]]; then
+    echo "Usage: 7zc <source> [output.7z] [7-Zip options]"
+    return 1
+  fi
+
+  local source="$1"
+  shift
+
+  local output="${source%/}.7z"
+
+  if [[ "${1:-}" == *.7z ]]; then
+    output="$1"
+    shift
+  fi
+
+  7zz a -t7z "$@" "$output" "$source"
+}
+
 ### Plugins ###
 ##### zsh-abbr #####
 ABBR_SET_LINE_CURSOR=1

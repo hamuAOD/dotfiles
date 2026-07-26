@@ -70,8 +70,8 @@ abbr tma='tmux a'
 abbr xd='xattr -d com.apple.metadata:kMDItemWhereFroms'
 abbr xr='xattr -rc'
 ### 7Zip ###
-abbr 7zc="7zz a -ba -t7z -xr'!.*'"
-abbr 7zu='7zz x'
+# abbr 7zc="7zz a -t7z"
+abbr 7zx='7zz x'
 ### Lazygit ###
 abbr lg="lazygit"
 abbr lgd='lazygit -p ~/.dotfiles'
