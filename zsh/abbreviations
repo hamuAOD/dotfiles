@@ -64,6 +64,7 @@ abbr mv='mv -iv'
 abbr mvm='mv -iv % & progress -mp $!'
 abbr mkdir='mkdir -p'
 abbr trm='trash -v'
+abbr scp2sv='scp % hamu@192.168.1.10:/home/hamu/Downloads'
 ### Tmux ###
 abbr tm="tmux"
 abbr tma='tmux a'
@@ -99,6 +100,10 @@ abbr gdf='git diff'
 abbr glg='git log'
 abbr gpl='git pull'
 abbr gps='git push'
+### Docker ###
+abbr dccp='docker compose pull'
+abbr dccud='docker compose up -d'
+abbr dccudr='docker compose up -d --force-recreate'
 ### yt-dlp
 abbr ytdt='yt-dlp -P ~/Downloads -o "%(upload_date>%Y-%m-%d)s - %(title)s [%(id)s].%(ext)s" "https://www.twitch.tv/videos/"'
 abbr ytdtl='yt-dlp -P ~/Downloads -o "%(upload_date>%Y-%m-%d)s - %(title)s [%(id)s].%(ext)s" -a ~/Downloads/yt-dlp-list.txt'
