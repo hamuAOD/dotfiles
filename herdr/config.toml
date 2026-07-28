@@ -65,7 +65,7 @@ auto_switch = false
 # prefix = "ctrl+b"
 # prefix = "ctrl+semicolon"
 # prefix = "ctrl+quote"
-prefix = "ctrl+s"
+prefix = "ctrl+q"
 
 # Prefix-mode actions
 # help = "prefix+?"
