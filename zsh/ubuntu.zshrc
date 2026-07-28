@@ -39,11 +39,16 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^O" edit-command-line
 
-### Starship ###
-eval "$(starship init zsh)"
+### Suffix Aliases ###
+alias -s md="bat"
+alias -s lua="$EDITOR"
 
-### zoxide ###
-eval "$(zoxide init zsh)"
+### alias ###
+alias path='echo -e ${PATH//:/\\n}'
+alias eza='eza --icons=always --color=always --time-style long-iso'
+
+### Prompt: Starship ###
+eval "$(starship init zsh)"
 
 ### fzf ###
 # C-r : history
@@ -76,22 +81,20 @@ fzdiff() {
   nvim -d $(awk '{print $2, $4}' <<< "$file")
 }
 
-### function ###
-tcopy() {
-  printf "\033]52;c;%s\a" "$(base64 -w0 | tr -d '\n')"
-}
-
 ### bat ###
 export BAT_THEME='Dracula'
+### zoxide ###
+eval "$(zoxide init zsh)"
 
 ### nvm ###
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 
-### Alias ###
-alias eza='eza --icons=always --color=always --time-style long-iso'
-
 ### My Functions ###
+tcopy() {
+  printf "\033]52;c;%s\a" "$(base64 -w0 | tr -d '\n')"
+}
+
 7zc() {
   if [[ -z "${1:-}" ]]; then
     echo "Usage: 7zc <source> [output.7z] [7-Zip options]"

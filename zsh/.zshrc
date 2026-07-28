@@ -42,8 +42,9 @@ bindkey "^O" edit-command-line
 alias -s md="bat"
 alias -s lua="$EDITOR"
 
-### alias ###
+### Alias ###
 alias path='echo -e ${PATH//:/\\n}'
+alias eza='eza --icons=always --color=always --time-style long-iso'
 
 ### Prompt: Starship ###
 eval "$(starship init zsh)"
@@ -99,9 +100,6 @@ eval "$(zoxide init zsh)"
 export ZELLIJ_CONFIG_DIR="$HOME/.config/zellij"
 ### Zabrze ###
 # eval "$(zabrze init --bind-keys)"
-
-### Alias ###
-alias eza='eza --icons=always --color=always --time-style long-iso'
 
 ### Command Alias ###
 alias ytdh='$HOME/Documents/ShellScript/ytd.sh --hd'
