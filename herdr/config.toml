@@ -77,16 +77,16 @@ settings = "prefix+,"
 # workspace_picker = "prefix+w"
 # goto = "prefix+g"
 # new_workspace = "prefix+shift+n"
-new_workspace = "prefix+t"
+# new_workspace = "prefix+t"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # rename_workspace = "prefix+shift+w"
 # close_workspace = "prefix+shift+d"
 # previous_workspace = "" # optional, unset by default
-previous_workspace = "prefix+p"
+# previous_workspace = "prefix+p"
 # next_workspace = ""     # optional, unset by default
-next_workspace = "prefix+f"
+# next_workspace = "prefix+f"
 # previous_agent = ""     # optional, unset by default
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
@@ -94,10 +94,11 @@ next_workspace = "prefix+f"
 # new_tab = "prefix+c"
 # rename_tab = "prefix+shift+t"
 # previous_tab = "prefix+p"
-previous_tab = "prefix+shift+tab"
-next_tab = "prefix+tab"
+previous_tab = "prefix+f"
+next_tab = "prefix+b"
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
+switch_workspace = "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
@@ -108,7 +109,7 @@ next_tab = "prefix+tab"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 cycle_pane_next = "prefix+n"
-cycle_pane_previous = "prefix+shift+n"
+cycle_pane_previous = "prefix+p"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
 # split_vertical = "prefix+v"
 # split_horizontal = "prefix+minus"
@@ -119,6 +120,7 @@ copy_mode = "prefix+i"
 # zoom = "prefix+z"       # legacy alias: fullscreen
 # resize_mode = "prefix+r"
 # toggle_sidebar = "prefix+b"
+toggle_sidebar = "prefix+a"
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
@@ -138,7 +140,6 @@ copy_mode = "prefix+i"
 # command = "lazygit"
 [[keys.command]]
 key = "prefix+shift+q"
-
 type = "shell"
 command = "herdr server stop"
 description = "stop Herdr server"
@@ -206,6 +207,7 @@ description = "stop Herdr server"
 
 # Accent color for highlights, borders, and navigation UI.
 # Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
+
 # accent = "cyan"
 
 # Background notification popup delivery

@@ -144,10 +144,10 @@ config.keys = {
   { key = '[',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'CTRL',   action = act.ActivateCopyMode},
   -- Tab
-  { key = 'c',          mods = 'LEADER',       action = act.SpawnTab 'CurrentPaneDomain'},
-  { key = 'Tab',        mods = 'LEADER',       action = act.ActivateTabRelative(1)},
-  { key = 'Tab',        mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(-1)},
-  { key = 'w',          mods = 'LEADER',       action = act.CloseCurrentTab{confirm = true}},
+  { key = 'c',          mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain'},
+  { key = 'f',          mods = 'LEADER', action = act.ActivateTabRelative(1)},
+  { key = 'b',          mods = 'LEADER', action = act.ActivateTabRelative(-1)},
+  { key = 'w',          mods = 'LEADER', action = act.CloseCurrentTab{confirm = true}},
   -- Pane
   { key = 'v',          mods = 'LEADER', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
   { key = 's',          mods = 'LEADER', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
