@@ -6,15 +6,11 @@ LNOPT="-snv"
 ### Zsh
 ln $LNOPT "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
 ln $LNOPT "$HOME/.dotfiles/zsh/.zshenv" "$HOME/.zshenv"
-### Zsh for Ubuntu
-# ln $LNOPT "$HOME/.dotfiles/zsh/ubuntu.zshrc" "$HOME/.zshrc"
-# ln $LNOPT "$HOME/.dotfiles/zsh/ubuntu.zshenv" "$HOME/.zshenv"
 ### VIm
 ln $LNOPT "$HOME/.dotfiles/vim/.vimrc" "$HOME/.vimrc"
 ln $LNOPT "$HOME/.dotfiles/vim/.gvimrc" "$HOME/.gvimrc"
 ln $LNOPT "$HOME/.dotfiles/nvim" "$HOME/.config/nvim"
 ln $LNOPT "$HOME/.dotfiles/nvim/syntax" "$HOME/.vim/syntax"
-ln $LNOPT "$HOME/.dotfiles/nvim" "$HOME/.config/nvim"
 ### etc
 ln $LNOPT "$HOME/.dotfiles/ssh/config" "$HOME/.ssh/"
 
