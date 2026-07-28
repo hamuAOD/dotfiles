@@ -100,17 +100,6 @@ export ZELLIJ_CONFIG_DIR="$HOME/.config/zellij"
 ### Zabrze ###
 # eval "$(zabrze init --bind-keys)"
 
-### 設定ファイルの追加読み込み ###
-ZSH_DIR="${HOME}/.zsh.d"
-# .zshがディレクトリで、読み取り、実行、が可能なとき
-if [ -d "$ZSH_DIR" ] && [ -r "$ZSH_DIR" ] && [ -x "$ZSH_DIR" ]; then
-  # zshディレクトリより下にある、.zshファイルの分、繰り返す
-  for file in "$ZSH_DIR"/*.zsh(N); do
-    # 読み取り可能ならば実行する
-    [ -r "$file" ] && source "$file"
-  done
-fi
-
 ### Alias ###
 alias eza='eza --icons=always --color=always --time-style long-iso'
 
@@ -171,3 +160,14 @@ function zvm_after_init() {
 
 ### Plugin install ###
 # brew install zsh-autosuggestions zsh-fast-syntax-highlighting zsh-vi-mode olets/tap/zsh-abbr
+
+### 設定ファイルの追加読み込み ###
+ZSH_DIR="${HOME}/.zsh.d"
+# .zshがディレクトリで、読み取り、実行、が可能なとき
+if [ -d "$ZSH_DIR" ] && [ -r "$ZSH_DIR" ] && [ -x "$ZSH_DIR" ]; then
+  # zshディレクトリより下にある、.zshファイルの分、繰り返す
+  for file in "$ZSH_DIR"/*.zsh(N); do
+    # 読み取り可能ならば実行する
+    [ -r "$file" ] && source "$file"
+  done
+fi
