@@ -21,6 +21,12 @@ setopt hist_no_store         # historyコマンドは履歴に登録しない
 setopt hist_reduce_blanks    # 余分な空白は詰めて記録
 
 ### Completion ###
+##### zsh-completions #####
+#if type brew &>/dev/null; then
+if (( $+commands[brew] )); then
+  fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
+fi
+
 autoload -Uz compinit
 compinit
 
@@ -50,7 +56,9 @@ export FZF_DEFAULT_OPTS="
   --layout=reverse
   --border
   --ansi
+  --walker-skip='.git,Mobile Documents'
 "
+source <(fzf --zsh)
 bindkey -r '^[c'
 bindkey "^G" fzf-cd-widget
 ##### diff #####
@@ -83,6 +91,26 @@ export NVM_DIR="$HOME/.nvm"
 ### Alias ###
 alias eza='eza --icons=always --color=always --time-style long-iso'
 
+### My Functions ###
+7zc() {
+  if [[ -z "${1:-}" ]]; then
+    echo "Usage: 7zc <source> [output.7z] [7-Zip options]"
+    return 1
+  fi
+
+  local source="$1"
+  shift
+
+  local output="${source%/}.7z"
+
+  if [[ "${1:-}" == *.7z ]]; then
+    output="$1"
+    shift
+  fi
+
+  7zz a -t7z "$@" "$output" "$source"
+}
+
 ### Plugins ###
 ##### zsh-abbr #####
 ABBR_SET_LINE_CURSOR=1
@@ -91,7 +119,7 @@ export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.dotfiles/zsh/abbreviations"
 source ~/.zsh/zsh-abbr/zsh-abbr.zsh
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.zsh/zsh-vi-mode/zsh-vi-mode.zsh
 
 function zvm_after_init() {
@@ -106,6 +134,17 @@ function zvm_after_init() {
 
   zvm_bindkey viins ' ' abbr-expand-and-insert
 }
+##### zsh-syntax-highlighting #####
+# Write at the end
+# git clone https://github.com/dracula/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting/dracula
+source "$HOME/.zsh/zsh-syntax-highlighting/dracula/zsh-syntax-highlighting.sh"
+
+ZSH_HIGHLIGHT_STYLES[path]='fg=#FF79C6'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#FF79C6'
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#BD93F9'
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#BD93F9'
+
+source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 ##################################################
 # Ubuntu package
@@ -113,6 +152,7 @@ function zvm_after_init() {
 
 # Plugin install
 # git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting                                                                                           ▐
 # git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.zsh/fast-syntax-highlighting
 # git clone https://github.com/olets/zsh-abbr ~/.zsh/zsh-abbr
 # git clone https://github.com/olets/zsh-abbr --recurse-submodules --single-branch --branch main --depth 1 ~/.zsh/zsh-abbr
