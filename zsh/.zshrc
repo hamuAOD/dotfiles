@@ -136,12 +136,9 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 ##### zsh-autosuggestions #####
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # bindkey '\t' end-of-line
-##### zsh-syntax-highlighting #####
-# Write at the end
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ##### zsh-fast-syntax-highlighting #####
 # add the following at the end of your .zshrc:
-source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 ##### zsh-vi-mode #####
 source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
@@ -157,9 +154,20 @@ function zvm_after_init() {
 
   zvm_bindkey viins ' ' abbr-expand-and-insert
 }
+##### zsh-syntax-highlighting #####
+# Write at the end
+# git clone https://github.com/dracula/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting/dracula
+source "$HOME/.zsh/zsh-syntax-highlighting/dracula/zsh-syntax-highlighting.sh"
+
+ZSH_HIGHLIGHT_STYLES[path]='fg=#FF79C6'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#FF79C6'
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#BD93F9'
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#BD93F9'
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ### Plugin install ###
-# brew install zsh-autosuggestions zsh-fast-syntax-highlighting zsh-vi-mode olets/tap/zsh-abbr
+# brew install zsh-autosuggestions zsh-syntax-highlighting zsh-fast-syntax-highlighting zsh-vi-mode olets/tap/zsh-abbr
 
 ### 設定ファイルの追加読み込み ###
 ZSH_DIR="${HOME}/.zsh.d"
