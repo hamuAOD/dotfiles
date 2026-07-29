@@ -182,6 +182,8 @@ ZSH_HIGHLIGHT_STYLES[path]='fg=#FF79C6'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#FF79C6'
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#BD93F9'
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#BD93F9'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#8BE9FD'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#8BE9FD'
 
 source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
