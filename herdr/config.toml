@@ -63,9 +63,9 @@ auto_switch = false
 # Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
 # prefix = "ctrl+b"
-# prefix = "ctrl+semicolon"
+prefix = "ctrl+semicolon"
 # prefix = "ctrl+quote"
-prefix = "ctrl+q"
+# prefix = "ctrl+q"
 
 # Prefix-mode actions
 # help = "prefix+?"
@@ -155,6 +155,7 @@ description = "stop Herdr server"
 # directory = "~/.herdr/worktrees"
 
 [ui]
+sidebar_start_collapsed = true
 # Sidebar width (auto-scaled based on workspace names, this sets the default)
 # sidebar_width = 26
 
