@@ -61,8 +61,9 @@ alias -s lua="$EDITOR"
 ### Alias ###
 alias path='echo -e ${PATH//:/\\n}'
 alias eza='eza --icons=always --color=always --time-style long-iso'
-if (( ! $+commands[gdu] && $+commands[gdu-go] )); then
+if (( $+commands[gdu-go] )); then
   alias gdu='gdu-go'
+  alias gnudu='/opt/homebrew/bin/gdu'
 fi
 
 ### Prompt: Starship ###
