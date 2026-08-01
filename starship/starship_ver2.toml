@@ -1,0 +1,159 @@
+# ref : https://namileriblog.com/terminal/terminal_setting_starship/
+# ref : https://tech-unlimited.com/color.html
+
+format = """
+[](purple)\
+$os\
+$hostname\
+[ ](bg:pink fg:purple)\
+$directory\
+[ ](bg:green fg:pink)\
+$git_branch\
+$git_status\
+$git_metrics\
+[ ](bg:yellow fg:green)\
+$python\
+$rust\
+[ ](bg:orange fg:yellow)\
+$cmd_duration\
+[ ](bg:blue fg:orange)\
+$time\
+[ ](fg:blue)\
+\n$character\
+"""
+
+palette = "dracula"
+
+[os]
+format = "[ $symbol ]($style)"
+style = 'fg:foreground bg:purple bold'
+# style = 'fg:blue bold'
+disabled = false
+[os.symbols]
+Macos = " "  # nf-fa-apple
+Ubuntu = " " # nf-linux-ubuntu
+Debian = " " # nf-linux-debian
+Windows = "󰍲 "
+# Windows = ""
+# Ubuntu = "󰕈"
+# SUSE = ""
+# Raspbian = "󰐿"
+# Mint = "󰣭"
+# Macos = "󰀵"
+# Manjaro = ""
+# Linux = "󰌽"
+# Gentoo = "󰣨"
+# Fedora = "󰣛"
+# Alpine = ""
+# Amazon = ""
+# Android = ""
+# AOSC = ""
+# Arch = "󰣇"
+# Artix = "󰣇"
+# CentOS = ""
+# Debian = "󰣚"
+# Redhat = "󱄛"
+# RedHatEnterprise = "󱄛"
+
+[hostname]
+ssh_only = true
+style = 'fg:purple bold'
+ssh_symbol = ' '
+format = '[$ssh_symbol$hostname ]($style)'
+disabled = false
+
+[directory]
+truncation_length = 4
+truncation_symbol = ' .../'   # nf-fa-folder_open
+truncate_to_repo = false
+home_symbol = ' ~'
+# style = 'fg:pink bold'
+style = 'fg:background bg:pink bold'
+read_only = ' 󰌾 '               # nf-md-lock
+read_only_style = 'fg:#F872bE bold'
+format = '[$path ]($style)[$read_only]($read_only_style)'
+
+[git_branch]
+symbol = '  ' # nf-fa-github_alt, nf-fa-code_fork
+truncation_length = 4
+truncation_symbol = ''
+style = 'fg:background bg:green bold'
+format = '[$symbol$branch(:$remote_branch) ]($style)' # nf-pl-left_soft_divider
+# format = '[ ❱ $symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
+
+[git_status]
+style = 'fg:background bg:green bold'
+conflicted = '='
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕'
+up_to_date = '✓'
+untracked = '?'
+# stashed = '$'
+modified = '!${count}'
+renamed = '»'
+deleted = '✘'
+format = '([\[$all_status$ahead_behind\] ]($style))'
+
+[git_metrics]
+added_style = 'fg:background bg:green bold'
+deleted_style = 'fg:background bg:green bold'
+format = '[+$added/-$deleted ]($deleted_style)'
+disabled = false
+
+[python]
+symbol = '󰌠 '
+style = 'fg:background bg:yellow bold'
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[rust]
+symbol = '󱘗 '
+style = 'fg:background bg:yellow bold'
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[fill]
+symbol = ' '
+style = 'fg:#505050 bold'
+
+[battery]
+# style = 'fg:#e0af68'
+# style = "bold blue"
+format = ' ❰ [$symbol$percentage]($style)'
+# format = ' ❰ [$symbol$percentage]($style)'
+[[battery.display]]
+threshold = 100
+style = "bold blue"
+
+[cmd_duration]
+min_time = 1000
+style = 'fg:background bg:orange bold'
+disabled = false
+format = "[ $duration ]($style)"
+
+[time]
+disabled = false
+style = 'fg:background bg:blue bold'
+format = '[ $time ]($style)'
+time_format = '%T'
+utc_time_offset = '+9'
+use_12hr = false
+
+[character]
+error_symbol = "[❯](bold red)"
+success_symbol = "[❯](bold green)"
+vimcmd_symbol = "[](bold purple)"
+
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+blue = "#7aa2f7"
+green = "#50fa7b"
+# green = "#9ece6a"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
