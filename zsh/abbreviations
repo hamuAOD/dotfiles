@@ -82,6 +82,7 @@ abbr lg="lazygit"
 abbr lgd='lazygit -p ~/.dotfiles'
 ### etc ###
 abbr fd='fd -IH'
+abbr ff='fastfetch'
 abbr y="yazi"
 abbr ln='ln -snvf'
 abbr -g rg='rg -i'
@@ -102,6 +103,7 @@ abbr gdf='git diff'
 abbr glg='git log'
 abbr gpl='git pull'
 abbr gps='git push'
+abbr gcl='git clone'
 ### Docker ###
 abbr dccp='docker compose pull'
 abbr dccud='docker compose up -d'
