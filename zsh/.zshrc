@@ -131,9 +131,9 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 fi
 
 ### Command Alias ###
-alias ytdh='$HOME/Documents/ShellScript/ytd.sh --hd'
-alias ytd4='$HOME/Documents/ShellScript/ytd.sh --4k'
-alias ytda='$HOME/Documents/ShellScript/ytd.sh --aud'
+alias ytdh="$HOME/Documents/ShellScript/ytd.sh --hd"
+alias ytd4="$HOME/Documents/ShellScript/ytd.sh --4k"
+alias ytda="$HOME/Documents/ShellScript/ytd.sh --aud"
 
 ### My Functions ###
 7zc() {
