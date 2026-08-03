@@ -82,10 +82,23 @@ export FZF_DEFAULT_OPTS="
   --ansi
   --walker-skip='.git,Mobile Documents'
 "
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow \
+  --exclude .git \
+  --exclude Library \
+  --exclude node_modules \
+  --exclude .cache \
+  --exclude .vscode \
+  . ~'
 
 source <(fzf --zsh)
 bindkey -r '^[c'
 bindkey "^G" fzf-cd-widget
+
+zf() {
+  local dir
+  dir=$(eval "$FZF_ALT_C_COMMAND" | fzf) || return
+  cd "$dir"
+}
 
 fzdiff() {
   local file
