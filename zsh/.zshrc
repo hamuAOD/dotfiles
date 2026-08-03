@@ -191,6 +191,8 @@ function zvm_after_init() {
   zvm_bindkey viins '^G' fzf-cd-widget
   zvm_bindkey vicmd '^G' fzf-cd-widget
 
+  zvm_bindkey viins '^F' fzf-file-widget
+
   zvm_bindkey viins '^O' edit-command-line
   zvm_bindkey vicmd '^O' edit-command-line
 
