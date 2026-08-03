@@ -3,6 +3,7 @@
 # symbols : ❰ ❱    
 
 format = """
+${custom.ssh_os}\
 $hostname\
 $directory\
 $git_branch\
@@ -34,8 +35,22 @@ Windows = "󰍲 "
 ssh_only = true
 style = 'fg:cyan'
 ssh_symbol = ' '
-format = '[$ssh_symbol$hostname ]($style)'
+# format = '[$ssh_symbol$hostname ]($style)'
+format = '[$hostname ]($style)'
 disabled = false
+
+[custom.ssh_os]
+when = 'test -n "$SSH_CONNECTION"'
+command = '''
+case "$(uname -s)" in
+  Darwin) printf "" ;;
+  Linux)  printf "" ;;
+  *)      printf "" ;;
+esac
+'''
+shell = ["sh"]
+format = "[$output]($style) "
+style = "bold cyan"
 
 [directory]
 truncation_length = 4
