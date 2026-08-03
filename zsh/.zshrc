@@ -82,13 +82,20 @@ export FZF_DEFAULT_OPTS="
   --ansi
   --walker-skip='.git,Mobile Documents'
 "
+export FZF_DEFAULT_COMMAND='fd --hidden \
+  --exclude .git \
+  --exclude Library \
+  --exclude node_modules \
+  --exclude .cache \
+  --exclude .vscode \
+  .'
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow \
   --exclude .git \
   --exclude Library \
   --exclude node_modules \
   --exclude .cache \
   --exclude .vscode \
-  . ~'
+  .'
 
 source <(fzf --zsh)
 bindkey -r '^[c'
