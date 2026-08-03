@@ -59,7 +59,8 @@ alias -s md="bat"
 alias -s lua="$EDITOR"
 
 ### Alias ###
-alias path='echo -e ${PATH//:/\\n}'
+# alias path='echo -e ${PATH//:/\\n}'
+alias path='print -l ${(s/:/)PATH}'
 alias eza='eza --icons=always --color=always --time-style long-iso'
 if (( $+commands[gdu-go] )); then
   alias gdu='gdu-go'
@@ -82,20 +83,20 @@ export FZF_DEFAULT_OPTS="
   --ansi
   --walker-skip='.git,Mobile Documents'
 "
-export FZF_DEFAULT_COMMAND='fd --hidden \
-  --exclude .git \
-  --exclude Library \
-  --exclude node_modules \
+FZF_FD_OPTS='--hidden \
+  --exclude .Trash \
   --exclude .cache \
-  --exclude .vscode \
-  .'
-export FZF_ALT_C_COMMAND='fd --type d --hidden --follow \
   --exclude .git \
-  --exclude Library \
-  --exclude node_modules \
-  --exclude .cache \
+  --exclude .pyenv \
+  --exclude .rustup \
+  --exclude .tldrc \
   --exclude .vscode \
-  .'
+  --exclude Library \
+  --exclude node_modules'
+
+export FZF_DEFAULT_COMMAND="fd $FZF_FD_OPTS ."
+export FZF_CTRL_T_COMMAND="fd --type f $FZF_FD_OPTS ."
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $FZF_FD_OPTS ."
 
 source <(fzf --zsh)
 bindkey -r '^[c'
