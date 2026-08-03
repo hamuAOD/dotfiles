@@ -95,7 +95,7 @@ FZF_FD_OPTS='--hidden \
   --exclude node_modules'
 
 export FZF_DEFAULT_COMMAND="fd $FZF_FD_OPTS ."
-export FZF_CTRL_T_COMMAND="fd --type f $FZF_FD_OPTS ."
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $FZF_FD_OPTS ."
 
 source <(fzf --zsh)
