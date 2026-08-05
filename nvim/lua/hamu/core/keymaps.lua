@@ -51,7 +51,8 @@ keymap.set('x', 'S', '"zy:%s/\\V<C-r><C-r>=escape(@z,\' /\\\')<CR>//ge<Left><Lef
 -- ペースト結果のインデントを自動で揃える
 keymap.set('n', 'p', ']p`]', NS)
 keymap.set('n', 'P', ']P`]', NS)
-
+-- 各行文字数チェック
+keymap.set('n', '<Leader>mc', '<CMD>%s/.*/\\=printf("%02d\\t%s", strchars(submatch(0)), submatch(0))/<CR>', {desc = "Prefix line with char count", noremap = true, silent = true})
 -- Escで日本語入力解除
 -- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
 -- vim.keymap.set('n', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
