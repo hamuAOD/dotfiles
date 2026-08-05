@@ -61,26 +61,22 @@ return {
 
       dashboard.section.buttons.val = {
         dashboard.button("n", " New file", ":ene <BAR> startinsert <CR>"),
-        action_button("f", " Find file", function()
-          require("telescope.builtin").find_files({
-            cwd = vim.fn.expand("~"),
-            hidden = true,
-            find_command = {
-              "rg",
-              "--files",
-              "--color", "never",
-              "--glob", "!Library/**",
-              "--glob", "!.cache/**",
-              "--glob", "!.local/**",
-              "--glob", "!.rustup/**",
-            },
-          })
-        end),
-        -- dashboard.button("g", "󰷾  Find text", require('telescope.builtin').live_grep),
-        dashboard.button("g", "󰷾  Find text", "<cmd>Telescope live_grep<CR>"),
-        dashboard.button("b", " File browser", ":Neotree toggle<CR>"),
-        -- dashboard.button("o", "󰄉  Old files", require('telescope.builtin').oldfiles),
-        dashboard.button("o", "󰄉  Old files", "<cmd>Telescope oldfiles<CR>"),
+        dashboard.button(
+          "f",
+          " Find file",
+          "<cmd>lua Snacks.picker.files({ cwd = vim.fn.expand('~'), hidden = true, ignored = true })<CR>"
+        ),
+        dashboard.button(
+          "g",
+          "󰷾  Find text",
+          "<cmd>lua Snacks.picker.grep()<CR>"
+        ),
+        dashboard.button("b", " File browser", "<cmd>Oil<CR>"),
+        dashboard.button(
+          "o",
+          "󰄉  Old files",
+          "<cmd>lua Snacks.picker.recent()<CR>"
+        ),
         dashboard.button("l", "󰒲  Lazy", ":Lazy<CR>"),
         dashboard.button("m", "󰣪  Mason", ":Mason<CR>"),
         dashboard.button("q", " Quit", ":qa<CR>"),

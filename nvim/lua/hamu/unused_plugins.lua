@@ -1,86 +1,100 @@
 return {
-  -- FZF 2024.08.27
+  -- FZF 2024.08.27 - 2026.08.05
   {
     "ibhagwan/fzf-lua",
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    event = "VeryLazy",
+    cmd = { "FzfLua" },
+
+    opts = { "fzf-native", winopts = { preview = { default = "bat" } } },
+
     config = function()
       -- calling `setup` is optional for customization
-      require"fzf-lua".setup({"fzf-native",winopts={preview={default="bat"}}})
+      require("fzf-lua").setup({ "fzf-native", winopts = { preview = { default = "bat" } } })
 
       -- set keymaps
       local keymap = vim.keymap -- for conciseness
       local NS = { noremap = true, silent = true }
 
-      keymap.set('n', '<leader>ff', "<cmd>lua require('fzf-lua').files()<CR>", {desc = "Find files"}, NS)
-      keymap.set('n', '<leader>fl', "<cmd>lua require('fzf-lua').live_grep()<CR>", {desc = "Live Grep"}, NS)
-      keymap.set('n', '<leader>fr', "<cmd>lua require('fzf-lua').oldfiles()<CR>", {desc = "Recent Files"}, NS)
-      keymap.set('n', '<leader>fb', "<cmd>lua require('fzf-lua').buffers()<CR>", {desc = "Buffers"}, NS)
-      keymap.set('n', '<leader>fr', "<cmd>lua require('fzf-lua').registers()<CR>", {desc = "Registers"}, NS)
+      -- keymap.set("n", "<leader>fl", "<cmd>lua require('fzf-lua').files()<CR>", { desc = "Find files" }, NS)
+      -- keymap.set("n", "<leader>fl", "<cmd>lua require('fzf-lua').live_grep()<CR>", { desc = "Live Grep" }, NS)
+      -- keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { desc = "Recent Files" }, NS)
+      -- keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { desc = "Buffers" }, NS)
+      -- keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').registers()<CR>", { desc = "Registers" }, NS)
     end,
+
+    keys = {
+      { "<Leader>b", function() require("fzf-lua").buffers() end, desc = "Buffers", },
+      { "<Leader>fb", function() require("fzf-lua").buffers() end, desc = "Buffers", },
+      { "<Leader>r", function() require("fzf-lua").registers() end, desc = "Registers", },
+      { "<Leader>fr", function() require("fzf-lua").registers() end, desc = "Registers", },
+      { "<Leader>fh", function() require("fzf-lua").files({ cwd = vim.fn.expand("~"), }) end, desc = "Find Files", },
+      { "<Leader>fg", function() require("fzf-lua").live_grep() end, desc = "Live Grep", },
+      { "<Leader>fo", function() require("fzf-lua").oldfiles() end, desc = "Old Files", },
+      { "<Leader>fk", function() require("fzf-lua").keymaps() end, desc = "Keymaps", },
+    },
   },
   -- vim-easy-align 2024.08.27
   {
-    'junegunn/vim-easy-align',
+    "junegunn/vim-easy-align",
     event = { "BufRead", "BufNewFile" },
 
     config = function()
       local keymap = vim.keymap
       local NS = { noremap = true, silent = true }
 
-      keymap.set('n', '<Leader>ae', '<Plug>(EasyAlign)', {desc = "Easy-Align"}, NS)
-      keymap.set('x', '<Leader>ae', '<Plug>(EasyAlign)', {desc = "Easy-Align"}, NS)
+      keymap.set("n", "<Leader>ae", "<Plug>(EasyAlign)", { desc = "Easy-Align" }, NS)
+      keymap.set("x", "<Leader>ae", "<Plug>(EasyAlign)", { desc = "Easy-Align" }, NS)
     end,
   },
   -- sidebar 2024.08.28
   {
-    'sidebar-nvim/sidebar.nvim',
+    "sidebar-nvim/sidebar.nvim",
     event = { "BufRead", "BufNewFile" },
     lazy = false,
 
-    config = function ()
+    config = function()
       require("sidebar-nvim").setup({
         side = "right",
         datetime = {
           icon = "",
           format = "%a %b %d, %H:%M",
           clocks = {
-              { name = "local" }
-          }
+            { name = "local" },
+          },
         },
         buffers = {
           icon = "",
-          ignored_buffers = {},     -- ignore buffers by regex
-          sorting = "id",           -- alternatively set it to "name" to sort by buffer name instead of buf id
-          show_numbers = true,      -- whether to also show the buffer numbers
+          ignored_buffers = {}, -- ignore buffers by regex
+          sorting = "id", -- alternatively set it to "name" to sort by buffer name instead of buf id
+          show_numbers = true, -- whether to also show the buffer numbers
           ignore_not_loaded = true, -- whether to ignore not loaded buffers
-          ignore_terminal = true,   -- whether to show terminal buffers in the list
+          ignore_terminal = true, -- whether to show terminal buffers in the list
         },
         sections = { "datetime", "buffers", "git", "symbols", "diagnostics" },
       })
 
       local NS = { noremap = true, silent = true }
-      vim.keymap.set('n', '<Leader>tb', '<CMD>SidebarNvimToggle<CR>', {desc = "Toggle Sidebar"}, NS)
+      vim.keymap.set("n", "<Leader>tb", "<CMD>SidebarNvimToggle<CR>", { desc = "Toggle Sidebar" }, NS)
     end,
   },
   -- hop 2024.08.29
   {
     -- 'phaazon/hop.nvim',
-    'smoka7/hop.nvim',
+    "smoka7/hop.nvim",
     event = { "BufRead", "BufNewFile" },
     config = function()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 
       local NS = { noremap = true, silent = true }
-      vim.keymap.set("n", "<Leader>hl", "<CMD>HopLineStart<CR>", {desc = "Hop to Line Start"}, NS)
-      vim.keymap.set("n", "<Leader>hw", "<CMD>HopWord<CR>",      {desc = "Hop to Word"}, NS)
-      vim.keymap.set("n", "<Leader>hp", "<CMD>HopPattern<CR>",   {desc = "Hop to Char-Pattern"}, NS)
-    end
+      vim.keymap.set("n", "<Leader>hl", "<CMD>HopLineStart<CR>", { desc = "Hop to Line Start" }, NS)
+      vim.keymap.set("n", "<Leader>hw", "<CMD>HopWord<CR>", { desc = "Hop to Word" }, NS)
+      vim.keymap.set("n", "<Leader>hp", "<CMD>HopPattern<CR>", { desc = "Hop to Char-Pattern" }, NS)
+    end,
   },
   -- align 2024.08.30
   {
-    'Vonr/align.nvim',
+    "Vonr/align.nvim",
     event = { "BufRead", "BufNewFile" },
     branch = "v2",
     lazy = true,
@@ -88,48 +102,32 @@ return {
       -- Create your mappings here
       local NS = { noremap = true, silent = true }
       ---- Aligns to 1 character
-      vim.keymap.set('x', '<Leader>aa',
-        function()
-          require'align'.align_to_char({
-            length = 1,
-          })
-        end,
-        { desc = "Aligns to 1 character" },
-        NS
-      )
+      vim.keymap.set("x", "<Leader>aa", function()
+        require("align").align_to_char({
+          length = 1,
+        })
+      end, { desc = "Aligns to 1 character" }, NS)
       ---- Aligns to 2 character
-      vim.keymap.set('x', '<Leader>ad',
-        function()
-          require'align'.align_to_char({
-            preview = true,
-            length = 2,
-          })
-        end,
-        { desc = "Aligns to 2 character" },
-        NS
-      )
+      vim.keymap.set("x", "<Leader>ad", function()
+        require("align").align_to_char({
+          preview = true,
+          length = 2,
+        })
+      end, { desc = "Aligns to 2 character" }, NS)
       -- Aligns to a string with previews
-      vim.keymap.set('x', '<Leader>aw',
-        function()
-          require'align'.align_to_string({
-            preview = true,
-            regex = false,
-          })
-        end,
-        { desc = "Aligns to a string with previews" },
-        NS
-      )
+      vim.keymap.set("x", "<Leader>aw", function()
+        require("align").align_to_string({
+          preview = true,
+          regex = false,
+        })
+      end, { desc = "Aligns to a string with previews" }, NS)
       -- Aligns to a Vim regex with previews
-      vim.keymap.set('x', '<Leader>ar',
-        function()
-          require'align'.align_to_string({
-            preview = true,
-            regex = true,
-          })
-        end,
-        { desc = "Aligns to a Vim regex with previews" },
-        NS
-      )
+      vim.keymap.set("x", "<Leader>ar", function()
+        require("align").align_to_string({
+          preview = true,
+          regex = true,
+        })
+      end, { desc = "Aligns to a Vim regex with previews" }, NS)
     end,
   },
   -- vim-illuminate 2024.08.30
@@ -137,19 +135,19 @@ return {
     "RRethy/vim-illuminate",
     event = { "BufRead", "BufNewFile" },
     config = function()
-      require('illuminate').configure({
+      require("illuminate").configure({
         providers = {
-          'lsp',
-          'treesitter',
-          'regex',
+          "lsp",
+          "treesitter",
+          "regex",
         },
         delay = 100,
         filetype_overrides = {},
         filetypes_denylist = {
-          'dirbuf',
-          'dirvish',
-          'fugitive',
-          'nvim-tree',
+          "dirbuf",
+          "dirvish",
+          "fugitive",
+          "nvim-tree",
         },
         -- filetypes_allowlist: filetypes to illuminate, this is overridden by filetypes_denylist
         -- You must set filetypes_denylist = {} to override the defaults to allow filetypes_allowlist to take effect
@@ -182,7 +180,9 @@ return {
         -- should_enable: a callback that overrides all other settings to
         -- enable/disable illumination. This will be called a lot so don't do
         -- anything expensive in it.
-        should_enable = function(bufnr) return true end,
+        should_enable = function(bufnr)
+          return true
+        end,
         -- case_insensitive_regex: sets regex case sensitivity
         case_insensitive_regex = false,
       })
@@ -190,15 +190,15 @@ return {
   },
   -- commnet 2024.08.30 => Default from ver0.1
   {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     event = { "BufRead", "BufNewFile" },
     opts = {
-        -- add any options here
+      -- add any options here
     },
     lazy = false,
 
-    config = function ()
-      require('Comment').setup()
+    config = function()
+      require("Comment").setup()
     end,
   },
   -- nvim-surround 2024.08.30
@@ -208,30 +208,30 @@ return {
     event = { "BufRead", "BufNewFile" },
     config = function()
       require("nvim-surround").setup({
-      -- Configuration here, or leave empty to use defaults
-    })
-    end
+        -- Configuration here, or leave empty to use defaults
+      })
+    end,
   },
   -- colorscheme
   {
     "Mofiqul/dracula.nvim",
     priority = 1000,
     config = function()
-      vim.cmd[[colorscheme dracula]]
+      vim.cmd([[colorscheme dracula]])
     end,
     -- 背景をTerminalに合わせる
-    vim.cmd 'autocmd ColorScheme * highlight Normal ctermbg=none',
-    vim.cmd 'autocmd ColorScheme * highlight LineNr ctermbg=none',
+    vim.cmd("autocmd ColorScheme * highlight Normal ctermbg=none"),
+    vim.cmd("autocmd ColorScheme * highlight LineNr ctermbg=none"),
   },
   {
     -- "rebelot/kanagawa.nvim",
     "maxmx03/dracula.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    config = function ()
-      local dracula = require 'dracula'
+    config = function()
+      local dracula = require("dracula")
       dracula.setup()
-      vim.cmd.colorscheme 'dracula'
+      vim.cmd.colorscheme("dracula")
     end,
     -- 背景をTerminalに合わせる
     -- vim.cmd 'autocmd ColorScheme * highlight Normal ctermbg=none',
@@ -241,25 +241,25 @@ return {
     "Mofiqul/dracula.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    config = function ()
-      local dracula = require 'dracula'
+    config = function()
+      local dracula = require("dracula")
       dracula.setup()
-      vim.cmd.colorscheme 'dracula'
+      vim.cmd.colorscheme("dracula")
     end,
   },
   {
     "binhtran432k/dracula.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    config = function ()
-      local dracula = require 'dracula'
+    config = function()
+      local dracula = require("dracula")
       dracula.setup()
-      vim.cmd.colorscheme 'dracula'
+      vim.cmd.colorscheme("dracula")
     end,
   },
   -- oil 2024.09.03
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     event = "VeryLazy",
     opts = {},
     -- Optional dependencies
@@ -449,11 +449,10 @@ return {
         },
       })
 
-    local NS = { noremap = true, silent = true }
-    vim.cmd([[let g:translate_copy_result = 1]])
-    vim.keymap.set('n', '-', '<CMD>Oil<CR>', {desc = "Oil"}, NS)
-
-    end
+      local NS = { noremap = true, silent = true }
+      vim.cmd([[let g:translate_copy_result = 1]])
+      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil" }, NS)
+    end,
   },
   {
     "refractalize/oil-git-status.nvim",
@@ -462,8 +461,8 @@ return {
     },
 
     config = function()
-      require('oil-git-status').setup({
-        show_ignored = true -- show files that match gitignore with !!
+      require("oil-git-status").setup({
+        show_ignored = true, -- show files that match gitignore with !!
       })
 
       for _, hl_group in pairs(require("oil-git-status").highlight_groups) do
@@ -492,20 +491,20 @@ return {
       -- keymap.set('n', '<Leader>mo', '<Plug>MarkdownPreview',       {desc = "Markdown Preview Start"},  NS)
       -- keymap.set('n', '<Leader>mc', '<Plug>MarkdownPreviewStop',   {desc = "Markdown Preview Stop"},   NS)
       -- keymap.set('n', '<Leader>mt', '<Plug>MarkdownPreviewToggle', {desc = "Markdown Preview Toggle"}, NS)
-      keymap.set('n', '<Leader>tm', '<Plug>MarkdownPreviewToggle', {desc = "Markdown Preview"}, NS)
+      keymap.set("n", "<Leader>tm", "<Plug>MarkdownPreviewToggle", { desc = "Markdown Preview" }, NS)
     end,
   },
   -- bufferline 2024.09.20
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     event = { "BufRead", "BufNewFile" },
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = "nvim-tree/nvim-web-devicons",
 
     config = function()
       require("bufferline").setup({
         options = {
-          diagnostics = 'nvim_lsp',
+          diagnostics = "nvim_lsp",
           diagnostics_indicator = function(count, level)
             local icon = level:match("error") and " " or " "
             return " " .. icon .. count
@@ -525,7 +524,7 @@ return {
   },
   -- oil ver2 2024.11.06
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
 
@@ -545,7 +544,7 @@ return {
         view_options = {
           show_hidden = true,
           natural_order = true,
-        }
+        },
       })
     end,
   },
@@ -590,7 +589,7 @@ return {
         "RainbowCyan",
       }
 
-      local hooks = require "ibl.hooks"
+      local hooks = require("ibl.hooks")
 
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
         -- vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
@@ -618,11 +617,17 @@ return {
         vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#3E3A53" })
       end)
 
-      require("ibl").setup { indent = { highlight = highlight } }
+      require("ibl").setup({ indent = { highlight = highlight } })
       -- require("ibl").setup()
       --
       --:IBLToggle
-      vim.keymap.set('n', '<Leader>ti', '<CMD>IBLToggle<CR>', {desc = "Toggle IndentLine"}, { noremap = true, silent = true })
+      vim.keymap.set(
+        "n",
+        "<Leader>ti",
+        "<CMD>IBLToggle<CR>",
+        { desc = "Toggle IndentLine" },
+        { noremap = true, silent = true }
+      )
     end,
   },
   -- tabset 2025.01.10
@@ -634,68 +639,335 @@ return {
       require("tabset").setup({
         defaults = {
           tabwidth = 2,
-          expandtab = true
+          expandtab = true,
         },
         language = {
           go = {
             tabwidth = 4,
-            expandtab = false
+            expandtab = false,
           },
           python = {
             tabwidth = 4,
-            expandtab = true
+            expandtab = true,
           },
           {
             filetypes = { "text", "markdown" },
             config = {
               tabwidth = 4,
-              expandtab = false
-            }
-          }
-        }
+              expandtab = false,
+            },
+          },
+        },
       })
     end,
   },
   -- barbar 2025.05.15
   {
-    'romgrk/barbar.nvim',
+    "romgrk/barbar.nvim",
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+      "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
     event = "VeryLazy",
-    init = function() vim.g.barbar_auto_setup = false end,
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
     opts = {
       -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
       -- animation = true,
       -- insert_at_start = true,
       -- …etc.
     },
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    version = "^1.0.0", -- optional: only update when a new 1.x version is released
 
-    config = function ()
-      require'barbar'.setup ({
+    config = function()
+      require("barbar").setup({
         highlight_alternate = false,
         sidebar_filetypes = {
-          ['neo-tree'] = {event = 'BufWipeout', text = 'Neo-tree'},
+          ["neo-tree"] = { event = "BufWipeout", text = "Neo-tree" },
         },
       })
 
       local opts = { noremap = true, silent = true }
-      vim.keymap.set('n', '<C-p>', '<CMD>BufferPrevious<CR>', {desc = "Buffer Previous"}, opts)
-      vim.keymap.set('n', '<C-n>', '<CMD>BufferNext<CR>', {desc = "Buffer Next"}, opts)
-      vim.keymap.set('n', '<C-d>', '<CMD>BufferClose<CR>', {desc = "Buffer Delete"}, opts)
-      vim.keymap.set('n', '<C-,>', '<CMD>BufferMovePrevious<CR>', {desc = "Move Buffer Previous"}, opts)
-      vim.keymap.set('n', '<C-.>', '<CMD>BufferMoveNext<CR>', {desc = "Move Buffer Next"}, opts)
+      vim.keymap.set("n", "<C-p>", "<CMD>BufferPrevious<CR>", { desc = "Buffer Previous" }, opts)
+      vim.keymap.set("n", "<C-n>", "<CMD>BufferNext<CR>", { desc = "Buffer Next" }, opts)
+      vim.keymap.set("n", "<C-d>", "<CMD>BufferClose<CR>", { desc = "Buffer Delete" }, opts)
+      vim.keymap.set("n", "<C-,>", "<CMD>BufferMovePrevious<CR>", { desc = "Move Buffer Previous" }, opts)
+      vim.keymap.set("n", "<C-.>", "<CMD>BufferMoveNext<CR>", { desc = "Move Buffer Next" }, opts)
     end,
   },
   -- lexima 2025.09.21
   {
-    'cohama/lexima.vim',
+    "cohama/lexima.vim",
     -- 'hrsh7th/nvim-insx', -- deleted by ERROR
     event = { "BufRead", "BufNewFile" },
     config = function()
       vim.cmd([[call lexima#add_rule({'char': '<', 'input_after': '>'})]])
-    end
-  }
+    end,
+  },
+  -- Lazygit 2026.08.05
+  {
+    "kdheepak/lazygit.nvim",
+    event = { "BufRead", "BufNewFile" },
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+
+    config = function()
+      vim.keymap.set("n", "lg", "<CMD>LazyGit<CR>", { desc = "Open LazyGit", noremap = true, silent = true })
+      vim.keymap.set("n", "<Leader>gl", "<CMD>LazyGit<CR>", { desc = "Open LazyGit", noremap = true, silent = true })
+    end,
+  },
+  -- NeoScroll 2026.08.05
+  {
+    "karb94/neoscroll.nvim",
+    event = "VeryLazy",
+    opts = {},
+
+    config = function()
+      require("neoscroll").setup({
+        mappings = { -- Keys to be mapped to their corresponding default scrolling animation
+          -- '<C-u>', '<C-d>',
+          "<C-b>",
+          "<C-f>",
+          -- '<C-y>', '<C-e>',
+          "zt",
+          "zz",
+          "zb",
+        },
+
+        hide_cursor = true, -- Hide cursor while scrolling
+        stop_eof = true, -- Stop at <EOF> when scrolling downwards
+        respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+        duration_multiplier = 0.7, -- Global duration multiplier
+        easing = "linear", -- Default easing function
+        pre_hook = nil, -- Function to run before the scrolling animation starts
+        post_hook = nil, -- Function to run after the scrolling animation ends
+        performance_mode = false, -- Disable "Performance Mode" on all buffers.
+        ignored_events = { -- Events ignored while scrolling
+          "WinScrolled",
+          "CursorMoved",
+        },
+      })
+    end,
+  },
+  -- Nvim-Tmux-Navigation 2026.08.05
+  {
+    "alexghergh/nvim-tmux-navigation",
+    keys = {
+      { "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", desc = "Navigate left" },
+      { "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", desc = "Navigate down" },
+      { "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", desc = "Navigate up" },
+      { "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", desc = "Navigate right" },
+      { "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>", desc = "Navigate to last active pane" },
+    },
+
+    config = function()
+      local nvim_tmux_nav = require("nvim-tmux-navigation")
+
+      nvim_tmux_nav.setup({
+        disable_when_zoomed = true, -- defaults to false
+      })
+    end,
+  },
+  -- ToggleTerm 2026.08.05
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("toggleterm").setup({
+        size = 100,
+        open_mapping = [[<c-\>]],
+        hide_numbers = true,
+        shade_filetypes = {},
+        shade_terminals = true,
+        shading_factor = 2,
+        start_in_insert = true,
+        insert_mappings = true,
+        persist_size = true,
+        -- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
+        direction = "float",
+        float_opts = {
+          -- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+          border = "single",
+          -- width = <value>,
+          -- height = <value>,
+          -- row = <value>,
+          -- col = <value>,
+          -- winblend = 3,
+          -- zindex = <value>,
+          -- title_pos = 'left' | 'center' | 'right', position of the title of the floating window
+          title_pos = "center",
+        },
+        close_on_exit = true,
+      })
+    end,
+  },
+  -- zen-mode 2026.08.05
+  {
+    "folke/zen-mode.nvim",
+    event = "VeryLazy",
+    opts = {
+      plugins = {
+        wezterm = {
+          enabled = true,
+          font = "+4",
+        },
+      },
+    },
+    config = function()
+      vim.keymap.set("n", "<Leader>tz", "<CMD>ZenMode<CR>", { desc = "ZenMode", noremap = true, silent = true })
+    end,
+  },
+  -- Telescope 2026.08.05
+  {
+    {
+      'nvim-telescope/telescope.nvim',
+      cmd = { "Telescope" }, -- ":Telescope"実行後にdependenciesが読み込まれる
+      keys = {
+        { '<Leader>b', function() require('telescope.builtin').buffers() end, desc = "Buffers" },
+        { '<Leader>fb', function() require('telescope.builtin').buffers() end, desc = "Buffers" },
+        { '<Leader>r', function() require('telescope.builtin').registers() end, desc = "Registers" },
+        { '<Leader>fr', function() require('telescope.builtin').registers() end, desc = "Registers" },
+        { '<Leader>fc', function() require('telescope.builtin').command_history() end, desc = "Command History" },
+        { '<Leader>ff', function() require("telescope.builtin").find_files({
+          cwd = vim.fn.expand("~"),
+        })
+        end, desc = "Find Files" },
+        { '<Leader>fg', function() require('telescope.builtin').live_grep() end, desc = "Live Grep" },
+        { '<Leader>fo', function() require('telescope.builtin').oldfiles() end, desc = "Old Files" },
+        { '<Leader>fk', function() require('telescope.builtin').keymaps() end, desc = "keymaps" },
+        {
+          '<Leader>fz',
+          function()
+            require('telescope.builtin').current_buffer_fuzzy_find({
+              fuzzy = false,
+              case_mode = "ignore_case",
+              sorter = require('telescope.sorters').sort_by_position,
+            })
+          end,
+          desc = "Grep current buffer",
+        },
+      },
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      },
+      -- event = "VeryLazy",
+
+      config = function()
+        require('telescope').setup({
+          defaults = {
+            preview = {
+              treesitter = false,
+            },
+            sorting_strategy = 'ascending',
+            -- デフォルト検索モードをFZFにする
+            generic_sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
+            file_sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
+          },
+          pickers = {
+            find_files = {
+              find_command = {
+                "fd",
+                "--type", "f",
+                "--hidden",
+                "--color", "never",
+
+                "--exclude", ".git",
+                "--exclude", "Library",
+                "--exclude", ".cache",
+                "--exclude", ".local",
+                "--exclude", ".rustup",
+                "--exclude", "node_modules",
+                "--exclude", "target",
+                "--exclude", "dist",
+                "--exclude", "build",
+              },
+            },
+            live_grep = {
+              sorter = require("telescope.sorters").highlighter_only({}),
+            },
+          },
+          extensions = {
+            fzf = {
+              fuzzy = true,                   -- あいまい検索を有効化
+              override_generic_sorter = true, -- デフォルトのソートを置き換え
+              override_file_sorter = true,    -- ファイルソートを置き換え
+              case_mode = "smart_case",       -- 大文字小文字の扱いを柔軟に
+            },
+          },
+        })
+        -- FZFエクステンションをロード
+        require("telescope").load_extension("fzf")
+        pcall(require("telescope").load_extension, "noice")
+      end,
+    },
+    {
+      "danielfalk/smart-open.nvim",
+      -- event = "VeryLazy",
+      event = { "BufRead", "BufNewFile" },
+      keys = {
+        {
+          "<leader>fs",
+          function()
+            require("telescope").extensions.smart_open.smart_open()
+          end,
+          desc = "Open file",
+        },
+      },
+      branch = "0.2.x",
+      config = function()
+        if vim.fn.has("win32") == 1 then
+          vim.g.sqlite_clib_path = "C:/Program Files/Neovim/bin/sqlite3.dll"
+        end
+        require("telescope").load_extension("smart_open")
+      end,
+      dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "kkharji/sqlite.lua",
+        -- Only required if using match_algorithm fzf
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+        { "nvim-telescope/telescope-fzy-native.nvim" },
+      },
+    },
+    {
+      "nvim-telescope/telescope-file-browser.nvim",
+      -- dependencies = {
+      --   "nvim-telescope/telescope.nvim",
+      --   "nvim-lua/plenary.nvim"
+      -- },
+      -- event = "VeryLazy",
+      event = { "BufRead", "BufNewFile" },
+      keys = {
+        {
+          "<space>fe",
+          function()
+            require("telescope").extensions.file_browser.file_browser()
+          end,
+          desc = "Open Explorer",
+        },
+      },
+      dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim",
+      },
+      config = function ()
+        require("telescope").load_extension "file_browser"
+      end,
+    },
+  },
 }

@@ -36,7 +36,7 @@ return {
             "│",
         },
         style = {
-            "#44475A",
+            "#54576A",
             -- vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
         },
         -- style = {

@@ -12,7 +12,7 @@ return {
       { "<Leader>a", group = "ClaudeCode" },
       { "<Leader>c", group = "etc" },
       { "<Leader>g", group = "git" },
-      { "<Leader>f", group = "Telescope" },
+      { "<Leader>f", group = "Find" },
       { "<Leader>m", group = "Markdown" },
       { "<Leader>p", group = "Pane" },
       { "<Leader>t", group = "Toggle*" },
