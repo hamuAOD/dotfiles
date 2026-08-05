@@ -27,12 +27,6 @@ function auto-pair() {
   fi
 }
 
-zle -N auto-pair
-
-for key in '"' "'" '(' '[' '{' ')' ']' '}'; do
-  bindkey -M viins "$key" auto-pair
-done
-
 function backward-delete-pair() {
   local left="${LBUFFER[-1]}"
   local right="${RBUFFER[1]}"
@@ -48,5 +42,15 @@ function backward-delete-pair() {
   esac
 }
 
-zle -N backward-delete-pair
-bindkey -M viins '^?' backward-delete-pair
+function setup_custom_widgets() {
+  zvm_define_widget auto-pair
+  zvm_define_widget backward-delete-pair
+
+  for key in '"' "'" '(' '[' '{' ')' ']' '}'; do
+    zvm_bindkey viins "$key" auto-pair
+  done
+
+  zvm_bindkey viins '^?' backward-delete-pair
+}
+
+zvm_after_init_commands+=(setup_custom_widgets)
