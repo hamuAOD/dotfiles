@@ -41,7 +41,6 @@ shell-integration-features = sudo
 ### Keybind
 keybind = super+o=write_screen_file:open
 keybind = super+i=write_screen_file:paste
-keybind = ctrl+'>t=toggle_quick_terminal
 # Keybind: Tab
 keybind = ctrl+'>c=new_tab
 keybind = ctrl+'>x=close_surface
@@ -73,6 +72,13 @@ keybind = ctrl+'>z=toggle_split_zoom
 # Key-Text
 keybind = alt+left=text:\x1bb
 keybind = alt+right=text:\x1bf
+### QUick Terminal
+keybind = global:alt+space=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-animation-duration = 0.3
+quick-terminal-size = 50%,50%
+quick-terminal-screen = main
+quick-terminal-autohide = false
 # Other
 keybind = cmd+k=clear_screen
 keybind = ctrl+'>shift+f=reset_font_size
