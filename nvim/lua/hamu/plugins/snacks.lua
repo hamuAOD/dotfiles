@@ -17,9 +17,7 @@ return {
     bigfile = { enabled = true }, -- 巨大・圧縮済みファイルでTreesitterやLSPが固まるのを防ぐ
     quickfile = { enabled = true }, -- nvim ファイル名で直接起動したとき、先にファイルを表示する
     dashboard = { enabled = false },
-    picker = { enabled = false },
-    input = { enabled = false },
-    },
+    picker = { enabled = false }
   },
   keys = {
     -- Find
