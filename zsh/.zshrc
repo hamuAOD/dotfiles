@@ -199,6 +199,8 @@ function zvm_after_init() {
   zvm_bindkey viins ' ' abbr-expand-and-insert
 }
 
+source "$HOME/.dotfiles/zsh/widgets.zsh"
+
 ### zsh-syntax-highlighting ###
 source "$HOME/.dotfiles/zsh/themes/dracula-zsh-syntax-highlighting.zsh"
 
