@@ -1,27 +1,35 @@
 function auto-pair() {
-  local open="$KEYS"
+  local key="$KEYS"
   local close
 
-  case "$open" in
+  case "$key" in
     '"') close='"' ;;
     "'") close="'" ;;
     '(') close=')' ;;
     '[') close=']' ;;
     '{') close='}' ;;
+    ')'|']'|'}')
+      if [[ ${RBUFFER[1]} == "$key" ]]; then
+        zle forward-char
+      else
+        LBUFFER+="$key"
+      fi
+      return
+      ;;
     *) return ;;
   esac
 
   if [[ ${RBUFFER[1]} == "$close" ]]; then
     zle forward-char
   else
-    LBUFFER+="${open}${close}"
-    CURSOR=$((CURSOR - 1))
+    LBUFFER+="${key}${close}"
+    CURSOR=$(( CURSOR - 1 ))
   fi
 }
 
 zle -N auto-pair
 
-for key in '"' "'" '(' '[' '{'; do
+for key in '"' "'" '(' '[' '{' ')' ']' '}'; do
   bindkey -M viins "$key" auto-pair
 done
 
