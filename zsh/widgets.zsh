@@ -34,19 +34,18 @@ for key in '"' "'" '(' '[' '{' ')' ']' '}'; do
 done
 
 function backward-delete-pair() {
-local left="${LBUFFER[-1]}"
-local right="${RBUFFER[1]}"
+  local left="${LBUFFER[-1]}"
+  local right="${RBUFFER[1]}"
 
-if [[ "$left$right" == '""' ||
-      "$left$right" == "''" ||
-      "$left$right" == '()' ||
-      "$left$right" == '[]' ||
-      "$left$right" == '{}' ]]; then
-  LBUFFER="${LBUFFER[1,-2]}"
-  RBUFFER="${RBUFFER[2,-1]}"
-else
-  zle backward-delete-char
-fi
+  case "$left$right" in
+    '""'|"''"|'()'|'[]'|'{}')
+      LBUFFER="${LBUFFER[1,-2]}"
+      RBUFFER="${RBUFFER[2,-1]}"
+      ;;
+    *)
+      zle backward-delete-char
+      ;;
+  esac
 }
 
 zle -N backward-delete-pair
