@@ -2,8 +2,6 @@
 confirm-close-surface = false
 
 font-family = "Firple"
-font-family = "HackGen35 Console NF"
-font-family = "UDEV Gothic 35NFLG"
 
 font-style = bold
 font-size = 13
@@ -17,9 +15,9 @@ alpha-blending = native
 font-feature = -dlig
 
 theme = dracula2
-adjust-cell-width = 2%
-adjust-cell-height = 4%
-background-opacity = 0.90
+adjust-cell-width = 3%
+adjust-cell-height = 6%
+background-opacity = 0.88
 background-blur = true
 unfocused-split-opacity = 0.6
 unfocused-split-fill = #101010
@@ -72,12 +70,14 @@ keybind = ctrl+'>z=toggle_split_zoom
 # Key-Text
 keybind = alt+left=text:\x1bb
 keybind = alt+right=text:\x1bf
-### QUick Terminal
-keybind = global:alt+space=toggle_quick_terminal
-quick-terminal-position = top
+### QUick Terminal ###
+# keybind = global:alt+space=toggle_quick_terminal
+keybind = global:super+quote=toggle_quick_terminal
+# ウィンドウ状態は保持されないけど、QTサイズが固定化されないように
+window-save-state = never
+quick-terminal-position=center
 quick-terminal-animation-duration = 0.3
-quick-terminal-size = 50%,50%
-quick-terminal-screen = main
+quick-terminal-size = 800px,600px
 quick-terminal-autohide = false
 # Other
 keybind = cmd+k=clear_screen
