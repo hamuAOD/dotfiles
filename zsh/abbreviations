@@ -6,7 +6,7 @@ abbr c='clear'
 abbr e='exit'
 abbr sz='source ~/.zshrc'
 abbr ez='exec zsh'
-abbr -g dnull'/dev/null'
+abbr -g dnull='/dev/null'
 ### for Mac ###
 abbr sleep='pmset sleepnow'
 ### for Ubuntu ###
@@ -21,7 +21,7 @@ abbr -g "/dlb"="~/.local/bin/%"
 abbr -g "/sh"="~/Documents/ShellScript/%"
 abbr -g "/cd"="~/Music/CD/%"
 ### Neovim ###
-abbr v='nvim'
+abbr -g v='nvim'
 abbr vb='nvim +'
 abbr vf='nvim $(fzf)'
 abbr vc='nvim ~/.dotfiles/nvim/lua/hamu/'
@@ -34,7 +34,7 @@ abbr vdw="nvim ~/Downloads"
 abbr vij='nvim ~/Music/伊集院光\ 深夜の馬鹿力.cue'
 abbr vsh='nvim ~/Documents/ShellScript'
 ### Homebrew ###
-abbr br='brew'
+abbr -g br='brew'
 abbr bu='brew update && brew upgrade -y && brew cleanup'
 abbr brs='brew search'
 abbr bri='brew install'
@@ -44,7 +44,7 @@ abbr brc='brew cleanup'
 abbr brd='brew doctor'
 abbr brls='brew list'
 ### Zoxide
-abbr cd='z'
+abbr -g cd='z'
 abbr zd='z ~/.dotfiles'
 ### FD
 ### eza
