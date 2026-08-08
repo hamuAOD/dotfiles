@@ -46,7 +46,6 @@ abbr brls='brew list'
 ### Zoxide
 abbr -g cd='z'
 abbr zd='z ~/.dotfiles'
-### FD
 ### eza
 abbr ls='eza'
 abbr ll='eza -l'
@@ -67,6 +66,8 @@ abbr mvm='mv -iv % & progress -mp $!'
 abbr mkdir='mkdir -p'
 abbr trm='trash -v'
 abbr scp2sv='scp % hamu@192.168.1.10:/home/hamu/Downloads'
+### Command etc ###
+abbr oc='fd -e cue --min-depth 2 -0 . ~/Music/CD | xargs -0 -r nvim'
 ### Tmux ###
 abbr tm="tmux"
 abbr tma='tmux a'
@@ -81,7 +82,7 @@ abbr 7zx='7zz x'
 abbr lg="lazygit"
 abbr lgd='lazygit -p ~/.dotfiles'
 ### etc ###
-abbr fd='fd -IH'
+abbr fd='fd -H'
 abbr ff='fastfetch'
 abbr y="yazi"
 abbr ln='ln -snvf'
