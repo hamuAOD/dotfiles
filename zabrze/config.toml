@@ -7,14 +7,6 @@ snippets = [
   { trigger = "sz",       snippet = "source ~/.zshrc" },
   { trigger = "ez",       snippet = "exec zsh" },
   { trigger = "dnull",    snippet = "/dev/null",                  global = true },
-  ### Mac OS ###
-  { trigger = "sleep",    snippet = "pmset sleepnow" },
-  ### Ubuntu ###
-  { trigger = "aptup",    snippet = "sudo apt update && sudo apt upgrade -y" },
-  { trigger = "nlup",     snippet = "sudo nala update && sudo nala upgrade -y" },
-  { trigger = "motd",     snippet = "run-parts /etc/update-motd.d/" },
-  { trigger = "tls",      snippet = "trash-list" },
-  { trigger = "tem",      snippet = "trash-empty" },
   ### Path ###
   { trigger = "/d",       snippet = "~/Downloads/{}",             global = true },
   { trigger = "/dd",      snippet = "~/.dotfiles/{}",             global = true },
@@ -87,6 +79,9 @@ snippets = [
   { trigger = "l",        snippet = "log",                        global = true, context = "^git\\s" },
   { trigger = "p",        snippet = "pull",                       global = true, context = "^git\\s" },
   { trigger = "st",       snippet = "status",                     global = true, context = "^git\\s" },
+  ### Lazygit ###
+  { trigger = "lg",       snippet = "lazygit" },
+  { trigger = "lgd",      snippet = "lazygit -p ~/.dotfiles" },
   ### Docker ###
   { trigger = "d",        snippet = "docker",                     global = true                         },
   { trigger = "cp",       snippet = "compose pull",               global = true, context = "^docker\\s" },
@@ -98,25 +93,32 @@ snippets = [
   ### Herdr ###
   { trigger = "hd",       snippet = "herdr" },
   { trigger = "hdr",      snippet = "herdr --remote" },
+  ### XATTR ###
+  { trigger = "xd",       snippet = "xattr -d com.apple.metadata:kMDItemWhereFroms" },
+  { trigger = "xr",       snippet = "xattr -rc" },
   ### etc ###
-  { trigger = "scp2sv",   snippet = "scp {} hamu@192.168.1.10:/home/hamu/Downloads" },
+  { trigger = "scp2d",    snippet = "scp {} @:~/Downloads" },
   { trigger = "7zx",      snippet = "7zz x" },
   { trigger = "bottom",   snippet = "btm" },
-  { trigger = "f",        snippet = "fd -H" },
+  { trigger = "fd",       snippet = "fd -H" },
   { trigger = "ff",       snippet = "fastfetch" },
-  { trigger = "lg",       snippet = "lazygit" },
-  { trigger = "lgd",      snippet = "lazygit -p ~/.dotfiles" },
   { trigger = "ln",       snippet = "ln -snvf" },
   { trigger = "rg",       snippet = "rg -i",                      global = true },
   { trigger = "grep",     snippet = "grep -i",                    global = true },
   { trigger = "trm",      snippet = "trash -v" },
   { trigger = "tty",      snippet = "tty-clock -c -C 4" },
   { trigger = "ttys",     snippet = "tty-clock -sc -C 4" },
-  { trigger = "xd",       snippet = "xattr -d com.apple.metadata:kMDItemWhereFroms" },
-  { trigger = "xr",       snippet = "xattr -rc" },
   { trigger = "y",        snippet = "yazi" },
   ### Command ###
   { trigger = "oc",       snippet = "fd -e cue --min-depth 2 -0 . ~/Music/CD | xargs -0 -r nvim" },
   { trigger = "token",    snippet = "deno x npm:tokscale@latest" },
   { trigger = "mvtmr",    snippet = "mv -iv ~/Downloads/2026* /mnt/SV-VD/息根とめる/2026/ & progress -mp $!" },
+  ### Mac OS ###
+  { trigger = "sleep",    snippet = "pmset sleepnow" },
+  ### Ubuntu ###
+  { trigger = "aptup",    snippet = "sudo apt update && sudo apt upgrade -y" },
+  { trigger = "nlup",     snippet = "sudo nala update && sudo nala upgrade -y" },
+  { trigger = "motd",     snippet = "run-parts /etc/update-motd.d/" },
+  { trigger = "tls",      snippet = "trash-list" },
+  { trigger = "tem",      snippet = "trash-empty" },
 ]

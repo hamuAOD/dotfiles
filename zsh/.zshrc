@@ -177,9 +177,8 @@ alias ytda="$HOME/Documents/ShellScript/ytd.sh --aud"
 }
 
 ### Plugins ###
-ABBR_SET_LINE_CURSOR=1
-export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.dotfiles/zsh/abbreviations"
-
+# ABBR_SET_LINE_CURSOR=1
+# export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.dotfiles/zsh/abbreviations"
 # source "$BREW_PREFIX/share/zsh-abbr/zsh-abbr.zsh"
 source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$BREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
