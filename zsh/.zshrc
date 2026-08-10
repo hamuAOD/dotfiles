@@ -135,11 +135,11 @@ yy() {
 ### bat ###
 export BAT_THEME="Dracula"
 
-### zoxide ###
-eval "$(zoxide init zsh)"
+### Zabrze ###
+eval "$(zabrze init --bind-keys)"
 
-### Zellij ###
-export ZELLIJ_CONFIG_DIR="$HOME/.config/zellij"
+### Zoxide ###
+eval "$(zoxide init zsh)"
 
 ### for Linux only ###
 if [[ "$(uname -s)" == "Linux" ]]; then
@@ -180,7 +180,7 @@ alias ytda="$HOME/Documents/ShellScript/ytd.sh --aud"
 ABBR_SET_LINE_CURSOR=1
 export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.dotfiles/zsh/abbreviations"
 
-source "$BREW_PREFIX/share/zsh-abbr/zsh-abbr.zsh"
+# source "$BREW_PREFIX/share/zsh-abbr/zsh-abbr.zsh"
 source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$BREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
@@ -196,7 +196,8 @@ function zvm_after_init() {
   zvm_bindkey viins '^O' edit-command-line
   zvm_bindkey vicmd '^O' edit-command-line
 
-  zvm_bindkey viins ' ' abbr-expand-and-insert
+  # zvm_bindkey viins ' ' abbr-expand-and-insert
+  zvm_bindkey viins ' ' __zabrze::expand-and-self-insert
 }
 
 source "$HOME/.dotfiles/zsh/widgets.zsh"
