@@ -137,6 +137,7 @@ export BAT_THEME="Dracula"
 
 ### Zabrze ###
 eval "$(zabrze init --bind-keys)"
+# brew install ryooooooga/tap/zabrze
 
 ### Zoxide ###
 eval "$(zoxide init zsh)"
