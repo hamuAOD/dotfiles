@@ -14,6 +14,9 @@ abbr sleep='pmset sleepnow'
 abbr aptup='sudo apt update && sudo apt upgrade -y'
 abbr nlup='sudo nala update && sudo nala upgrade -y'
 abbr motd='run-parts /etc/update-motd.d/'
+abbr trm='trash -v'
+abbr tls='trash-list'
+abbr tem='trash-empty'
 ### Path
 abbr -g "/d"="~/Downloads/%"
 abbr -g "/dd"="~/.dotfiles/%"
@@ -38,13 +41,13 @@ abbr vsh='nvim ~/Documents/ShellScript'
 ### Homebrew ###
 abbr -g br='brew'
 abbr bu='brew update && brew upgrade -y && brew cleanup'
-abbr bs='brew search'
-abbr bi='brew install'
-abbr bu='brew uninstall'
-abbr bf='brew info'
-abbr bcl='brew cleanup'
-abbr bd='brew doctor'
-abbr bls='brew list'
+abbr brs='brew search'
+abbr bri='brew install'
+abbr bru='brew uninstall'
+abbr brf='brew info'
+abbr brc='brew cleanup'
+abbr brd='brew doctor'
+abbr brls='brew list'
 ### Zoxide
 abbr -g cd='z'
 abbr zd='z ~/.dotfiles'
@@ -72,19 +75,22 @@ abbr trm='trash -v'
 abbr scp2sv='scp % hamu@192.168.1.10:/home/hamu/Downloads'
 ### Command etc ###
 abbr oc='fd -e cue --min-depth 2 -0 . ~/Music/CD | xargs -0 -r nvim'
-### Tmux ###
-abbr tm="tmux"
-abbr tma='tmux a'
-# abbr tmd='tmux a -t Def || tmux new -s Def'
 ### XATTR ###
 abbr xd='xattr -d com.apple.metadata:kMDItemWhereFroms'
 abbr xr='xattr -rc'
 ### 7Zip ###
-# abbr 7zc="7zz a -t7z"
+# abbr 7zc="7zz a -t7z" -> ~/.zshrc
 abbr 7zx='7zz x'
 ### Lazygit ###
 abbr lg="lazygit"
 abbr lgd='lazygit -p ~/.dotfiles'
+### Herdr ###
+abbr hd='herdr'
+abbr hdr='herdr --remote'
+### Tmux ###
+abbr tm="tmux"
+abbr tma='tmux a'
+# abbr tmd='tmux a -t Def || tmux new -s Def'
 ### etc ###
 abbr fd='fd -H'
 abbr ff='fastfetch'
@@ -92,7 +98,6 @@ abbr y="yazi"
 abbr ln='ln -snvf'
 abbr -g rg='rg -i'
 abbr -g grep='grep -i'
-abbr hd='herdr'
 abbr tty'tty-clock -c -C 4'
 abbr ttys='tty-clock -sc -C 4'
 abbr bottom='btm'
