@@ -76,6 +76,7 @@ snippets = [
   { trigger = "c",        snippet = "commit -m \"{}\"",           global = true, context = "^git\\s" },
   { trigger = "co",       snippet = "checkout",                   global = true, context = "^git\\s" },
   { trigger = "d",        snippet = "diff",                       global = true, context = "^git\\s" },
+  { trigger = "f",        snippet = "fetch",                      global = true, context = "^git\\s" },
   { trigger = "l",        snippet = "log",                        global = true, context = "^git\\s" },
   { trigger = "p",        snippet = "pull",                       global = true, context = "^git\\s" },
   { trigger = "st",       snippet = "status",                     global = true, context = "^git\\s" },
