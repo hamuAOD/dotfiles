@@ -15,6 +15,7 @@ snippets = [
   { trigger = "/dlb",     snippet = "~/.local/bin/{}",            global = true },
   { trigger = "/sh",      snippet = "~/Documents/ShellScript/{}", global = true },
   { trigger = "/cd",      snippet = "~/Music/CD/{}",              global = true },
+  { trigger = "/meisai",  snippet = "/Volumes/SV-DT/明細/{}",     global = true },
   ### Neovim ###
   { trigger = "v",        snippet = "nvim",                       global = true },
   { trigger = "vb",       snippet = "nvim +" },
