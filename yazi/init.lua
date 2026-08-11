@@ -16,4 +16,7 @@ end
 require("session"):setup {
   sync_yanked = true,
 }
-
+-- Yaziでの移動もzoxideに学習させる
+require("zoxide"):setup {
+  update_db = true,
+}
