@@ -6,7 +6,8 @@ snippets = [
   { trigger = "e",        snippet = "exit" },
   { trigger = "sz",       snippet = "source ~/.zshrc" },
   { trigger = "ez",       snippet = "exec zsh" },
-  { trigger = "dnull",    snippet = "/dev/null",                  global = true },
+  { trigger = "DN",       snippet = "/dev/null",                  global = true },
+  { trigger = "NE",       snippet = "2>/dev/null",                global = true },
   ### Path ###
   { trigger = "/d",       snippet = "~/Downloads/{}",             global = true },
   { trigger = "/dd",      snippet = "~/.dotfiles/{}",             global = true },
@@ -27,6 +28,7 @@ snippets = [
   { trigger = "vdw",      snippet = "nvim ~/Downloads" },
   { trigger = "vij",      snippet = "nvim ~/Music/伊集院光\\ 深夜の馬鹿力.cue" },
   { trigger = "vsh",      snippet = "nvim ~/Documents/ShellScript" },
+  { trigger = "vzb",      snippet = "nvim ~/.dotfiles/zabrze/config.toml" },
   ### Homebrew ###
   { trigger = "bu",       snippet = "brew update && brew upgrade -y && brew cleanup" },
   { trigger = "bri",      snippet = "brew install" },
@@ -110,11 +112,16 @@ snippets = [
   { trigger = "tty",      snippet = "tty-clock -c -C 4" },
   { trigger = "ttys",     snippet = "tty-clock -sc -C 4" },
   { trigger = "y",        snippet = "yazi" },
+  { trigger = "zls",      snippet = "zabrze list" },
+  { trigger = "zmv",      snippet = "zmv -W" },
   ### Command ###
-  { trigger = "oc",       snippet = "fd -e cue --min-depth 2 -0 . ~/Music/CD | xargs -0 -r nvim" },
+  { trigger = "oc",       snippet = "fd -e cue --min-depth 2 . ~/Music/CD -X nvim" },
+  { trigger = "ytdls",    snippet = "fd -H list ~/Movies/yt-dlp -X bat" },
+  { trigger = "sfc",      snippet = "fd -e mp4 . /Volumes/SV-AV | fzf" },
   { trigger = "token",    snippet = "deno x npm:tokscale@latest" },
   { trigger = "mvtmr",    snippet = "mv -iv ~/Downloads/2026* /mnt/SV-VD/息根とめる/2026/ & progress -mp $!" },
   ### Mac OS ###
+  { trigger = "C",        snippet = "| pbcopy",                   global = true },
   { trigger = "sleep",    snippet = "pmset sleepnow" },
   ### Ubuntu ###
   { trigger = "aptup",    snippet = "sudo apt update && sudo apt upgrade -y" },

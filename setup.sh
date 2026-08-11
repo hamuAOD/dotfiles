@@ -13,7 +13,7 @@ ln $LNOPT "$DOTDIR/vim/.gvimrc" "$HOME/.gvimrc"
 ln $LNOPT "$DOTDIR/nvim"        "$HOME/.config/nvim"
 ln $LNOPT "$DOTDIR/nvim/syntax" "$HOME/.vim/syntax"
 ### etc
-ln $LNOPT "$DOTDIR/ssh/config"  "$HOME/.ssh/"
+# ln $LNOPT "$DOTDIR/ssh/config"  "$HOME/.ssh/"
 
 ### ~/.config : directories
 ln $LNOPT "$DOTDIR/borders"     "$HOME/.config/borders"
