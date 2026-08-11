@@ -36,7 +36,7 @@ setopt append_history
 setopt hist_no_store
 setopt hist_reduce_blanks
 
-### Completion ###
+### zsh-completion ###
 if (( $+commands[brew] )); then
   fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
   fpath=("$(brew --prefix)/share/zsh-abbr" $fpath)
@@ -45,9 +45,12 @@ fi
 autoload -Uz compinit
 compinit -u
 
+# 選択メニューを表示
 zstyle ':completion:*:default' menu select
+# smart-case
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors ''
+# 01 = 太字・高輝度、34 = 青系パレット
+zstyle ':completion:*' list-colors 'di=01;34'
 
 ### ZLE: open buffer line in editor ###
 autoload -Uz edit-command-line
@@ -200,6 +203,8 @@ function zvm_after_init() {
 
   # zvm_bindkey viins ' ' abbr-expand-and-insert
   zvm_bindkey viins ' ' __zabrze::expand-and-self-insert
+  # shift + Tab
+  zvm_bindkey viins $'\e[Z' reverse-menu-complete
 }
 
 source "$HOME/.dotfiles/zsh/widgets.zsh"
