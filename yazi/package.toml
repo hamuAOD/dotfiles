@@ -2,9 +2,10 @@
 use = "terrakok/split-tabs"
 rev = "da25bc0"
 hash = "108ee3048ba3a0d1ba77df7c41bcb7fe"
-# ya pkg add terrakok/split-tabs
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
 rev = "4770a34"
 hash = "20624fcdfcf7e4e912de05e348065e5e"
+
+# ya pkg install
