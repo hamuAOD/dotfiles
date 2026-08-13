@@ -30,6 +30,7 @@ snippets = [
   { trigger = "vij",      snippet = "nvim ~/Music/伊集院光\\ 深夜の馬鹿力.cue" },
   { trigger = "vsh",      snippet = "nvim ~/Documents/ShellScript" },
   { trigger = "vzb",      snippet = "nvim ~/.dotfiles/zabrze/config.toml" },
+  { trigger = "vmd",      snippet = "nvimmdp" },
   ### Homebrew ###
   { trigger = "bu",       snippet = "brew update && brew upgrade -y && brew cleanup" },
   { trigger = "bri",      snippet = "brew install" },
@@ -51,12 +52,12 @@ snippets = [
   ### EZA ###
   { trigger = "ls",       snippet = "eza",                        global = true },
   { trigger = "ll",       snippet = "eza -l" },
-  { trigger = "lls",      snippet = "eza --total-size -l" },
   { trigger = "la",       snippet = "eza -la" },
+  { trigger = "lls",      snippet = "eza --total-size -l" },
   { trigger = "las",      snippet = "eza --total-size -la" },
-  { trigger = "lsb",      snippet = "eza -la ~/.local/bin" },
   { trigger = "lst",      snippet = "eza -T --level={}" },
   { trigger = "lat",      snippet = "eza -la --total-size -T --level={}" },
+  { trigger = "lsb",      snippet = "eza -la ~/.local/bin" },
   ### cp ###
   { trigger = "cp",       snippet = "cp -aiv" },
   { trigger = "cpm",      snippet = "cp -aiv {} & progress -mp $!" },
@@ -83,6 +84,7 @@ snippets = [
   { trigger = "l",        snippet = "log",                        global = true, context = "^git\\s" },
   { trigger = "p",        snippet = "pull",                       global = true, context = "^git\\s" },
   { trigger = "st",       snippet = "status",                     global = true, context = "^git\\s" },
+  { trigger = "rmcach",   snippet = "rm -r --cached",             global = true, context = "^git\\s" },
   ### Lazygit ###
   { trigger = "lg",       snippet = "lazygit" },
   { trigger = "lgd",      snippet = "lazygit -p ~/.dotfiles" },
@@ -112,6 +114,7 @@ snippets = [
   { trigger = "trm",      snippet = "trash -v" },
   { trigger = "tty",      snippet = "tty-clock -c -C 4" },
   { trigger = "ttys",     snippet = "tty-clock -sc -C 4" },
+  { trigger = "ul",       snippet = "unlink" },
   { trigger = "y",        snippet = "yazi" },
   { trigger = "zls",      snippet = "zabrze list" },
   { trigger = "zmv",      snippet = "zmv -W" },

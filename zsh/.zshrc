@@ -137,6 +137,21 @@ yy() {
   rm -f -- "$tmp"
 }
 
+### nvim ###
+nvimmdp() {
+  local rpane_id
+
+  if [[ ${HERDR_ENV:-} != 1 ]]; then
+    print -u2 'nvimmdp: not running inside Herdr'
+    return 1
+  fi
+
+  rpane_id=$(herdr pane split --direction right | jq -er '.result.pane.pane_id') || return 1
+  herdr pane run "$rpane_id" leaf -w "$1" || return 1
+  nvim "$1"
+  herdr pane close "$rpane_id" || return 1
+}
+
 ### bat ###
 export BAT_THEME="Dracula"
 
