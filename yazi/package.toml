@@ -7,5 +7,3 @@ hash = "108ee3048ba3a0d1ba77df7c41bcb7fe"
 use = "yazi-rs/flavors:dracula"
 rev = "4770a34"
 hash = "20624fcdfcf7e4e912de05e348065e5e"
-
-# ya pkg install
