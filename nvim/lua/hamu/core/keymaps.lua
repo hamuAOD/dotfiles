@@ -41,6 +41,7 @@ keymap.set('n', "<Leader>sl", "<CMD>ReplaceFinderCR<CR>", { desc = "Replace CR f
 keymap.set('x', "<Leader>sl", ":ReplaceFinderCR<CR>", { desc = "Replace CR for Mac" })
 keymap.set('n', 'i', fn.empty_line_insert, { expr = true })
 keymap.set('n', 'A', fn.empty_line_append, { expr = true })
+keymap.set("n", "<Leader>cp", fn.paste_fdb, { desc = "Paste clipboard with db-style", })
 
 --- カーソルの直前の単語の先頭を大文字にする
 keymap.set('i', '<C-y>', '<ESC>bguwgUlgi')

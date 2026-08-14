@@ -40,6 +40,34 @@ end
 
 vim.api.nvim_create_user_command("Cutout7num", M.cutout_7num, { range = "%" })
 
+--- paste db
+function M.paste_fdb()
+  local lines = vim.fn.getreg("+", 1, true)
+
+  if #lines == 0 then
+    return
+  end
+
+  local first_line = lines[1]
+  local text = table.concat(lines, "\n")
+  local number = vim.fn.matchstr(text, [[\<\d\{7}\>]])
+  local date = vim.fn.matchstr(text, [[\<\d\{4}-\d\{2}-\d\{2}\>]])
+
+  if number == "" then
+    vim.notify("text format error!", vim.log.levels.WARN)
+    return
+  end
+  if number == "" then
+    number = "no date"
+  end
+
+  vim.api.nvim_put({
+    table.concat({ number, date, lines[1] }, "\t"),
+  }, "l", true, true)
+end
+
+vim.api.nvim_create_user_command("PasteFDB", M.paste_fdb, {})
+
 --- CUEファイル用検索
 --- 検索: 半角スペース+小文字英字 or ASCII範囲外の文字 or 文字列 TITLE
 function M.check_cue()
