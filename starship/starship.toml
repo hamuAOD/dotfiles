@@ -3,8 +3,8 @@
 # symbols : ❰ ❱    
 
 format = """
-(${custom.ssh_os} )\
 ($hostname )\
+($os)\
 $directory\
 ( $git_branch)\
 ( $git_status)\
@@ -22,7 +22,7 @@ palette = "mypallet"
 symbol = ' '
 
 [os]
-format = "[ $symbol]($style)"
+format = "[$symbol]($style)"
 style = 'fg:purple bold'
 disabled = false
 [os.symbols]
@@ -34,7 +34,7 @@ Windows = "󰍲 "
 [hostname]
 ssh_only = true
 style = 'fg:cyan'
-ssh_symbol = ' '
+ssh_symbol = ' '
 # format = '[$ssh_symbol$hostname ]($style)'
 format = '[$hostname]($style)'
 disabled = false
@@ -53,10 +53,11 @@ format = "[$output]($style)"
 style = "bold cyan"
 
 [directory]
-truncation_length = 4
-truncation_symbol = ' ' # nf-fa-folder_open
+truncation_length = 100
 truncate_to_repo = false
-home_symbol = ' ~' # nf-fa-home
+# truncation_symbol = ' ' # nf-fa-folder_open
+# home_symbol = ' ~' # nf-fa-home
+home_symbol = '~' # nf-fa-home
 style = 'fg:pink bold'
 read_only = ' 󰌾 ' # nf-md-lock
 read_only_style = 'fg:magenta bold'
@@ -68,7 +69,6 @@ truncation_length = 4
 truncation_symbol = ''
 style = 'fg:blue'
 format = '[$symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
-# format = '[ ❱ $symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
 
 [git_status]
 style = 'fg:orange'
@@ -106,20 +106,16 @@ success_symbol = "[❯](bold green)"
 vimcmd_symbol = "[](bold purple)"
 
 [battery]
-# style = 'fg:#e0af68'
-# style = "bold blue"
+style = "bold blue"
 format = ' ❰ [$symbol$percentage]($style)'
-# format = ' ❰ [$symbol$percentage]($style)'
 [[battery.display]]
 threshold = 100
-style = "bold blue"
 
 [cmd_duration]
 min_time = 1_000
 style = 'fg:orange dimmed'
 disabled = false
 format = "[ $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
-# format = "[ ❰  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
 
 [time]
 disabled = false
