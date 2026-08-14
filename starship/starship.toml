@@ -35,8 +35,7 @@ Windows = "󰍲 "
 ssh_only = true
 style = 'fg:cyan'
 ssh_symbol = ' '
-# format = '[$ssh_symbol$hostname ]($style)'
-format = '[$hostname]($style)'
+format = '[$ssh_symbol$hostname]($style)'
 disabled = false
 
 [custom.ssh_os]
