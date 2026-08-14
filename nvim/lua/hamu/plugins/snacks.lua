@@ -28,10 +28,12 @@ return {
     { "<leader>fo", function() Snacks.picker.recent() end, desc = "Old Files", },
     { "<leader>fr", function() Snacks.picker.registers() end, desc = "Registers", },
     { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps", },
-    { "<leader>fc", function() Snacks.picker.lines() end, desc = "Grep Current", },
+    { "<leader>fl", function() Snacks.picker.lines() end, desc = "Grep Current Buffer Line", },
     { "<leader>fB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers", },
     { "<leader>fs", function() Snacks.picker.smart() end, desc = "Smart Find Files", },
     { "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks", },
+    { "<leader>fc", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+    { "<leader>:", function() Snacks.picker.commands() end, desc = "Picker Commands" },
     {
       "<leader>ff",
       function()

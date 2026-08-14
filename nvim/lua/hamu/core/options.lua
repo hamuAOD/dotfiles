@@ -51,12 +51,6 @@ opt.showcmd = true                                          -- コマンドを�
 opt.shortmess:append "sI"                                   -- disable nvim intro
 opt.winblend = 20                                           -- フロートウィンドウなどを若干透明に
 -- opt.spell = true                                           -- スペルチェック有効
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "cuesheet", "tex" },
-  callback = function()
-    vim.opt_local.spell = true
-  end
-})
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -111,144 +105,24 @@ opt.completeopt = { "menuone", "preview" }                  -- 補完メニュ�
 vim.wo.signcolumn = 'yes:1'                                 --
 vim.opt.path:append("**")                                   -- path拡張
 
--- 折り畳み設定
-vim.api.nvim_create_autocmd("BufReadPost", {
-  callback = function()
-    vim.opt_local.foldmethod = 'expr'
-    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-  end
-})
-opt.foldtext = ""
-
-vim.o.foldenable = true
-vim.o.foldcolumn = "1"                                  -- 左に折りたたみインジケーターを表示（任意）
-vim.o.foldlevel = 99                                    -- すべて展開された状態で開始
--- vim.o.foldlevelstart = 2
-
 -----------------------------------------------------------
 -- VIM Command
 -----------------------------------------------------------
--- call macros
--- vim.cmd('source ~/.config/nvim/lua/hamu/core/macro.vim')
-
--- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
--- Change colors
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#474a5d" })
-    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#474a5d" })
-    vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6272A4" })
-    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = "#6272A4" })
-    -- 必要に応じてここに全部まとめる
-  end,
-})
-
--- vim.cmd('autocmd ColorScheme * highlight CursorColumn guibg=#474a5d')
--- vim.cmd('autocmd ColorScheme * highlight CursorLine guibg=#474a5d')
--- -- vim.cmd('autocmd ColorScheme * highlight Whitespace guifg=#FF79C6')
--- vim.cmd('autocmd ColorScheme * highlight LineNrAbove guifg=#6272A4')
--- vim.cmd('autocmd ColorScheme * highlight LineNrBelow guifg=#6272A4')
-
-vim.cmd('autocmd BufNewFile,BufRead *.txt highlight Whitespace guifg=#FF79C6')
+--- Undercurl
+--- Ghosttyでは設定なしでundercurlを表示可能。
+--- Herdrでは設定しても白い直線のまま。旧ターミナル用として保留。
+-- vim.cmd([[let &t_Cs = "\e[4:3m"]])
+-- vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -----------------------------------------------------------
 -- ファイルタイプ自動設定
 -----------------------------------------------------------
-local filetypes = {
-  ["*.txt"] = "text",
-  ["*.xdc"] = "xdc",
-  ["*.cue"] = "cuesheet",
-}
-
-local group = vim.api.nvim_create_augroup("CustomFiletypes", { clear = true })
-
-for pattern, ftype in pairs(filetypes) do
-  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = pattern,
-    group = group,
-    callback = function()
-      vim.bo.filetype = ftype
-    end,
-  })
-end
-
------------------------------------------------------------
--- 最後にカーソルがあった場所に移動
------------------------------------------------------------
-local cursor_group = vim.api.nvim_create_augroup("RememberCursor", { clear = true })
-vim.api.nvim_create_autocmd("BufReadPost", {
-  group = cursor_group,
-  pattern = "*",
-  callback = function()
-    local last_pos = vim.fn.line("'\"")
-    if last_pos > 1 and last_pos <= vim.fn.line("$") then
-      vim.cmd('normal! g`"')
-    end
-  end
+vim.filetype.add({
+  extension = {
+    xdc = "xdc",
+    cue = "cuesheet",
+  },
 })
--- augroup vimrc-remember-cursor-position
---   autocmd!
---   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
--- augroup END
-
------------------------------------------------------------
--- 保存時の処理
------------------------------------------------------------
-local save_cleanup_group = vim.api.nvim_create_augroup("SaveCleanup", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = save_cleanup_group,
-  pattern = "*",
-  callback = function()
-    if vim.bo.buftype ~= "" or not vim.bo.modifiable then
-      return
-    end
-
-    local view = vim.fn.winsaveview()
-    -- 保存時に行末の空白削除
-    vim.cmd([[%s/\s\+$//ge]])
-    -- 保存時にFC2のゴミ削除
-    vim.cmd([[%s/\*\*\*ysqxzzosy//ge]])
-    vim.fn.winrestview(view)
-  end,
-})
--- autocmd BufWritePre * :%s/\s\+$//ge
--- autocmd BufWritePre * :%s/\*\*\*ysqxzzosy//ge
--- option e : マッチしなかった時にエラーメッセージを表示しない
-
------------------------------------------------------------
--- 開いたファイルの場所をカレントディレクトリにする
------------------------------------------------------------
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    if vim.bo.buftype == "" then
-      local file = vim.api.nvim_buf_get_name(0)
-      if file ~= "" then
-        local dir = vim.fn.fnamemodify(file, ":p:h")
-        if vim.fn.isdirectory(dir) == 1 then
-          vim.cmd.tcd(vim.fn.fnameescape(dir))
-        end
-      end
-    end
-  end,
-})
-
------------------------------------------------------------
--- 特定文字の強調
------------------------------------------------------------
-local emphasis_bad_char = vim.api.nvim_create_augroup("BadChar", { clear = true })
-vim.api.nvim_create_autocmd("BufWinEnter", {
-    group = emphasis_bad_char,
-    pattern = "*",
-    command = [[match Error /‐\|–\|“\|’\| \+$/]]
-})
--- augroup BadChar
---   au!
---   autocmd BufWinEnter * match Error /‐\|–\|“\|’\| \+$/
--- augroup END
 
 -----------------------------------------------------------
 -- Set 2-byte char.

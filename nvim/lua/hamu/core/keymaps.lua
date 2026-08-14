@@ -1,191 +1,107 @@
 -- set Leader key to space
 vim.g.mapleader = " "
+
 local keymap = vim.keymap
-local NS = { noremap = true, silent = true }
+local fn = require("hamu.core.functions")
 
--- 検索ハイライトをEscキー2回押しで消去
-keymap.set('n', '<ESC><ESC>', '<CMD>nohlsearch<CR>', NS)
+--- 検索ハイライトをEscキー2回押しで消去
+keymap.set('n', '<ESC><ESC>', '<CMD>nohlsearch<CR>')
 
--- "jk" で ESC
-vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
--- jk の認識時間を短めに（デフォルト 1000ms → 300ms）
+--- "jk" で ESC
+keymap.set("i", "jk", "<Esc>")
+--- jk の認識時間を短めに（デフォルト 1000ms → 300ms）
 vim.o.timeoutlen = 500
 
--- Change Keymaps
-keymap.set('n', 'Y', 'y$', NS)                -- 行末までコピー
-keymap.set('n', 'U', '<c-r>', NS)             -- リドゥ
-keymap.set('n', 'M', '%', NS)                 -- 括弧ジャンプ
-keymap.set('x', 'M', '%', NS)                 -- 括弧ジャンプ
-keymap.set('n', '<CR>', 'o<ESC>', NS)         -- 改行だけ挿入
-keymap.set('n', 'gg', '0gg', NS)              -- Vim Styleの先頭へ移動
--- keymap.set('n', '*', '/<C-r><C-w><CR>N', NS)  -- 検索後にカーソルを移動しない
+--- Change Keymaps
+keymap.set('n', 'Y', 'y$')                -- 行末までコピー
+keymap.set('n', 'U', '<c-r>')             -- リドゥ
+keymap.set('n', 'M', '%')                 -- 括弧ジャンプ
+keymap.set('x', 'M', '%')                 -- 括弧ジャンプ
+keymap.set('n', '<CR>', 'o<ESC>')         -- 改行だけ挿入
+keymap.set('n', 'gg', '0gg')              -- Vim Styleの先頭へ移動
+
+-- keymap.set('n', '*', '/<C-r><C-w><CR>N')  -- 検索後にカーソルを移動しない
 
 -- for Mac
-keymap.set('n', '<D-c>', 'y', NS)
-keymap.set('n', '<D-v>', 'p', NS)
+keymap.set('n', '<D-c>', 'y')
+keymap.set('n', '<D-v>', 'p')
 
--- CUEファイル用検索
-keymap.set('n', '<Leader>cc', '/\\( \\l\\|[^\\x01-\\x7E]\\|TITLE\\)<CR>', {desc = "Search: Check CUE", noremap = true, silent = true})
--- 単語の先頭を大文字に変換
-keymap.set('n', '<Leader>cn', [[:%s/\<\w\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR><CMD>nohlsearch<CR>]], {desc = "Normalize caps", noremap = true, silent = true})  -- whole file
-keymap.set('v', '<Leader>cn', [[:s/\<\w\+\>/\=toupper(submatch(0)[0]).tolower(submatch(0)[1:])/g<CR><CMD>nohlsearch<CR>]], {desc = "Normalize caps", noremap = true, silent = true})   -- visual selection
+-- Keymaps for functions.lua
+-- x : visual mode
+-- v : visual mode & select mode
+keymap.set("n", "<Leader>cc", fn.check_cue, { desc = "Search: Check CUE", })
+keymap.set("n", "<Leader>mc", fn.prefix_char_count, { desc = "Prefix line with char count", })
+keymap.set("n", "<Leader>cn", "<CMD>NormalizeCaps<CR>", { desc = "Normalize caps", })
+keymap.set("x", "<Leader>cn", ":NormalizeCaps<CR>", { desc = "Normalize caps", })
+keymap.set("n", "<leader>ct", "<CMD>FormatDateP<CR>", { desc = "Convert YYYYMMDD → YYYY-MM-DD in selection" })
+keymap.set("x", "<leader>ct", ":FormatDateP<CR>", { desc = "Convert YYYYMMDD → YYYY-MM-DD in selection" })
+keymap.set('n', '<Leader>tm', '<CMD>ToggleChecklist<CR>', { desc = "Toggle checklist checkbox" })
+keymap.set('x', '<Leader>tm', ':ToggleChecklist<CR>', { desc = "Toggle selected checklist checkboxes" })
+keymap.set('n', "<Leader>sl", "<CMD>ReplaceFinderCR<CR>", { desc = "Replace CR for Mac" })
+keymap.set('x', "<Leader>sl", ":ReplaceFinderCR<CR>", { desc = "Replace CR for Mac" })
+keymap.set('n', 'i', fn.empty_line_insert, { expr = true })
+keymap.set('n', 'A', fn.empty_line_append, { expr = true })
+
 --- カーソルの直前の単語の先頭を大文字にする
-keymap.set('i', '<C-y>', '<Nop>', { noremap = true })
-keymap.set('i', '<C-y>', '<ESC>bguwgUlgi', NS)
+keymap.set('i', '<C-y>', '<ESC>bguwgUlgi')
 --- カーソルの直前の単語を全てを大文字にする
-keymap.set('i', '<C-o>', '<Nop>', { noremap = true })
-keymap.set('i', '<C-o>', '<ESC>bveUgi', NS)
+keymap.set('i', '<C-o>', '<ESC>bveUgi')
+--- カーソルの直前の単語を全てを大文字にする
+--- カーソル直前に空白がある場合は単語を取得できないため一時的に無効化
+--- 気が向いたらfunctionごと削除
+-- keymap.set("i", "<C-u>", fn.uppercase_previous_word, { expr = true })
 
--- インデント操作を連続でできるように
-keymap.set('x', '<', '<gv', NS)
-keymap.set('x', '>', '>gv', NS)
--- ウィンドウの幅調整
-keymap.set('n', '<', '<C-w><<C-w>', NS)
-keymap.set('n', '>', '<C-w>><C-w>', NS)
--- Current Directoryをファイルの場所にを変更
-keymap.set('n', '<Leader>cd', '<CMD>cd %:h<CR>', {desc = "Change Current Directory", noremap = true, silent = true})
--- カーソル下のキーワードを置換
-keymap.set('n', 'S', ':%s/\\V\\<<C-r><C-w>\\>//ge<Left><Left><Left>', {remap = true})
--- 選択したキーワードを置換
-keymap.set('x', 'S', '"zy:%s/\\V<C-r><C-r>=escape(@z,\' /\\\')<CR>//ge<Left><Left><Left>', {remap = true})
--- ペースト結果のインデントを自動で揃える
-keymap.set('n', 'p', ']p`]', NS)
-keymap.set('n', 'P', ']P`]', NS)
--- 各行文字数チェック
-keymap.set('n', '<Leader>mc', '<CMD>%s/.*/\\=printf("%02d\\t%s", strchars(submatch(0)), submatch(0))/<CR>', {desc = "Prefix line with char count", noremap = true, silent = true})
+--- インデント操作を連続でできるように
+keymap.set('x', '<', '<gv')
+keymap.set('x', '>', '>gv')
+--- ウィンドウの幅調整
+keymap.set('n', '<', '<C-w><<C-w>')
+keymap.set('n', '>', '<C-w>><C-w>')
+--- Current Directoryをファイルの場所にを変更
+keymap.set('n', '<Leader>cd', '<CMD>cd %:h<CR>', {desc = "Change Current Directory"})
+--- カーソル下のキーワードを置換
+keymap.set('n', 'S', ':%s/\\V\\<<C-r><C-w>\\>//ge<Left><Left><Left>')
+--- 選択したキーワードを置換
+keymap.set('x', 'S', '"zy:%s/\\V<C-r><C-r>=escape(@z,\' /\\\')<CR>//ge<Left><Left><Left>')
+--- ペースト結果のインデントを自動で揃える
+keymap.set('n', 'p', ']p`]')
+keymap.set('n', 'P', ']P`]')
 -- Escで日本語入力解除
--- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
--- vim.keymap.set('n', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>', NS)
+-- vim.keymap.set('i', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>')
+-- vim.keymap.set('n', '<ESC><ESC>', '<ESC>:set iminsert=0<CR>')
 
--- 画面分割s
-keymap.set('n', '<Leader>pS', '<CMD>split<CR><C-w>w', {desc = "Split Window Holizontal", noremap = true, silent = true})
-keymap.set('n', '<Leader>ps', '<CMD>vsplit<CR><C-w>w', {desc = "Split Window Vertical", noremap = true, silent = true})
--- 画面移動
-keymap.set('n', '<Leader>pn', '<C-w>w', {desc = "Next Pane", noremap = true, silent = true})
-keymap.set('n', '<Leader>pp', '<C-w><S-w>', {desc = "Previous Pane", noremap = true, silent = true})
--- バッファ移動
-keymap.set('n', '<C-p>', '<CMD>bprev<CR>', NS)    -- Buffer Previous
-keymap.set('n', '<C-n>', '<CMD>bnext<CR>', NS)    -- Buffer Next
-keymap.set('n', '<C-d>', '<CMD>bdelete<CR>', NS)  -- Buffer Delete
+--- 画面分割s
+keymap.set('n', '<Leader>pS', '<CMD>split<CR><C-w>w', {desc = "Split Window Holizontal"})
+keymap.set('n', '<Leader>ps', '<CMD>vsplit<CR><C-w>w', {desc = "Split Window Vertical"})
+--- 画面移動
+keymap.set('n', '<Leader>pn', '<C-w>w', {desc = "Next Pane"})
+keymap.set('n', '<Leader>pp', '<C-w><S-w>', {desc = "Previous Pane"})
+--- バッファ移動
+keymap.set('n', '<C-p>', '<CMD>bprev<CR>')    -- Buffer Previous
+keymap.set('n', '<C-n>', '<CMD>bnext<CR>')    -- Buffer Next
+keymap.set('n', '<C-d>', '<CMD>bdelete<CR>')  -- Buffer Delete
 
--- fold
-keymap.set('n', 'zj', 'za', {desc = "Toggle fold under cursor", noremap = true, silent = true})
-keymap.set('n', 'zJ', 'zA', {desc = "Toggle all folds under cursor", noremap = true, silent = true})
+--- fold
+keymap.set('n', 'zj', 'za', {desc = "Toggle fold under cursor"})
+keymap.set('n', 'zJ', 'zA', {desc = "Toggle all folds under cursor"})
 
-function ToggleFoldLevel(level)
-  local hasClosed = false
+keymap.set("n", "<Leader>tfu", "<CMD>ToggleFoldLevel1<CR>", {desc = "Toggle Fold Level1"})
+keymap.set("n", "<Leader>tfi", "<CMD>ToggleFoldLevel2<CR>", {desc = "Toggle Fold Level2"})
+keymap.set("n", "<Leader>tfo", "<CMD>ToggleFoldLevel3<CR>", {desc = "Toggle Fold Level3"})
+keymap.set("n", "<Leader>tfp", "<CMD>ToggleFoldLevel4<CR>", {desc = "Toggle Fold Level4"})
+keymap.set("n", "<Leader>tf[", "<CMD>ToggleFoldLevel5<CR>", {desc = "Toggle Fold Level5"})
 
-  -- まず level に一致する閉じている fold があるか調べる
-  for lnum = 1, vim.fn.line("$") do
-    if vim.fn.foldlevel(lnum) == level and vim.fn.foldclosed(lnum) ~= -1 then
-      hasClosed = true
-      break
-    end
-  end
-
-  if hasClosed then
-    -- 閉じている fold がある → level だけ開く
-    for lnum = 1, vim.fn.line("$") do
-      if vim.fn.foldlevel(lnum) == level and vim.fn.foldclosed(lnum) ~= -1 then
-        vim.cmd(lnum .. "foldopen")
-      end
-    end
-  else
-    -- すべて開いている → foldlevel を下げて「表示」だけ制限（閉じたように見せる）
-    vim.cmd("setlocal foldlevel=" .. (level - 1))
-  end
-end
-
-vim.api.nvim_create_user_command("ToggleFoldLevel1", function() ToggleFoldLevel(1) end, {})
-vim.api.nvim_create_user_command("ToggleFoldLevel2", function() ToggleFoldLevel(2) end, {})
-vim.api.nvim_create_user_command("ToggleFoldLevel3", function() ToggleFoldLevel(3) end, {})
-vim.api.nvim_create_user_command("ToggleFoldLevel4", function() ToggleFoldLevel(4) end, {})
-vim.api.nvim_create_user_command("ToggleFoldLevel5", function() ToggleFoldLevel(5) end, {})
-
-vim.keymap.set("n", "<Leader>tfu", ":ToggleFoldLevel1<CR>", {desc = "Toggle Fold Level1", noremap = true, silent = true})
-vim.keymap.set("n", "<Leader>tfi", ":ToggleFoldLevel2<CR>", {desc = "Toggle Fold Level2", noremap = true, silent = true})
-vim.keymap.set("n", "<Leader>tfo", ":ToggleFoldLevel3<CR>", {desc = "Toggle Fold Level3", noremap = true, silent = true})
-vim.keymap.set("n", "<Leader>tfp", ":ToggleFoldLevel4<CR>", {desc = "Toggle Fold Level4", noremap = true, silent = true})
-vim.keymap.set("n", "<Leader>tf[", ":ToggleFoldLevel5<CR>", {desc = "Toggle Fold Level5", noremap = true, silent = true})
-
--- set expandtab をトグル
-keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB", noremap = true, silent = true})
--- set list をトグル
-keymap.set('n', '<Leader>tl', '<CMD>set list!<CR>', {desc = "Toggle LIST", noremap = true, silent = true})
--- set wrap をトグル
-keymap.set('n', '<Leader>tw', '<CMD>set wrap!<CR>', {desc = "Toggle WRAP", noremap = true, silent = true})
--- カーソル位置強調表示のトグル
-keymap.set('n', '<Leader>tc', '<CMD>setlocal cursorline! cursorcolumn!<CR>', {desc = "Toggle Cursor", noremap = true, silent = true})
--- スペルチェック
+--- set expandtab をトグル
+keymap.set('n', '<Leader>te', '<CMD>set expandtab!<CR>', {desc = "Toggle EXPANDTAB"})
+--- set list をトグル
+keymap.set('n', '<Leader>tl', '<CMD>set list!<CR>', {desc = "Toggle LIST"})
+--- set wrap をトグル
+keymap.set('n', '<Leader>tw', '<CMD>set wrap!<CR>', {desc = "Toggle WRAP"})
+--- カーソル位置強調表示のトグル
+keymap.set('n', '<Leader>tc', '<CMD>setlocal cursorline! cursorcolumn!<CR>', {desc = "Toggle Cursor"})
+--- スペルチェック
 keymap.set('n', '<Leader>ts', '<CMD>set spell!<CR>', {desc = "Toggle Spell-Check"})
-
--- 空行での編集開始時に自動でインデント
-keymap.set('n', 'i', "v:lua.empty_line_insert()", { expr = true })
-keymap.set('n', 'A', "v:lua.empty_line_append()", { expr = true })
-
-keymap.set('v', '<Leader>sl', [[:s/\r/\r/g<CR>]], { desc = "Replace CR for Mac", noremap = true, silent = true })
-
--- for Markdown
--- keymap.set('n', '<Leader>mc', 'V<CMD>s/\\[\\ \\]/\\[x\\]/ge<CR><ESC>', { desc = "check checklist", noremap = true, silent = true })
--- keymap.set('n', '<Leader>mu', 'V<CMD>s/\\[x\\]/\\[\\ \\]/ge<CR><ESC>', { desc = "uncheck checklist", noremap = true, silent = true })
-keymap.set('n', '<Leader>tm', function()
-  local row = vim.api.nvim_win_get_cursor(0)[1] -- 現在の行番号（1-based）
-  local line = vim.api.nvim_get_current_line()
-
-  local new_line
-  if line:match("%[ %]") then
-    new_line = line:gsub("%[ %]", "[x]")
-  elseif line:match("%[x%]") then
-    new_line = line:gsub("%[x%]", "[ ]")
-  end
-
-  if new_line then
-    vim.api.nvim_buf_set_lines(0, row - 1, row, false, { new_line })
-  end
-end, { desc = "Toggle checklist checkbox", noremap = true, silent = true })
-
--- hlchunk用処理
+--- hlchunk用処理
 keymap.set("n", "<Leader>th", require("hamu.plugins.hlchunk").toggle, { desc = "Toggle HLChunk" })
-
--- for Markdown
-function _G.empty_line_insert()
-  return vim.fn.empty(vim.fn.getline('.')) == 1 and '"_cc' or 'i'
-end
-
-function _G.empty_line_append()
-  return vim.fn.empty(vim.fn.getline('.')) == 1 and '"_cc' or 'A'
-end
--- nnoremap <expr> i empty(getline('.')) ? '"_cc' : 'i'
--- nnoremap <expr> A empty(getline('.')) ? '"_cc' : 'A'
-
--- PLEX用日付整形
-vim.keymap.set("v", "<leader>ct", function()
-  vim.cmd([[s/\v(\d{4})(\d{2})(\d{2})/\1-\2-\3 -/g]])
-  vim.cmd("nohlsearch")
-end, { desc = "Convert YYYYMMDD → YYYY-MM-DD in selection" })
-
--- "Show Diagnostic"を表示
-keymap.set("n", "<leader>d", function()
-  vim.diagnostic.open_float()
-end, { desc = "Show diagnostic message", noremap = true, silent = true })
-
--- JSON formatter : brew install jq
-vim.api.nvim_create_autocmd("FileType", {
-pattern = "json",
-callback = function()
-  vim.keymap.set("n", '<Leader>j', [[:%!jq '.'<CR>]], {desc = "format JSON", noremap = true})
-end,
-})
-vim.keymap.set('x', '<Leader>j', [[:'<,'>!jq .<CR>]], {desc = "format selected JSON", noremap = true})
-
--- カーソルの直前の単語を大文字にする
-keymap.set("i", "<C-u>",
-  function()
-    local line = vim.fn.getline(".")
-    local col = vim.fn.getpos(".")[3]
-    local substring = line:sub(1, col - 1)
-    local result = vim.fn.matchstr(substring, [[\v<(\k(<)@!)*$]])
-    return "<C-w>" .. result:upper()
-  end,
-  {expr = true}
-)
+--- "Show Diagnostic"を表示
+keymap.set("n", "<leader>d", function() vim.diagnostic.open_float() end, { desc = "Show diagnostic message" })
