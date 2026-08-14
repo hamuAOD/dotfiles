@@ -9,13 +9,7 @@ ls.config.setup({
 
 return {
   -- entity スニペット
-  s("ltest", {
-    t("lua test!! "),
-  }),
-  s({
-    trig = "shebang;",
-    snippetType = "autosnippet",
-  }, {
-    t("#!/usr/bin/env bash"),
+  s("lstest", {
+    t("luasnippet test!! "),
   }),
 }
