@@ -3,15 +3,15 @@
 # symbols : ❰ ❱    
 
 format = """
-${custom.ssh_os}\
-$hostname\
+(${custom.ssh_os} )\
+($hostname )\
 $directory\
-$git_branch\
-$git_status\
-$python\
-$rust\
-$time\
-$cmd_duration\
+( $git_branch)\
+( $git_status)\
+( $python)\
+( $rust)\
+( $time)\
+( $cmd_duration)\
 \n$character\
 """
 
@@ -36,7 +36,7 @@ ssh_only = true
 style = 'fg:cyan'
 ssh_symbol = ' '
 # format = '[$ssh_symbol$hostname ]($style)'
-format = '[$hostname ]($style)'
+format = '[$hostname]($style)'
 disabled = false
 
 [custom.ssh_os]
@@ -49,7 +49,7 @@ case "$(uname -s)" in
 esac
 '''
 shell = ["sh"]
-format = "[$output]($style) "
+format = "[$output]($style)"
 style = "bold cyan"
 
 [directory]
@@ -67,7 +67,7 @@ symbol = ' ' # nf-fa-github_alt, nf-fa-code_fork
 truncation_length = 4
 truncation_symbol = ''
 style = 'fg:blue'
-format = '[ $symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
+format = '[$symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
 # format = '[ ❱ $symbol$branch(:$remote_branch)]($style)' # nf-pl-left_soft_divider
 
 [git_status]
@@ -82,7 +82,7 @@ untracked = '?'
 modified = '!${count}'
 renamed = '»'
 deleted = '✘'
-format = '([ \[$all_status$ahead_behind\]]($style))'
+format = '([\[$all_status$ahead_behind\]]($style))'
 
 [git_metrics]
 added_style = 'fg:matcha dimmed'
@@ -93,12 +93,12 @@ disabled = false
 [python]
 symbol = '󰌠 '
 style = 'fg:yellow bold'
-format = '[ ${symbol}${pyenv_prefix}(${version})(\($virtualenv\)) ]($style)'
+format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)'
 
 [rust]
 symbol = '󱘗 '
 style = 'fg:yellow bold'
-format = '[ ${symbol}${pyenv_prefix}(${version})(\($virtualenv\)) ]($style)'
+format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)'
 
 [character]
 error_symbol = "[❯](bold red)"
@@ -118,13 +118,13 @@ style = "bold blue"
 min_time = 1_000
 style = 'fg:orange dimmed'
 disabled = false
-format = "[  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
+format = "[ $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
 # format = "[ ❰  $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
 
 [time]
 disabled = false
 style = 'fg:foreground dimmed'
-format = '[  $time]($style)' # nf-pl-right_soft_divider, nf-fa-clock_o
+format = '[ $time]($style)' # nf-pl-right_soft_divider, nf-fa-clock_o
 time_format = '%R' # https://docs.rs/jiff/latest/jiff/fmt/strtime/index.html
 utc_time_offset = '+9'
 use_12hr = false
