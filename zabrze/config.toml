@@ -6,16 +6,18 @@ snippets = [
   { trigger = "e",        snippet = "exit" },
   { trigger = "sz",       snippet = "source ~/.zshrc" },
   { trigger = "ez",       snippet = "exec zsh" },
-  { trigger = "DN",       snippet = "/dev/null",                  global = true },
-  { trigger = "NE",       snippet = "2>/dev/null",                global = true },
+  { trigger = "DN",       snippet = "/dev/null",                            global = true },
+  { trigger = "NE",       snippet = "2>/dev/null",                          global = true },
   ### Path ###
-  { trigger = "/d",       snippet = "~/Downloads/{}",             global = true },
-  { trigger = "/dd",      snippet = "~/.dotfiles/{}",             global = true },
-  { trigger = "/dc",      snippet = "~/.config/{}",               global = true },
-  { trigger = "/dlb",     snippet = "~/.local/bin/{}",            global = true },
-  { trigger = "/sh",      snippet = "~/Documents/ShellScript/{}", global = true },
-  { trigger = "/cd",      snippet = "~/Music/CD/{}",              global = true },
-  { trigger = "/meisai",  snippet = "/Volumes/SV-DT/明細/{}",     global = true },
+  { trigger = "/d",       snippet = "~/Downloads/{}",                       global = true },
+  { trigger = "/dd",      snippet = "~/.dotfiles/{}",                       global = true },
+  { trigger = "/dc",      snippet = "~/.config/{}",                         global = true },
+  { trigger = "/dlb",     snippet = "~/.local/bin/{}",                      global = true },
+  { trigger = "/sh",      snippet = "~/Documents/ShellScript/{}",           global = true },
+  { trigger = "/cd",      snippet = "~/Music/CD/{}",                        global = true },
+  { trigger = "/meisai",  snippet = "/Volumes/SV-DT/明細/{}",               global = true },
+  { trigger = "/pless",   snippet = "/Volumes/SV-ME/paperless/consume/{}",  global = true },
+
   ### Neovim ###
   { trigger = "v",        snippet = "nvim",                       global = true },
   { trigger = "vb",       snippet = "nvim +" },
@@ -89,7 +91,7 @@ snippets = [
   { trigger = "lg",       snippet = "lazygit" },
   { trigger = "lgd",      snippet = "lazygit -p ~/.dotfiles" },
   ### Docker ###
-  { trigger = "d",        snippet = "docker",                     global = true                         },
+  { trigger = "d",        snippet = "docker",                                                           },
   { trigger = "cp",       snippet = "compose pull",               global = true, context = "^docker\\s" },
   { trigger = "cu",       snippet = "compose up -d",              global = true, context = "^docker\\s" },
   { trigger = "cuf",      snippet = "compose up -d",              global = true, context = "^docker\\s" },
@@ -133,4 +135,15 @@ snippets = [
   { trigger = "motd",     snippet = "run-parts /etc/update-motd.d/" },
   { trigger = "tls",      snippet = "trash-list" },
   { trigger = "tem",      snippet = "trash-empty" },
+  {
+    trigger = ":meisai",
+    snippet = '''$(
+        p=$(fd --type d --exact-depth 2 . /Volumes/SV-DT/明細 | fzf) &&
+        [[ -n $p ]] &&
+        printf %q "$p"
+    )''',
+    evaluate = true,
+    abort-on-error = true,
+    global = true,
+  },
 ]
