@@ -138,7 +138,7 @@ snippets = [
   {
     trigger = ":meisai",
     snippet = '''$(
-        p=$(fd --type d --exact-depth 2 . /Volumes/SV-DT/明細 | fzf) &&
+        p=$(fd --type d -g "$(date +%Y)" /Volumes/SV-DT/明細 | fzf) &&
         [[ -n $p ]] &&
         printf %q "$p"
     )''',
