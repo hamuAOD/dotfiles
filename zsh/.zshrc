@@ -85,6 +85,7 @@ export FZF_DEFAULT_OPTS="
   --height=50%
   --layout=reverse
   --border
+  --cycle
   --ansi
   --walker-skip='.git,Mobile Documents'
 "
