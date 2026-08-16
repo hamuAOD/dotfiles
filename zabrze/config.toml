@@ -49,7 +49,7 @@ snippets = [
   { trigger = "d",        snippet = "doctor",                     global = true, context = "^brew\\s" },
   { trigger = "ls",       snippet = "list",                       global = true, context = "^brew\\s" },
   ### Zoxide ###
-  { trigger = "cd",       snippet = "z",                          global = true },
+  { trigger = "cd",       snippet = "z" },
   { trigger = "zd",       snippet = "z ~/.dotfiles" },
   ### EZA ###
   { trigger = "ls",       snippet = "eza",                        global = true },
