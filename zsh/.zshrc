@@ -147,8 +147,8 @@ nvimmdp() {
     return 1
   fi
 
-  rpane_id=$(herdr pane split --direction right | jq -er '.result.pane.pane_id') || return 1
-  herdr pane run "$rpane_id" leaf -w "$1" || return 1
+  rpane_id=$(herdr pane split --direction right --cwd "$PWD" | jq -er '.result.pane.pane_id') || return 1
+  herdr pane run "$rpane_id" env -C "$PWD" leaf -w "$1" || return 1
   nvim "$1"
   herdr pane close "$rpane_id" || return 1
 }
