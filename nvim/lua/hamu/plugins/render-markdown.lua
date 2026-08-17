@@ -11,7 +11,7 @@ return
 
   config = function()
     require('render-markdown').setup({
-      enabled = false,
+      enabled = true,
       heading = {
         sign = true,
         -- icons = { '① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ' },
