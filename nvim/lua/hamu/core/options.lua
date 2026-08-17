@@ -19,6 +19,8 @@ opt.iskeyword:append("-", "_")                              -- キーワード�
 opt.cursorline = true                                       -- カーソルのある行をハイライト
 opt.cursorcolumn = true                                     -- カーソルのある列をハイライト
 opt.wrap = false                                            -- 折り返し設定
+opt.linebreak = true                                        -- 単語単位での折り返し
+opt.breakindent = true                                      -- 改行インデント
 opt.termguicolors = true                                    -- 24bitカラー表示を有効にする
 --
 -- SSH接続時はOSC52でターミナル側のクリップボードへコピーする
