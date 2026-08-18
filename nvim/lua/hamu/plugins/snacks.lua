@@ -140,6 +140,9 @@ return {
         {
           icon = " ",
           title = "Recent Files",
+          padding = 1,
+        },
+        {
           section = "recent_files",
           limit = 5,
           indent = 2,
@@ -160,12 +163,13 @@ return {
 
           SnacksDashboardDir = "Comment",
           SnacksDashboardFile = "Special",
+          SnacksDashboardTitle = "SnacksDashboardDesc",
         })
       end,
     })
 
     vim.api.nvim_set_hl(0, "DashboardLogoBlue", {
-      fg = "#8be9fd",
+      fg = "#88e9fd",
     })
     vim.api.nvim_set_hl(0, "DashboardLogoCyan", {
       fg = "#50fa7b",
