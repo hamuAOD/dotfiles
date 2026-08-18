@@ -1,7 +1,7 @@
 return {
   "echasnovski/mini.nvim",
   version = false,
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile", "InsertEnter" },
   config = function()
     require("mini.ai").setup()
 
@@ -14,9 +14,8 @@ return {
 
     -- require('mini.completion').setup()
 
-    require("mini.cursorword").setup({
-      vim.cmd([[highlight MiniCursorword guibg=darkcyan guifg=lightgray]]),
-    })
+    require("mini.cursorword").setup()
+    vim.cmd([[highlight MiniCursorword guibg=darkcyan guifg=lightgray]])
 
     require("mini.surround").setup({
       mappings = {
