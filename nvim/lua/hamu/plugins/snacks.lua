@@ -106,14 +106,14 @@ return {
             { version_text, hl = "DiagnosticOk" },
           },
           align = "center",
-          padding = 1,
+          -- padding = 1,
         },
         {
           text = {
-            { string.rep("─", 60), hl = "Comment" },
+            { string.rep("─", 64), hl = "Comment" },
           },
           align = "center",
-          padding = 1,
+          -- padding = 1,
         },
         {
           text = {
@@ -126,11 +126,11 @@ return {
             { "https://neovim.io/#chat", hl = "DashboardLogoCyan" },
           },
           align = "center",
-          padding = 1,
+          -- padding = 1,
         },
         {
           text = {
-            { string.rep("─", 60), hl = "Comment" },
+            { string.rep("─", 64), hl = "Comment" },
           },
           align = "center",
           padding = 1,
