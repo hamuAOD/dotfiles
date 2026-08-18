@@ -80,7 +80,7 @@ keymap.set('n', '<Leader>pp', '<C-w><S-w>', {desc = "Previous Pane"})
 --- バッファ移動
 keymap.set('n', '<C-p>', '<CMD>bprev<CR>')    -- Buffer Previous
 keymap.set('n', '<C-n>', '<CMD>bnext<CR>')    -- Buffer Next
-keymap.set('n', '<C-d>', '<CMD>bdelete<CR>')  -- Buffer Delete
+-- keymap.set('n', '<C-d>', '<CMD>bdelete<CR>')  -- Buffer Delete -> snacks.nvim
 
 --- fold
 keymap.set('n', 'zj', 'za', {desc = "Toggle fold under cursor"})
