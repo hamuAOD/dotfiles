@@ -41,8 +41,8 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 -- 開いたファイルの場所をタブのカレントディレクトリにする
 -- Oilは現在のファイルの親ディレクトリを直接開けるため、現在は無効化。
+-- -> lazygitとかで面倒だからやっぱ有効化
 -- 必要になった場合に再検討する。
---[[
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     if vim.bo.buftype == "" then
@@ -56,4 +56,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end,
 })
---]]
