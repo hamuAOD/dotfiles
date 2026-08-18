@@ -35,6 +35,7 @@ local bad_char_group = vim.api.nvim_create_augroup("BadChar", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = bad_char_group,
   pattern = "*",
+  command = [[match Error /‐\|–\|“\|’\|\s\+$/]],
   command = [[match Error /‐\|–\|“\|’\| \+$/]],
 })
 
