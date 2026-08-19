@@ -35,9 +35,19 @@ return {
   config = function(_, opts)
     require("csvview").setup(opts)
 
-    vim.api.nvim_set_hl(0, "csvviewcol0", { link = "identifier" })
+    vim.api.nvim_set_hl(0, "csvviewcol0", { link = "Operator" })
+    vim.api.nvim_set_hl(0, "csvviewcol1", { link = "Constant" })
+    vim.api.nvim_set_hl(0, "csvviewcol2", { link = "Function" })
     vim.api.nvim_set_hl(0, "csvviewcol3", { link = "String" })
-    vim.api.nvim_set_hl(0, "csvviewcol4", { link = "function" })
+    vim.api.nvim_set_hl(0, "csvviewcol4", { link = "Identifier" })
+
+    -- Keep the second column's color, but remove Statement's italic style.
+    -- local col1 = vim.api.nvim_get_hl(0, { name = "Statement", link = false })
+    -- col1.italic = false
+    -- if col1.cterm then
+    --   col1.cterm.italic = false
+    -- end
+    -- vim.api.nvim_set_hl(0, "CsvViewCol1", col1)
 
     vim.cmd("CsvViewEnable")
   end,
