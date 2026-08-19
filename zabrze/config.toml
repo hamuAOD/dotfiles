@@ -91,7 +91,7 @@ snippets = [
   { trigger = "lg",       snippet = "lazygit" },
   { trigger = "lgd",      snippet = "lazygit -p ~/.dotfiles" },
   ### Docker ###
-  { trigger = "d",        snippet = "docker",                                                           },
+  { trigger = "d",        snippet = "docker"                                                            },
   { trigger = "cp",       snippet = "compose pull",               global = true, context = "^docker\\s" },
   { trigger = "cu",       snippet = "compose up -d",              global = true, context = "^docker\\s" },
   { trigger = "cuf",      snippet = "compose up -d",              global = true, context = "^docker\\s" },
@@ -135,15 +135,4 @@ snippets = [
   { trigger = "motd",     snippet = "run-parts /etc/update-motd.d/" },
   { trigger = "tls",      snippet = "trash-list" },
   { trigger = "tem",      snippet = "trash-empty" },
-  {
-    trigger = ":meisai",
-    snippet = '''$(
-        p=$(fd --type d -g "$(date +%Y)" /Volumes/SV-DT/明細 | fzf) &&
-        [[ -n $p ]] &&
-        printf %q "$p"
-    )''',
-    evaluate = true,
-    abort-on-error = true,
-    global = true,
-  },
 ]

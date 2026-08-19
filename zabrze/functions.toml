@@ -1,0 +1,10 @@
+[[snippets]]
+trigger = ":meisai"
+snippet = '''$(
+  p=$(fd --type d -g "$(date +%Y)" /Volumes/SV-DT/明細 | fzf) &&
+    [[ -n $p ]] &&
+    printf %q "$p"
+)'''
+evaluate = true
+abort-on-error = true
+global = true
