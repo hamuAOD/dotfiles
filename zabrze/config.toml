@@ -33,6 +33,7 @@ snippets = [
   { trigger = "vsh",      snippet = "nvim ~/Documents/ShellScript" },
   { trigger = "vzb",      snippet = "nvim ~/.dotfiles/zabrze/config.toml" },
   { trigger = "vch",      snippet = "nvim ~/.dotfiles/zabrze/cheats.txt" },
+  { trigger = "vcc",      snippet = "nvim /Users/hamu/Library/Mobile\\ Documents/com\\~apple\\~CloudDocs/Documents/CD-Collection.tsv" },
   { trigger = "vmd",      snippet = "nvimmdp" },
   ### Homebrew ###
   { trigger = "bu",       snippet = "brew update && brew upgrade -y && brew cleanup" },
