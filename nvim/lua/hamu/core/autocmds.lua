@@ -77,13 +77,16 @@ local function csv_field_ranges(line, delimiter)
 
   while i <= #line do
     local char = line:sub(i, i)
-    if char == '"' then
-      if quoted and line:sub(i + 1, i + 1) == '"' then
+    if char == '"' and quoted then
+      if line:sub(i + 1, i + 1) == '"' then
         i = i + 2
       else
-        quoted = not quoted
+        quoted = false
         i = i + 1
       end
+    elseif char == '"' and i == field_start + 1 then
+      quoted = true
+      i = i + 1
     elseif char == delimiter and not quoted then
       fields[#fields + 1] = { start_col = field_start, end_col = i - 1 }
       field_start = i
