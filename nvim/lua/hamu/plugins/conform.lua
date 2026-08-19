@@ -76,7 +76,7 @@ return {
       },
     })
 
-    vim.keymap.set({ "n" }, "<Leader>v", function()
+    vim.keymap.set({ "n", "x" }, "<Leader>v", function()
       require("conform").format({ async = true, lsp_format = "fallback" })
     end, { desc = "Format file" })
   end,
