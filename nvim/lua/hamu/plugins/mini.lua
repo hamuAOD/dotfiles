@@ -17,6 +17,17 @@ return {
     require("mini.cursorword").setup()
     vim.cmd([[highlight MiniCursorword guibg=darkcyan guifg=lightgray]])
 
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "csv", "tsv" },
+      callback = function()
+        vim.b.minicursorword_disable = true
+      end,
+    })
+
+    vim.api.nvim_create_user_command("CursorwordToggle", function()
+      vim.b.minicursorword_disable = not vim.b.minicursorword_disable
+    end, {})
+
     require("mini.surround").setup({
       mappings = {
         add = "sa",             -- Add surrounding in Normal and Visual modes
@@ -51,4 +62,8 @@ return {
       -- yank       = { suffix = 'y', options = {} },
     })
   end,
+
+  keys = {
+    { "<leader>tC", "<cmd>CursorwordToggle<cr>", desc = "Toggle Curosrword Highlight" },
+  },
 }

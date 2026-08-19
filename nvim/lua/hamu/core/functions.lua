@@ -24,6 +24,15 @@ end
 
 vim.api.nvim_create_user_command("ReplaceFinderCR", M.replace_finders_cr, { range = "%" })
 
+--- CD Listの並び替え
+function M.sort_cd_list()
+  vim.cmd(("2,$sort /^[^\\t]*\\t/"))
+  vim.cmd(("2,$sort"))
+end
+
+vim.api.nvim_create_user_command("SortCDList", M.sort_cd_list, { })
+---2,$sort /^[^\t]*\t/
+
 --- Twitch ID 削除
 function M.delete_twitch_id(opts)
   vim.cmd(("%d,%ds/\\ \\[v\\d\\+\\]//g"):format(opts.line1, opts.line2))
