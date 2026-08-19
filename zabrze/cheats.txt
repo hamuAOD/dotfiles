@@ -1,0 +1,8 @@
+rg --hidden PATTERN            | 隠しファイルも検索
+rg -. PATTERN                  | 隠しファイルも検索
+rg -F STRING                   | 正規表現ではなく固定文字列
+rg -xF STRING                  | 行全体が完全一致
+rg -g '!DIR/'                  | DIRECTORYを除外
+git -C DIR                     | DIRECTORY指定
+whence -va COMMAND             | zshでコマンドの正体を調査
+lazygit -P DIR                 | DIRECTORY指定

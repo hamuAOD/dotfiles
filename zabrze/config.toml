@@ -32,6 +32,7 @@ snippets = [
   { trigger = "vij",      snippet = "nvim ~/Music/伊集院光\\ 深夜の馬鹿力.cue" },
   { trigger = "vsh",      snippet = "nvim ~/Documents/ShellScript" },
   { trigger = "vzb",      snippet = "nvim ~/.dotfiles/zabrze/config.toml" },
+  { trigger = "vch",      snippet = "nvim ~/.dotfiles/zabrze/cheats.txt" },
   { trigger = "vmd",      snippet = "nvimmdp" },
   ### Homebrew ###
   { trigger = "bu",       snippet = "brew update && brew upgrade -y && brew cleanup" },

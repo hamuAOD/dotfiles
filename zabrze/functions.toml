@@ -8,3 +8,30 @@ snippet = '''$(
 evaluate = true
 abort-on-error = true
 global = true
+
+[[snippets]]
+trigger = ":ssh"
+snippet = '''$(
+  host=$(awk '$1 == "Host" { print $2 }' ~/.ssh/config | fzf) &&
+    [[ -n $host ]] &&
+    printf %q "$host"
+)'''
+evaluate = true
+abort-on-error = true
+global = true
+
+[[snippets]]
+trigger = ":ch"
+snippet = '''$(
+  selected=$(
+     awk '{
+       sub(/ \| /, " \033[2;36m|\033[0m ")
+       print
+     }' ~/.dotfiles/zabrze/cheats.txt |
+       fzf --ansi
+   ) &&
+     [[ -n $selected ]] ||
+     true
+){}'''
+evaluate = true
+global = true
