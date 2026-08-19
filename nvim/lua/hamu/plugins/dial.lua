@@ -5,12 +5,21 @@ return {
 
   config = function()
     local augend = require("dial.augend")
+
+    local bool_upper = augend.constant.new({
+      elements = { "TRUE", "FALSE" },
+      word = true,
+      cyclic = true,
+    })
+
     require("dial.config").augends:register_group{
       default = {
         augend.integer.alias.decimal,
         augend.integer.alias.hex,
         augend.date.alias["%Y/%m/%d"],
         augend.constant.alias.bool,
+        augend.constant.alias.Bool,
+        bool_upper,
         augend.date.new{
           pattern = "%Y年%m月%d日",
           default_kind = "day",
