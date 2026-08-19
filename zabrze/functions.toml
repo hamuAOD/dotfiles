@@ -1,4 +1,15 @@
 [[snippets]]
+trigger = ":dlb"
+snippet = '''$(
+  p=$(ls ~/.local/bin | fzf) &&
+    [[ -n $p ]] &&
+    printf %q "$p"
+)'''
+evaluate = true
+abort-on-error = true
+global = true
+
+[[snippets]]
 trigger = ":meisai"
 snippet = '''$(
   p=$(fd --type d -g "$(date +%Y)" /Volumes/SV-DT/明細 | fzf) &&
