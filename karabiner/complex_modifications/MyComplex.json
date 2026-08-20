@@ -259,6 +259,105 @@
             "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
           },
           "to": [ { "key_code": "equal_sign" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 1 to F1",
+          "from": {
+            "key_code": "1",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f1" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 1 to F1",
+          "from": {
+            "key_code": "1",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f1" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 2 to F2",
+          "from": {
+            "key_code": "2",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f2" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 3 to F3",
+          "from": {
+            "key_code": "3",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f3" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 4 to F4",
+          "from": {
+            "key_code": "4",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f4" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 5 to F5",
+          "from": {
+            "key_code": "5",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f5" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 6 to F6",
+          "from": {
+            "key_code": "6",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f6" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 7 to F7",
+          "from": {
+            "key_code": "7",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f7" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 8 to F8",
+          "from": {
+            "key_code": "8",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f8" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 9 to F9",
+          "from": {
+            "key_code": "9",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f9" } ]
+        },
+        {
+          "type": "basic",
+          "description": "Right Control + 0 to F10",
+          "from": {
+            "key_code": "0",
+            "modifiers": { "mandatory": [ "right_control" ], "optional": [ "any" ] }
+          },
+          "to": [ { "key_code": "f10" } ]
         }
       ]
     }
