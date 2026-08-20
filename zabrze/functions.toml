@@ -1,10 +1,10 @@
 [[snippets]]
-trigger = ":dlb"
+trigger = ":lb"
 snippet = '''$(
-  p=$(ls ~/.local/bin | fzf) &&
-    [[ -n $p ]] &&
-    printf %q "$p"
-)'''
+  if p=$(ls ~/.local/bin | fzf); then
+    [[ -n $p ]] && printf %q "$p"
+  fi
+){}'''
 evaluate = true
 abort-on-error = true
 global = true
