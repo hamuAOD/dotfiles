@@ -179,6 +179,8 @@ vim.api.nvim_create_autocmd("FileType", {
   group = csv_boolean_group,
   pattern = { "csv", "tsv" },
   callback = function(args)
+    vim.opt_local.expandtab = false
+
     -- カーソル行でもチェックボックス表示を維持する
     vim.opt_local.conceallevel = 2
     vim.opt_local.concealcursor = "nvic"
