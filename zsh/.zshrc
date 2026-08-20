@@ -59,6 +59,10 @@ bindkey "^O" edit-command-line
 
 autoload -Uz zmv
 
+### Variables ***
+ICLOUD_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+IOBSIDIAN_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian"
+
 ### Suffix Aliases ###
 alias -s md="bat"
 alias -s lua="$EDITOR"
@@ -67,6 +71,7 @@ alias -s lua="$EDITOR"
 # alias path='echo -e ${PATH//:/\\n}'
 alias path='print -l ${(s/:/)PATH}'
 alias eza='eza --icons=always --color=always --time-style long-iso'
+alias hl="rg --passthru"
 if (( $+commands[gdu-go] )); then
   alias gdu='gdu-go'
   alias gnudu='/opt/homebrew/bin/gdu'

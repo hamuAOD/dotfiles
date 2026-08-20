@@ -15,9 +15,7 @@ snippets = [
   { trigger = "/dlb",     snippet = "~/.local/bin/{}",                      global = true },
   { trigger = "/sh",      snippet = "~/Documents/ShellScript/{}",           global = true },
   { trigger = "/cd",      snippet = "~/Music/CD/{}",                        global = true },
-  { trigger = "/meisai",  snippet = "/Volumes/SV-DT/明細/{}",               global = true },
   { trigger = "/pless",   snippet = "/Volumes/SV-ME/paperless/consume/{}",  global = true },
-
   ### Neovim ###
   { trigger = "v",        snippet = "nvim",                       global = true },
   { trigger = "vb",       snippet = "nvim +" },
@@ -25,7 +23,7 @@ snippets = [
   { trigger = "vf",       snippet = "nvim $(fzf)" },
   { trigger = "vc",       snippet = "nvim ~/.dotfiles/nvim/lua/hamu/" },
   { trigger = "vz",       snippet = "nvim ~/.zshrc" },
-  { trigger = "vo",       snippet = "nvim ~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ObsidianVault" },
+  { trigger = "vo",       snippet = "nvim \"$IOBSIDIAN_DIR/Documents/ObsidianVault/\"" },
   { trigger = "vt",       snippet = "nvim ~/Documents/temp.txt" },
   { trigger = "vcd",      snippet = "nvim ~/Music/CD" },
   { trigger = "vdw",      snippet = "nvim ~/Downloads" },
@@ -33,7 +31,7 @@ snippets = [
   { trigger = "vsh",      snippet = "nvim ~/Documents/ShellScript" },
   { trigger = "vzb",      snippet = "nvim ~/.dotfiles/zabrze/config.toml" },
   { trigger = "vch",      snippet = "nvim ~/.dotfiles/zabrze/cheats.txt" },
-  { trigger = "vcc",      snippet = "nvim /Users/hamu/Library/Mobile\\ Documents/com\\~apple\\~CloudDocs/Documents/CD-Collection.tsv" },
+  { trigger = "vcc",      snippet = "nvim \"$ICLOUD_DIR/Music/CD-Collection.tsv\"" },
   { trigger = "vmd",      snippet = "nvimmdp" },
   ### Homebrew ###
   { trigger = "bu",       snippet = "brew update && brew upgrade -y && brew cleanup" },
