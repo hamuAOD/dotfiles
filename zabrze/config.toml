@@ -113,6 +113,7 @@ snippets = [
   { trigger = "ln",       snippet = "ln -snvf" },
   { trigger = "rg",       snippet = "rg -i",                      global = true },
   { trigger = "grep",     snippet = "grep -i",                    global = true },
+  { trigger = "sq",       snippet = "sqlite3" },
   { trigger = "trm",      snippet = "trash -v" },
   { trigger = "tty",      snippet = "tty-clock -c -C 4" },
   { trigger = "ttys",     snippet = "tty-clock -sc -C 4" },
