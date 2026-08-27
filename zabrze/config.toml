@@ -18,6 +18,9 @@ snippets = [
   { trigger = "/cd",      snippet = "~/Music/CD/{}",                        global = true },
   { trigger = "/dbad",    snippet = "~/Music/cddb-add{}",                   global = true },
   { trigger = "/pless",   snippet = "/Volumes/SV-ME/paperless/consume/{}",  global = true },
+  ### Option ###
+  { trigger = "oh",       snippet = "--help",                               global = true },
+  { trigger = "ov",       snippet = "--version",                            global = true },
   ### Neovim ###
   { trigger = "v",        snippet = "nvim",                       global = true },
   { trigger = "vb",       snippet = "nvim +" },
