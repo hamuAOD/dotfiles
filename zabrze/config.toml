@@ -14,6 +14,7 @@ snippets = [
   { trigger = "/dc",      snippet = "~/.config/{}",                         global = true },
   { trigger = "/dlb",     snippet = "~/.local/bin/{}",                      global = true },
   { trigger = "/m",       snippet = "~/Music/{}",                           global = true },
+  { trigger = "/py",      snippet = "~/Documents/py/{}",                    global = true },
   { trigger = "/sh",      snippet = "~/Documents/ShellScript/{}",           global = true },
   { trigger = "/cd",      snippet = "~/Music/CD/{}",                        global = true },
   { trigger = "/dbad",    snippet = "~/Music/cddb-add{}",                   global = true },
@@ -72,7 +73,7 @@ snippets = [
   { trigger = "mv",       snippet = "mv -iv" },
   { trigger = "mvm",      snippet = "mv -iv {} & progress -mp $!" },
   { trigger = "mkdir",    snippet = "mkdir -p" },
-    ### Git ###
+  ### Git ###
   { trigger = "g",        snippet = "git" },
   { trigger = "ga",       snippet = "git add" },
   { trigger = "gad",      snippet = "git add ." },
@@ -92,6 +93,11 @@ snippets = [
   { trigger = "p",        snippet = "pull",                       global = true, context = "^git\\s" },
   { trigger = "st",       snippet = "status",                     global = true, context = "^git\\s" },
   { trigger = "rmcach",   snippet = "rm -r --cached",             global = true, context = "^git\\s" },
+  ### Python ###
+  { trigger = "py",       snippet = "python",                     global = true },
+  { trigger = "py3",      snippet = "python3",                    global = true },
+  { trigger = "pym",      snippet = "python -m",                  global = true },
+  { trigger = "vpy",      snippet = ".venv/bin/pythone",          global = true },
   ### Lazygit ###
   { trigger = "lg",       snippet = "lazygit" },
   { trigger = "lgd",      snippet = "lazygit -p ~/.dotfiles" },
@@ -129,7 +135,6 @@ snippets = [
   { trigger = "zls",      snippet = "zabrze list" },
   { trigger = "zmv",      snippet = "zmv -W" },
   ### Command ###
-  { trigger = "oc",       snippet = "fd -e cue --min-depth 2 . ~/Music/CD -X nvim" },
   { trigger = "ytdls",    snippet = "fd -H list ~/Movies/yt-dlp -X bat" },
   { trigger = "sfc",      snippet = "fd -e mp4 . /Volumes/SV-AV | fzf" },
   { trigger = "token",    snippet = "deno x npm:tokscale@latest" },
