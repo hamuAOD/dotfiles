@@ -11,6 +11,11 @@ case "$(uname -s)" in
     ;;
 esac
 
+### Herdr ###
+if [[ ${HERDR_ENV:-} == 1 ]]; then
+  export TERM=xterm-ghostty
+fi
+
 ### PATH ###
 typeset -U path PATH
 
