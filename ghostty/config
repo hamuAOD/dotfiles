@@ -65,8 +65,8 @@ keybind = super+right=resize_split:right,30
 keybind = ctrl+'>e=equalize_splits
 keybind = ctrl+'>z=toggle_split_zoom
 # Page Scroll
-keybind = ctrl+shift+u=scroll_page_up
-keybind = ctrl+shift+d=scroll_page_down
+keybind = ctrl+shift+u=scroll_page_fractional:-0.8
+keybind = ctrl+shift+d=scroll_page_fractional:0.8
 # Key-Text
 keybind = alt+left=text:\x1bb
 keybind = alt+right=text:\x1bf
