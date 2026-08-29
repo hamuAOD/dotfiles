@@ -37,6 +37,7 @@ snippets = [
   { trigger = "vsh",      snippet = "nvim ~/Documents/ShellScript" },
   { trigger = "vzb",      snippet = "nvim ~/.dotfiles/zabrze/config.toml" },
   { trigger = "vch",      snippet = "nvim ~/.dotfiles/zabrze/cheats.txt" },
+  { trigger = "vca",      snippet = "nvim ~/Music/cddb-add*" },
   { trigger = "vcc",      snippet = "nvim \"$ICLOUD_DIR/Music/CD-Collection.tsv\"" },
   { trigger = "vmd",      snippet = "nvimmdp" },
   ### Homebrew ###
@@ -58,7 +59,7 @@ snippets = [
   { trigger = "cd",       snippet = "z" },
   { trigger = "zd",       snippet = "z ~/.dotfiles" },
   ### EZA ###
-  { trigger = "ls",       snippet = "eza",                        global = true },
+  { trigger = "ls",       snippet = "eza" },
   { trigger = "ll",       snippet = "eza -l" },
   { trigger = "la",       snippet = "eza -la" },
   { trigger = "lls",      snippet = "eza --total-size -l" },
