@@ -6,18 +6,51 @@ return {
   config = function()
     require("insx.preset.standard").setup()
 
-    local insx = require('insx')
+    local insx = require("insx")
 
     insx.add(
       "'",
-      insx.with(require('insx.recipe.auto_pair')({
-        open = "'",
-        close = "'"
-      }), {
-        insx.with.in_string(false),
-        insx.with.in_comment(false),
-        insx.with.nomatch([[\\\%#]]),
-        insx.with.nomatch([[\a\%#]])
+      insx.with(
+        require("insx.recipe.auto_pair")({
+          open = "'",
+          close = "'",
+        }),
+        {
+          insx.with.in_string(false),
+          insx.with.in_comment(false),
+          insx.with.nomatch([[\\\%#]]),
+          insx.with.nomatch([[\a\%#]]),
+        }
+      )
+    )
+    insx.add(
+      "<",
+      insx.with(
+        require("insx.recipe.auto_pair")({
+          open = "<",
+          close = ">",
+        }),
+        {
+          insx.with.in_string(false),
+          insx.with.in_comment(false),
+          insx.with.nomatch([[\\\%#]]),
+          insx.with.nomatch([[\a\%#]]),
+        }
+      )
+    )
+
+    insx.add(
+      "<Space>",
+      require("insx.recipe.pair_spacing").increase({
+        open_pat = insx.helper.regex.esc("<"),
+        close_pat = insx.helper.regex.esc(">"),
+      })
+    )
+    insx.add(
+      "<BS>",
+      require("insx.recipe.pair_spacing").decrease({
+        open_pat = insx.helper.regex.esc("<"),
+        close_pat = insx.helper.regex.esc(">"),
       })
     )
   end,
