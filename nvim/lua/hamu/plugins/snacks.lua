@@ -20,7 +20,7 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
-  ---@type snacks.Config
+
 
   keys = {
     { "<Leader><Leader>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
@@ -30,7 +30,6 @@ return {
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>fB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
     { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-    { "<leader>fC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
     {
       "<leader>ff",
       function()
@@ -39,15 +38,21 @@ return {
       desc = "Find Files",
     },
     { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
-    { "<leader>fh", function() Snacks.picker.command_history() end, desc = "Command History" },
-    { "<leader>fi", function() Snacks.picker.icons() end, desc = "Icons" },
-    { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     { "<leader>fl", function() Snacks.picker.lines() end, desc = "Grep Current Buffer Line" },
-    { "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent Files" },
-    { "<leader>fR", function() Snacks.picker.registers() end, desc = "Registers" },
     { "<leader>fs", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-    { "<leader>fu", function() Snacks.picker.undo() end, desc = "Undo History" },
+    -- Search
+    { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
+    { "<leader>sC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+    { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+    { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+    { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
+    { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
+    { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
+    { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+    { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
+    { "<leader>sr", function() Snacks.picker.registers() end, desc = "Registers" },
+    { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
     -- Git
     { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff" },
