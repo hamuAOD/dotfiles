@@ -59,7 +59,7 @@ truncate_to_repo = false
 home_symbol = '~' # nf-fa-home
 style = 'fg:pink bold'
 read_only = ' 󰌾 ' # nf-md-lock
-read_only_style = 'fg:magenta bold'
+read_only_style = 'fg:red bold'
 format = '[$path]($style)[$read_only]($read_only_style)'
 
 [git_branch]
@@ -138,4 +138,4 @@ purple = "#bd93f9"
 red = "#ff5555"
 yellow = "#f1fa8c"
 matcha = "#9ece6a"
-magenta="##F872bE"
+magenta="#F872bE"
