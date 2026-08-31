@@ -58,7 +58,7 @@ truncate_to_repo = false
 # home_symbol = ' ~' # nf-fa-home
 home_symbol = '~' # nf-fa-home
 style = 'fg:pink bold'
-read_only = ' 󰌾 ' # nf-md-lock
+read_only = ' 󰌾' # nf-md-lock
 read_only_style = 'fg:red bold'
 format = '[$path]($style)[$read_only]($read_only_style)'
 
