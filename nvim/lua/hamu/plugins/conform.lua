@@ -5,7 +5,7 @@ return {
 
   config = function()
     local conform = require("conform")
-    local formatters_dir = vim.fs.joinpath(vim.fn.stdpath("config"), "formatters")
+    -- local formatters_dir = vim.fs.joinpath(vim.fn.stdpath("config"), "formatters")
 
     conform.setup({
       formatters_by_ft = {
@@ -24,6 +24,7 @@ return {
         toml = { "taplo" },
         yaml = { "yamlfmt", "prettier", "yamlfix" },
         vhdl = { "vsg" },
+        xdc = { "tclfmt" },
       },
       formatters = {
         stylua = {
@@ -83,4 +84,4 @@ return {
 }
 -- for Mac
 -- brew install stylua prettier clang-format shfmt swift-format taplo
--- pip install vsg
+-- vsg and tclint are installed by Mason

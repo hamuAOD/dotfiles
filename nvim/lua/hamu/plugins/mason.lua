@@ -42,6 +42,8 @@ return {
       "shellcheck",
       "shfmt",
       "swiftlint",
+      "tclint",
+      "vsg",
     }
 
     require("mason").setup({
