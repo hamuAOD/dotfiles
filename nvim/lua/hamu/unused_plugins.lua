@@ -998,7 +998,7 @@ return {
     -- com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
     -- com.apple.keylayout.ABC
   },
-  -- Alpha 2026.08/18
+  -- Alpha 2026.08048
   {
     "goolord/alpha-nvim",
     lazy = true,
@@ -1129,6 +1129,25 @@ return {
           pcall(vim.cmd.AlphaRedraw)
         end,
       })
+    end,
+  },
+  -- Nvim-OSC52 2026.09.04
+  {
+    "ojroques/nvim-osc52",
+    event = "VeryLazy",
+
+    config = function()
+    require("osc52").setup()
+
+    local function copy()
+      if vim.v.event.operator == "y" and vim.v.event.regname == "" then
+        require("osc52").copy_register("")
+      end
+    end
+
+    vim.api.nvim_create_autocmd("TextYankPost", {
+      callback = copy,
+    })
     end,
   },
 }

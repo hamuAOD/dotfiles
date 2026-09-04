@@ -28,7 +28,15 @@ opt.termguicolors = true                                    -- 24bitカラー表
 -- 貼り付けは端末のbracketed paste（Cmd-Vなど）に任せる
 local is_ssh = vim.env.SSH_CONNECTION ~= nil or vim.env.SSH_TTY ~= nil
 --local is_ssh = vim.env.DISPLAY == nil and vim.env.WAYLAND_DISPLAY == nil
+
 if is_ssh then
+  local function paste_from_register()
+  return {
+    vim.fn.getreg('"', 1, true),
+    vim.fn.getregtype('"'),
+  }
+  end
+
   vim.g.clipboard = {
     name = "OSC 52",
     copy = {
@@ -36,8 +44,8 @@ if is_ssh then
       ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
     },
     paste = {
-      ["+"] = function() return vim.split(vim.fn.getreg('"'), '\n') end,
-      ["*"] = function() return vim.split(vim.fn.getreg('"'), '\n') end,
+      ["+"] = paste_from_register,
+      ["*"] = paste_from_register,
     },
   }
 end
