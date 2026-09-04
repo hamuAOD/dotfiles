@@ -49,6 +49,20 @@ end
 
 vim.api.nvim_create_user_command("Cutout7num", M.cutout_7num, { range = "%" })
 
+--- Shift-JISで開き直す
+function M.reopen_with_shiftjis()
+  vim.cmd(("e ++enc=shift-jis"))
+end
+
+vim.api.nvim_create_user_command("ReopenFileWithShiftjis", M.reopen_with_shiftjis, { })
+
+--- UTF-8で保存する
+function M.save_as_utf8()
+  vim.cmd(("set fenc=utf-8"))
+end
+
+vim.api.nvim_create_user_command("SaveFileAsUTF8", M.save_as_utf8, { })
+
 --- paste db
 function M.paste_fdb()
   local lines = vim.fn.getreg("+", 1, true)
