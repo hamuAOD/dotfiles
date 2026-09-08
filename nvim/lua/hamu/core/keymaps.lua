@@ -74,8 +74,8 @@ keymap.set('n', 'P', ']P`]')
 --- 画面分割s
 -- keymap.set('n', '<Leader>pS', '<CMD>split<CR><C-w>w', {desc = "Split Window Holizontal"})
 -- keymap.set('n', '<Leader>ps', '<CMD>vsplit<CR><C-w>w', {desc = "Split Window Vertical"})
-keymap.set('n', '<Leader>pS', '<CMD>split<CR>', {desc = "Split Window Holizontal"})
-keymap.set('n', '<Leader>ps', '<CMD>vsplit<CR>', {desc = "Split Window Vertical"})
+keymap.set('n', '<Leader>ps', '<CMD>split<CR>', {desc = "Split Window Holizontal"})
+keymap.set('n', '<Leader>pv', '<CMD>vsplit<CR>', {desc = "Split Window Vertical"})
 --- 画面移動
 keymap.set('n', '<Leader>pn', '<C-w>w', {desc = "Next Pane"})
 keymap.set('n', '<Leader>pp', '<C-w><S-w>', {desc = "Previous Pane"})
