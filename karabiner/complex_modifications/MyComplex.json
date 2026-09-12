@@ -2,40 +2,97 @@
   "title": "My Complex",
   "rules": [
     {
+      "description": "Shift double tap to CapsLock",
+      "manipulators": [
+        {
+          "description": "Shift double tap to CapsLock",
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "expression_if",
+              "expression": "left_shift_x2_expiration > system.now.milliseconds"
+            }
+          ],
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "left_shift_x2_expiration",
+                "value": 0
+              }
+            },
+            {
+              "key_code": "caps_lock",
+              "hold_down_milliseconds": 200
+            },
+            { "key_code": "vk_none" }
+          ]
+        },
+        {
+          "description": "Shift single tap",
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "left_shift_x2_expiration",
+                "expression": "system.now.milliseconds + 300"
+              }
+            },
+            { "key_code": "left_shift" }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Esc double tap to Esc and Eisuu",
       "manipulators": [
         {
           "description": "Esc double tap to Esc and Eisuu",
           "type": "basic",
           "conditions": [
-            { "name": "escape_tapped_once", "type": "variable_if", "value": 1 }
+            {
+              "type": "expression_if",
+              "expression": "escape_x2_expiration > system.now.milliseconds"
+            }
           ],
-          "from": { "key_code": "escape" },
+          "from": {
+            "key_code": "escape",
+            "modifiers": { "optional": ["any"] }
+          },
           "to": [
+            {
+              "set_variable": {
+                "name": "escape_x2_expiration",
+                "value": 0
+              }
+            },
             { "key_code": "escape" },
-            { "key_code": "japanese_eisuu" },
-            { "set_variable": { "name": "escape_tapped_once", "value": 0 } }
+            { "key_code": "japanese_eisuu" }
           ]
         },
         {
           "description": "Esc single tap",
           "type": "basic",
-          "from": { "key_code": "escape" },
-          "to": [
-            { "key_code": "escape" },
-            { "set_variable": { "name": "escape_tapped_once", "value": 1 } }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              { "set_variable": { "name": "escape_tapped_once", "value": 0 } }
-            ],
-            "to_if_canceled": [
-              { "set_variable": { "name": "escape_tapped_once", "value": 0 } }
-            ]
+          "from": {
+            "key_code": "escape",
+            "modifiers": { "optional": ["any"] }
           },
-          "parameters": {
-            "basic.to_delayed_action_delay_milliseconds": 500
-          }
+          "to": [
+            {
+              "set_variable": {
+                "name": "escape_x2_expiration",
+                "expression": "system.now.milliseconds + 300"
+              }
+            },
+            { "key_code": "escape" }
+          ]
         }
       ]
     },
