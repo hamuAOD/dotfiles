@@ -26,6 +26,7 @@ snippets = [
   { trigger = "v",        snippet = "nvim",                       global = true },
   { trigger = "vb",       snippet = "nvim +" },
   { trigger = "vd",       snippet = "nvim -d" },
+  { trigger = "svim",     snippet = "sudo -E nvim" },
   { trigger = "vf",       snippet = "nvim $(fzf)" },
   { trigger = "vc",       snippet = "nvim ~/.dotfiles/nvim/lua/hamu/" },
   { trigger = "vz",       snippet = "nvim ~/.zshrc" },
