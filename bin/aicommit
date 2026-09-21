@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
-(( $+commands[codex] )) || {
-  print -u2 "codex is not installed."
+AIAGENT="codex"
+
+(( $+commands[$AIAGENT] )) || {
+  print -u2 "$AIAGENT is not installed."
   exit 1
 }
 
@@ -17,7 +19,7 @@ diff=$(git diff --cached --no-color)
 
 message=$(
   print -r -- "$diff" |
-    codex exec --ephemeral \
+    $AIAGENT exec --ephemeral \
       --sandbox read-only \
       -m gpt-5.6-sol \
       -c model_reasoning_effort=low \
