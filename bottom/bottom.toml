@@ -1,0 +1,8 @@
+[disk]
+
+[disk.mount_filter]
+is_list_ignored = true
+regex = true
+case_sensitive = false
+whole_word = false
+list = ["^/System/Volumes/(Preboot|VM|Update|xarts|iSCPreboot|Hardware)$"]
