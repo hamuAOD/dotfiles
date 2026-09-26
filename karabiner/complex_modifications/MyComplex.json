@@ -11,6 +11,11 @@
             {
               "type": "expression_if",
               "expression": "left_shift_x2_expiration > system.now.milliseconds"
+            },
+            {
+              "type": "variable_unless",
+              "name": "kleader",
+              "value": 1
             }
           ],
           "from": {
@@ -34,6 +39,13 @@
         {
           "description": "Shift single tap",
           "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "kleader",
+              "value": 1
+            }
+          ],
           "from": {
             "key_code": "left_shift",
             "modifiers": { "optional": ["any"] }
