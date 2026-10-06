@@ -84,8 +84,9 @@ deleted = '✘'
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 [git_metrics]
-added_style = 'fg:matcha dimmed'
-deleted_style = 'fg:matcha dimmed'
+added_style = 'fg:matcha_dimmed bold'
+deleted_style = 'fg:matcha_dimmed bold'
+
 format = '[+$added/-$deleted]($deleted_style)'
 disabled = false
 
@@ -112,13 +113,13 @@ threshold = 100
 
 [cmd_duration]
 min_time = 1_000
-style = 'fg:orange dimmed'
+style = 'fg:orange_dimmed bold'
 disabled = false
 format = "[ $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
 
 [time]
 disabled = false
-style = 'fg:foreground dimmed'
+style = 'fg:foreground_dimmed bold'
 format = '[ $time]($style)' # nf-pl-right_soft_divider, nf-fa-clock_o
 time_format = '%R' # https://docs.rs/jiff/latest/jiff/fmt/strtime/index.html
 utc_time_offset = '+9'
@@ -139,3 +140,6 @@ red = "#ff5555"
 yellow = "#f1fa8c"
 matcha = "#9ece6a"
 magenta="#F872bE"
+foreground_dimmed = "#919294"
+orange_dimmed = "#947151"
+matcha_dimmed = "#637C50"
