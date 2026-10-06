@@ -27,6 +27,8 @@ config.initial_rows = 50
 config.font = wezterm.font("Firple", {weight="Bold", stretch="Normal", style="Normal"})
 -- config.font = wezterm.font('HackGen35 Console NF', { weight = "Bold" })
 -- config.font = wezterm.font('UDEV Gothic 35NFLG', { weight = 'Bold' })
+config.adjust_window_size_when_changing_font_size = false
+config.scrollback_lines = 10000
 config.font_size = 13
 config.line_height = 1.05
 config.cell_width = 1.0
@@ -36,7 +38,7 @@ config.window_padding = {
   top = '0.5cell',
   bottom = '0.5cell',
 }
-config.window_background_opacity = 0.88
+config.window_background_opacity = 0.94
 config.macos_window_background_blur = 4
 
 config.inactive_pane_hsb = {
@@ -134,6 +136,7 @@ config.keys = {
       act.SendKey { key = 'L', mods = 'CTRL' },
     },
   },
+  { key = 'Space',      mods = 'LEADER', action = act.QuickSelect },
   { key = 'R',          mods = 'CMD|SHIFT', action = wezterm.action.ReloadConfiguration, },
   { key = 'LeftArrow',  mods = 'OPT',    action = act{SendString="\x1bb"}},
   { key = 'RightArrow', mods = 'OPT',    action = act{SendString="\x1bf"}},
@@ -151,6 +154,7 @@ config.keys = {
   { key = 'p',          mods = 'LEADER', action = act.ActivateTabRelative(-1)},
   { key = 'w',          mods = 'LEADER', action = act.CloseCurrentTab{confirm = true}},
   -- Pane
+  { key = 'q',          mods = 'LEADER', action = act.PaneSelect },
   { key = 'v',          mods = 'LEADER', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
   { key = 's',          mods = 'LEADER', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
   { key = 'h',          mods = 'LEADER', action = act.ActivatePaneDirection 'Left'},
