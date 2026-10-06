@@ -19,8 +19,6 @@ wezterm.on('gui-startup', function(cmd)
   -- not work without "tab, pane, "
   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
     window:gui_window():set_position(50, 140)
-    config.initial_cols = 130
-    config.initial_rows = 50
   end
 )
 
@@ -30,7 +28,7 @@ config.font = wezterm.font("Firple", {weight="Bold", stretch="Normal", style="No
 -- config.font = wezterm.font('HackGen35 Console NF', { weight = "Bold" })
 -- config.font = wezterm.font('UDEV Gothic 35NFLG', { weight = 'Bold' })
 config.font_size = 13
-config.line_height = 1.0
+config.line_height = 1.05
 config.cell_width = 1.0
 config.window_padding = {
   left = '1.1cell',
@@ -38,8 +36,13 @@ config.window_padding = {
   top = '0.5cell',
   bottom = '0.5cell',
 }
-config.window_background_opacity = 0.89
-config.macos_window_background_blur = 12
+config.window_background_opacity = 0.88
+config.macos_window_background_blur = 4
+
+config.inactive_pane_hsb = {
+  saturation = 0.9,
+  brightness = 0.4,
+}
 -- config.treat_east_asian_ambiguous_width_as_wide = true
 config.window_close_confirmation = 'NeverPrompt'  -- AlwaysPrompt
 ----- Colorscheme -----
@@ -51,15 +54,13 @@ config.window_decorations = "RESIZE"
 ----- Tab Bar -----
 config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false                    -- Nightly Only
 config.colors = { tab_bar = { inactive_tab_edge = "none", }, }  -- タブ同士の境界線を非表示
 config.window_frame = {
   font = wezterm.font { family = 'Firple', weight = 'Bold' },
   font_size = 11.0,
-}
-config.window_frame = {
   inactive_titlebar_bg = "none",
   active_titlebar_bg = "none",
 }
@@ -121,8 +122,8 @@ end)
 ----- Key Configs -----
 -- config.disable_default_key_bindings = true
 -- config.leader = { key = ':', mods = 'CTRL|SHIFT', timeout_milliseconds = 1000 }
--- config.leader = { key = ";", mods = 'CTRL', timeout_milliseconds = 1000 }
-config.leader = { key = "'", mods = 'CTRL', timeout_milliseconds = 1000 }
+-- config.leader = { key = "'", mods = 'CTRL', timeout_milliseconds = 1000 }
+config.leader = { key = ";", mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
   {
