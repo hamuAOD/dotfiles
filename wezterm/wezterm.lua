@@ -135,6 +135,14 @@ config.keys = {
       act.SendKey { key = 'L', mods = 'CTRL' },
     },
   },
+  {
+    key = "'",
+    mods = 'LEADER',
+    action = wezterm.action_callback(function(window, pane)
+      window:set_position(50, 140)
+      window:set_inner_size(2100, 1800)
+    end),
+  },
   { key = 'Space',      mods = 'LEADER', action = act.QuickSelect },
   { key = 'R',          mods = 'CMD|SHIFT', action = wezterm.action.ReloadConfiguration, },
   { key = 'LeftArrow',  mods = 'OPT',    action = act{SendString="\x1bb"}},
