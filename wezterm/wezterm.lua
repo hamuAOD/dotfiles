@@ -15,11 +15,17 @@ end
 --  https://wezfurlong.org/wezterm/config/lua/config/index.html
 
 wezterm.on('gui-startup', function(cmd)
-  -- not work without "tab, pane, "
   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-    window:gui_window():set_position(50, 140)
-  end
-)
+  local gui_window = window:gui_window()
+
+  local screen = wezterm.gui.screens().active
+
+  gui_window:set_position(50, 140)
+  gui_window:set_inner_size(
+    math.floor(screen.width * 0.3),
+    math.floor(screen.height * 0.4)
+  )
+end)
 
 config.initial_cols = 130
 config.initial_rows = 50
@@ -139,8 +145,14 @@ config.keys = {
     key = "'",
     mods = 'LEADER',
     action = wezterm.action_callback(function(window, pane)
+      local screens = wezterm.gui.screens()
+      local screen = screens.active
+
       window:set_position(50, 140)
-      window:set_inner_size(2100, 1800)
+      window:set_inner_size(
+        math.floor(screen.width * 0.3),
+        math.floor(screen.height * 0.4)
+      )
     end),
   },
   { key = 'Space',      mods = 'LEADER', action = act.QuickSelect },
