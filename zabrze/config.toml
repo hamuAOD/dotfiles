@@ -19,6 +19,7 @@ snippets = [
   { trigger = "/cd",      snippet = "~/Music/CD/{}",                        global = true },
   { trigger = "/dbad",    snippet = "~/Music/cddb-add{}",                   global = true },
   { trigger = "/pless",   snippet = "/Volumes/SV-ME/paperless/consume/{}",  global = true },
+  { trigger = "/svr",     snippet = "hamu@192.168.1.10:/home/hamu/{}",      global = true },
   ### Option ###
   { trigger = "oh",       snippet = "--help",                               global = true },
   { trigger = "ov",       snippet = "--version",                            global = true },
@@ -117,6 +118,9 @@ snippets = [
   ### XATTR ###
   { trigger = "xd",       snippet = "xattr -d com.apple.metadata:kMDItemWhereFroms" },
   { trigger = "xr",       snippet = "xattr -rc" },
+  ### RSYNC ###
+  { trigger = "rscp",     snippet = 'rsync -avhiP' },
+  { trigger = "rsmv",     snippet = 'rsync -avhiP --remove-source-files' },
   ### etc ###
   { trigger = "7zx",      snippet = "7zz x" },
   { trigger = "bottom",   snippet = "btm" },
