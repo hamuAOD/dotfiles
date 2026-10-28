@@ -50,12 +50,12 @@ config.window_close_confirmation = 'NeverPrompt'  -- AlwaysPrompt
 -- config.color_scheme = 'Dracula'
 config.color_scheme = "Dracula (Official)"
 -- "TITLE", "RESIZE", "TITLE | RESIZE"
-config.window_decorations = "TITLE | RESIZE"
+config.window_decorations = "RESIZE"
 
 ----- Tab Bar -----
 config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false                    -- Nightly Only
 config.colors = { tab_bar = { inactive_tab_edge = "none", }, }  -- タブ同士の境界線を非表示
@@ -158,7 +158,7 @@ config.keys = {
   { key = 'Backspace',  mods = 'CMD',    action = act{SendString="\x15"}},
   { key = 'Backspace',  mods = 'OPT',    action = act{SendString="\x1b\x7f"}},
   { key = 'Enter',      mods = 'SHIFT',  action = act{SendString="\x1b[13;2u"}},
-  { key = 'i',          mods = 'LEADER', action = act.ActivateCopyMode},
+  { key = 'i',          mods = 'CMD',    action = act.ActivateCopyMode},
   { key = '[',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'CTRL',   action = act.ActivateCopyMode},
   -- Tab
@@ -170,6 +170,8 @@ config.keys = {
   { key = 'q',          mods = 'LEADER', action = act.PaneSelect },
   { key = 'v',          mods = 'LEADER', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
   { key = 's',          mods = 'LEADER', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
+  { key = 'd',          mods = 'CMD', action = act.SplitHorizontal{domain = 'CurrentPaneDomain'}},
+  { key = 'd',          mods = 'CMD|SHIFT', action = act.SplitVertical{domain = 'CurrentPaneDomain'}},
   { key = 'h',          mods = 'LEADER', action = act.ActivatePaneDirection 'Left'},
   { key = 'l',          mods = 'LEADER', action = act.ActivatePaneDirection 'Right'},
   { key = 'k',          mods = 'LEADER', action = act.ActivatePaneDirection 'Up'},
