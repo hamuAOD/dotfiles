@@ -122,9 +122,9 @@ end)
 
 ----- Key Configs -----
 -- config.disable_default_key_bindings = true
--- config.leader = { key = ':', mods = 'CTRL|SHIFT', timeout_milliseconds = 1000 }
+config.leader = { key = ':', mods = 'CTRL|SHIFT', timeout_milliseconds = 1000 }
 -- config.leader = { key = "'", mods = 'CTRL', timeout_milliseconds = 1000 }
-config.leader = { key = ";", mods = 'CTRL', timeout_milliseconds = 1000 }
+-- config.leader = { key = ";", mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
   {
@@ -159,6 +159,7 @@ config.keys = {
   { key = 'Backspace',  mods = 'OPT',    action = act{SendString="\x1b\x7f"}},
   { key = 'Enter',      mods = 'SHIFT',  action = act{SendString="\x1b[13;2u"}},
   { key = 'i',          mods = 'CMD',    action = act.ActivateCopyMode},
+  { key = 'i',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'LEADER', action = act.ActivateCopyMode},
   { key = '[',          mods = 'CTRL',   action = act.ActivateCopyMode},
   -- Tab
