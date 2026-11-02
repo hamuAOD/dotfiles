@@ -112,6 +112,7 @@ snippets = [
   ### Tmux ###
   { trigger = "tm",       snippet = "tmux" },
   { trigger = "tma",      snippet = "tmux a" },
+  { trigger = "tmn",      snippet = "tmux new -s s0" },
   ### Herdr ###
   { trigger = "hd",       snippet = "herdr" },
   { trigger = "hdr",      snippet = "herdr --remote" },
