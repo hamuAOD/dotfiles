@@ -46,6 +46,11 @@ return {
       "vsg",
     }
 
+    if vim.fn.has("win32") == 1 then
+      local win_tools_exclude = { swiftlint = true }
+      tools = vim.tbl_filter(function(t) return not win_tools_exclude[t] end, tools)
+    end
+
     require("mason").setup({
       ui = {
         icons = {
