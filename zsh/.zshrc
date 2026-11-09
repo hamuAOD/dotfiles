@@ -69,7 +69,9 @@ ICLOUD_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 IOBSIDIAN_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian"
 
 ### Suffix Aliases ###
-alias -s md="bat"
+# alias -s md="bat"
+alias -s txt="$EDITOR"
+alias -s md="$EDITOR"
 alias -s lua="$EDITOR"
 
 ### Alias ###
