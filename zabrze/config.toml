@@ -42,6 +42,7 @@ snippets = [
   { trigger = "vca",      snippet = "nvim ~/Music/cddb-add*" },
   { trigger = "vcc",      snippet = "nvim \"$ICLOUD_DIR/Music/CD-Collection.tsv\"" },
   { trigger = "vmd",      snippet = "nvimmdp" },
+  { trigger = "vytl",     snippet = "nvim oil-ssh://hamu@192.168.1.10//mnt/SV-MS/Videos/YouTube-Live/00rename.txt" },
   ### Homebrew ###
   { trigger = "bu",       snippet = "brew update && brew upgrade -y && brew cleanup" },
   { trigger = "bri",      snippet = "brew install" },
