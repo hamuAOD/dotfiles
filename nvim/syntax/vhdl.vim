@@ -70,6 +70,8 @@ syn keyword vhdlType positive natural signed unsigned
 syn keyword vhdlType line text
 syn keyword vhdlType std_logic std_logic_vector
 syn keyword vhdlType std_ulogic std_ulogic_vector
+" Predefined standard IEEE functions
+syn keyword vhdlFunction rising_edge falling_edge
 " Predefine standard ieee VHDL-2008 types
 syn keyword vhdlType real_vector time_vector integer_vector
 syn keyword vhdlType sfixed ufixed
@@ -186,6 +188,7 @@ if version >= 508 || !exists("did_vhdl_syntax_inits")
   HiLink vhdlNumber    Number
   HiLink vhdlTime      String
   HiLink vhdlType      Type
+  HiLink vhdlFunction  Function
   HiLink vhdlOperator  Operator
   HiLink vhdlGlobal    Error
   HiLink vhdlAttribute Type
