@@ -148,5 +148,17 @@
     "body": "'0'",
     "description": "vhdl template",
     "scope": "source.vhdl"
+  },
+  "re": {
+    "prefix": "re",
+    "body": "rising_edge(${1:clock})",
+    "description": "rising_dedge",
+    "scope": "source.vhdl"
+  },
+  "fe": {
+    "prefix": "fe",
+    "body": "falling_edge(${1:clock})",
+    "description": "falling_dedge",
+    "scope": "source.vhdl"
   }
 }
